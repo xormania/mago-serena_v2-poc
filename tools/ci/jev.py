@@ -208,9 +208,15 @@ def diagnose(packet, out, *, opener=None, key=None, live=False, force=False):
                                 'max_request_bytes': MAX_PACKET+10000},
               'transport': 'live' if live else 'mock', 'request_sha256': hashlib.sha256(body).hexdigest(),
               'status': 'not_requested', 'latency_seconds': 0, 'usage': None, 'cost': None,
+              'provider_request_attempted': False, 'provider_request_attempts': 0,
               'actual_invoiced_cost': None, 'estimated_input_cost_usd': None,
               'price_reference': {'url':'https://docs.typesafe.ai/models','checked':'2026-10-27','usd_per_million_input_tokens':0.042,'output_tokens_free':True},
               'trusted_code': {'checkout_commit':os.environ.get('JEV_TRUSTED_SHA'), 'workflow_sha':os.environ.get('GITHUB_SHA'), 'file_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(Path(__file__).parent.iterdir()) if p.suffix in {'.py','.json'}}},
+              'execution': {'consumer_run_id':os.environ.get('GITHUB_RUN_ID'),
+                            'consumer_attempt':os.environ.get('GITHUB_RUN_ATTEMPT'),
+                            'tested_source_revision':packet['ci']['source_sha'] if packet['mode'] == 'observed_ci' else os.environ.get('JEV_TRUSTED_SHA'),
+                            'trusted_diagnostic_revision':os.environ.get('JEV_TRUSTED_SHA'),
+                            'calibration_fixture_sha256':hashlib.sha256(Path(__file__).with_name('calibration.json').read_bytes()).hexdigest() if packet['mode'] == 'calibration_replay' else None},
               'response_truncated': False,
               'advisory_only': True, 'probe_executed': False}
     (out/'request.json').write_bytes(body+b'\n')
@@ -228,6 +234,7 @@ def diagnose(packet, out, *, opener=None, key=None, live=False, force=False):
         try:
             request = urllib.request.Request(ENDPOINT, data=body, headers={
                 'Authorization': 'Bearer '+key, 'Content-Type': 'application/json', 'Accept': 'application/json'}, method='POST')
+            record.update(provider_request_attempted=True, provider_request_attempts=1)
             with opener.open(request, timeout=TIMEOUT) as response:
                 record['http_status'] = response.status
                 raw = response.read(MAX_RESPONSE+1)
@@ -253,8 +260,9 @@ def diagnose(packet, out, *, opener=None, key=None, live=False, force=False):
             record['status'] = 'timeout'
         except urllib.error.URLError as exc:
             record['status'] = 'timeout' if isinstance(exc.reason, (TimeoutError, socket.timeout)) else 'provider_failure'
-        except (ValueError, TypeError, KeyError, UnicodeError):
+        except (ValueError, TypeError, KeyError, UnicodeError) as exc:
             record['status'] = 'malformed_response'
+            record['validation_error'] = sanitize(str(exc), key)[:300]
         except OSError:
             record['status'] = 'provider_failure'
     record['latency_seconds'] = round(time.monotonic()-start, 6)
@@ -292,6 +300,30 @@ def calibration_plan():
     return [{'case':name,'packet':packet,'expected_layer':expected} for name,packet,expected in cases]
 
 
+def calibration_summary(plan, outcomes):
+    """Describe provider transport/schema outcomes; no usefulness claim from green CI."""
+    rows=[]
+    for row,result in zip(plan,outcomes):
+        rows.append({'case':row['case'],'case_kind':row['packet']['calibration_case_kind'],
+            **{key:result.get(key) for key in ('status','provider_request_attempted','provider_request_attempts',
+                'transport','requested_model','observed_model','latency_seconds','usage','cost','estimated_input_cost_usd',
+                'validation_error','diagnosis','execution')}})
+    calls=sum(row.get('provider_request_attempts') or 0 for row in rows)
+    assert calls <= MAX_CALIBRATION_CALLS, 'Calibration request budget exceeded'
+    complete=len(outcomes) == len(plan)
+    valid=sum(row['status'] in {'diagnosed','abstained'} for row in rows)
+    transports={result.get('transport') for result in outcomes}
+    mode='live_calibration_replay' if transports == {'live'} else 'mock_calibration_replay' if transports == {'mock'} else 'mixed_or_unknown_calibration_replay'
+    return {'schema':1,'mode':mode,'planned_cases':len(plan),'completed_cases':len(rows),
+        'provider_request_attempts':calls,'max_provider_calls':MAX_CALIBRATION_CALLS,'automatic_retries':False,
+        'valid_responses':valid,'outcome':'all_responses_valid' if complete and valid == len(plan) else 'incomplete_or_rejected_response',
+        'trusted_diagnostic_revision':os.environ.get('JEV_TRUSTED_SHA'),
+        'tested_fixture_revision':os.environ.get('JEV_TRUSTED_SHA'),
+        'calibration_fixture_sha256':hashlib.sha256(Path(__file__).with_name('calibration.json').read_bytes()).hexdigest(),
+        'inference':'Selected recorded/synthetic controls; request success and schema acceptance do not establish diagnostic accuracy.',
+        'cases':rows}
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument('--packet'); p.add_argument('--out', required=True)
@@ -305,12 +337,16 @@ def main():
         out = Path(args.out)
         out.mkdir(parents=True,exist_ok=False)
         (out/'calibration-plan.json').write_bytes(canonical({'contains_synthetic_ambiguity_control':True,'fresh_defect_execution':False,'max_calls':MAX_CALIBRATION_CALLS,'max_attempts_per_call':1,'calibration_inference':'Small selected controls; no production accuracy claim.','cases':plan})+b'\n')
+        outcomes=[]
         for row in plan:
-            diagnose(row['packet'], out/row['case'], live=True, force=True)
+            outcomes.append(diagnose(row['packet'], out/row['case'], live=True, force=True))
+            summary=calibration_summary(plan,outcomes)
+            (out/'calibration-summary.json').write_bytes(canonical(summary)+b'\n')
+        return int(summary['outcome'] != 'all_responses_valid')
     else:
         packet = parse_json(Path(args.packet).read_bytes())
-        diagnose(packet, args.out, live=args.live)
-    return 0
+        result=diagnose(packet, args.out, live=args.live)
+        return int(result['status'] not in {'diagnosed','abstained','nothing_to_diagnose'})
 
 
 if __name__ == '__main__':

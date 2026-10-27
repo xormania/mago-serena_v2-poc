@@ -1,4 +1,6 @@
-name: Pinned Serena + Mago PoC
+# Temporary measured control: two spaces match the old trusted listener's '+'.
+# The final candidate restores the literal-plus name after observing its event.
+name: Pinned Serena  Mago PoC
 on:
   push:
     branches: [master]

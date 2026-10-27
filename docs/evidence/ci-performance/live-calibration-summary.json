@@ -1,0 +1,153 @@
+{
+  "run_id": 40489607174,
+  "run_url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40489607174",
+  "workflow_ref": "master",
+  "actual_trusted_diagnostic_commit": "262e06d00024ab4ff2c025ce2b52a2ff49f65715",
+  "calibration_fixture_commit": "262e06d00024ab4ff2c025ce2b52a2ff49f65715",
+  "candidate_diagnostic_changes_proven_live": false,
+  "provider_calls": 4,
+  "automatic_retries": 0,
+  "additional_calibration_calls_remaining": 0,
+  "completed_diagnoses": 1,
+  "abstentions": 2,
+  "rejected_responses": 1,
+  "input_tokens": 6090,
+  "output_tokens": 906,
+  "estimated_input_cost_usd": 0.00025578,
+  "actual_invoiced_cost": null,
+  "response_rejection": {
+    "case": "closed-file",
+    "reason": "Duplicate supporting reference",
+    "observed": [
+      "support_1=e2",
+      "support_2=e2"
+    ],
+    "strict_validation_retained": true
+  },
+  "fixture_note": "Recorded known-failure and healthy replays; ambiguous control is synthetic; no fresh defect execution.",
+  "results": [
+    {
+      "case": "ambiguous",
+      "status": "abstained",
+      "http_status": 200,
+      "transport": "live",
+      "requested_model": "jev-1.14.0",
+      "observed_model": "jev-1.14.0",
+      "diagnosis": {
+        "abstained": true,
+        "failure_layer_hypothesis": "unknown",
+        "next_probe": "none",
+        "supporting_excerpt_ids": []
+      },
+      "latency_seconds": 0.128364,
+      "usage": {
+        "input_tokens": 1394,
+        "output_tokens": 219
+      },
+      "cost": null,
+      "estimated_input_cost_usd": 5.8548e-05,
+      "trusted_code": {
+        "checkout_commit": "262e06d00024ab4ff2c025ce2b52a2ff49f65715",
+        "file_sha256": {
+          "calibration.json": "1f7aa57f7da937a930244e78c038aea83ec8a1d792dd4f05747dcab154f5411e",
+          "capture_step.py": "a725f2a87f323ea0ae79b150dde48e3845af3e5c1291ac45e54a79ca6aa6fb39",
+          "download_inputs.py": "63bab5de41b68703b5b0ea7e2c960482530760a3fc1f0182144d8328c7dd0c22",
+          "jev.py": "8e95b373ec3cb033e6940447020b5300073e41904d07cdd5eb7a8d84faa879c8"
+        },
+        "workflow_sha": "262e06d00024ab4ff2c025ce2b52a2ff49f65715"
+      }
+    },
+    {
+      "case": "closed-file",
+      "status": "malformed_response",
+      "http_status": 200,
+      "transport": "live",
+      "requested_model": "jev-1.14.0",
+      "observed_model": "jev-1.14.0",
+      "diagnosis": null,
+      "latency_seconds": 0.23348,
+      "usage": {
+        "input_tokens": 1649,
+        "output_tokens": 242
+      },
+      "cost": null,
+      "estimated_input_cost_usd": 6.9258e-05,
+      "trusted_code": {
+        "checkout_commit": "262e06d00024ab4ff2c025ce2b52a2ff49f65715",
+        "file_sha256": {
+          "calibration.json": "1f7aa57f7da937a930244e78c038aea83ec8a1d792dd4f05747dcab154f5411e",
+          "capture_step.py": "a725f2a87f323ea0ae79b150dde48e3845af3e5c1291ac45e54a79ca6aa6fb39",
+          "download_inputs.py": "63bab5de41b68703b5b0ea7e2c960482530760a3fc1f0182144d8328c7dd0c22",
+          "jev.py": "8e95b373ec3cb033e6940447020b5300073e41904d07cdd5eb7a8d84faa879c8"
+        },
+        "workflow_sha": "262e06d00024ab4ff2c025ce2b52a2ff49f65715"
+      }
+    },
+    {
+      "case": "healthy",
+      "status": "abstained",
+      "http_status": 200,
+      "transport": "live",
+      "requested_model": "jev-1.14.0",
+      "observed_model": "jev-1.14.0",
+      "diagnosis": {
+        "abstained": true,
+        "failure_layer_hypothesis": "unknown",
+        "next_probe": "none",
+        "supporting_excerpt_ids": [
+          "e1"
+        ]
+      },
+      "latency_seconds": 0.102696,
+      "usage": {
+        "input_tokens": 1526,
+        "output_tokens": 220
+      },
+      "cost": null,
+      "estimated_input_cost_usd": 6.4092e-05,
+      "trusted_code": {
+        "checkout_commit": "262e06d00024ab4ff2c025ce2b52a2ff49f65715",
+        "file_sha256": {
+          "calibration.json": "1f7aa57f7da937a930244e78c038aea83ec8a1d792dd4f05747dcab154f5411e",
+          "capture_step.py": "a725f2a87f323ea0ae79b150dde48e3845af3e5c1291ac45e54a79ca6aa6fb39",
+          "download_inputs.py": "63bab5de41b68703b5b0ea7e2c960482530760a3fc1f0182144d8328c7dd0c22",
+          "jev.py": "8e95b373ec3cb033e6940447020b5300073e41904d07cdd5eb7a8d84faa879c8"
+        },
+        "workflow_sha": "262e06d00024ab4ff2c025ce2b52a2ff49f65715"
+      }
+    },
+    {
+      "case": "root-config",
+      "status": "diagnosed",
+      "http_status": 200,
+      "transport": "live",
+      "requested_model": "jev-1.14.0",
+      "observed_model": "jev-1.14.0",
+      "diagnosis": {
+        "abstained": false,
+        "failure_layer_hypothesis": "application_integrity",
+        "next_probe": "verify_run_identity",
+        "supporting_excerpt_ids": [
+          "e1"
+        ]
+      },
+      "latency_seconds": 0.093961,
+      "usage": {
+        "input_tokens": 1521,
+        "output_tokens": 225
+      },
+      "cost": null,
+      "estimated_input_cost_usd": 6.388200000000001e-05,
+      "trusted_code": {
+        "checkout_commit": "262e06d00024ab4ff2c025ce2b52a2ff49f65715",
+        "file_sha256": {
+          "calibration.json": "1f7aa57f7da937a930244e78c038aea83ec8a1d792dd4f05747dcab154f5411e",
+          "capture_step.py": "a725f2a87f323ea0ae79b150dde48e3845af3e5c1291ac45e54a79ca6aa6fb39",
+          "download_inputs.py": "63bab5de41b68703b5b0ea7e2c960482530760a3fc1f0182144d8328c7dd0c22",
+          "jev.py": "8e95b373ec3cb033e6940447020b5300073e41904d07cdd5eb7a8d84faa879c8"
+        },
+        "workflow_sha": "262e06d00024ab4ff2c025ce2b52a2ff49f65715"
+      }
+    }
+  ]
+}

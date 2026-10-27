@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "observed_baseline_commit": "262e06d00024ab4ff2c025ce2b52a2ff49f65715",
+  "producer_workflow_name": "Pinned Serena + Mago PoC",
+  "before_filter": "Pinned Serena + Mago PoC",
+  "after_filter": "Pinned Serena \\+ Mago PoC",
+  "attribution": "GitHub workflow_run workflow-name filter configuration; unescaped plus is a repetition operator",
+  "contract_reference": "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onworkflow_runworkflows",
+  "oracle_scope": "Independent literal-name/escaped-plus/preceding-character repetition subset; not a general GitHub glob engine",
+  "before": {
+    "target_assertion": "failed: old filter does not match literal plus producer",
+    "healthy_and_negative_controls": 2
+  },
+  "after": {
+    "tests": 3,
+    "pass": true
+  },
+  "live_provider_requests_for_this_regression": 0,
+  "file_sha256": {
+    "tests/fast/test_workflow_name_filter.py": "d3e2d76d6a451b9ea03532c01c547608b8b53915314b3597174b691994f79764"
+  }
+}

@@ -1,0 +1,411 @@
+{
+  "schema": 1,
+  "source": "GitHub REST job timestamps and downloaded logs; no estimates",
+  "runs": [
+    {
+      "id": 40478041410,
+      "url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40478041410",
+      "event": "push",
+      "branch": "poc/serena-mago",
+      "head_sha": "41729d30d23459de1ba53023051eb55894fb33b9",
+      "status": "completed",
+      "conclusion": "success",
+      "run_created_to_updated_seconds": 775.0,
+      "job_seconds": 771.0,
+      "mago_compile_seconds": 537.8,
+      "build_seconds": 688.0,
+      "acceptance_seconds": 60.0,
+      "steps": [
+        {
+          "name": "Set up job",
+          "seconds": 3.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "seconds": 1.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+          "seconds": 8.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Build exact toolchain",
+          "seconds": 688.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Real Docker, original application tests and MCP acceptance",
+          "seconds": 60.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain all evidence, including failed scenarios",
+          "seconds": 2.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Build exact toolchain",
+          "seconds": 2.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+          "seconds": 5.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "seconds": 0.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "seconds": 0.0,
+          "conclusion": "success"
+        }
+      ],
+      "buildkit_cache_import_observed": true,
+      "buildkit_cache_export_observed": true,
+      "cargo_step_cached": false,
+      "node20_warning": "acceptance\tUNKNOWN STEP\t2026-10-27T09:17:25.3072326Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02, docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8, docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+      "cargo_release_line": "acceptance\tUNKNOWN STEP\t2026-10-27T09:14:08.4207104Z #25 537.3     Finished `release` profile [optimized] target(s) in 8m 57s",
+      "cache_export_seconds": 103.0
+    },
+    {
+      "id": 40485958869,
+      "url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40485958869",
+      "event": "push",
+      "branch": "poc/serena-mago-hardening",
+      "head_sha": "468bfc7f9fd3003007ce840ccf1e9e7b0c683947",
+      "status": "completed",
+      "conclusion": "success",
+      "run_created_to_updated_seconds": 735.0,
+      "job_seconds": 732.0,
+      "mago_compile_seconds": 552.3,
+      "build_seconds": 599.0,
+      "acceptance_seconds": 102.0,
+      "steps": [
+        {
+          "name": "Set up job",
+          "seconds": 2.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "seconds": 1.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
+          "seconds": 1.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Install locked fast-test environment",
+          "seconds": 4.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Fast properties, manifest verification and mocked diagnosis",
+          "seconds": 3.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+          "seconds": 5.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Build exact toolchain",
+          "seconds": 599.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Real Docker, original application tests and MCP acceptance",
+          "seconds": 102.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Collect bounded advisory diagnosis data",
+          "seconds": 0.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Upload diagnosis data without credentials",
+          "seconds": 1.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain all evidence, including failed scenarios",
+          "seconds": 2.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+          "seconds": 7.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
+          "seconds": 2.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "seconds": 0.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "seconds": 0.0,
+          "conclusion": "success"
+        }
+      ],
+      "buildkit_cache_import_observed": false,
+      "buildkit_cache_export_observed": false,
+      "cargo_step_cached": false,
+      "node20_warning": "acceptance\tComplete job\t2026-10-27T10:19:03.8977953Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02, docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+      "cargo_release_line": "acceptance\tBuild exact toolchain\t2026-10-27T10:16:51.0501304Z #24 551.6     Finished `release` profile [optimized] target(s) in 9m 11s",
+      "cache_export_seconds": null
+    },
+    {
+      "id": 40486178957,
+      "url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40486178957",
+      "event": "pull_request",
+      "branch": "poc/serena-mago-hardening",
+      "head_sha": "468bfc7f9fd3003007ce840ccf1e9e7b0c683947",
+      "status": "completed",
+      "conclusion": "success",
+      "run_created_to_updated_seconds": 733.0,
+      "job_seconds": 730.0,
+      "mago_compile_seconds": 554.5,
+      "build_seconds": 600.0,
+      "acceptance_seconds": 100.0,
+      "steps": [
+        {
+          "name": "Set up job",
+          "seconds": 1.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "seconds": 1.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
+          "seconds": 1.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Install locked fast-test environment",
+          "seconds": 4.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Fast properties, manifest verification and mocked diagnosis",
+          "seconds": 3.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+          "seconds": 6.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Build exact toolchain",
+          "seconds": 600.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Real Docker, original application tests and MCP acceptance",
+          "seconds": 100.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Collect bounded advisory diagnosis data",
+          "seconds": 0.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Upload diagnosis data without credentials",
+          "seconds": 1.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain all evidence, including failed scenarios",
+          "seconds": 1.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+          "seconds": 8.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
+          "seconds": 1.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "seconds": 0.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "seconds": 0.0,
+          "conclusion": "success"
+        }
+      ],
+      "buildkit_cache_import_observed": false,
+      "buildkit_cache_export_observed": false,
+      "cargo_step_cached": false,
+      "node20_warning": "acceptance\tComplete job\t2026-10-27T10:20:40.9295517Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02, docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+      "cargo_release_line": "acceptance\tBuild exact toolchain\t2026-10-27T10:18:26.7854910Z #24 553.8     Finished `release` profile [optimized] target(s) in 9m 13s",
+      "cache_export_seconds": null
+    },
+    {
+      "id": 40489054256,
+      "url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40489054256",
+      "event": "push",
+      "branch": "master",
+      "head_sha": "262e06d00024ab4ff2c025ce2b52a2ff49f65715",
+      "status": "in_progress",
+      "conclusion": null,
+      "run_created_to_updated_seconds": null,
+      "job_seconds": null,
+      "mago_compile_seconds": null,
+      "build_seconds": null,
+      "acceptance_seconds": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "seconds": 2.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "seconds": 1.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
+          "seconds": 2.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Install locked fast-test environment",
+          "seconds": 3.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Fast properties, manifest verification and mocked diagnosis",
+          "seconds": 3.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+          "seconds": 6.0,
+          "conclusion": "success"
+        },
+        {
+          "name": "Build exact toolchain",
+          "seconds": null,
+          "conclusion": null
+        },
+        {
+          "name": "Real Docker, original application tests and MCP acceptance",
+          "seconds": null,
+          "conclusion": null
+        },
+        {
+          "name": "Collect bounded advisory diagnosis data",
+          "seconds": null,
+          "conclusion": null
+        },
+        {
+          "name": "Upload diagnosis data without credentials",
+          "seconds": null,
+          "conclusion": null
+        },
+        {
+          "name": "Retain all evidence, including failed scenarios",
+          "seconds": null,
+          "conclusion": null
+        },
+        {
+          "name": "Post Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+          "seconds": null,
+          "conclusion": null
+        },
+        {
+          "name": "Post Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
+          "seconds": null,
+          "conclusion": null
+        },
+        {
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "seconds": null,
+          "conclusion": null
+        }
+      ],
+      "buildkit_cache_import_observed": false,
+      "buildkit_cache_export_observed": false,
+      "cargo_step_cached": false,
+      "node20_warning": null
+    }
+  ],
+  "cache_inventory": {
+    "total_count": 46,
+    "returned": 46,
+    "by_ref": {
+      "refs/pull/1/merge": {
+        "entries": 1,
+        "bytes": 17606665
+      },
+      "refs/heads/poc/serena-mago-hardening": {
+        "entries": 1,
+        "bytes": 17590176
+      },
+      "refs/heads/poc/serena-mago": {
+        "entries": 44,
+        "bytes": 939911149
+      }
+    }
+  },
+  "cache_documentation": [
+    {
+      "url": "https://docs.docker.com/build/cache/backends/gha/",
+      "facts": [
+        "Manual buildx inline commands must expose cache runtime variables; build-push-action handles them.",
+        "Only current/base/default branch caches are accessible.",
+        "Use a stable scope and mode=max for intermediate stages."
+      ]
+    },
+    {
+      "url": "https://docs.docker.com/build/ci/github-actions/cache/",
+      "facts": [
+        "GHA cache does not preserve RUN cache mounts by default.",
+        "Normal pull_request merge-ref runs can write caches scoped to that merge ref."
+      ]
+    },
+    {
+      "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/dependency-caching",
+      "facts": [
+        "No cache visibility from sibling/child branches.",
+        "PR merge-ref caches are isolated from default branch cache writes."
+      ]
+    }
+  ],
+  "timing_definitions": {
+    "total": "run updated_at minus created_at for completed runs (includes startup/queue/teardown)",
+    "job": "job completed_at minus started_at",
+    "build": "Build exact toolchain step timestamps",
+    "acceptance": "Real Docker original application tests and MCP acceptance step timestamps",
+    "mago": "BuildKit cargo command layer DONE duration; compiler release log retained separately"
+  }
+}

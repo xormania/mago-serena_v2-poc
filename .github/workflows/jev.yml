@@ -3,12 +3,13 @@ name: Jev advisory diagnosis
 # tested revision here: its files and collected artifacts are untrusted data.
 on:
   workflow_run:
-    workflows: [Pinned Serena + Mago PoC]
+    # workflow names are glob patterns: escape the producer's literal '+'.
+    workflows: ['Pinned Serena \+ Mago PoC']
     types: [completed]
   workflow_dispatch:
     inputs:
       calibration:
-        description: 'Make at most four live calls using frozen synthetic defect/healthy/ambiguous controls'
+        description: 'At most four live calls: recorded defect/healthy replays and a synthetic ambiguous control'
         required: true
         default: false
         type: boolean
@@ -42,8 +43,27 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 -I trusted/tools/ci/download_inputs.py --out "${{ runner.temp }}/jev-input/diagnosis-input.json"
+      - name: Inspect evidence and earlier provider reservations without a TypeSafe key
+        id: gate
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          python3 -I trusted/tools/ci/prepare_diagnosis.py
+          --packet "${{ runner.temp }}/jev-input/diagnosis-input.json"
+          --control "${{ runner.temp }}/jev-control"
+          --out "${{ runner.temp }}/jev-output"
+          --reservation "${{ runner.temp }}/jev-reservation"
+      - name: Reserve this source attempt before any provider request
+        id: reserve
+        if: steps.gate.outputs.provider_needed == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
+        with:
+          name: ${{ steps.gate.outputs.reservation_name }}
+          path: ${{ runner.temp }}/jev-reservation/reservation.json
+          if-no-files-found: error
+          retention-days: 90
       - name: Diagnose with TypeSafe (one call, or explicit four-call calibration)
-        if: steps.data.outputs.found == 'true' || (github.event_name == 'workflow_dispatch' && inputs.calibration)
+        if: steps.gate.outputs.provider_needed == 'true' && steps.reserve.outcome == 'success'
         continue-on-error: true
         timeout-minutes: 2
         env:
@@ -59,9 +79,17 @@ jobs:
           fi
       - name: Preserve sanitized diagnostic output
         if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
         with:
-          name: jev-advisory-${{ github.event.workflow_run.id || github.run_id }}-${{ github.event.workflow_run.run_attempt || github.run_attempt }}
+          name: jev-advisory-${{ github.event.workflow_run.id || github.run_id }}-${{ github.event.workflow_run.run_attempt || github.run_attempt }}-consumer-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/jev-output/
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Preserve reservation and evidence-gate decisions
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
+        with:
+          name: jev-gate-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/jev-control/
           if-no-files-found: warn
           retention-days: 14
