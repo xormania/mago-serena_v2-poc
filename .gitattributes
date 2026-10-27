@@ -1,0 +1,3 @@
+* text=auto eol=lf
+app/** -text
+fixtures/semantic/Positions.php -text

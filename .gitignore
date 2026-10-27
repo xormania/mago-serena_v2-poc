@@ -1,0 +1,14 @@
+.cache/
+.venv/
+__pycache__/
+*.egg-info/
+artifacts/
+workspaces/
+.env.poc
+app/.serena/
+app/mago.toml
+app/semantic/
+app/.env.local
+app/vendor/
+app/var/
+app/.phpunit.cache/

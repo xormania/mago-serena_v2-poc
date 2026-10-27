@@ -1,0 +1,24 @@
+#!/opt/venv/bin/python
+"""Preserve license files from the installed Python distributions in the image."""
+from importlib.metadata import distributions
+from pathlib import Path
+import json
+import shutil
+
+root = Path('/opt/licenses/python')
+root.mkdir(parents=True, exist_ok=True)
+index = []
+for distribution in distributions():
+    name = distribution.metadata['Name']
+    files = []
+    for file in distribution.files or []:
+        if any(word in str(file).lower() for word in ('license', 'copying', 'notice')):
+            source = Path(distribution.locate_file(file))
+            if source.is_file():
+                # Preserve the distribution-relative layout without '..' escapes.
+                target = root / name / Path(*[x for x in file.parts if x not in ('..', '/')])
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(source, target)
+                files.append(str(target.relative_to(root)))
+    index.append({'name':name,'version':distribution.version,'license':distribution.metadata.get('License-Expression') or distribution.metadata.get('License'),'files':files})
+(root/'index.json').write_text(json.dumps(index,indent=2))

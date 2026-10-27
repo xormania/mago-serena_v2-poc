@@ -1,0 +1,80 @@
+./composer.json is valid
+
+ [OK] All 27 YAML files contain valid syntax.                                   
+
+
+ [OK] All 32 Twig files contain valid syntax.                                   
+
+
+ [OK] All 58 XLIFF files contain valid syntax.                                  
+
+ --------- -------------------------------- -------- 
+  Locale    Domains                          Valid?  
+ --------- -------------------------------- -------- 
+  ar        validators, security, messages   Yes     
+  bg        validators, security, messages   Yes     
+  bn        messages, validators             Yes     
+  bs        validators, security, messages   Yes     
+  ca        validators, security, messages   Yes     
+  cs        validators, security, messages   Yes     
+  de        validators, security, messages   Yes     
+  en        validators, security, messages   Yes     
+  es        validators, security, messages   Yes     
+  eu        validators, security, messages   Yes     
+  fr        validators, security, messages   Yes     
+  hr        validators, security, messages   Yes     
+  id        validators, security, messages   Yes     
+  it        validators, security, messages   Yes     
+  ja        validators, security, messages   Yes     
+  lt        validators, security, messages   Yes     
+  ne        messages, validators             Yes     
+  nl        validators, security, messages   Yes     
+  pl        validators, security, messages   Yes     
+  pt_BR     validators, security, messages   Yes     
+  ro        validators, security, messages   Yes     
+  ru        validators, security, messages   Yes     
+  sl        validators, security, messages   Yes     
+  sq        validators, security, messages   Yes     
+  sr_Cyrl   validators, security, messages   Yes     
+  sr_Latn   validators, security, messages   Yes     
+  tr        validators, security, messages   Yes     
+  uk        validators, security, messages   Yes     
+  vi        validators, security, messages   Yes     
+  zh_CN     validators, security, messages   Yes     
+ --------- -------------------------------- -------- 
+
+
+ [OK] All translations are valid.                                               
+
+
+ [OK] The container was linted successfully: all services are injected with     
+      values that are compatible with their type declarations.                  
+
+
+Mapping
+-------
+
+ [OK] The mapping files are correct.                                            
+
+Database
+--------
+
+ [SKIPPED] The database was not checked for synchronicity.
+You are running PHP CS Fixer on PHP 8.5.12, but the minimum PHP version supported by your project in composer.json is PHP 8.4. Executing PHP CS Fixer on newer PHP versions may introduce syntax or features not yet available in PHP 8.4, which could cause issues under that version. It is recommended to run PHP CS Fixer on PHP 8.4, to fit your project specifics.
+If you need help while solving warnings, ask at https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/discussions/, we will help you!
+
+PHP CS Fixer 3.95.10 Adalbertus by Fabien Potencier, Dariusz Ruminski and contributors.
+PHP runtime: 8.5.12
+Loaded config default from "/app/.php-cs-fixer.dist.php".
+Running analysis on 31 cores with 10 files per process.
+  0/46 [░░░░░░░░░░░░░░░░░░░░░░░░░░░░]   0%
+  5/46 [▓▓▓░░░░░░░░░░░░░░░░░░░░░░░░░]  10%
+ 28/46 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░]  60%
+ 46/46 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%
+
+
+Found 0 of 46 files that can be fixed in 0.247 seconds, 110.00 MB memory used
+Note: Using configuration file /app/phpstan.dist.neon.
+
+ [OK] No errors                                                                 
+

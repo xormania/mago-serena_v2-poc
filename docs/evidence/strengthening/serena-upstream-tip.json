@@ -1,0 +1,11 @@
+{
+  "checked_date": "2026-10-27",
+  "repository": "oraios/serena",
+  "queried_ref": "main",
+  "resolved_commit": "9e1cced0c34ed48d668e179f7c56c77b4d14a3e3",
+  "commit_url": "https://github.com/oraios/serena/commit/9e1cced0c34ed48d668e179f7c56c77b4d14a3e3",
+  "commit_created_at": "2026-10-26T22:47:22Z",
+  "ls_py_blob": "5321030caa72a2087c8040f19e6e98dc6012e324",
+  "file_url": "https://github.com/oraios/serena/blob/main/src/solidlsp/ls.py",
+  "provider": "connected GitHub read API"
+}

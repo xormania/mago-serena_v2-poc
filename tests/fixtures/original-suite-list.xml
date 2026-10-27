@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<testSuite xmlns="https://xml.phpunit.de/testSuite">
+ <tests>
+  <testClass name="App\Tests\Command\AddUserCommandTest" file="/app/tests/Command/AddUserCommandTest.php">
+   <testMethod id="App\Tests\Command\AddUserCommandTest::testCreateUserNonInteractive#0" name="testCreateUserNonInteractive"/>
+   <testMethod id="App\Tests\Command\AddUserCommandTest::testCreateUserNonInteractive#1" name="testCreateUserNonInteractive"/>
+   <testMethod id="App\Tests\Command\AddUserCommandTest::testCreateUserInteractive#0" name="testCreateUserInteractive"/>
+   <testMethod id="App\Tests\Command\AddUserCommandTest::testCreateUserInteractive#1" name="testCreateUserInteractive"/>
+  </testClass>
+  <testClass name="App\Tests\Command\ListUsersCommandTest" file="/app/tests/Command/ListUsersCommandTest.php">
+   <testMethod id="App\Tests\Command\ListUsersCommandTest::testListUsers#0" name="testListUsers"/>
+   <testMethod id="App\Tests\Command\ListUsersCommandTest::testListUsers#1" name="testListUsers"/>
+   <testMethod id="App\Tests\Command\ListUsersCommandTest::testItSendsNoEmailByDefault" name="testItSendsNoEmailByDefault"/>
+   <testMethod id="App\Tests\Command\ListUsersCommandTest::testItSendsAnEmailIfOptionProvided" name="testItSendsAnEmailIfOptionProvided"/>
+  </testClass>
+  <testClass name="App\Tests\Controller\Admin\BlogControllerTest" file="/app/tests/Controller/Admin/BlogControllerTest.php">
+   <testMethod id="App\Tests\Controller\Admin\BlogControllerTest::testAccessDeniedForRegularUsers#0" name="testAccessDeniedForRegularUsers"/>
+   <testMethod id="App\Tests\Controller\Admin\BlogControllerTest::testAccessDeniedForRegularUsers#1" name="testAccessDeniedForRegularUsers"/>
+   <testMethod id="App\Tests\Controller\Admin\BlogControllerTest::testAccessDeniedForRegularUsers#2" name="testAccessDeniedForRegularUsers"/>
+   <testMethod id="App\Tests\Controller\Admin\BlogControllerTest::testAccessDeniedForRegularUsers#3" name="testAccessDeniedForRegularUsers"/>
+   <testMethod id="App\Tests\Controller\Admin\BlogControllerTest::testAdminBackendHomePage" name="testAdminBackendHomePage"/>
+   <testMethod id="App\Tests\Controller\Admin\BlogControllerTest::testAdminNewPost" name="testAdminNewPost"/>
+   <testMethod id="App\Tests\Controller\Admin\BlogControllerTest::testAdminNewDuplicatedPost" name="testAdminNewDuplicatedPost"/>
+   <testMethod id="App\Tests\Controller\Admin\BlogControllerTest::testAdminShowPost" name="testAdminShowPost"/>
+   <testMethod id="App\Tests\Controller\Admin\BlogControllerTest::testAdminEditPost" name="testAdminEditPost"/>
+   <testMethod id="App\Tests\Controller\Admin\BlogControllerTest::testAdminDeletePost" name="testAdminDeletePost"/>
+  </testClass>
+  <testClass name="App\Tests\Controller\BlogControllerTest" file="/app/tests/Controller/BlogControllerTest.php">
+   <testMethod id="App\Tests\Controller\BlogControllerTest::testIndex" name="testIndex"/>
+   <testMethod id="App\Tests\Controller\BlogControllerTest::testRss" name="testRss"/>
+   <testMethod id="App\Tests\Controller\BlogControllerTest::testNewComment" name="testNewComment"/>
+   <testMethod id="App\Tests\Controller\BlogControllerTest::testAjaxSearch" name="testAjaxSearch"/>
+  </testClass>
+  <testClass name="App\Tests\Controller\DefaultControllerTest" file="/app/tests/Controller/DefaultControllerTest.php">
+   <testMethod id="App\Tests\Controller\DefaultControllerTest::testPublicUrls#0" name="testPublicUrls"/>
+   <testMethod id="App\Tests\Controller\DefaultControllerTest::testPublicUrls#1" name="testPublicUrls"/>
+   <testMethod id="App\Tests\Controller\DefaultControllerTest::testPublicUrls#2" name="testPublicUrls"/>
+   <testMethod id="App\Tests\Controller\DefaultControllerTest::testPublicBlogPost" name="testPublicBlogPost"/>
+   <testMethod id="App\Tests\Controller\DefaultControllerTest::testSecureUrls#0" name="testSecureUrls"/>
+   <testMethod id="App\Tests\Controller\DefaultControllerTest::testSecureUrls#1" name="testSecureUrls"/>
+   <testMethod id="App\Tests\Controller\DefaultControllerTest::testSecureUrls#2" name="testSecureUrls"/>
+   <testMethod id="App\Tests\Controller\DefaultControllerTest::testSecureUrls#3" name="testSecureUrls"/>
+  </testClass>
+  <testClass name="App\Tests\Controller\UserControllerTest" file="/app/tests/Controller/UserControllerTest.php">
+   <testMethod id="App\Tests\Controller\UserControllerTest::testAccessDeniedForAnonymousUsers#0" name="testAccessDeniedForAnonymousUsers"/>
+   <testMethod id="App\Tests\Controller\UserControllerTest::testAccessDeniedForAnonymousUsers#1" name="testAccessDeniedForAnonymousUsers"/>
+   <testMethod id="App\Tests\Controller\UserControllerTest::testEditUser" name="testEditUser"/>
+   <testMethod id="App\Tests\Controller\UserControllerTest::testChangePassword" name="testChangePassword"/>
+  </testClass>
+  <testClass name="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest" file="/app/tests/Form/DataTransformer/TagArrayToStringTransformerTest.php">
+   <testMethod id="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest::testCreateTheRightAmountOfTags" name="testCreateTheRightAmountOfTags"/>
+   <testMethod id="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest::testCreateTheRightAmountOfTagsWithTooManyCommas" name="testCreateTheRightAmountOfTagsWithTooManyCommas"/>
+   <testMethod id="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest::testTrimNames" name="testTrimNames"/>
+   <testMethod id="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest::testDuplicateNames" name="testDuplicateNames"/>
+   <testMethod id="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest::testUsesAlreadyDefinedTags" name="testUsesAlreadyDefinedTags"/>
+   <testMethod id="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest::testTransform" name="testTransform"/>
+  </testClass>
+  <testClass name="App\Tests\Twig\AppExtensionTest" file="/app/tests/Twig/AppExtensionTest.php">
+   <testMethod id="App\Tests\Twig\AppExtensionTest::testGetLocales" name="testGetLocales"/>
+   <testMethod id="App\Tests\Twig\AppExtensionTest::testIsRtl" name="testIsRtl"/>
+  </testClass>
+  <testClass name="App\Tests\Utils\ValidatorTest" file="/app/tests/Utils/ValidatorTest.php">
+   <testMethod id="App\Tests\Utils\ValidatorTest::testValidateUsername" name="testValidateUsername"/>
+   <testMethod id="App\Tests\Utils\ValidatorTest::testValidateUsernameEmpty" name="testValidateUsernameEmpty"/>
+   <testMethod id="App\Tests\Utils\ValidatorTest::testValidateUsernameInvalid" name="testValidateUsernameInvalid"/>
+   <testMethod id="App\Tests\Utils\ValidatorTest::testValidatePassword" name="testValidatePassword"/>
+   <testMethod id="App\Tests\Utils\ValidatorTest::testValidatePasswordEmpty" name="testValidatePasswordEmpty"/>
+   <testMethod id="App\Tests\Utils\ValidatorTest::testValidatePasswordInvalid" name="testValidatePasswordInvalid"/>
+   <testMethod id="App\Tests\Utils\ValidatorTest::testValidateEmail" name="testValidateEmail"/>
+   <testMethod id="App\Tests\Utils\ValidatorTest::testValidateEmailEmpty" name="testValidateEmailEmpty"/>
+   <testMethod id="App\Tests\Utils\ValidatorTest::testValidateEmailInvalid" name="testValidateEmailInvalid"/>
+   <testMethod id="App\Tests\Utils\ValidatorTest::testValidateFullName" name="testValidateFullName"/>
+   <testMethod id="App\Tests\Utils\ValidatorTest::testValidateFullNameEmpty" name="testValidateFullNameEmpty"/>
+  </testClass>
+ </tests>
+ <groups>
+  <group name="default">
+   <test id="App\Tests\Command\AddUserCommandTest::testCreateUserNonInteractive#0"/>
+   <test id="App\Tests\Command\AddUserCommandTest::testCreateUserNonInteractive#1"/>
+   <test id="App\Tests\Command\AddUserCommandTest::testCreateUserInteractive#0"/>
+   <test id="App\Tests\Command\AddUserCommandTest::testCreateUserInteractive#1"/>
+   <test id="App\Tests\Command\ListUsersCommandTest::testListUsers#0"/>
+   <test id="App\Tests\Command\ListUsersCommandTest::testListUsers#1"/>
+   <test id="App\Tests\Command\ListUsersCommandTest::testItSendsNoEmailByDefault"/>
+   <test id="App\Tests\Command\ListUsersCommandTest::testItSendsAnEmailIfOptionProvided"/>
+   <test id="App\Tests\Controller\Admin\BlogControllerTest::testAccessDeniedForRegularUsers#0"/>
+   <test id="App\Tests\Controller\Admin\BlogControllerTest::testAccessDeniedForRegularUsers#1"/>
+   <test id="App\Tests\Controller\Admin\BlogControllerTest::testAccessDeniedForRegularUsers#2"/>
+   <test id="App\Tests\Controller\Admin\BlogControllerTest::testAccessDeniedForRegularUsers#3"/>
+   <test id="App\Tests\Controller\Admin\BlogControllerTest::testAdminBackendHomePage"/>
+   <test id="App\Tests\Controller\Admin\BlogControllerTest::testAdminNewPost"/>
+   <test id="App\Tests\Controller\Admin\BlogControllerTest::testAdminNewDuplicatedPost"/>
+   <test id="App\Tests\Controller\Admin\BlogControllerTest::testAdminShowPost"/>
+   <test id="App\Tests\Controller\Admin\BlogControllerTest::testAdminEditPost"/>
+   <test id="App\Tests\Controller\Admin\BlogControllerTest::testAdminDeletePost"/>
+   <test id="App\Tests\Controller\BlogControllerTest::testIndex"/>
+   <test id="App\Tests\Controller\BlogControllerTest::testRss"/>
+   <test id="App\Tests\Controller\BlogControllerTest::testNewComment"/>
+   <test id="App\Tests\Controller\BlogControllerTest::testAjaxSearch"/>
+   <test id="App\Tests\Controller\DefaultControllerTest::testPublicUrls#0"/>
+   <test id="App\Tests\Controller\DefaultControllerTest::testPublicUrls#1"/>
+   <test id="App\Tests\Controller\DefaultControllerTest::testPublicUrls#2"/>
+   <test id="App\Tests\Controller\DefaultControllerTest::testPublicBlogPost"/>
+   <test id="App\Tests\Controller\DefaultControllerTest::testSecureUrls#0"/>
+   <test id="App\Tests\Controller\DefaultControllerTest::testSecureUrls#1"/>
+   <test id="App\Tests\Controller\DefaultControllerTest::testSecureUrls#2"/>
+   <test id="App\Tests\Controller\DefaultControllerTest::testSecureUrls#3"/>
+   <test id="App\Tests\Controller\UserControllerTest::testAccessDeniedForAnonymousUsers#0"/>
+   <test id="App\Tests\Controller\UserControllerTest::testAccessDeniedForAnonymousUsers#1"/>
+   <test id="App\Tests\Controller\UserControllerTest::testEditUser"/>
+   <test id="App\Tests\Controller\UserControllerTest::testChangePassword"/>
+   <test id="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest::testCreateTheRightAmountOfTags"/>
+   <test id="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest::testCreateTheRightAmountOfTagsWithTooManyCommas"/>
+   <test id="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest::testTrimNames"/>
+   <test id="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest::testDuplicateNames"/>
+   <test id="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest::testUsesAlreadyDefinedTags"/>
+   <test id="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest::testTransform"/>
+   <test id="App\Tests\Twig\AppExtensionTest::testGetLocales"/>
+   <test id="App\Tests\Twig\AppExtensionTest::testIsRtl"/>
+   <test id="App\Tests\Utils\ValidatorTest::testValidateUsername"/>
+   <test id="App\Tests\Utils\ValidatorTest::testValidateUsernameEmpty"/>
+   <test id="App\Tests\Utils\ValidatorTest::testValidateUsernameInvalid"/>
+   <test id="App\Tests\Utils\ValidatorTest::testValidatePassword"/>
+   <test id="App\Tests\Utils\ValidatorTest::testValidatePasswordEmpty"/>
+   <test id="App\Tests\Utils\ValidatorTest::testValidatePasswordInvalid"/>
+   <test id="App\Tests\Utils\ValidatorTest::testValidateEmail"/>
+   <test id="App\Tests\Utils\ValidatorTest::testValidateEmailEmpty"/>
+   <test id="App\Tests\Utils\ValidatorTest::testValidateEmailInvalid"/>
+   <test id="App\Tests\Utils\ValidatorTest::testValidateFullName"/>
+   <test id="App\Tests\Utils\ValidatorTest::testValidateFullNameEmpty"/>
+  </group>
+ </groups>
+</testSuite>

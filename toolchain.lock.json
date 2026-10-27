@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "sources": {
+    "demo": "8d2e2ef75c3e18df173d8bf2379a14abb58c4c31",
+    "serena": "9e1cced0c34ed48d668e179f7c56c77b4d14a3e3",
+    "mago": "46df50c96d93d0ac3655c116c375574277cf0b30",
+    "symfony_docker_reference": "92d0d49293cd8678d82ca57c9c81b2dc45cf5561",
+    "previous_fixture_reference": "7d1abb3c4ac01451d83e1c1e12742b9fa2067561"
+  },
+  "images": {
+    "php": "php:8.5.12-cli-bookworm@sha256:d4f6e10eb393de7e3a7a88e8b88e139072dd3ae297f6a5dada8257e6fe32c585",
+    "rust": "rust:1.99.0-bookworm@sha256:114c7a4425406451c2866b6aafe69fe29b1b298832db1277d411ac73c82d04d6",
+    "python": "python:3.12.12-slim-bookworm@sha256:593bd06efe90efa80dc4eee3948be7c0fde4134606dd40d8dd8dbcade98e669c",
+    "uv": "ghcr.io/astral-sh/uv:0.12.8@sha256:d1cbaeadc234fe19c0d93daabcf5e98738cd93c6d1dd4918ef6aa30735feb23a",
+    "composer": "composer:2.9.1@sha256:7384cf9fa70b710af02c9f40bec6e44472e07138efa5ab3428a058087c0d2724"
+  },
+  "versions": {
+    "php": "8.5.12",
+    "rust": "1.99.0",
+    "python": "3.12.12",
+    "uv": "0.12.8",
+    "composer": "2.9.1"
+  },
+  "lock_sha256": {
+    "composer": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd",
+    "serena_upstream_uv": "6bdd37bf0d8cbe698a798c62556852b6d093e1dcd549b2a0c5283737831404c5",
+    "mago_cargo": "f5468183e5440ccacff66b06f7b444f15641caf89d9533057a03e4f280a28e1d",
+    "poc_uv": "af281bd04479b299b685ec295f0e9517f4539e2394fd16b809ffa66118babfde"
+  },
+  "adapter": {
+    "version": "0.1.0",
+    "source": "adapter/; run metadata records file hashes and repository revision"
+  }
+}

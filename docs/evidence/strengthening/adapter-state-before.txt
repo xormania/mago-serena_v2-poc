@@ -1,0 +1,65 @@
+{
+  "target_open_before_query": false,
+  "target_reopened_before_query": false,
+  "original_sha256": "30f064fc45edb01728885f3a45022d14f0075e47139b7c051be92d094140484c",
+  "disk_sha256": "61208a5badf2b00ef528f548485a9729bc69d17435a45b96b48c9d21bc6087b6",
+  "expected_codepoint_position": {
+    "line": 0,
+    "character": 50
+  },
+  "actual_codepoint_position": {
+    "line": 0,
+    "character": 51
+  },
+  "edit": {
+    "documentChanges": [
+      {
+        "textDocument": {
+          "version": 0,
+          "uri": "file:///tmp/mago-closed-state-8vnsnfds/Caller.php"
+        },
+        "edits": [
+          {
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 60
+              },
+              "end": {
+                "line": 0,
+                "character": 66
+              }
+            },
+            "newText": "renamed"
+          }
+        ]
+      },
+      {
+        "textDocument": {
+          "version": null,
+          "uri": "file:///tmp/mago-closed-state-8vnsnfds/Target.php"
+        },
+        "edits": [
+          {
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 51
+              },
+              "end": {
+                "line": 0,
+                "character": 57
+              }
+            },
+            "newText": "renamed"
+          }
+        ]
+      }
+    ]
+  },
+  "status": "fail"
+}
+Traceback (most recent call last):
+  File "<stdin>", line 83, in <module>
+  File "<stdin>", line 76, in run
+AssertionError: Closed target converted using stale text: {'line': 0, 'character': 51} != {'line': 0, 'character': 50}

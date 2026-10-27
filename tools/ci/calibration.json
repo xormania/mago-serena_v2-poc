@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "frozen_on": "2026-10-27",
+  "note": "Small selected frozen known-defect replays and controls; no production accuracy estimate.",
+  "cases": [
+    {
+      "id": "closed-file",
+      "kind": "confirmed_defect_replay",
+      "origin": {
+        "path": "docs/evidence/strengthening/adapter-state-before.txt",
+        "sha256": "b541ed7fae0215ce42b38584aa3822afa8e4e90c39f7deed1494940a72555a91",
+        "execution": "Retained local actual-adapter/Mago or verifier reproduction; frozen excerpt replay, no fresh execution during diagnosis."
+      },
+      "excerpts": [
+        "\"target_open_before_query\": false, \"target_reopened_before_query\": false; expected_codepoint_position: {\"line\":0,\"character\":50}; actual_codepoint_position: {\"line\":0,\"character\":51}.",
+        "AssertionError: Closed target converted using stale text: {'line': 0, 'character': 51} != {'line': 0, 'character': 50}"
+      ],
+      "status": "fail",
+      "expected_layer": "document_state"
+    },
+    {
+      "id": "root-config",
+      "kind": "confirmed_defect_replay",
+      "origin": {
+        "path": "docs/evidence/strengthening/verifier-before.json",
+        "sha256": "2b5214850a3d1103838b69c2220fb93c2cc00fd59ca0214cd1cbc7b89564efd2",
+        "execution": "Retained local actual-adapter/Mago or verifier reproduction; frozen excerpt replay, no fresh execution during diagnosis."
+      },
+      "excerpts": [
+        "Fault: Correct two-file rename plus root phpunit.dist.xml weakens suite selection to tests/Utils. before_fix: reproduced=true; old_verifier_result=accepted; unreported_changed=phpunit.dist.xml."
+      ],
+      "status": "fail",
+      "expected_layer": "application_integrity"
+    },
+    {
+      "id": "healthy",
+      "kind": "healthy_replay",
+      "origin": {
+        "path": "docs/evidence/strengthening/adapter-state-after.txt",
+        "sha256": "a6c66948f54aa44da92d6b9ea5148232198acecf314d02d06071159d497ded43",
+        "execution": "Retained local actual-adapter/Mago or verifier reproduction; frozen excerpt replay, no fresh execution during diagnosis."
+      },
+      "excerpts": [
+        "\"target_open_before_query\": false, \"target_reopened_before_query\": false; expected_codepoint_position: {\"line\":0,\"character\":50}; actual_codepoint_position: {\"line\":0,\"character\":50}; \"status\":\"pass\"."
+      ],
+      "status": "pass",
+      "expected_layer": "unknown"
+    },
+    {
+      "id": "ambiguous",
+      "kind": "synthetic_ambiguous",
+      "origin": {
+        "execution": "Synthetic deliberately incomplete control; not a reproduced defect."
+      },
+      "excerpts": [
+        "Semantic query timed out. No process, document state or setup evidence is available."
+      ],
+      "status": "fail",
+      "expected_layer": "unknown"
+    }
+  ]
+}

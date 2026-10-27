@@ -1,0 +1,5 @@
+{
+  "status": "pass",
+  "assertion": "External exact diff + original PHPUnit + real model MCP semantic operations + independent fresh semantic requery",
+  "semantic_tool_calls": 6
+}

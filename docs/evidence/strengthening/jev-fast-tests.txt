@@ -1,0 +1,37 @@
+test_archive_rejects_traversal_extra_members_bombs_and_foreign_run (test_jev.BoundaryTests.test_archive_rejects_traversal_extra_members_bombs_and_foreign_run) ... ok
+test_archive_valid_json_no_extraction (test_jev.BoundaryTests.test_archive_valid_json_no_extraction) ... ok
+test_capture_keeps_original_exit_and_recovered_failure (test_jev.BoundaryTests.test_capture_keeps_original_exit_and_recovered_failure) ... ok
+test_ci_action_setup_failure_is_explicit_not_defect_detection (test_jev.BoundaryTests.test_ci_action_setup_failure_is_explicit_not_defect_detection) ... ok
+test_download_binds_source_and_strips_token_on_signed_redirect (test_jev.BoundaryTests.test_download_binds_source_and_strips_token_on_signed_redirect) ... ok
+test_download_missing_artifact_is_no_work_foreign_repo_refused (test_jev.BoundaryTests.test_download_missing_artifact_is_no_work_foreign_repo_refused) ... ok
+test_internal_recovered_failure_is_retained_from_ledger (test_jev.BoundaryTests.test_internal_recovered_failure_is_retained_from_ledger) ... ok
+test_pull_request_merge_checkout_identity_is_distinct_from_workflow_head (test_jev.BoundaryTests.test_pull_request_merge_checkout_identity_is_distinct_from_workflow_head) ... ok
+test_workflow_key_and_trusted_boundary (test_jev.BoundaryTests.test_workflow_key_and_trusted_boundary) ... ok
+test_abstention (test_jev.JevTests.test_abstention) ... ok
+test_calibration_explicit_synthetic_four_bounded_cases (test_jev.JevTests.test_calibration_explicit_synthetic_four_bounded_cases) ... ok
+test_calibration_oversized_plan_refuses_before_any_request (test_jev.JevTests.test_calibration_oversized_plan_refuses_before_any_request) ... ok
+test_duplicate_json_fields_and_nonfinite_numbers_rejected (test_jev.JevTests.test_duplicate_json_fields_and_nonfinite_numbers_rejected) ... ok
+test_duplicate_support_rejected (test_jev.JevTests.test_duplicate_support_rejected) ... ok
+test_fresh_output_required_preserves_failed_attempt (test_jev.JevTests.test_fresh_output_required_preserves_failed_attempt) ... ok
+test_healthy_default_no_request_even_if_key_available (test_jev.JevTests.test_healthy_default_no_request_even_if_key_available) ... ok
+test_incomplete_answers_rejected (test_jev.JevTests.test_incomplete_answers_rejected) ... ok
+test_invalid_excerpt_reference (test_jev.JevTests.test_invalid_excerpt_reference) ... ok
+test_invalid_probe (test_jev.JevTests.test_invalid_probe) ... ok
+test_malformed_json (test_jev.JevTests.test_malformed_json) ... ok
+test_missing_credentials_no_network (test_jev.JevTests.test_missing_credentials_no_network) ... ok
+test_missing_or_malformed_usage_does_not_break_diagnosis (test_jev.JevTests.test_missing_or_malformed_usage_does_not_break_diagnosis) ... ok
+test_oversized_response_bounded_disclosed (test_jev.JevTests.test_oversized_response_bounded_disclosed) ... ok
+test_packet_bounds_and_probe_allowlist (test_jev.JevTests.test_packet_bounds_and_probe_allowlist) ... ok
+test_packet_duplicate_stale_and_missing_identity (test_jev.JevTests.test_packet_duplicate_stale_and_missing_identity) ... ok
+test_provider_error_body_preserves_telemetry_without_diagnosis (test_jev.JevTests.test_provider_error_body_preserves_telemetry_without_diagnosis) ... ok
+test_provider_failure (test_jev.JevTests.test_provider_failure) ... ok
+test_request_and_response_redact_credentials (test_jev.JevTests.test_request_and_response_redact_credentials) ... ok
+test_success_is_structured_and_mock_labelled (test_jev.JevTests.test_success_is_structured_and_mock_labelled) ... ok
+test_timeout_has_no_retry (test_jev.JevTests.test_timeout_has_no_retry) ... ok
+test_unbacked_hypothesis_rejected (test_jev.JevTests.test_unbacked_hypothesis_rejected) ... ok
+test_wrong_provider_model_rejected_preserving_usage (test_jev.JevTests.test_wrong_provider_model_rejected_preserving_usage) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 0.040s
+
+OK

@@ -1,0 +1,21 @@
+{
+  "scope": "Concrete defects found during independent review of this iteration; mocked transport only.",
+  "before": {
+    "implementation_sha256": "a17154dc03869c7bc3e992f780fede8fe2585167992ce956bb81eb9bd14f867c",
+    "tests": 32,
+    "healthy_tests_passed": 30,
+    "intended_failures": {
+      "test_provider_error_body_preserves_telemetry_without_diagnosis": "None != 'jev-1.14.0'",
+      "test_calibration_oversized_plan_refuses_before_any_request": "ValueError not raised"
+    },
+    "log": "jev-review-fixes-before.txt"
+  },
+  "after": {
+    "implementation_sha256": "8e95b373ec3cb033e6940447020b5300073e41904d07cdd5eb7a8d84faa879c8",
+    "tests": 32,
+    "passed": true,
+    "error_telemetry": "503 reply retained exact model, usage 13/2, cost_usd 0.01; status stayed provider_failure and no diagnosis accepted",
+    "calibration_bound": "More than four cases refused before any diagnosis invocation or output creation"
+  },
+  "live_calls": 0
+}

@@ -1,0 +1,7 @@
+#!/bin/sh
+set -eu
+mkdir -p "$SERENA_HOME"
+if [ ! -f "$SERENA_HOME/serena_config.yml" ]; then
+    cp /opt/poc/config/serena_config.yml "$SERENA_HOME/serena_config.yml"
+fi
+exec "$@"

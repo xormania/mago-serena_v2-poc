@@ -1,0 +1,7 @@
+version = "1"
+php-version = "8.5"
+
+[source]
+paths = ["src", "tests", "semantic"]
+includes = ["vendor"]
+excludes = ["var"]

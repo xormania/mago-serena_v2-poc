@@ -1,0 +1,8 @@
+.git
+.cache
+.venv
+artifacts
+workspaces
+app
+docs
+**/__pycache__

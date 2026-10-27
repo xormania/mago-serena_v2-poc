@@ -1,0 +1,54 @@
+name: Pinned Serena + Mago PoC
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        id: checkout
+      - uses: astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9 # v7
+        id: uv
+        with:
+          version: '0.12.8'
+      - name: Install locked fast-test environment
+        id: dependencies
+        run: python3 tools/ci/capture_step.py run --step dependencies -- uv sync --frozen --python 3.12.12
+      - name: Fast properties, manifest verification and mocked diagnosis
+        id: fast
+        run: python3 tools/ci/capture_step.py run --step fast -- ./bin/poc fast
+      - uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3
+        id: builder
+      - name: Build exact toolchain
+        id: build
+        run: python3 tools/ci/capture_step.py run --step build -- docker buildx build --load --tag mago-serena-poc:local --progress plain .
+      - name: Real Docker, original application tests and MCP acceptance
+        id: acceptance
+        run: python3 tools/ci/capture_step.py run --step acceptance -- ./bin/poc test
+      - name: Collect bounded advisory diagnosis data
+        if: always()
+        id: collect
+        env:
+          STEP_OUTCOMES: ${{ toJSON(steps) }}
+        run: python3 tools/ci/capture_step.py collect
+      - name: Upload diagnosis data without credentials
+        if: always() && steps.collect.outcome == 'success'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: jev-input-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/jev-input/diagnosis-input.json
+          if-no-files-found: error
+          retention-days: 7
+      - name: Retain all evidence, including failed scenarios
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: poc-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 14

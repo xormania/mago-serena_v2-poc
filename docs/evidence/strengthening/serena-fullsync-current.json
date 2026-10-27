@@ -1,0 +1,140 @@
+{
+  "status": "confirmed_client_sync_mismatch",
+  "upstream_main_checked": "2026-10-27",
+  "upstream_current_sha": "9e1cced0c34ed48d668e179f7c56c77b4d14a3e3",
+  "upstream_current_matches_retained_pin": true,
+  "upstream_ls_blob_sha": "5321030caa72a2087c8040f19e6e98dc6012e324",
+  "installed_ls_sha256": "49c03a1dcaa73d7af9077573c328ab5739bf39a2218c31a0a331c7215adca665",
+  "serena_distribution": "2.1.1.dev0",
+  "mago_source": "46df50c96d93d0ac3655c116c375574277cf0b30",
+  "probe": "tests/integration/repro_fullsync.py",
+  "probe_sha256": "a28f46df88c45ca938655d5670ce4a3e13b72f3cecea997fe5b7f551f27cd9e9",
+  "execution": "actual two Mago stdio processes, no mocks and no model",
+  "negative_control": "Unbridged SolidLSP emitted ranged changes to server advertising full sync; old value symbol remained",
+  "healthy_control": "Same application and backend with existing full-document bridge returned renamed symbol",
+  "artifact_attempt": "artifacts/dev/upstream-fullsync-current-20261027/fullsync-reproduction",
+  "outcomes": {
+    "UnbridgedMago": {
+      "advertised_sync": {
+        "openClose": true,
+        "change": 1,
+        "willSave": false,
+        "willSaveWaitUntil": false,
+        "save": true
+      },
+      "symbols_after_edit": [
+        {
+          "name": "SyncProbe",
+          "kind": 5,
+          "range": {
+            "start": {
+              "line": 0,
+              "character": 6
+            },
+            "end": {
+              "line": 0,
+              "character": 68
+            }
+          },
+          "selectionRange": {
+            "start": {
+              "line": 0,
+              "character": 12
+            },
+            "end": {
+              "line": 0,
+              "character": 21
+            }
+          },
+          "children": [
+            {
+              "name": "value",
+              "kind": 6,
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 24
+                },
+                "end": {
+                  "line": 0,
+                  "character": 66
+                }
+              },
+              "selectionRange": {
+                "start": {
+                  "line": 0,
+                  "character": 40
+                },
+                "end": {
+                  "line": 0,
+                  "character": 45
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "MagoServer": {
+      "advertised_sync": {
+        "openClose": true,
+        "change": 1,
+        "willSave": false,
+        "willSaveWaitUntil": false,
+        "save": true
+      },
+      "symbols_after_edit": [
+        {
+          "name": "SyncProbe",
+          "kind": 5,
+          "range": {
+            "start": {
+              "line": 0,
+              "character": 6
+            },
+            "end": {
+              "line": 0,
+              "character": 70
+            }
+          },
+          "selectionRange": {
+            "start": {
+              "line": 0,
+              "character": 12
+            },
+            "end": {
+              "line": 0,
+              "character": 21
+            }
+          },
+          "children": [
+            {
+              "name": "renamed",
+              "kind": 6,
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 24
+                },
+                "end": {
+                  "line": 0,
+                  "character": 68
+                }
+              },
+              "selectionRange": {
+                "start": {
+                  "line": 0,
+                  "character": 40
+                },
+                "end": {
+                  "line": 0,
+                  "character": 47
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

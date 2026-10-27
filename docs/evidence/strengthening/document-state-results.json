@@ -1,0 +1,155 @@
+{
+  "adapter_external": {
+    "target_open_before_query": false,
+    "target_reopened_before_query": false,
+    "original_sha256": "30f064fc45edb01728885f3a45022d14f0075e47139b7c051be92d094140484c",
+    "disk_sha256": "61208a5badf2b00ef528f548485a9729bc69d17435a45b96b48c9d21bc6087b6",
+    "expected_codepoint_position": {
+      "line": 0,
+      "character": 50
+    },
+    "actual_codepoint_position": {
+      "line": 0,
+      "character": 50
+    },
+    "edit": {
+      "documentChanges": [
+        {
+          "textDocument": {
+            "version": 0,
+            "uri": "file:///tmp/mago-closed-state-mvekktc6/Caller.php"
+          },
+          "edits": [
+            {
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 60
+                },
+                "end": {
+                  "line": 0,
+                  "character": 66
+                }
+              },
+              "newText": "renamed"
+            }
+          ]
+        },
+        {
+          "textDocument": {
+            "version": null,
+            "uri": "file:///tmp/mago-closed-state-mvekktc6/Target.php"
+          },
+          "edits": [
+            {
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 50
+                },
+                "end": {
+                  "line": 0,
+                  "character": 56
+                }
+              },
+              "newText": "renamed"
+            }
+          ]
+        }
+      ]
+    },
+    "status": "pass",
+    "control": "external_nonbmp"
+  },
+  "adapter_healthy": {
+    "target_open_before_query": false,
+    "target_reopened_before_query": false,
+    "original_sha256": "30f064fc45edb01728885f3a45022d14f0075e47139b7c051be92d094140484c",
+    "disk_sha256": "30f064fc45edb01728885f3a45022d14f0075e47139b7c051be92d094140484c",
+    "expected_codepoint_position": {
+      "line": 0,
+      "character": 51
+    },
+    "actual_codepoint_position": {
+      "line": 0,
+      "character": 51
+    },
+    "edit": {
+      "documentChanges": [
+        {
+          "textDocument": {
+            "version": 0,
+            "uri": "file:///tmp/mago-closed-state-lsgk918s/Caller.php"
+          },
+          "edits": [
+            {
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 60
+                },
+                "end": {
+                  "line": 0,
+                  "character": 66
+                }
+              },
+              "newText": "renamed"
+            }
+          ]
+        },
+        {
+          "textDocument": {
+            "version": null,
+            "uri": "file:///tmp/mago-closed-state-lsgk918s/Target.php"
+          },
+          "edits": [
+            {
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 51
+                },
+                "end": {
+                  "line": 0,
+                  "character": 57
+                }
+              },
+              "newText": "renamed"
+            }
+          ]
+        }
+      ]
+    },
+    "status": "pass",
+    "control": "healthy_unchanged"
+  },
+  "direct": {
+    "status": "pass",
+    "wire_utf16": {
+      "line": 0,
+      "character": 51
+    },
+    "codepoints": 50
+  },
+  "mcp": {
+    "status": "pass",
+    "expected_reference": [
+      {
+        "file": "semantic/ClosedCaller.php",
+        "line": 0,
+        "character": 88
+      }
+    ],
+    "actual_reference": [
+      {
+        "file": "semantic/ClosedCaller.php",
+        "line": 0,
+        "character": 88
+      }
+    ],
+    "renamed_exact_text": true,
+    "fresh_semantic_query": true,
+    "original_sha256": "e831fa20d3805dfac1d2476322523978bf9f64ab5afedf10b59fd6512970e4bc",
+    "disk_sha256": "92fb679b6af69f8dbf455ecfe0e0452ad83a065b1b18de83cfc8b012320a8968"
+  }
+}

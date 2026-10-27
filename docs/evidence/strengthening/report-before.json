@@ -1,0 +1,10 @@
+{
+  "revision": "41729d30d23459de1ba53023051eb55894fb33b9",
+  "route": "actual bin/poc report imported from reviewed checkout",
+  "input": {
+    "checks": []
+  },
+  "actual_exit_status": 0,
+  "expected": "reject incomplete report",
+  "intended_defect_observed": true
+}

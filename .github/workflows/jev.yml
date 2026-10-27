@@ -1,0 +1,67 @@
+name: Jev advisory diagnosis
+# workflow_run loads this consumer from the default branch. Never check out the
+# tested revision here: its files and collected artifacts are untrusted data.
+on:
+  workflow_run:
+    workflows: [Pinned Serena + Mago PoC]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      calibration:
+        description: 'Make at most four live calls using frozen synthetic defect/healthy/ambiguous controls'
+        required: true
+        default: false
+        type: boolean
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: jev-${{ github.event.workflow_run.id || github.run_id }}-${{ github.event.workflow_run.run_attempt || github.run_attempt }}
+  cancel-in-progress: false
+jobs:
+  diagnose:
+    name: Advisory only; source verdict is independent
+    if: >-
+      (github.event_name == 'workflow_run' && github.event.workflow_run.head_repository.full_name == github.repository) ||
+      (github.event_name == 'workflow_dispatch' && github.ref_name == github.event.repository.default_branch && inputs.calibration)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout trusted default-branch diagnosis code
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          path: trusted
+          persist-credentials: false
+          sparse-checkout: tools/ci
+      - name: Record the actual trusted checkout identity
+        run: printf 'JEV_TRUSTED_SHA=%s\n' "$(git -C trusted rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Download bounded JSON data without extracting the artifact
+        id: data
+        if: github.event_name == 'workflow_run'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 -I trusted/tools/ci/download_inputs.py --out "${{ runner.temp }}/jev-input/diagnosis-input.json"
+      - name: Diagnose with TypeSafe (one call, or explicit four-call calibration)
+        if: steps.data.outputs.found == 'true' || (github.event_name == 'workflow_dispatch' && inputs.calibration)
+        continue-on-error: true
+        timeout-minutes: 2
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+          CALIBRATION: ${{ github.event_name == 'workflow_dispatch' && inputs.calibration }}
+          INPUT_FILE: ${{ runner.temp }}/jev-input/diagnosis-input.json
+          OUTPUT_DIR: ${{ runner.temp }}/jev-output
+        run: |
+          if [ "$CALIBRATION" = true ]; then
+            python3 -I trusted/tools/ci/jev.py --live --calibration --out "$OUTPUT_DIR"
+          else
+            python3 -I trusted/tools/ci/jev.py --live --packet "$INPUT_FILE" --out "$OUTPUT_DIR"
+          fi
+      - name: Preserve sanitized diagnostic output
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: jev-advisory-${{ github.event.workflow_run.id || github.run_id }}-${{ github.event.workflow_run.run_attempt || github.run_attempt }}
+          path: ${{ runner.temp }}/jev-output/
+          if-no-files-found: warn
+          retention-days: 14

@@ -1,0 +1,42 @@
+test_composer_manifest_rejected (test_verifier.ManifestTests.test_composer_manifest_rejected) ... ok
+test_deliberate_legacy_fault_detected (test_verifier.ManifestTests.test_deliberate_legacy_fault_detected) ... ok
+test_dependencies_are_covered (test_verifier.ManifestTests.test_dependencies_are_covered) ... ok
+test_dependency_lock_rejected (test_verifier.ManifestTests.test_dependency_lock_rejected) ... ok
+test_directory_permissions_rejected (test_verifier.ManifestTests.test_directory_permissions_rejected) ... ok
+test_entrypoint_permissions_rejected (test_verifier.ManifestTests.test_entrypoint_permissions_rejected) ... ok
+test_generated_exclusions_are_narrow (test_verifier.ManifestTests.test_generated_exclusions_are_narrow) ... ok
+test_healthy_exact_rename (test_verifier.ManifestTests.test_healthy_exact_rename) ... ok
+test_identical_bytes_symlink_replacement_rejected (test_verifier.ManifestTests.test_identical_bytes_symlink_replacement_rejected) ... ok
+test_rename_source_permission_change_rejected (test_verifier.ManifestTests.test_rename_source_permission_change_rejected) ... ok
+test_root_configuration_addition_rejected (test_verifier.ManifestTests.test_root_configuration_addition_rejected) ... ok
+test_root_phpunit_weakened_selection_rejected (test_verifier.ManifestTests.test_root_phpunit_weakened_selection_rejected) ... ok
+test_serena_project_configuration_rejected (test_verifier.ManifestTests.test_serena_project_configuration_rejected) ... ok
+test_serialization_external_and_immutable (test_verifier.ManifestTests.test_serialization_external_and_immutable) ... ok
+test_source_deletion_rejected (test_verifier.ManifestTests.test_source_deletion_rejected) ... ok
+test_symlink_directory_not_followed_and_target_change_rejected (test_verifier.ManifestTests.test_symlink_directory_not_followed_and_target_change_rejected) ... ok
+test_test_weakened_rejected (test_verifier.ManifestTests.test_test_weakened_rejected) ... ok
+test_unbound_baseline_source_rejected (test_verifier.ManifestTests.test_unbound_baseline_source_rejected) ... ok
+test_unexpected_empty_directory_rejected (test_verifier.ManifestTests.test_unexpected_empty_directory_rejected) ... ok
+test_unexpected_hidden_addition_rejected (test_verifier.ManifestTests.test_unexpected_hidden_addition_rejected) ... ok
+test_changed_aggregate_rejected (test_verifier.OriginalSuiteTests.test_changed_aggregate_rejected) ... ok
+test_duplicate_replacing_another_test_rejected (test_verifier.OriginalSuiteTests.test_duplicate_replacing_another_test_rejected) ... ok
+test_empty_junit_cannot_pass (test_verifier.OriginalSuiteTests.test_empty_junit_cannot_pass) ... ok
+test_failed_test_rejected (test_verifier.OriginalSuiteTests.test_failed_test_rejected) ... ok
+test_healthy_exact_identity_control (test_verifier.OriginalSuiteTests.test_healthy_exact_identity_control) ... ok
+test_list_inventory_bound_to_original_methods (test_verifier.OriginalSuiteTests.test_list_inventory_bound_to_original_methods) ... ok
+test_list_omitting_original_method_rejected (test_verifier.OriginalSuiteTests.test_list_omitting_original_method_rejected) ... ok
+test_missing_trusted_source_hashes_rejected (test_verifier.OriginalSuiteTests.test_missing_trusted_source_hashes_rejected) ... ok
+test_named_dataset_uses_phpunit11_event_id_convention (test_verifier.OriginalSuiteTests.test_named_dataset_uses_phpunit11_event_id_convention) ... ok
+test_omitted_test_rejected_even_if_aggregate_unchanged (test_verifier.OriginalSuiteTests.test_omitted_test_rejected_even_if_aggregate_unchanged) ... ok
+test_original_configuration_required (test_verifier.OriginalSuiteTests.test_original_configuration_required) ... ok
+test_same_totals_wrong_identity_rejected (test_verifier.OriginalSuiteTests.test_same_totals_wrong_identity_rejected) ... ok
+test_skipped_test_rejected (test_verifier.OriginalSuiteTests.test_skipped_test_rejected) ... ok
+test_wrong_dataset_rejected (test_verifier.OriginalSuiteTests.test_wrong_dataset_rejected) ... ok
+test_wrong_source_file_rejected (test_verifier.OriginalSuiteTests.test_wrong_source_file_rejected) ... ok
+test_wrong_source_line_rejected (test_verifier.OriginalSuiteTests.test_wrong_source_line_rejected) ... ok
+test_zero_assertions_rejected (test_verifier.OriginalSuiteTests.test_zero_assertions_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 0.870s
+
+OK
