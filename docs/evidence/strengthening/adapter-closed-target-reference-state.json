@@ -1,0 +1,13 @@
+[
+  {
+    "event": "position_text",
+    "uri": "file:///app/semantic/ClosedCaller.php",
+    "pid": 7115,
+    "selected_sha256": "92fb679b6af69f8dbf455ecfe0e0452ad83a065b1b18de83cfc8b012320a8968",
+    "disk_bytes_sha256": "92fb679b6af69f8dbf455ecfe0e0452ad83a065b1b18de83cfc8b012320a8968",
+    "disk_normalized_sha256": "92fb679b6af69f8dbf455ecfe0e0452ad83a065b1b18de83cfc8b012320a8968",
+    "open": false,
+    "version": null,
+    "transmitted_sha256": null
+  }
+]

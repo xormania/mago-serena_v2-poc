@@ -1,0 +1,52 @@
+{
+  "schema": 2,
+  "poc_base_commit": "41729d30d23459de1ba53023051eb55894fb33b9",
+  "dirty": true,
+  "mago_source_commit": "46df50c96d93d0ac3655c116c375574277cf0b30",
+  "current_next_server_remote": "46df50c96d93d0ac3655c116c375574277cf0b30",
+  "current_main_remote": "95a25d686a2b584c387326e466d6ead8c885465d",
+  "historical_snapshot": {
+    "validation_kind": "targeted actual Mago/adapter/MCP execution in existing development container; adapter and scenario copied for this reproduction; final rebuilt-image acceptance tracked separately",
+    "poc_base_commit": "41729d30d23459de1ba53023051eb55894fb33b9",
+    "dirty": true,
+    "mago_source_commit": "46df50c96d93d0ac3655c116c375574277cf0b30",
+    "current_next_server_remote": "46df50c96d93d0ac3655c116c375574277cf0b30",
+    "current_main_remote": "95a25d686a2b584c387326e466d6ead8c885465d",
+    "file_sha256": {
+      "adapter/src/serena_mago/server.py": "b045946f1889978632afdee284e1b3af1ade8c47e4ead335c0f431a39237ac0f",
+      "tests/integration/state_repro.py": "faf22ebd0f5a33defbda05f07ef7ba712f7e574f38994f071b270df6a8c9bb95",
+      "tests/integration/repro_mago_external_spans.py": "34368f318c4a61132b6bc7f983ddcf4841774589ed1d2ac3b1e0f7a62a1eec36"
+    },
+    "before_adapter_source": "git show 41729d30d23459de1ba53023051eb55894fb33b9:adapter/src/serena_mago/server.py",
+    "before_expected_fault": "actual closed target column 51, expected 50; assertion identifies stale text conversion",
+    "after_expected_pass": "actual closed target column50 equals50; direct native UTF16 51 vs codepoint50; MCP reference88 and exact rename/requery",
+    "mago_expected_negative": "direct wire reference40 expected51, rename -32803; fresh process control51 and rename succeeds",
+    "identity_scope": "Working-source snapshot captured after earlier targeted runs. Some adapter refinements occurred between those runs and this snapshot; these hashes are not an installed-runtime attestation for those earlier samples."
+  },
+  "attempts": [
+    {
+      "attempt_id": "targeted-dev-state-mcp-2",
+      "command": "./bin/poc exec -- env POC_STATE_MCP=1 python /opt/poc/tests/integration/state_repro.py",
+      "status": "pass",
+      "container_files_copied_for_probe": true,
+      "runtime_attestation": "docker exec sha256sum verified adapter and state_repro files equal these hashes after targeted execution; final immutable rebuilt-image acceptance recorded separately",
+      "file_sha256": {
+        "adapter/src/serena_mago/server.py": "1b7d3132971a1fd165e0184fb542a625f3170a7f94b2bde8f6ff3e5758d03baa",
+        "tests/integration/state_repro.py": "2afeb2d4d39256b99a85f3541ddea369ad666b71ac6564444b8ac7f8994c4763",
+        "tests/integration/repro_mago_external_spans.py": "34368f318c4a61132b6bc7f983ddcf4841774589ed1d2ac3b1e0f7a62a1eec36"
+      },
+      "log": "artifacts/dev/state-mcp-run2.log",
+      "closed_target_trace": "docs/evidence/strengthening/adapter-closed-target-reference-state.json",
+      "result": "docs/evidence/strengthening/adapter-state-mcp.json",
+      "base_image_id": "sha256:69209227054b80dce7279566d97baaa50e441581ceef5e02de2c8a7e35343935",
+      "container_files_modified_after_image_build": true
+    }
+  ],
+  "earlier_attempt_evidence_preserved": [
+    "adapter-state-before.txt",
+    "adapter-state-after.txt",
+    "artifacts/dev/closed-state-attempt.log",
+    "artifacts/dev/closed-state-barrier.log",
+    "artifacts/dev/closed-state-changebody.log"
+  ]
+}

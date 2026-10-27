@@ -1,0 +1,276 @@
+{
+  "warm_external_edit": [
+    {
+      "direction": "receive",
+      "message": {
+        "jsonrpc": "2.0",
+        "result": [
+          {
+            "name": "CloseTarget",
+            "kind": 5,
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 6
+              },
+              "end": {
+                "line": 0,
+                "character": 71
+              }
+            },
+            "selectionRange": {
+              "start": {
+                "line": 0,
+                "character": 12
+              },
+              "end": {
+                "line": 0,
+                "character": 23
+              }
+            },
+            "children": [
+              {
+                "name": "target",
+                "kind": 6,
+                "range": {
+                  "start": {
+                    "line": 0,
+                    "character": 26
+                  },
+                  "end": {
+                    "line": 0,
+                    "character": 69
+                  }
+                },
+                "selectionRange": {
+                  "start": {
+                    "line": 0,
+                    "character": 42
+                  },
+                  "end": {
+                    "line": 0,
+                    "character": 48
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "id": 2
+      }
+    },
+    {
+      "direction": "send",
+      "message": {
+        "method": "textDocument/didClose",
+        "params": {
+          "textDocument": {
+            "uri": "file:///tmp/mago-span-nwceb2ry/Target.php"
+          }
+        }
+      }
+    },
+    {
+      "direction": "receive",
+      "message": {
+        "jsonrpc": "2.0",
+        "result": [
+          {
+            "name": "use_target",
+            "kind": 12,
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 6
+              },
+              "end": {
+                "line": 0,
+                "character": 71
+              }
+            },
+            "selectionRange": {
+              "start": {
+                "line": 0,
+                "character": 15
+              },
+              "end": {
+                "line": 0,
+                "character": 25
+              }
+            }
+          }
+        ],
+        "id": 3
+      }
+    },
+    {
+      "direction": "send",
+      "message": {
+        "method": "workspace/didChangeWatchedFiles",
+        "params": {
+          "changes": [
+            {
+              "uri": "file:///tmp/mago-span-nwceb2ry/Target.php",
+              "type": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "direction": "send",
+      "message": {
+        "id": 4,
+        "method": "textDocument/references",
+        "params": {
+          "textDocument": {
+            "uri": "file:///tmp/mago-span-nwceb2ry/Caller.php"
+          },
+          "position": {
+            "line": 0,
+            "character": 60
+          },
+          "context": {
+            "includeDeclaration": true
+          }
+        }
+      }
+    },
+    {
+      "direction": "receive",
+      "message": {
+        "jsonrpc": "2.0",
+        "result": [
+          {
+            "uri": "file:///tmp/mago-span-nwceb2ry/Caller.php",
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 60
+              },
+              "end": {
+                "line": 0,
+                "character": 66
+              }
+            }
+          },
+          {
+            "uri": "file:///tmp/mago-span-nwceb2ry/Target.php",
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 40
+              },
+              "end": {
+                "line": 0,
+                "character": 46
+              }
+            }
+          }
+        ],
+        "id": 4
+      }
+    },
+    {
+      "direction": "send",
+      "message": {
+        "id": 5,
+        "method": "textDocument/rename",
+        "params": {
+          "textDocument": {
+            "uri": "file:///tmp/mago-span-nwceb2ry/Caller.php"
+          },
+          "position": {
+            "line": 0,
+            "character": 60
+          },
+          "newName": "renamed"
+        }
+      }
+    },
+    {
+      "direction": "receive",
+      "message": {
+        "jsonrpc": "2.0",
+        "error": {
+          "code": -32803,
+          "message": "Cannot rename to \"renamed\": the server's index is out of date; try again after the next analysis."
+        },
+        "id": 5
+      }
+    }
+  ],
+  "fresh_process_control": [
+    {
+      "direction": "send",
+      "message": {
+        "id": 2,
+        "method": "textDocument/references",
+        "params": {
+          "textDocument": {
+            "uri": "file:///tmp/mago-span-nwceb2ry/Caller.php"
+          },
+          "position": {
+            "line": 0,
+            "character": 60
+          },
+          "context": {
+            "includeDeclaration": true
+          }
+        }
+      }
+    },
+    {
+      "direction": "receive",
+      "message": {
+        "jsonrpc": "2.0",
+        "result": [
+          {
+            "uri": "file:///tmp/mago-span-nwceb2ry/Caller.php",
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 60
+              },
+              "end": {
+                "line": 0,
+                "character": 66
+              }
+            }
+          },
+          {
+            "uri": "file:///tmp/mago-span-nwceb2ry/Target.php",
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 51
+              },
+              "end": {
+                "line": 0,
+                "character": 57
+              }
+            }
+          }
+        ],
+        "id": 2
+      }
+    },
+    {
+      "direction": "send",
+      "message": {
+        "id": 3,
+        "method": "textDocument/rename",
+        "params": {
+          "textDocument": {
+            "uri": "file:///tmp/mago-span-nwceb2ry/Caller.php"
+          },
+          "position": {
+            "line": 0,
+            "character": 60
+          },
+          "newName": "renamed"
+        }
+      }
+    }
+  ]
+}
