@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+"""Run the pinned Mago PHP toolchain in a selected PoC workspace."""
+import argparse
+import sys
+
+from magolib import invoke, selected
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--run', required=True)
+    parser.add_argument('argv', nargs=argparse.REMAINDER)
+    args = parser.parse_args()
+    argv = args.argv[1:] if args.argv[:1] == ['--'] else args.argv
+    if not argv:
+        parser.error('Supply Mago arguments after --, for example analyze --reporting-format json')
+    return invoke(selected(args.run), argv)
+
+
+if __name__ == '__main__':
+    try:
+        sys.exit(main())
+    except (RuntimeError, ValueError, AssertionError, OSError) as exc:
+        print(f'mago: {exc}', file=sys.stderr)
+        sys.exit(3)

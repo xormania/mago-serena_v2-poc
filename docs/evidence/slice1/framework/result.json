@@ -1,0 +1,44 @@
+{
+  "status": "pass",
+  "run_id": "framework-check",
+  "service": "App\\Form\\Type\\TagsInputType",
+  "preparation_id": "prepare-000244fc4af9417a9b4ef88ccf37cd08",
+  "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/framework-check/framework/0df62ae2cb124c809e377c4c67d58e04",
+  "controls": {
+    "missing-service": "pass",
+    "unknown-run": "pass",
+    "wrong-project": "pass",
+    "wrong-workspace": "pass",
+    "stale-source": "pass",
+    "stale-source-abbreviated-command": "pass",
+    "absent-compiled-metadata": "pass",
+    "stale-compiled-metadata": "pass",
+    "absent-wiring-reference": "pass",
+    "owner-instruction-preservation": "pass",
+    "extension-off-on": "pass",
+    "invalid-binding-removed-and-restored": "pass"
+  },
+  "compiled_wiring": {
+    "status": "pass",
+    "service_id": "App\\Form\\Type\\TagsInputType",
+    "class": "App\\Form\\Type\\TagsInputType",
+    "constructor_parameter": "tags",
+    "dependency_id": "App\\Repository\\TagRepository",
+    "dependency_class": "App\\Repository\\TagRepository",
+    "context": "inspection-dev",
+    "normalization": "Direct reference at constructor position 0; no alias or inlining in this fixture."
+  },
+  "extension": {
+    "status": "pass",
+    "backend": "php",
+    "mago_source": "46df50c96d93d0ac3655c116c375574277cf0b30",
+    "extension_source": "28c3f54065b71fe046a7474ced401aeadc941b0f",
+    "contribution": "TagRepository::__construct -> Doctrine\\Bundle\\DoctrineBundle\\Registry Body edge",
+    "direct_service_boundary": "TagsInputType -> TagRepository already has a native Signature edge; Mago suppresses duplicate Body edges.",
+    "native_issue_counts": {
+      "off": 30,
+      "on": 30
+    },
+    "clean_application_claim": false
+  }
+}

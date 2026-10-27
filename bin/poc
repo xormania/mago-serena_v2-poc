@@ -140,7 +140,7 @@ def test():
         for suffix, data in (('a', a), ('b', b)):
             record('phpunit_'+suffix, lambda d=data: phpunit(d), 'Exact original test identities and datasets pass without skips')
         record('application_checks', lambda: execute(a, '/opt/poc/docker/check', log=evidence/'application-checks.log').returncode,
-               'Upstream Composer, lint, service/entity, PHP-CS-Fixer and PHPStan checks pass')
+               'Composer, Symfony resource linters and service/entity validation pass; PHP quality uses the separate Mago slice')
         record('trusted_baseline', baseline, 'Complete manifests and test inventories sealed before semantic operations')
         result = execute(a, 'python', '/opt/poc/tests/integration/run.py', log=evidence/'integration.log', check=False)
         core = json.loads((evidence/'integration-results.json').read_text())
@@ -195,6 +195,16 @@ def main():
     doctor.add_argument('--run', default='dev')
     sub.add_parser('fast', help='Run deterministic property/verifier/evidence/mocked-provider tests without Docker')
     sub.add_parser('test', help='Run two isolated Demo baselines and the real MCP/LSP acceptance matrix')
+    mate_prepare = sub.add_parser('mate-prepare', help='Install the locked inspection overlay and refresh dev metadata')
+    mate_prepare.add_argument('--run', required=True)
+    mago = sub.add_parser('mago', help='Run Mago with explicit configuration in the selected workspace')
+    mago.add_argument('--run', required=True)
+    mago.add_argument('argv', nargs=argparse.REMAINDER)
+    quality = sub.add_parser('quality', help='Record native Mago analysis, lint and scoped formatting results')
+    quality.add_argument('--run', required=True)
+    slice1 = sub.add_parser('slice1', help='Run the combined Mago-first service, Symfony wiring and behavior proof')
+    slice1.add_argument('--run', help='Owned workspace id; defaults to a fresh isolated run')
+    slice1.add_argument('--keep-running', action='store_true')
     sub.add_parser('agent-task', help='Prepare a fresh real-agent workspace and exact MCP configuration')
     verify = sub.add_parser('verify-agent', help='Independently verify an agent run, its MCP transcript and original tests')
     verify.add_argument('run_id')
@@ -224,6 +234,30 @@ def main():
         return fast()
     elif args.command == 'test':
         return test()
+    elif args.command == 'mate-prepare':
+        from matelib import prepare_mate, selected
+        prepare_mate(selected(args.run))
+    elif args.command == 'mago':
+        from magolib import invoke, selected
+        argv = args.argv[1:] if args.argv[:1] == ['--'] else args.argv
+        if not argv:
+            raise ValueError('Supply Mago arguments after --')
+        return invoke(selected(args.run), argv)
+    elif args.command == 'quality':
+        from magolib import quality, selected
+        result = quality(selected(args.run))
+        print(json.dumps(result, indent=2))
+        return max(row['exit'] if row['exit'] >= 0 else 128-row['exit'] for row in result['commands'])
+    elif args.command == 'slice1':
+        # Semantic replay is host-side and needs the same locked MCP packages as
+        # fast tests. Other orchestration commands deliberately use stdlib only.
+        if Path(sys.prefix).resolve() != (ROOT/'.venv').resolve():
+            python = ROOT/'.venv/bin/python'
+            if not python.is_file():
+                raise RuntimeError('Run uv sync --frozen --python 3.12 before slice1')
+            os.execv(str(python), [str(python), str(ROOT/'bin/poc'), *sys.argv[1:]])
+        from slice1lib import run_slice
+        return run_slice(args.run, keep_running=args.keep_running, capture_identity=capture_identity)
     elif args.command == 'report':
         return report(args.run_id)
     elif args.command == 'down':

@@ -1,0 +1,197 @@
+{
+    "tools": {
+        "server-info": {
+            "name": "server-info",
+            "description": "Get PHP runtime environment details: version, OS, OS family, and loaded extensions",
+            "handler": "Symfony\\AI\\Mate\\Capability\\ServerInfo::getInfo",
+            "input_schema": {
+                "type": "object",
+                "properties": {}
+            },
+            "extension": "symfony/ai-mate"
+        },
+        "symfony-profiler-list": {
+            "name": "symfony-profiler-list",
+            "description": "List and filter Symfony profiler profiles by HTTP method, URL, IP, status code, date range, or context. Profiles are sorted by most recent first, so limit=1 returns the latest profile. Returns summary data with resource_uri for fetching full details via the resource template.",
+            "handler": "Symfony\\AI\\Mate\\Bridge\\Symfony\\Capability\\ProfilerTool::listProfiles",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "integer",
+                        "description": "Maximum number of profiles to return (use limit=1 to get the latest profile)",
+                        "default": 20
+                    },
+                    "method": {
+                        "type": [
+                            "null",
+                            "string"
+                        ],
+                        "description": "Filter by HTTP method (GET, POST, PUT, DELETE, PATCH)",
+                        "default": null
+                    },
+                    "url": {
+                        "type": [
+                            "null",
+                            "string"
+                        ],
+                        "description": "Filter by URL path (partial match supported)",
+                        "default": null
+                    },
+                    "ip": {
+                        "type": [
+                            "null",
+                            "string"
+                        ],
+                        "description": "Filter by client IP address",
+                        "default": null
+                    },
+                    "statusCode": {
+                        "type": [
+                            "null",
+                            "integer"
+                        ],
+                        "description": "Filter by HTTP response status code (e.g. 200, 404, 500)",
+                        "default": null
+                    },
+                    "context": {
+                        "type": [
+                            "null",
+                            "string"
+                        ],
+                        "description": "Filter by Symfony kernel context",
+                        "default": null
+                    },
+                    "from": {
+                        "type": [
+                            "null",
+                            "string"
+                        ],
+                        "description": "Start date filter for profile creation time",
+                        "default": null
+                    },
+                    "to": {
+                        "type": [
+                            "null",
+                            "string"
+                        ],
+                        "description": "End date filter for profile creation time",
+                        "default": null
+                    }
+                }
+            },
+            "extension": "symfony/ai-symfony-mate-extension"
+        },
+        "symfony-profiler-get": {
+            "name": "symfony-profiler-get",
+            "description": "Get a specific profiler profile by its token. Returns detailed profile data including available collectors and resource_uri for accessing collector-specific data.",
+            "handler": "Symfony\\AI\\Mate\\Bridge\\Symfony\\Capability\\ProfilerTool::getProfile",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "token": {
+                        "type": "string",
+                        "description": "The unique profiler token identifying the profile"
+                    }
+                },
+                "required": [
+                    "token"
+                ]
+            },
+            "extension": "symfony/ai-symfony-mate-extension"
+        },
+        "symfony-services": {
+            "name": "symfony-services",
+            "description": "Search Symfony dependency injection container services. Optionally filter by service ID, class name, or tag name. Returns the matches under \"services\", the number of matches as \"count\", and whether the map was cut short as \"truncated\". When multiple kernel contexts are configured, that result is nested per context and can be narrowed with the context parameter.",
+            "handler": "Symfony\\AI\\Mate\\Bridge\\Symfony\\Capability\\ServiceTool::getServices",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": [
+                            "null",
+                            "string"
+                        ],
+                        "description": "Filter by service ID or class name (case-insensitive partial match)",
+                        "default": null
+                    },
+                    "tag": {
+                        "type": [
+                            "null",
+                            "string"
+                        ],
+                        "description": "Filter by DI tag name (e.g. kernel.event_listener, twig.extension)",
+                        "default": null
+                    },
+                    "context": {
+                        "type": [
+                            "null",
+                            "string"
+                        ],
+                        "description": "Filter by Symfony kernel context, only relevant when multiple cache directories are configured",
+                        "default": null
+                    },
+                    "limit": {
+                        "type": "integer",
+                        "description": "Maximum number of services to return, per context",
+                        "default": 100
+                    }
+                }
+            },
+            "extension": "symfony/ai-symfony-mate-extension"
+        },
+        "symfony-service-detail": {
+            "name": "symfony-service-detail",
+            "description": "Get full details of a single Symfony DI container service by its exact ID, including class, tags, method calls, constructor arguments, factory information and the definition flags debug:container reports (public, synthetic, lazy, shared, abstract, autowired, autoconfigured). Constructor arguments show which services are wired in, including the entries of a collection, such as the middleware list of a messenger bus. Scalar values are redacted when their parameter name looks like a secret, or when the parameter cannot be identified. When multiple kernel contexts are configured, the containers are searched in order and the result carries the context it was found in.",
+            "handler": "Symfony\\AI\\Mate\\Bridge\\Symfony\\Capability\\ServiceTool::getServiceDetail",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The exact service ID to retrieve details for"
+                    },
+                    "context": {
+                        "type": [
+                            "null",
+                            "string"
+                        ],
+                        "description": "Filter by Symfony kernel context, only relevant when multiple cache directories are configured",
+                        "default": null
+                    }
+                },
+                "required": [
+                    "id"
+                ]
+            },
+            "extension": "symfony/ai-symfony-mate-extension"
+        },
+        "symfony-dotenv-check": {
+            "name": "symfony-dotenv-check",
+            "description": "Report which .env* files declare each environment variable and whether it resolves to a non-empty value at runtime, distinguishing a value that comes from a project file from one that only resolves because of the ambient shell/CI environment. Never returns a raw value: only a masked length+first/last-character preview and a placeholder guess. Pass \"key\" to check one specific variable name directly, even one declared in no file.",
+            "handler": "Symfony\\AI\\Mate\\Bridge\\Symfony\\Capability\\DotenvTool::check",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "type": [
+                            "null",
+                            "string"
+                        ],
+                        "description": "Check exactly this variable name, even if it is declared in no project",
+                        "default": null
+                    },
+                    "limit": {
+                        "type": "integer",
+                        "description": "Maximum number of variables to return when listing (ignored when `key` is given)",
+                        "default": 200
+                    }
+                }
+            },
+            "extension": "symfony/ai-symfony-mate-extension"
+        }
+    },
+    "summary": {
+        "total": 6
+    }
+}

@@ -1,0 +1,4 @@
+extends = "/app/.mago/wiring.toml"
+[extension-hosts.php]
+working-directory = "/app"
+command = ["python", "/evidence/service-semantics/propagation-dfec5168/worker-launch.py", "env", "MAGO_EXTENSION_BACKEND=php", "MAGO_SYMFONY_WIRING_ATTESTATION=1", "php", "-d", "display_errors=stderr", "-d", "memory_limit=1G", ".mago/extensions.php"]

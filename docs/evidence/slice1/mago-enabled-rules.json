@@ -1,0 +1,1641 @@
+[
+  {
+    "name": "Array Style",
+    "code": "array-style",
+    "description": "Suggests using the short array style `[..]` instead of the long array style `array(..)`,\nor vice versa, depending on the configuration. The short array style is more concise and\nis the preferred way to define arrays in PHP.\n",
+    "good_example": "<?php\n\n// By default, `style` is 'short', so this snippet is valid:\n$arr = [1, 2, 3];\n",
+    "bad_example": "<?php\n\n// By default, 'short' is enforced, so array(...) triggers a warning:\n$arr = array(1, 2, 3);\n",
+    "category": "Consistency",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Note"
+  },
+  {
+    "name": "Assert Description",
+    "code": "assert-description",
+    "description": "Detects assert functions that do not have a description.\n\nAssert functions should have a description to make it easier to understand the purpose of the assertion.\n",
+    "good_example": "<?php\n\nassert($user->isActivated(), 'User MUST be activated at this point.');\n",
+    "bad_example": "<?php\n\nassert($user->isActivated());\n",
+    "category": "Correctness",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Assertion Style",
+    "code": "assertion-style",
+    "description": "Enforces a consistent style for PHPUnit assertion calls within test methods.\n\nMaintaining a consistent style (e.g., always using `static::` or `$this->`)\nimproves code readability and helps enforce team-wide coding standards in test suites.\nThis rule can be configured to enforce the preferred style.\n",
+    "good_example": "<?php\n// configured style: \"static\"\nfinal class SomeTest extends TestCase\n{\n    public function testSomething(): void\n    {\n        static::assertTrue(true);\n    }\n}\n",
+    "bad_example": "<?php\n// configured style: \"static\"\nfinal class SomeTest extends TestCase\n{\n    public function testSomething(): void\n    {\n        $this->assertTrue(true); // Incorrect style\n        self::assertFalse(false); // Incorrect style\n    }\n}\n",
+    "category": "Consistency",
+    "requirements": {
+      "php-versions": [],
+      "integrations": [
+        524288
+      ]
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Block Statement",
+    "code": "block-statement",
+    "description": "Enforces that `if`, `else`, `for`, `foreach`, `while`, `do-while` statements always use a block\nstatement body (`{ ... }`) even if they contain only a single statement.\n\nThis improves readability and prevents potential errors when adding new statements.\n",
+    "good_example": "<?php\n\nif (true) {\n    echo \"Hello\";\n}\n\nfor ($i = 0; $i < 10; $i++) {\n    echo $i;\n}\n",
+    "bad_example": "<?php\n\nif (true)\n    echo \"Hello\";\n\nfor ($i = 0; $i < 10; $i++)\n    echo $i;\n",
+    "category": "Consistency",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Note"
+  },
+  {
+    "name": "Braced String Interpolation",
+    "code": "braced-string-interpolation",
+    "description": "Enforces the use of curly braces around variables within string interpolation.\n\nUsing curly braces (`{$variable}`) within interpolated strings ensures clarity and avoids potential ambiguity,\nespecially when variables are followed by alphanumeric characters. This rule promotes consistent and predictable code.\n",
+    "good_example": "<?php\n\n$a = \"Hello, {$name}!\";\n$b = \"Hello, {$name}!\";\n$c = \"Hello, {$$name}!\";\n$d = \"Hello, {${$object->getMethod()}}!\";\n",
+    "bad_example": "<?php\n\n$a = \"Hello, $name!\";\n$b = \"Hello, ${name}!\";\n$c = \"Hello, ${$name}!\";\n$d = \"Hello, ${$object->getMethod()}!\";\n",
+    "category": "Consistency",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Note"
+  },
+  {
+    "name": "Class Name",
+    "code": "class-name",
+    "description": "Detects class declarations that do not follow class naming convention.\n\nClass names should be in class case, also known as PascalCase.\n",
+    "good_example": "<?php\n\nclass MyClass {}\n",
+    "bad_example": "<?php\n\nclass my_class {}\n\nclass myClass {}\n\nclass MY_CLASS {}\n",
+    "category": "Consistency",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "Combine Consecutive Issets",
+    "code": "combine-consecutive-issets",
+    "description": "Suggests combining consecutive calls to `isset()` when they are joined by a logical AND.\n\nFor example, `isset($a) && isset($b)` can be turned into `isset($a, $b)`, which is more concise\nand avoids repeated function calls. If one or both `isset()` calls are wrapped in parentheses,\nthe rule will still warn, but it will not attempt an automated fix.\n",
+    "good_example": "<?php\n\nif (isset($a, $b)) {\n    // ...\n}\n",
+    "bad_example": "<?php\n\nif (isset($a) && isset($b)) {\n    // ...\n}\n",
+    "category": "BestPractices",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Constant Name",
+    "code": "constant-name",
+    "description": "Detects constant declarations that do not follow constant naming convention.\n\nConstant names should be in constant case, also known as UPPER_SNAKE_CASE.\n",
+    "good_example": "<?php\n\nconst MY_CONSTANT = 42;\n\nclass MyClass {\n    public const int MY_CONSTANT = 42;\n}\n",
+    "bad_example": "<?php\n\nconst myConstant = 42;\nconst my_constant = 42;\nconst My_Constant = 42;\n\nclass MyClass {\n    public const int myConstant = 42;\n    public const int my_constant = 42;\n    public const int My_Constant = 42;\n}\n",
+    "category": "Consistency",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "Cyclomatic Complexity",
+    "code": "cyclomatic-complexity",
+    "description": "Checks the cyclomatic complexity of classes, traits, enums, interfaces, functions, and closures.\n\nCyclomatic complexity is a measure of the number of linearly independent paths through a program's source code.\n",
+    "good_example": "<?php\n\nfunction validateUser($user) {\n    if (!isValidEmail($user['email'])) {\n        return false;\n    }\n\n    if (!isValidAge($user['age'])) {\n        return false;\n    }\n\n    if (!hasRequiredFields($user)) {\n        return false;\n    }\n\n    return true;\n}\n\nfunction isValidEmail($email) {\n    return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;\n}\n\nfunction isValidAge($age) {\n    return $age >= 18 && $age <= 120;\n}\n\nfunction hasRequiredFields($user) {\n    return isset($user['name']) && isset($user['email']);\n}\n",
+    "bad_example": "<?php\n\nfunction validateUser($user) {\n    if (!isset($user['email'])) {\n        return false;\n    }\n\n    if (!filter_var($user['email'], FILTER_VALIDATE_EMAIL)) {\n        return false;\n    }\n\n    if (!isset($user['age'])) {\n        return false;\n    }\n\n    if ($user['age'] < 18) {\n        return false;\n    }\n\n    if ($user['age'] > 120) {\n        return false;\n    }\n\n    if (!isset($user['name'])) {\n        return false;\n    }\n\n    if (strlen($user['name']) < 2) {\n        return false;\n    }\n\n    if (!isset($user['country'])) {\n        return false;\n    }\n\n    if (!in_array($user['country'], ['US', 'UK', 'CA'])) {\n        return false;\n    }\n\n    if (isset($user['phone'])) {\n        if (!preg_match('/^\\d{10}$/', $user['phone'])) {\n            return false;\n        }\n    }\n\n    if (isset($user['preferences'])) {\n        if (is_array($user['preferences'])) {\n            foreach ($user['preferences'] as $key => $value) {\n                if ($key === 'newsletter') {\n                    if ($value !== true && $value !== false) {\n                        return false;\n                    }\n                }\n            }\n        }\n    }\n\n    if (isset($user['address'])) {\n        if (!isset($user['address']['street'])) {\n            return false;\n        }\n        if (!isset($user['address']['city'])) {\n            return false;\n        }\n    }\n\n    return true;\n}\n",
+    "category": "Maintainability",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "Disallowed Functions",
+    "code": "disallowed-functions",
+    "description": "Flags calls to functions that are disallowed via rule configuration.\n\nYou can specify which functions or extensions should be disallowed through the\n`functions` or `extensions` options. This helps enforce coding standards,\nsecurity restrictions, or the usage of preferred alternatives.\n\nEach entry can be a simple string or an object with `name`, an optional `help`,\nand an optional `level` that supersedes the top-level `level` for that entry:\n\n```toml\nfunctions = [\n    'eval',\n    { name = 'error_log', help = 'Use MyLogger instead.' },\n    { name = 'var_dump', level = 'error' },\n    { name = 'var_dump', help = 'Do not commit debug code.', level = 'error' },\n]\n```\n",
+    "good_example": "<?php\n\nfunction allowed_function(): void {\n    // ...\n}\n\nallowed_function(); // Not flagged\n",
+    "bad_example": "<?php\n\ncurl_init(); // Error: part of a disallowed extension\n",
+    "category": "Security",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Enum Name",
+    "code": "enum-name",
+    "description": "Detects enum declarations that do not follow class naming convention.\n\nEnum names should be in class case, also known as PascalCase.\n",
+    "good_example": "<?php\n\nenum MyEnum {}\n",
+    "bad_example": "<?php\n\nenum my_enum {}\nenum myEnum {}\nenum MY_ENUM {}\n",
+    "category": "Consistency",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "Excessive Nesting",
+    "code": "excessive-nesting",
+    "description": "Checks if the nesting level in any block exceeds a configurable threshold.\n\nDeeply nested code is harder to read, understand, and maintain.\nConsider refactoring to use early returns, helper methods, or clearer control flow.\n\nThe `function-like-threshold` option allows setting a separate, typically lower,\nthreshold for individual functions, methods, closures, and property hooks.\n",
+    "good_example": "<?php\n\nif ($condition) {\n    while ($otherCondition) {\n        echo \"Hello\"; // nesting depth = 2\n    }\n}\n",
+    "bad_example": "<?php\n\nif ($a) {\n    if ($b) {\n        if ($c) {\n            if ($d) {\n                if ($e) {\n                    if ($f) {\n                        if ($g) {\n                            if ($h) {\n                                echo \"Too deeply nested!\";\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n",
+    "category": "Maintainability",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Excessive Parameter List",
+    "code": "excessive-parameter-list",
+    "description": "Detects functions, closures, and methods with too many parameters.\n\nIf the number of parameters exceeds a configurable threshold, an issue is reported.\n",
+    "good_example": "<?php\n\nfunction processOrder($orderId, $userId, $total, $status, $date) {\n    return true;\n}\n",
+    "bad_example": "<?php\n\nfunction createUser($name, $email, $password, $age, $country, $city, $zipCode) {\n    return true;\n}\n",
+    "category": "Maintainability",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "Final Controller",
+    "code": "final-controller",
+    "description": "Enforces that controller classes are declared as `final`.\n\nIn modern MVC frameworks, controllers should be treated as entry points that orchestrate the application's response to a request. They are not designed to be extension points.\n\nExtending controllers can lead to deep inheritance chains, making the codebase rigid and difficult to maintain. It's a best practice to favor composition (injecting services for shared logic) over inheritance.\n\nIf a controller is intended as a base for others, it should be explicitly marked as `abstract`. All other concrete controllers should be `final` to prevent extension.\n",
+    "good_example": "<?php\n\nnamespace App\\Http\\Controllers;\n\nfinal class UserController\n{\n    // ...\n}\n",
+    "bad_example": "<?php\n\nnamespace App\\Http\\Controllers;\n\nclass UserController\n{\n    // ...\n}\n",
+    "category": "BestPractices",
+    "requirements": {
+      "php-versions": [],
+      "integrations": [
+        64,
+        128,
+        256,
+        1024,
+        2048,
+        4096
+      ]
+    },
+    "level": "Error"
+  },
+  {
+    "name": "Halstead",
+    "code": "halstead",
+    "description": "Computes Halstead metrics (volume, difficulty, effort) and reports if they exceed configured thresholds.\n\nHalstead metrics are calculated by counting operators and operands in the analyzed code.\nFor more info: https://en.wikipedia.org/wiki/Halstead_complexity_measures\n",
+    "good_example": "<?php\n\nfunction processOrderData($orders) {\n    $filtered = filterValidOrders($orders);\n    $totals = calculateTotals($filtered);\n    return applyDiscounts($totals);\n}\n\nfunction filterValidOrders($orders) {\n    return array_filter($orders, fn($order) => $order['status'] === 'valid');\n}\n\nfunction calculateTotals($orders) {\n    return array_map(fn($order) => $order['price'] * $order['quantity'], $orders);\n}\n\nfunction applyDiscounts($totals) {\n    return array_map(fn($total) => $total > 100 ? $total * 0.9 : $total, $totals);\n}\n",
+    "bad_example": "<?php\n\nfunction processOrderData($orders) {\n    $result = [];\n    $total1 = 0;\n    $total2 = 0;\n    $total3 = 0;\n    $discount1 = 0;\n    $discount2 = 0;\n    $discount3 = 0;\n    $count1 = 0;\n    $count2 = 0;\n    $count3 = 0;\n    $sum1 = 0;\n    $sum2 = 0;\n    $sum3 = 0;\n\n    for ($i = 0; $i < count($orders); $i++) {\n        $order = $orders[$i];\n        if ($order['status'] === 'pending') {\n            $price = $order['price'];\n            $quantity = $order['quantity'];\n            $subtotal = $price * $quantity;\n            $total1 = $total1 + $subtotal;\n\n            if ($subtotal > 100) {\n                $discount1 = $subtotal * 0.1;\n                $total1 = $total1 - $discount1;\n                $count1 = $count1 + 1;\n            }\n\n            if ($subtotal > 200) {\n                $discount2 = $subtotal * 0.15;\n                $total2 = $total2 + $subtotal - $discount2;\n                $count2 = $count2 + 1;\n            }\n\n            if ($subtotal > 300) {\n                $discount3 = $subtotal * 0.2;\n                $total3 = $total3 + $subtotal - $discount3;\n                $count3 = $count3 + 1;\n            }\n\n            $sum1 = $sum1 + $price;\n            $sum2 = $sum2 + $quantity;\n            $sum3 = $sum3 + $subtotal;\n\n            for ($j = 0; $j < $quantity; $j++) {\n                $itemCost = $price / $quantity;\n                $taxRate = 0.08;\n                $tax = $itemCost * $taxRate;\n                $finalCost = $itemCost + $tax;\n                $sum1 = $sum1 + $finalCost;\n\n                if ($finalCost > 50) {\n                    $extraDiscount = $finalCost * 0.05;\n                    $sum2 = $sum2 + $extraDiscount;\n                }\n            }\n        }\n    }\n\n    $result['total1'] = $total1;\n    $result['total2'] = $total2;\n    $result['total3'] = $total3;\n    $result['count1'] = $count1;\n    $result['count2'] = $count2;\n    $result['count3'] = $count3;\n    $result['sum1'] = $sum1;\n    $result['sum2'] = $sum2;\n    $result['sum3'] = $sum3;\n\n    return $result;\n}\n",
+    "category": "Maintainability",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Kan Defect",
+    "code": "kan-defect",
+    "description": "Detects classes, traits, interfaces, functions, and closures with high kan defect.\n\nThe \"Kan Defect\" metric is a heuristic for estimating defect proneness in a class or similar structure.\nIt counts control-flow statements (`while`, `do`, `foreach`, `if`, and `switch`) and sums them using a\nformula loosely based on the work of Stephen H. Kan.\n\nReferences:\n  - https://github.com/phpmetrics/PhpMetrics/blob/c43217cd7783bbd54d0b8c1dd43f697bc36ef79d/src/Hal/Metric/Class_/Complexity/KanDefectVisitor.php\n  - https://phpmetrics.org/\n",
+    "good_example": "<?php\n\nfunction handleRequest($request) {\n    $validated = validateRequest($request);\n    $processed = processRequest($validated);\n    return formatResponse($processed);\n}\n\nfunction validateRequest($request) {\n    if (empty($request['type'])) {\n        return null;\n    }\n    return $request;\n}\n\nfunction processRequest($request) {\n    return match($request['type']) {\n        'create' => createResource($request),\n        'update' => updateResource($request),\n        'delete' => deleteResource($request),\n        default => null\n    };\n}\n\nfunction formatResponse($data) {\n    return ['status' => 'success', 'data' => $data];\n}\n",
+    "bad_example": "<?php\n\nfunction handleRequest($request) {\n    if (empty($request)) {\n        return null;\n    }\n\n    if (!isset($request['type'])) {\n        return null;\n    }\n\n    switch ($request['type']) {\n        case 'create':\n            if (!isset($request['data'])) {\n                return null;\n            }\n            break;\n        case 'update':\n            if (!isset($request['id'])) {\n                return null;\n            }\n            break;\n        case 'delete':\n            if (!isset($request['id'])) {\n                return null;\n            }\n            break;\n    }\n\n    if (isset($request['filters'])) {\n        foreach ($request['filters'] as $key => $value) {\n            switch ($key) {\n                case 'status':\n                    if ($value === 'active') {\n                        // filter\n                    }\n                    break;\n                case 'category':\n                    if (!empty($value)) {\n                        // filter\n                    }\n                    break;\n            }\n        }\n    }\n\n    while (!empty($request['items'])) {\n        $item = array_shift($request['items']);\n        if ($item['valid']) {\n            foreach ($item['tags'] as $tag) {\n                if ($tag === 'important') {\n                    // process\n                }\n            }\n        }\n    }\n\n    foreach ($request['metadata'] as $meta) {\n        switch ($meta['type']) {\n            case 'timestamp':\n                break;\n            case 'user':\n                break;\n        }\n    }\n\n    return ['status' => 'success'];\n}\n",
+    "category": "Maintainability",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "Literal Named Argument",
+    "code": "literal-named-argument",
+    "description": "Enforces that literal values used as arguments in function or method calls\nare passed as **named arguments**.\n\nThis improves readability by clarifying the purpose of the literal value at the call site.\nIt is particularly helpful for boolean flags, numeric constants, and `null` values\nwhere the intent is often ambiguous without the parameter name.\n",
+    "good_example": "<?php\n\nfunction set_option(string $key, bool $enable_feature) {}\n\nset_option(key: 'feature_x', enable_feature: true); // ✅ clear intent\n",
+    "bad_example": "<?php\n\nfunction set_option(string $key, bool $enable_feature) {}\n\nset_option('feature_x', true); // ❌ intent unclear\n",
+    "category": "Clarity",
+    "requirements": {
+      "php-versions": [
+        {
+          "min": "8.0.0",
+          "max": null
+        }
+      ],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Loop Does Not Iterate",
+    "code": "loop-does-not-iterate",
+    "description": "Detects loops (for, foreach, while, do-while) that unconditionally break or return\nbefore executing even a single iteration. Such loops are misleading or redundant\nsince they give the impression of iteration but never actually do so.\n",
+    "good_example": "<?php\n\nfor ($i = 0; $i < 3; $i++) {\n    echo $i;\n    if ($some_condition) {\n        break; // This break is conditional.\n    }\n}\n",
+    "bad_example": "<?php\n\nfor ($i = 0; $i < 3; $i++) {\n    break; // The loop never truly iterates, as this break is unconditional.\n}\n",
+    "category": "BestPractices",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Lowercase Keyword",
+    "code": "lowercase-keyword",
+    "description": "Enforces that PHP keywords (like `if`, `else`, `return`, `function`, etc.) be written\nin lowercase. Using uppercase or mixed case is discouraged for consistency and readability.\n\nWhen the `drupal` integration is enabled, `TRUE`, `FALSE`, and `NULL` are exempted to\nmatch Drupal's coding standards (and the `drupal` formatter preset).\n",
+    "good_example": "<?php\n\nif (true) {\n    echo \"All keywords in lowercase\";\n} else {\n    return;\n}\n",
+    "bad_example": "<?PHP\n\nIF (TRUE) {\n    ECHO \"Keywords not in lowercase\";\n} ELSE {\n    RETURN;\n}\n",
+    "category": "Consistency",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Debug Symbols",
+    "code": "no-debug-symbols",
+    "description": "Flags calls to debug functions like `var_dump`, `print_r`, `dd`, etc.\n\nThese functions are useful for debugging, but they should not be committed to\nversion control as they can expose sensitive information and are generally not\nintended for production environments.\n",
+    "good_example": "<?php\n\n// Production-safe code\nerror_log('Processing user request.');\n",
+    "bad_example": "<?php\n\nfunction process_request(array $data) {\n    var_dump($data); // Debug call that should be removed\n    // ...\n}\n",
+    "category": "Security",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Note"
+  },
+  {
+    "name": "No Request Variable",
+    "code": "no-request-variable",
+    "description": "Detects the use of the `$_REQUEST` variable, which is considered unsafe.\n\nUse `$_GET`, `$_POST`, or `$_COOKIE` instead for better clarity.\n",
+    "good_example": "<?php\n\n$identifier = $_GET['id'];\n",
+    "bad_example": "<?php\n\n$identifier = $_REQUEST['id'];\n",
+    "category": "Safety",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "No Shell Execute String",
+    "code": "no-shell-execute-string",
+    "description": "Detects the use of shell execute strings (`...`) in PHP code.\n",
+    "good_example": "<?php\n\n$output = shell_exec('ls -l');\n",
+    "bad_example": "<?php\n\n$output = `ls -l`;\n",
+    "category": "Safety",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "No Short Opening Tag",
+    "code": "no-short-opening-tag",
+    "description": "Disallows the use of short opening tags (`<?`).\n\nThe availability of `<?` depends on the `short_open_tag` directive in `php.ini`. If\nthis setting is disabled on a server, any code within the short tags will be\nexposed as plain text, which is a significant security risk. Using the full `<?php`\nopening tag is the only guaranteed portable way to ensure your code is always\ninterpreted correctly.\n",
+    "good_example": "<?php\n\necho \"Hello, World!\";\n",
+    "bad_example": "<?\n\necho \"Hello, World!\";\n",
+    "category": "Security",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "No Shorthand Ternary",
+    "code": "no-shorthand-ternary",
+    "description": "Detects the use of the shorthand ternary and elvis operators.\n\nBoth shorthand ternary operator (`$a ? : $b`) and elvis operator (`$a ?: $b`) relies on loose comparison.\n",
+    "good_example": "<?php\n\n$value = $foo ?? $default;\n$value = $foo ? $foo : $default;\n",
+    "bad_example": "<?php\n$value = $foo ?: $default;\n$value = $foo ? : $default;\n",
+    "category": "Clarity",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "No Sprintf Concat",
+    "code": "no-sprintf-concat",
+    "description": "Disallows string concatenation with the result of an `sprintf` call.\n\nConcatenating with `sprintf` is less efficient and can be less readable than\nincorporating the string directly into the format template. This pattern\ncreates an unnecessary intermediate string and can make the final output\nharder to see at a glance.\n",
+    "good_example": "<?php\n\n$name = 'World';\n$greeting = sprintf('Hello, %s!', $name);\n",
+    "bad_example": "<?php\n\n$name = 'World';\n$greeting = 'Hello, ' . sprintf('%s!', $name);\n",
+    "category": "BestPractices",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Optional Parameter Before Required",
+    "code": "optional-param-order",
+    "description": "                Detects optional parameters defined before required parameters in function-like declarations.\nSuch parameter order is considered deprecated; required parameters should precede optional parameters.\n",
+    "good_example": "                <?php\n\nfunction foo(string $required, ?string $optional = null): void {}\n",
+    "bad_example": "                <?php\n\nfunction foo(?string $optional = null, string $required): void {}\n",
+    "category": "Deprecation",
+    "requirements": {
+      "php-versions": [
+        {
+          "min": "8.0.0",
+          "max": null
+        }
+      ],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Deprecated Cast",
+    "code": "deprecated-cast",
+    "description": "Detect the usage of deprecated type casts in PHP code.\n\nIn PHP 8.5, the following type casts have been deprecated:\n\n- `(integer)`: The integer cast has been deprecated in favor of `(int)`.\n- `(boolean)`: The boolean cast has been deprecated in favor of `(bool)`.\n- `(double)`: The double cast has been deprecated in favor of `(float)`.\n- `(binary)`: The binary cast has been deprecated in favor of `(string)`.\n",
+    "good_example": "<?php\n\n(int) $value;\n",
+    "bad_example": "<?php\n\n(integer) $value;\n",
+    "category": "Deprecation",
+    "requirements": {
+      "php-versions": [
+        {
+          "min": "8.5.0",
+          "max": null
+        }
+      ],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "Deprecated Shell Execute String",
+    "code": "deprecated-shell-execute-string",
+    "description": "Detect the usage of deprecated shell execute strings in PHP code.\n\nIn PHP 8.5, the shell execute string syntax (enclosed in backticks, e.g., `` `ls -l` ``) has been deprecated.\n\nThis rule identifies instances of shell execute strings and provides guidance on how to replace them with safer alternatives,\nsuch as using the `shell_exec()` function or other appropriate methods for executing shell commands.\n",
+    "good_example": "<?php\n\nshell_exec('ls -l');\n",
+    "bad_example": "<?php\n\n`ls -l`;\n",
+    "category": "Deprecation",
+    "requirements": {
+      "php-versions": [
+        {
+          "min": "8.5.0",
+          "max": null
+        }
+      ],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "Deprecated Switch Semicolon",
+    "code": "deprecated-switch-semicolon",
+    "description": "Detect the usage of semicolon as a switch case separator.\n\nIn PHP 8.5, the use of a semicolon (`;`) as a case separator in switch statements has been deprecated.\n\nInstead, the colon (`:`) should be used to separate case statements.\n",
+    "good_example": "<?php\n\nswitch ($value) {\n    case 1:\n        // code for case 1\n        break;\n    case 2:\n        // code for case 2\n        break;\n    default:\n        // default case\n        break;\n}\n",
+    "bad_example": "<?php\n\nswitch ($value) {\n    case 1;\n        // code for case 1\n        break;\n    case 2;\n        // code for case 2\n        break;\n    default;\n        // default case\n        break;\n}\n",
+    "category": "Deprecation",
+    "requirements": {
+      "php-versions": [
+        {
+          "min": "8.5.0",
+          "max": null
+        }
+      ],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "Prefer Interface",
+    "code": "prefer-interface",
+    "description": "Detects when an implementation class is used instead of the interface.\n",
+    "good_example": "<?php\n\nuse Symfony\\Component\\Serializer\\SerializerInterface;\n\nclass UserController\n{\n    public function __construct(SerializerInterface $serializer)\n    {\n        $this->serializer = $serializer;\n    }\n}\n",
+    "bad_example": "<?php\n\nuse Symfony\\Component\\Serializer\\Serializer;\n\nclass UserController\n{\n    public function __construct(Serializer $serializer)\n    {\n        $this->serializer = $serializer;\n    }\n}\n",
+    "category": "BestPractices",
+    "requirements": {
+      "php-versions": [],
+      "integrations": [
+        64
+      ]
+    },
+    "level": "Note"
+  },
+  {
+    "name": "Prefer First Class Callable",
+    "code": "prefer-first-class-callable",
+    "description": "Promotes the use of first-class callable syntax (`...`) for creating closures.\n\nThis rule identifies closures and arrow functions that do nothing but forward their arguments to another function or method.\nIn such cases, the more concise and modern first-class callable syntax, introduced in PHP 8.1, can be used instead.\nThis improves readability by reducing boilerplate code.\n\nBy default, this rule only checks method and static method calls. Optionally, function calls can also\nbe checked by enabling `check-functions`, but this may produce false positives with internal PHP\nfunctions that enforce strict argument counts.\n",
+    "good_example": "<?php\n\n$names = ['Alice', 'Bob', 'Charlie'];\n$uppercased_names = array_map($formatter->format(...), $names);\n",
+    "bad_example": "<?php\n\n$names = ['Alice', 'Bob', 'Charlie'];\n$uppercased_names = array_map(fn($name) => $formatter->format($name), $names);\n",
+    "category": "BestPractices",
+    "requirements": {
+      "php-versions": [
+        {
+          "min": "8.1.0",
+          "max": null
+        }
+      ],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "No Void Reference Return",
+    "code": "no-void-reference-return",
+    "description": "Detects functions, methods, closures, arrow functions, and set property hooks that return by reference from a void function.\nSuch functions are considered deprecated; returning by reference from a void function is deprecated since PHP 8.0.\n",
+    "good_example": "<?php\n\nfunction &foo(): string {\n    // ...\n}\n",
+    "bad_example": "<?php\n\nfunction &foo(): void {\n    // ...\n}\n",
+    "category": "Deprecation",
+    "requirements": {
+      "php-versions": [
+        {
+          "min": "8.2.0",
+          "max": null
+        }
+      ],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "No Underscore Class",
+    "code": "no-underscore-class",
+    "description": "Detects class, interface, trait, or enum declarations named `_`.\n\nSuch names are considered deprecated; a more descriptive identifier is recommended.\n",
+    "good_example": "<?php\n\nclass MyService {}\n",
+    "bad_example": "<?php\n\nclass _ {}\n",
+    "category": "Deprecation",
+    "requirements": {
+      "php-versions": [
+        {
+          "min": "8.4.0",
+          "max": null
+        }
+      ],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "No Trailing Space",
+    "code": "no-trailing-space",
+    "description": "Detects trailing whitespace at the end of comments. Trailing whitespace can cause unnecessary\ndiffs and formatting issues, so it is recommended to remove it.\n",
+    "good_example": "<?php\n\n// This is a good comment.\n",
+    "bad_example": "<?php\n\n// This is a comment with trailing whitespace.  \n",
+    "category": "Consistency",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Note"
+  },
+  {
+    "name": "No Redundant Write Visibility",
+    "code": "no-redundant-write-visibility",
+    "description": "Detects redundant write visibility modifiers on properties.\n",
+    "good_example": "<?php\n\nfinal class User\n{\n    public $name;\n}\n",
+    "bad_example": "<?php\n\nfinal class User\n{\n    public public(set) $name;\n}\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Redundant String Concat",
+    "code": "no-redundant-string-concat",
+    "description": "Detects redundant string concatenation expressions.\n",
+    "good_example": "<?php\n\n$foo = \"Hello World\";\n",
+    "bad_example": "<?php\n\n$foo = \"Hello\" . \" World\";\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Duplicate Match Arm",
+    "code": "no-duplicate-match-arm",
+    "description": "Detects `match` arms that produce the same result as an earlier arm.\n\nArms with an identical result can be merged into a single arm by\ncombining their conditions, which removes the duplication. The result\nis compared by its constant value, so `1 + 2` and `-(-3)` are treated\nas the same result.\n",
+    "good_example": "<?php\n\n$result = match ($value) {\n    1 => 'low',\n    2, 3 => 'high',\n};\n",
+    "bad_example": "<?php\n\n$result = match ($value) {\n    1 => 'low',\n    2 => 'high',\n    3 => 'high',\n};\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Note"
+  },
+  {
+    "name": "No Redundant Binary String Prefix",
+    "code": "no-redundant-binary-string-prefix",
+    "description": "Detects the redundant `b`/`B` prefix on string literals. The binary string prefix\nhas no effect in PHP and can be safely removed.\n",
+    "good_example": "<?php\n\n$foo = 'hello';\n$bar = \"world\";\n",
+    "bad_example": "<?php\n\n$foo = b'hello';\n$bar = b\"world\";\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Redundant Parentheses",
+    "code": "no-redundant-parentheses",
+    "description": "Detects redundant parentheses around expressions.\n",
+    "good_example": "<?php\n\n$foo = 42;\n",
+    "bad_example": "<?php\n\n$foo = (42);\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Redundant Method Override",
+    "code": "no-redundant-method-override",
+    "description": "Detects methods that override a parent method but only call the parent method with the same arguments.\n",
+    "good_example": "<?php\n\nclass Parent\n{\n    public function foo(): void\n    {\n        // ...\n    }\n}\n\nclass Child extends Parent\n{\n    public function foo(): void\n    {\n        parent::foo();\n\n        echo 'Additional logic here';\n    }\n}\n",
+    "bad_example": "<?php\n\nclass Parent\n{\n    public function foo(): void\n    {\n        // ...\n    }\n}\n\nclass Child extends Parent\n{\n    public function foo(): void\n    {\n        parent::foo();\n    }\n}\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Redundant Isset",
+    "code": "no-redundant-isset",
+    "description": "Detects redundant arguments in `isset()` calls where a nested access already implies the parent checks.\n\nFor example, `isset($d, $d['first'], $d['first']['second'])` can be simplified to\n`isset($d['first']['second'])` because checking a nested array access or property access\nimplicitly verifies that all parent levels exist.\n",
+    "good_example": "<?php\n\nif (isset($d['first']['second'])) {\n    echo 'all present';\n}\n",
+    "bad_example": "<?php\n\nif (isset($d, $d['first'], $d['first']['second'])) {\n    echo 'all present';\n}\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Redundant Nullsafe",
+    "code": "no-redundant-nullsafe",
+    "description": "Flags the use of the nullsafe operator (`?->`) in contexts where its null-checking behavior is redundant.\n\nThis occurs in two common situations:\n1. When an expression using `?->` is immediately followed by the null coalescing operator (`??`).\n2. When an expression using `?->` is checked with `isset()`.\n\nIn both scenarios, the surrounding language construct (`??` or `isset()`) already handles `null` values safely,\nmaking the `?->` operator superfluous and the code unnecessarily verbose.\n",
+    "good_example": "<?php\n\n$name = $user->name ?? 'Guest';\n\nif (isset($user->profile)) {\n    // Do something with $user->profile\n}\n",
+    "bad_example": "<?php\n\n$name = $user?->name ?? 'Guest';\n\nif (isset($user?->profile)) {\n    // Do something with $user->profile\n}\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Redundant Math",
+    "code": "no-redundant-math",
+    "description": "Detects redundant mathematical operations that can be simplified or removed.\nIncludes operations like multiplying by 1/-1, adding 0, modulo 1/-1, etc.\n",
+    "good_example": "<?php\n\n$result = $value * 2;\n$sum = 1 + $total;\n$difference = $value - 1;\n$remainder = $x % 2;\n",
+    "bad_example": "<?php\n\n$result = $value * 1;\n$sum = 0 + $total;\n$difference = $value - 0;\n$remainder = $x % 1;\n$negative = $value * -1;\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Redundant Label",
+    "code": "no-redundant-label",
+    "description": "Detects redundant `goto` labels that are declared but not used.\n",
+    "good_example": "<?php\n\ngoto end;\necho \"Hello, world!\";\nend:\n",
+    "bad_example": "<?php\n\nlabel:\necho \"Hello, world!\";\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Redundant Literal Return",
+    "code": "no-redundant-literal-return",
+    "description": "Detects redundant literal guard patterns where an if statement checks if a variable\nequals a literal and returns that same literal, followed by returning the variable.\n\nThis pattern is redundant because if the variable equals the literal, returning the\nvariable would return the same value anyway.\n\nThis includes patterns with else clauses and elseif chains where all branches\nfollow the same redundant pattern.\n",
+    "good_example": "<?php\n\nfunction getValue($x) {\n    return $x;\n}\n\nfunction getValueOrDefault($x, $default) {\n    if ($x === null) {\n        return $default;\n    }\n    return $x;\n}\n",
+    "bad_example": "<?php\n\nfunction getValue($x) {\n    if ($x === null) {\n        return null;\n    }\n    return $x;\n}\n\nfunction getWithElse($x) {\n    if ($x === null) {\n        return null;\n    } else {\n        return $x;\n    }\n}\n\nfunction getWithElseIf($x) {\n    if ($x === null) {\n        return null;\n    } elseif ($x === '') {\n        return '';\n    }\n    return $x;\n}\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "No Redundant Final",
+    "code": "no-redundant-final",
+    "description": "Detects redundant `final` modifiers on methods in final classes or enum methods.\n",
+    "good_example": "<?php\n\nfinal class Foo {\n    public function bar(): void {\n        // ...\n    }\n}\n",
+    "bad_example": "<?php\n\nfinal class Foo {\n    final public function bar(): void {\n        // ...\n    }\n}\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Redundant Readonly",
+    "code": "no-redundant-readonly",
+    "description": "Detects redundant readonly modifiers on properties.\n",
+    "good_example": "<?php\n\nreadonly class User\n{\n    public $name;\n}\n",
+    "bad_example": "<?php\n\nreadonly class User\n{\n    public readonly $name;\n}\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Redundant File",
+    "code": "no-redundant-file",
+    "description": "Detects redundant files that contain no executable code or declarations.\n",
+    "good_example": "<?php\n\ndeclare(strict_types=1);\n\nfunction foo(): void {\n    return 42;\n}\n",
+    "bad_example": "<?php\n\ndeclare(strict_types=1);\n// This file is redundant.\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Redundant Continue",
+    "code": "no-redundant-continue",
+    "description": "Detects redundant `continue` statements in loops.\n",
+    "good_example": "<?php\n\nwhile (true) {\n    echo \"Hello, world!\";\n}\n",
+    "bad_example": "<?php\n\nwhile (true) {\n    echo \"Hello, world!\";\n    continue; // Redundant `continue` statement\n}\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Redundant Block",
+    "code": "no-redundant-block",
+    "description": "Detects redundant blocks around statements.\n",
+    "good_example": "<?php\n\necho \"Hello, world!\";\n",
+    "bad_example": "<?php\n\n{\n    echo \"Hello, world!\";\n}\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Redundant Use",
+    "code": "no-redundant-use",
+    "description": "Detects `use` statements that import items that are never used or are redundant\nbecause they import from the same namespace.\n",
+    "good_example": "<?php\nnamespace App;\n\nuse App\\Helpers\\ArrayHelper;\n\n$result = ArrayHelper::combine([]);\n",
+    "bad_example": "<?php\nnamespace App;\n\nuse App\\Helpers\\ArrayHelper;\nuse App\\Helpers\\StringHelper; // StringHelper is not used.\n\n$result = ArrayHelper::combine([]);\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "No Redundant Yield From",
+    "code": "no-redundant-yield-from",
+    "description": "Detects redundant use of `yield from` with single-element array literals.\n\nUsing `yield from` with a single-element array literal creates unnecessary\noverhead in the generated opcodes. Direct `yield` is simpler and more efficient.\n",
+    "good_example": "<?php\n\nfunction gen(): Generator {\n    yield 1;\n    yield 'foo' => new stdClass();\n}\n",
+    "bad_example": "<?php\n\nfunction gen(): Generator {\n    yield from [1];\n    yield from ['foo' => new stdClass()];\n}\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Self Assignment",
+    "code": "no-self-assignment",
+    "description": "Detects and removes self-assignments where a variable or property is assigned to itself.\n\nSelf-assignments have no effect and are typically mistakes or leftover from refactoring.\nFor object properties, the fix is marked as potentially unsafe because reading or writing\nproperties may have side effects through magic methods (__get, __set) or property hooks (PHP 8.4+).\n",
+    "good_example": "<?php\n\n$a = $b;\n$this->x = $other->x;\n$foo->bar = $baz->bar;\n",
+    "bad_example": "<?php\n\n$a = $a;\n$this->x = $this->x;\n$foo->bar = $foo->bar;\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "No Protected in Final",
+    "code": "no-protected-in-final",
+    "description": "Detects `protected` items in final classes or enums.\n",
+    "good_example": "<?php\n\nfinal class Foo {\n    private string $foo;\n    private(set) string $bar;\n    private string $baz;\n\n    private function fun(): void {\n        // ...\n    }\n}\n",
+    "bad_example": "<?php\n\nfinal class Foo {\n    protected string $foo;\n    protected(set) string $bar;\n    protected private(set) string $baz;\n\n    protected function fun(): void {\n        // ...\n    }\n}\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Php Tag Terminator",
+    "code": "no-php-tag-terminator",
+    "description": "Discourages the use of `?><?php` as a statement terminator. Recommends using a semicolon\n(`;`) instead for clarity and consistency.\n",
+    "good_example": "<?php\n\necho \"Hello World\";\n",
+    "bad_example": "<?php\n\necho \"Hello World\" ?><?php\n",
+    "category": "Consistency",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Note"
+  },
+  {
+    "name": "No Noop",
+    "code": "no-noop",
+    "description": "Detects redundant `noop` statements.\n",
+    "good_example": "<?php\n\necho \"Hello, world!\";\n",
+    "bad_example": "<?php\n\n;\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Multi Assignments",
+    "code": "no-multi-assignments",
+    "description": "Flags any instances of multiple assignments in a single statement. This can lead to\nconfusion and unexpected behavior, and is generally considered poor practice.\n",
+    "good_example": "<?php\n\n$b = 0;\n$a = $b;\n",
+    "bad_example": "<?php\n\n$a = $b = 0;\n",
+    "category": "Clarity",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "No Nested Ternary",
+    "code": "no-nested-ternary",
+    "description": "Nested ternary expressions are disallowed to improve code clarity and prevent potential bugs arising from confusion over operator associativity.\n\nIn PHP 8.0 and later, the ternary operator (`? :`) is non-associative. Before PHP 8.0, it was left-associative, which is now deprecated. Most other programming languages treat it as right-associative. This inconsistency across versions and languages can make nested ternaries hard to reason about, even when using parentheses.\n",
+    "good_example": "<?php\n\nif ($user->isAdmin()) {\n    $allowed = true;\n} else {\n    $allowed = $user->isEditor();\n}\n",
+    "bad_example": "<?php\n\n$allowed = $user->isAdmin() ? true : ($user->isEditor() ? true : false);\n",
+    "category": "Clarity",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "No Hash Emoji",
+    "code": "no-hash-emoji",
+    "description": "Discourages usage of the `#️⃣` emoji in place of the ASCII `#`.\n\nWhile PHP allows the use of emojis in comments, it is generally discouraged to use them in place\nof the normal ASCII `#` symbol. This is because it can confuse readers and may break external\ntools that expect the normal ASCII `#` symbol.\n",
+    "good_example": "<?php\n\n# This is a comment\n\n#[MyAttribute]\nclass Foo {}\n",
+    "bad_example": "<?php\n\n#️⃣ This is a comment\n\n#️⃣[MyAttribute] <- not a valid attribute\nclass Foo {}\n",
+    "category": "Clarity",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "No Hash Comment",
+    "code": "no-hash-comment",
+    "description": "Detects shell-style comments ('#') in PHP code. Double slash comments ('//') are preferred\nin PHP, as they are more consistent with the language's syntax and are easier to read.\n",
+    "good_example": "<?php\n\n// This is a good comment.\n",
+    "bad_example": "<?php\n\n# This is a shell-style comment.\n",
+    "category": "Consistency",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "No Variable Variable",
+    "code": "no-variable-variable",
+    "description": "Discourages usage of PHP's variable variables feature.\n\nVariable variables can make code harder to read and maintain, as they introduce a level of indirection that can confuse readers and complicate static analysis.\n",
+    "good_example": "<?php\n\n$foo = 'bar';\n\necho $foo; // Outputs 'bar'\n",
+    "bad_example": "<?php\n\n$foo = 'bar';\n$varName = 'foo';\n\necho $$varName; // Outputs 'bar'\n",
+    "category": "Clarity",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "No Goto",
+    "code": "no-goto",
+    "description": "Detects the use of `goto` statements and labels. The `goto` statement can make\ncode harder to read, understand, and maintain. It can lead to \"spaghetti code\"\nand make it difficult to follow the flow of execution.\n",
+    "good_example": "<?php\n\n$i = 0;\nwhile ($i < 10) {\n    if ($i === 5) {\n        break; // Structured control flow.\n    }\n    $i++;\n}\n",
+    "bad_example": "<?php\n\n$i = 0;\nloop:\nif ($i >= 10) {\n    goto end;\n}\n\n$i++;\ngoto loop;\nend:\n",
+    "category": "Maintainability",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Note"
+  },
+  {
+    "name": "No Global",
+    "code": "no-global",
+    "description": "Detects the use of the `global` keyword and the `$GLOBALS` variable.\n\nThe `global` keyword introduces global state into your function, making it harder to reason about and test.\n",
+    "good_example": "<?php\n\nfunction foo(string $bar): void {\n    // ...\n}\n",
+    "bad_example": "<?php\n\nfunction foo(): void {\n    global $bar;\n    // ...\n}\n",
+    "category": "Safety",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "No FFI",
+    "code": "no-ffi",
+    "description": "Detects unsafe use of the PHP FFI (Foreign Function Interface) extension.\n\nThe FFI extension allows interaction with code written in other languages, such as C, C++, and Rust.\nThis can introduce potential security risks and stability issues if not handled carefully.\n\nIf you are confident in your use of FFI and understand the risks, you can disable this rule in your Mago configuration.\n",
+    "good_example": "<?php\n\n// Using a safe alternative to FFI\n$data = 'some data';\n$hash = hash('sha256', $data);\n",
+    "bad_example": "<?php\n\nuse FFI;\n\n$ffi = FFI::cdef(\"void* malloc(size_t size);\");\n$ffi->malloc(1024); // Allocate memory but never free it\n",
+    "category": "Safety",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "No Eval",
+    "code": "no-eval",
+    "description": "Detects unsafe uses of the `eval` construct.\nThe `eval` construct executes arbitrary code, which can be a major security risk if not used carefully.\n",
+    "good_example": "<?php\n\n// Safe alternative to eval\n$result = json_decode($jsonString);\n",
+    "bad_example": "<?php\n\neval('echo \"Hello, world!\";');\n",
+    "category": "Safety",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "No Error Control Operator",
+    "code": "no-error-control-operator",
+    "description": "Detects the use of the error control operator `@`.\n\nThe error control operator suppresses errors and makes debugging more difficult.\n",
+    "good_example": "<?php\n\ntry {\n    $result = file_get_contents('example.txt');\n} catch (Throwable $e) {\n    // Handle error\n}\n",
+    "bad_example": "<?php\n\n$result = @file_get_contents('example.txt');\n",
+    "category": "Safety",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "No Empty",
+    "code": "no-empty",
+    "description": "Detects the use of the `empty()` construct.\n\nThe `empty()` language construct can lead to ambiguous and potentially buggy code due to\nloose and counterintuitive definition of emptiness. It fails to clearly convey\ndeveloper's intent or expectation, making it preferable to use explicit checks.\n",
+    "good_example": "<?php\n\nif ($myArray === []) {\n    // ...\n}\n",
+    "bad_example": "<?php\n\nif (!empty($myArray)) {\n    // ...\n}\n",
+    "category": "Clarity",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "No Isset",
+    "code": "no-isset",
+    "description": "Detects the use of the `isset()` construct.\n\nThe `isset()` language construct checks whether a variable is set and is not null.\nHowever, it can lead to ambiguous code because it conflates two distinct checks:\nvariable existence and null comparison. Using explicit null checks or the null\ncoalescing operator (`??`) is often clearer and more maintainable.\n",
+    "good_example": "<?php\n\nif ($value !== null) {\n    // ...\n}\n\n$result = $value ?? 'default';\n",
+    "bad_example": "<?php\n\nif (isset($value)) {\n    // ...\n}\n",
+    "category": "Clarity",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "No Empty Loop",
+    "code": "no-empty-loop",
+    "description": "Detects loops (`for`, `foreach`, `while`, `do-while`) that have an empty body. An empty\nloop body does not perform any actions and is likely a mistake or redundant code.\n",
+    "good_example": "<?php\n\nforeach ($items as $item) {\n    process($item);\n}\n",
+    "bad_example": "<?php\n\nwhile (should_wait()) {\n    // Empty loop body\n}\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Note"
+  },
+  {
+    "name": "No Empty Comment",
+    "code": "no-empty-comment",
+    "description": "Detects empty comments in the codebase. Empty comments are not useful and should be removed\nto keep the codebase clean and maintainable.\n",
+    "good_example": "<?php\n\n// This is a useful comment.\n//\n// And so is this whole single line comment block, including the enclosed empty line.\n# This is also a useful comment.\n/**\n * This is a docblock.\n */\n",
+    "bad_example": "<?php\n\n//\n#\n/**/\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Note"
+  },
+  {
+    "name": "No Empty Catch Clause",
+    "code": "no-empty-catch-clause",
+    "description": "Warns when a `catch` clause is empty.\n\nAn empty `catch` clause suppresses exceptions without handling or logging them,\npotentially hiding errors that should be addressed. This practice, known as\n\"exception swallowing,\" can make debugging significantly more difficult.\n",
+    "good_example": "<?php\n\ntry {\n    // some code that might throw an exception\n} catch(Exception $e) {\n    // Handle the error, log it, or re-throw it.\n    error_log($e->getMessage());\n}\n",
+    "bad_example": "<?php\n\ntry {\n    // some code\n} catch(Exception $e) {\n    // This block is empty and swallows the exception.\n}\n",
+    "category": "Correctness",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "No Else Clause",
+    "code": "no-else-clause",
+    "description": "Flags `if` statements that include an `else` or `elseif` branch.\n\nUsing `else` or `elseif` can lead to deeply nested code and complex control flow.\nThis can often be simplified by using early returns (guard clauses), which makes\nthe code easier to read and maintain by reducing its cyclomatic complexity.\n",
+    "good_example": "<?php\n\nfunction process($user) {\n    if (!$user->isVerified()) {\n        return; // Early return\n    }\n\n    // \"Happy path\" continues here\n    $user->login();\n}\n",
+    "bad_example": "<?php\n\nfunction process($user) {\n    if ($user->isVerified()) {\n        // \"Happy path\" is nested\n        $user->login();\n    } else {\n        // Logic is split across branches\n        return;\n    }\n}\n",
+    "category": "Maintainability",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Closing Tag",
+    "code": "no-closing-tag",
+    "description": "Detects redundant closing tags ( `?>` ) at the end of a file.\n",
+    "good_example": "<?php\n\necho \"Hello, world!\";\n",
+    "bad_example": "<?php\n\necho \"Hello, world!\";\n\n?>\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Boolean Flag Parameter",
+    "code": "no-boolean-flag-parameter",
+    "description": "Flags function-like parameters that use a boolean type and drive the function's behaviour.\n\nA boolean parameter is only reported when it is used as a flag — that is, referenced in\nthe condition of an `if`/`elseif` statement or a ternary (`?:`) expression. Such flag\nparameters can indicate a violation of the Single Responsibility Principle (SRP);\nrefactor by extracting the flag logic into its own class or method.\n\nA boolean parameter that is merely stored (e.g. `$this->enabled = $enabled;`), passed on,\nor returned does not branch the function's behaviour and is not reported.\n",
+    "good_example": "<?php\n\nfunction get_difference(string $a, string $b): string {\n    // ...\n}\n\nfunction get_difference_case_insensitive(string $a, string $b): string {\n    // ...\n}\n\nfinal class Connection\n{\n    private bool $secure;\n\n    // The boolean is only stored, never used to branch behaviour.\n    public function configure(bool $secure): void\n    {\n        $this->secure = $secure;\n    }\n}\n",
+    "bad_example": "<?php\n\nfunction get_difference(string $a, string $b, bool $ignore_case): string {\n    if ($ignore_case) {\n        return strtolower($a) === strtolower($b) ? '' : $a;\n    }\n\n    return $a === $b ? '' : $a;\n}\n",
+    "category": "Maintainability",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No Missing Format Argument",
+    "code": "no-missing-format-argument",
+    "description": "Detects `sprintf`-style format calls where the number of placeholders\nin the format string exceeds the number of provided values.\n\nWhen the format string is a literal, this rule parses the placeholders\n(regular `%s`/`%d` and positional `%1$s`) and compares the\nrequired argument count against the actual values given.\n\nThis catches runtime `ArgumentCountError`-class errors at lint time.\n",
+    "good_example": "<?php\n\n$result = sprintf('Hello %s, you have %d messages', $name, $count);\n",
+    "bad_example": "<?php\n\n// Missing second value; will trigger a runtime error.\n$result = sprintf('Hello %s, you have %d messages', $name);\n",
+    "category": "Correctness",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "No Assign In Condition",
+    "code": "no-assign-in-condition",
+    "description": "Detects assignments in conditions which can lead to unexpected behavior and make the code harder\nto read and understand.\n",
+    "good_example": "<?php\n\n$x = 1;\nif ($x == 1) {\n    // ...\n}\n",
+    "bad_example": "<?php\n\nif ($x = 1) {\n    // ...\n}\n",
+    "category": "Correctness",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "No Alias Function",
+    "code": "no-alias-function",
+    "description": "Detects usage of function aliases (e.g., `diskfreespace` instead of `disk_free_space`)\nand suggests calling the canonical (original) function name instead.\nThis is primarily for consistency and clarity.\n",
+    "good_example": "<?php\n\n// 'disk_free_space' is the proper name instead of 'diskfreespace'\n$freeSpace = disk_free_space(\"/\");\n",
+    "bad_example": "<?php\n\n// 'diskfreespace' is an alias for 'disk_free_space'\n$freeSpace = diskfreespace(\"/\");\n",
+    "category": "Consistency",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Note"
+  },
+  {
+    "name": "Lowercase Type Hint",
+    "code": "lowercase-type-hint",
+    "description": "Enforces that PHP type hints (like `void`, `bool`, `int`, `float`, etc.) be written\nin lowercase. Using uppercase or mixed case is discouraged for consistency\nand readability.\n",
+    "good_example": "<?php\n\nfunction example(int $param): void {\n    return;\n}\n",
+    "bad_example": "<?php\n\nfunction example(Int $param): VOID {\n    return;\n}\n",
+    "category": "Consistency",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "Identity Comparison",
+    "code": "identity-comparison",
+    "description": "Detects equality and inequality comparisons that should use identity comparison operators.\n",
+    "good_example": "<?php\n\nif ($a === $b) {\n    echo '$a is same as $b';\n}\n",
+    "bad_example": "<?php\n\nif ($a == $b) {\n    echo '$a is same as $b';\n}\n",
+    "category": "Correctness",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Suspicious Explode Arguments",
+    "code": "suspicious-explode-arguments",
+    "description": "Detects `explode` calls whose arguments appear to be swapped.\n\nThe signature is `explode(string $separator, string $string)`: the separator comes first\nand the string being split comes second. When the second argument is a short string literal\nwhile the first is not a shorter literal, the arguments were most likely passed in the wrong\norder, which produces a silently incorrect result instead of an error.\n",
+    "good_example": "<?php\n\n$parts = explode(' ', $sentence);\n",
+    "bad_example": "<?php\n\n$parts = explode($sentence, ' ');\n",
+    "category": "Correctness",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Ineffective Format Ignore Next",
+    "code": "ineffective-format-ignore-next",
+    "description": "Detects `@mago-format-ignore-next` markers that will have no effect.\n\nThe formatter's ignore-next marker works at the statement level. When a\nmarker is placed inside an expression (like function call arguments,\narray elements, or other non-statement contexts), it will not affect\nthe formatter's output.\n\nTo effectively ignore the next statement, place the marker immediately\nbefore a complete statement at the top level of a block or file.\n",
+    "good_example": "<?php\n\n// This works - marker is before a statement\n// @mago-format-ignore-next\nconst GRID = [\n  [1, 2, 3], [1, 2, ], [0,    0],\n];\n\nfoo();\n",
+    "bad_example": "<?php\n\n// This doesn't work - marker is inside an array literal\n$arr = [ // @mago-format-ignore-next\n    1,\n    2,\n];\n",
+    "category": "Correctness",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Inline Variable Return",
+    "code": "inline-variable-return",
+    "description": "Detects unnecessary variable assignments immediately before returning the variable.\n\nWhen a variable is only used once right after being assigned, the assignment\ncan be inlined into the return statement.\n",
+    "good_example": "<?php\n\nfunction getValue() {\n    return computeResult();\n}\n\nfunction process() {\n    $result = computeResult();\n    log($result);\n    return $result;\n}\n",
+    "bad_example": "<?php\n\nfunction getValue() {\n    $result = computeResult();\n    return $result;\n}\n\nfunction getArray() {\n    $arr = [1, 2, 3];\n    return $arr;\n}\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Ineffective Format Ignore Region",
+    "code": "ineffective-format-ignore-region",
+    "description": "Detects `@mago-format-ignore-start` markers that will have no effect.\n\nThe formatter's ignore regions work at the statement level. When an\nignore marker is placed inside an expression (like function call arguments,\narray elements, or other non-statement contexts), it will not affect\nthe formatter's output.\n\nTo effectively ignore a region, place the ignore markers between complete\nstatements at the top level of a block or file.\n",
+    "good_example": "<?php\n\n// This works - markers are between statements\n// @mago-format-ignore-start\n$x = 1;  $y = 2;  // preserved as-is\n// @mago-format-ignore-end\n\nfoo();\n",
+    "bad_example": "<?php\n\n// This doesn't work - markers are inside a function call\nfoo( // @mago-format-ignore-start\n    $x,\n    $y\n// @mago-format-ignore-end\n);\n",
+    "category": "Correctness",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Instanceof Stringable",
+    "code": "instanceof-stringable",
+    "description": "Detects the legacy pattern `is_object($x) && method_exists($x, '__toString')` and suggests\nreplacing it with `$x instanceof Stringable` for improved readability and performance.\n\nSince PHP 8.0, all classes with `__toString()` automatically implement the `Stringable` interface.\n",
+    "good_example": "<?php\n\nfunction stringify(mixed $value): string {\n    if ($value instanceof Stringable) {\n        return (string) $value;\n    }\n\n    return '';\n}\n",
+    "bad_example": "<?php\n\nfunction stringify(mixed $value): string {\n    if (is_object($value) && method_exists($value, '__toString')) {\n        return (string) $value;\n    }\n\n    return '';\n}\n",
+    "category": "Clarity",
+    "requirements": {
+      "php-versions": [
+        {
+          "min": "8.0.0",
+          "max": null
+        }
+      ],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Interface Name",
+    "code": "interface-name",
+    "description": "Detects interface declarations that do not follow class naming convention.\n\nInterface names should be in class case and suffixed with `Interface`, depending on the configuration.\n",
+    "good_example": "<?php\n\ninterface MyInterface {}\n",
+    "bad_example": "<?php\n\ninterface myInterface {}\ninterface my_interface {}\ninterface MY_INTERFACE {}\n",
+    "category": "Consistency",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "Invalid Open Tag",
+    "code": "invalid-open-tag",
+    "description": "Detects misspelled PHP opening tags like `<php?` instead of `<?php`.\n\nA misspelled opening tag will cause the PHP interpreter to treat the\nfollowing code as plain text, leading to the code being output directly\nto the browser instead of being executed. This can cause unexpected\nbehavior and potential security vulnerabilities.\n",
+    "good_example": "<?php\n\necho 'Hello, world!';\n",
+    "bad_example": "<php?\n\necho 'Hello, world!';\n",
+    "category": "Correctness",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Note"
+  },
+  {
+    "name": "File Name",
+    "code": "file-name",
+    "description": "Ensures that a file containing a single class-like definition is named after that definition.\n\nFor example, a file containing `class Foo` must be named `Foo.php`.\nOptionally, this rule can also check functions: a file containing a single function `foo`\nmust be named `foo.php`.\n",
+    "good_example": "<?php\n// File: test.php\n\nnamespace App;\n\nclass test\n{\n}\n",
+    "bad_example": "<?php\n// File: test.php\n\nnamespace App;\n\nclass Foo\n{\n}\n",
+    "category": "Consistency",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Function Name",
+    "code": "function-name",
+    "description": "Detects function declarations that do not follow camel or snake naming convention.\n\nFunction names should be in camel case or snake case, depending on the configuration.\n",
+    "good_example": "<?php\n\nfunction my_function() {}\n",
+    "bad_example": "<?php\n\nfunction MyFunction() {}\n\nfunction My_Function() {}\n",
+    "category": "Consistency",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "Explicit Octal",
+    "code": "explicit-octal",
+    "description": "Detects implicit octal numeral notation and suggests replacing it with explicit octal numeral notation.\n",
+    "good_example": "<?php\n\n$a = 0o123;\n",
+    "bad_example": "<?php\n\n$a = 0123;\n",
+    "category": "Clarity",
+    "requirements": {
+      "php-versions": [
+        {
+          "min": "8.1.0",
+          "max": null
+        }
+      ],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Readable Literal",
+    "code": "readable-literal",
+    "description": "Enforces using underscore separators in numeric literals for improved readability.\n",
+    "good_example": "<?php\n\n$a = 1_000_000;\n$b = 0xCAFE_F00D;\n$c = 0b0101_1111;\n",
+    "bad_example": "<?php\n\n$a = 1000000;\n$b = 0xCAFEF00D;\n$c = 0b01011111;\n",
+    "category": "Clarity",
+    "requirements": {
+      "php-versions": [
+        {
+          "min": "7.4.0",
+          "max": null
+        }
+      ],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Explicit Nullable Param",
+    "code": "explicit-nullable-param",
+    "description": "Detects parameters that are implicitly nullable and rely on a deprecated feature.\n\nSuch parameters are considered deprecated; an explicit nullable type hint is recommended.\n",
+    "good_example": "<?php\n\nfunction foo(?string $param) {}\n\nfunction bar(null|string $param) {}\n\nfunction baz(null|object $param = null) {}\n",
+    "bad_example": "<?php\n\nfunction foo(string $param = null) {}\n\nfunction bar(string $param = NULL) {}\n\nfunction baz(object $param = null) {}\n",
+    "category": "Deprecation",
+    "requirements": {
+      "php-versions": [
+        {
+          "min": "8.4.0",
+          "max": null
+        }
+      ],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Prefer Arrow Function",
+    "code": "prefer-arrow-function",
+    "description": "Promotes the use of arrow functions (`fn() => ...`) over traditional closures (`function() { ... }`).\n\nThis rule identifies closures that consist solely of a single return statement\nand suggests converting them to arrow functions.\n",
+    "good_example": "<?php\n\n$a = fn($x) => $x + 1;\n",
+    "bad_example": "<?php\n\n$a = function($x) {\n    return $x + 1;\n};\n",
+    "category": "BestPractices",
+    "requirements": {
+      "php-versions": [
+        {
+          "min": "7.4.0",
+          "max": null
+        }
+      ],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "Prefer Early Continue",
+    "code": "prefer-early-continue",
+    "description": "Suggests using early continue pattern when a loop body contains only a single if statement.\n\nThis improves code readability by reducing nesting and making the control flow more explicit.\n",
+    "good_example": "<?php\n\nfor ($i = 0; $i < 10; $i++) {\n    if (!$condition) {\n        continue;\n    }\n    doSomething();\n}\n",
+    "bad_example": "<?php\n\nfor ($i = 0; $i < 10; $i++) {\n    if ($condition) {\n        doSomething();\n    }\n}\n",
+    "category": "BestPractices",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "Prefer Static Closure",
+    "code": "prefer-static-closure",
+    "description": "Suggests adding the `static` keyword to closures and arrow functions that don't use `$this`.\n\nStatic closures don't bind `$this`, making them more memory-efficient and their intent clearer.\n",
+    "good_example": "<?php\n\nclass Foo {\n    public function bar() {\n        // Static closure - doesn't use $this\n        $fn = static fn($x) => $x * 2;\n\n        // Non-static - uses $this\n        $fn2 = fn() => $this->doSomething();\n\n        // Static function - doesn't use $this\n        $closure = static function($x) {\n            return $x * 2;\n        };\n    }\n}\n",
+    "bad_example": "<?php\n\nclass Foo {\n    public function bar() {\n        // Missing static - doesn't use $this\n        $fn = fn($x) => $x * 2;\n\n        // Missing static - doesn't use $this\n        $closure = function($x) {\n            return $x * 2;\n        };\n    }\n}\n",
+    "category": "BestPractices",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "Prefer While Loop",
+    "code": "prefer-while-loop",
+    "description": "Suggests using a `while` loop instead of a `for` loop when the `for` loop does not have any\ninitializations or increments. This can make the code more readable and concise.\n",
+    "good_example": "<?php\n\nwhile ($i < 10) {\n    echo $i;\n\n    $i++;\n}\n",
+    "bad_example": "<?php\n\nfor (; $i < 10;) {\n    echo $i;\n\n    $i++;\n}\n",
+    "category": "BestPractices",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Note"
+  },
+  {
+    "name": "Str Contains",
+    "code": "str-contains",
+    "description": "Detects `strpos($a, $b) !== false` and `strpos($a, $b) === false` comparisons and suggests\nreplacing them with `str_contains($a, $b)` or `!str_contains($a, $b)` for improved readability\nand intent clarity.\n",
+    "good_example": "<?php\n\n$a = 'hello world';\n$b = 'world';\n\nif (str_contains($a, $b)) {\n    echo 'Found';\n}\n",
+    "bad_example": "<?php\n\n$a = 'hello world';\n$b = 'world';\n\nif (strpos($a, $b) !== false) {\n    echo 'Found';\n}\n",
+    "category": "Clarity",
+    "requirements": {
+      "php-versions": [
+        {
+          "min": "8.0.0",
+          "max": null
+        }
+      ],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Str Starts With",
+    "code": "str-starts-with",
+    "description": "Detects `strpos($a, $b) === 0` comparisons and suggests replacing them with `str_starts_with($a, $b)`\nfor improved readability and intent clarity.\n",
+    "good_example": "<?php\n\n$a = 'hello world';\n$b = 'hello';\nif (str_starts_with($a, $b)) {\n    echo 'Found';\n}\n",
+    "bad_example": "<?php\n\n$a = 'hello world';\n$b = 'hello';\nif (strpos($a, $b) === 0) {\n    echo 'Found';\n}\n",
+    "category": "Clarity",
+    "requirements": {
+      "php-versions": [
+        {
+          "min": "8.0.0",
+          "max": null
+        }
+      ],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Strict Behavior",
+    "code": "strict-behavior",
+    "description": "Detects functions relying on loose comparison unless the `$strict` parameter is specified.\nThe use of loose comparison for these functions may lead to hard-to-debug, unexpected behaviors.\n",
+    "good_example": "<?php\n\nin_array(1, ['foo', 'bar', 'baz'], strict: true);\n",
+    "bad_example": "<?php\n\nin_array(1, ['foo', 'bar', 'baz']);\n",
+    "category": "Correctness",
+    "requirements": {
+      "php-versions": [
+        {
+          "min": "7.0.0",
+          "max": null
+        }
+      ],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Strict Types",
+    "code": "strict-types",
+    "description": "Detects missing `declare(strict_types=1);` statement at the beginning of the file.\n",
+    "good_example": "<?php\n\ndeclare(strict_types=1);\n\necho \"Hello, World!\";\n",
+    "bad_example": "<?php\n\necho \"Hello, World!\";\n",
+    "category": "Correctness",
+    "requirements": {
+      "php-versions": [
+        {
+          "min": "7.0.0",
+          "max": null
+        }
+      ],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Tagged FIXME",
+    "code": "tagged-fixme",
+    "description": "Detects FIXME comments that are not tagged with a user or issue reference. Untagged FIXME comments\nare not actionable and can be easily missed by the team. Tagging the FIXME comment with a user or\nissue reference ensures that the issue is tracked and resolved.\n",
+    "good_example": "<?php\n\n// FIXME(@azjezz) This is a valid FIXME comment.\n// FIXME(azjezz) This is a valid FIXME comment.\n// FIXME(#123) This is a valid FIXME comment.\n",
+    "bad_example": "<?php\n\n// FIXME: This is an invalid FIXME comment.\n",
+    "category": "Clarity",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Tagged TODO",
+    "code": "tagged-todo",
+    "description": "Detects TODO comments that are not tagged with a user or issue reference. Untagged TODOs\ncan be difficult to track and may be forgotten. Tagging TODOs with a user or issue reference\nmakes it easier to track progress and ensures that tasks are not forgotten.\n",
+    "good_example": "<?php\n\n// TODO(@azjezz) This is a valid TODO comment.\n// TODO(azjezz) This is a valid TODO comment.\n// TODO(#123) This is a valid TODO comment.\n",
+    "bad_example": "<?php\n\n// TODO: This is an invalid TODO comment.\n",
+    "category": "Clarity",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Too Many Enum Cases",
+    "code": "too-many-enum-cases",
+    "description": "Detects enums with too many cases.\n\nThis rule checks the number of cases in enums. If the number of cases exceeds a configurable threshold, an issue is reported.\n",
+    "good_example": "<?php\n\nenum SimpleEnum {\n    case A;\n    case B;\n    case C;\n}\n",
+    "bad_example": "<?php\n\nenum LargeEnum {\n    case A;\n    case B;\n    case C;\n    case D;\n    case E;\n    case F;\n    case G;\n    case H;\n    case I;\n    case J;\n    case K;\n    case L;\n    case M;\n    case N;\n    case O;\n    case P;\n    case Q;\n    case R;\n    case S;\n    case T;\n    case U;\n}\n",
+    "category": "Maintainability",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "Too Many Methods",
+    "code": "too-many-methods",
+    "description": "Detects class-like structures with too many methods.\n\nThis rule checks the number of methods in classes, traits, enums, and interfaces.\nIf the number of methods exceeds a configurable threshold, an issue is reported.\n",
+    "good_example": "<?php\n\nclass SimpleClass {\n    public function a() {}\n    public function b() {}\n}\n",
+    "bad_example": "<?php\n\nclass ComplexClass {\n    public function a() {}\n    public function b() {}\n    public function c() {}\n    public function d() {}\n    public function e() {}\n    public function f() {}\n    public function g() {}\n    public function h() {}\n    public function i() {}\n    public function j() {}\n    public function k() {}\n    public function l() {}\n    public function m() {}\n    public function n() {}\n    public function o() {}\n    public function p() {}\n    public function q() {}\n    public function r() {}\n    public function s() {}\n    public function t() {}\n    public function u() {}\n}\n",
+    "category": "Maintainability",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "Too Many Properties",
+    "code": "too-many-properties",
+    "description": "Detects class-like structures with too many properties.\n\nThis rule checks the number of properties in classes, traits, and interfaces.\nIf the number of properties exceeds a configurable threshold, an issue is reported.\n",
+    "good_example": "<?php\n\nclass SimpleClass {\n    public $a;\n    public $b;\n}\n",
+    "bad_example": "<?php\n\nclass ComplexClass {\n    public $a; public $b; public $c; public $d; public $e;\n    public $f; public $g; public $h; public $i; public $j; public $k;\n}\n",
+    "category": "Maintainability",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "Trait Name",
+    "code": "trait-name",
+    "description": "Detects trait declarations that do not follow class naming convention.\nTrait names should be in class case and suffixed with `Trait`, depending on the configuration.\n",
+    "good_example": "<?php\n\ntrait MyTrait {}\n",
+    "bad_example": "<?php\n\ntrait myTrait {}\ntrait my_trait {}\ntrait MY_TRAIT {}\n",
+    "category": "Consistency",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "Valid Docblock",
+    "code": "valid-docblock",
+    "description": "Checks for syntax errors in docblock comments, such as malformed `{@see}` or\n`{@link}` annotations. It does not enforce the presence of docblocks or verify\nthat declared types match the native declaration.\n",
+    "good_example": "<?php\n\n/**\n * For more information, {@see https://example.com}.\n *\n * @param int $a\n *\n * @return int\n */\nfunction foo($a) {\n    return $a;\n}\n",
+    "bad_example": "<?php\n\n/**\n * For more information, {@see https://example.com\n *\n * @param int $a\n *\n * @return int\n */\nfunction foo($a) {\n    return $a;\n}\n",
+    "category": "Clarity",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Note"
+  },
+  {
+    "name": "Constant Condition",
+    "code": "constant-condition",
+    "description": "Detects `if` statements where the condition is a constant that always\nevaluates to `true` or `false`.\n\nSuch statements are redundant. If the condition is always `true`, the `if`\nwrapper is unnecessary. If it's always `false`, the enclosed code is dead\nand can be removed or refactored.\n",
+    "good_example": "<?php\nif ($variable > 10) {\n    echo \"Greater than 10\";\n}\n",
+    "bad_example": "<?php\nif (true) {\n    echo \"This will always run\";\n}\n\nif (false) {\n    echo \"This is dead code\";\n}\n",
+    "category": "Redundancy",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "No ini_set",
+    "code": "no-ini-set",
+    "description": "Enforces that ini_set is not used.\n\nRuntime configuration changes via ini_set make application behavior unpredictable and environment-dependent. They can mask misconfigured servers, introduce subtle bugs, and lead to inconsistent behavior between development, testing, and production environments.\n\nModern applications should rely on well-defined configuration through php.ini or framework specific configuration. This ensures that configuration is explicit, consistent, and controlled across all environments.\n\nIf a setting truly needs to vary between contexts, it should be handled at the infrastructure or framework configuration level, never by calling ini_set within the application code.\n",
+    "good_example": "<?php\n\n// In framework config files (e.g., wp-config.php), use constants.\ndefine( 'WP_DEBUG', true );\n\n// Use framework-provided functions where available.\nwp_raise_memory_limit( 'admin' );\n",
+    "bad_example": "<?php\n\n// This can override server settings in an unpredictable way.\nini_set( 'display_errors', 1 );\nini_set( 'memory_limit', '256M' );\n",
+    "category": "BestPractices",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "No Insecure Comparison",
+    "code": "no-insecure-comparison",
+    "description": "Detects insecure comparison of passwords or tokens using `==`, `!=`, `===`, or `!==`.\n\nThese operators are vulnerable to timing attacks, which can expose sensitive information.\nInstead, use `hash_equals` for comparing strings or `password_verify` for validating hashes.\n\nSensitive data is identified by names, such as variables, array keys, and properties.\nString literal values such as `'refresh_token'` do not by themselves indicate sensitive data.\n",
+    "good_example": "<?php\n\nif (hash_equals($storedToken, $userToken)) {\n    // Valid token\n}\n",
+    "bad_example": "<?php\n\nif ($storedToken == $userToken) {\n    // Vulnerable to timing attacks\n}\n",
+    "category": "Security",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "No Literal Password",
+    "code": "no-literal-password",
+    "description": "Detects the use of literal values for passwords or sensitive data.\nStoring passwords or sensitive information as literals in code is a security risk\nand should be avoided. Use environment variables or secure configuration management instead.\n",
+    "good_example": "<?php\n\n$password = getenv('DB_PASSWORD');\n",
+    "bad_example": "<?php\n\n$password = \"supersecret\";\n",
+    "category": "Security",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "Tainted Data to Sink",
+    "code": "tainted-data-to-sink",
+    "description": "Detects user (tainted) data being passed directly to sink functions or constructs\n(such as `echo`, `print`, or user-defined \"log\" functions). If these functions emit\nor store data without sanitization, it could lead to Cross-Site Scripting (XSS)\nor other injection attacks.\n",
+    "good_example": "<?php\n\n// Properly escape data before using a sink like `echo`\necho htmlspecialchars($_GET['name'] ?? '', ENT_QUOTES, 'UTF-8');\n",
+    "bad_example": "<?php\n\n// This is considered unsafe:\necho $_GET['name'] ?? '';\n",
+    "category": "Security",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "Sensitive Parameter",
+    "code": "sensitive-parameter",
+    "description": "Requires that parameters that are likely to contain sensitive information (e.g., passwords)\nare marked with the `#[SensitiveParameter]` attribute to prevent accidental logging or exposure.\n\nThis rule only applies to PHP 8.2 and later, as the `SensitiveParameter` attribute was introduced in PHP 8.2.\n",
+    "good_example": "<?php\n\nfunction login(string $username, #[SensitiveParameter] string $password): void {\n   // ...\n}\n",
+    "bad_example": "<?php\n\nfunction login(string $username, string $password): void {\n   // ...\n}\n",
+    "category": "Security",
+    "requirements": {
+      "php-versions": [
+        {
+          "min": "8.2.0",
+          "max": null
+        }
+      ],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "No Unsafe Finally",
+    "code": "no-unsafe-finally",
+    "description": "Detects control flow statements in `finally` blocks.\n\nControl flow statements in `finally` blocks override control flows from `try` and `catch` blocks,\nleading to unexpected behavior.\n",
+    "good_example": "<?php\n\nfunction example(): int {\n    try {\n        return get_value();\n    } finally {\n        // no control flow statements\n    }\n}\n",
+    "bad_example": "<?php\n\nfunction example(): int {\n    try {\n        return get_value();\n    } finally {\n        return 42; // Unsafe control flow statement in finally block\n    }\n}\n",
+    "category": "Safety",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Error"
+  },
+  {
+    "name": "Strict Assertions",
+    "code": "strict-assertions",
+    "description": "Detects non-strict assertions in test methods.\nAssertions should use strict comparison methods, such as `assertSame` or `assertNotSame`\ninstead of `assertEquals` or `assertNotEquals`.\n",
+    "good_example": "<?php\n\ndeclare(strict_types=1);\n\nuse PHPUnit\\Framework\\TestCase;\n\nfinal class SomeTest extends TestCase\n{\n    public function testSomething(): void\n    {\n        $this->assertSame(42, 42);\n    }\n}\n",
+    "bad_example": "<?php\n\ndeclare(strict_types=1);\n\nuse PHPUnit\\Framework\\TestCase;\n\nfinal class SomeTest extends TestCase\n{\n    public function testSomething(): void\n    {\n        $this->assertEquals(42, 42);\n    }\n}\n",
+    "category": "Correctness",
+    "requirements": {
+      "php-versions": [],
+      "integrations": [
+        524288
+      ]
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Use Specific Assertions",
+    "code": "use-specific-assertions",
+    "description": "Suggests using specific PHPUnit assertions instead of generic equality assertions\nwhen comparing with `null`, `true`, or `false`.\n\nUsing specific assertions like `assertNull`, `assertTrue`, and `assertFalse`\nprovides clearer error messages and makes test intent more explicit.\n",
+    "good_example": "<?php\n\ndeclare(strict_types=1);\n\nuse PHPUnit\\Framework\\TestCase;\n\nfinal class SomeTest extends TestCase\n{\n    public function testSomething(): void\n    {\n        $this->assertNull($value);\n        $this->assertTrue($flag);\n        $this->assertFalse($condition);\n    }\n}\n",
+    "bad_example": "<?php\n\ndeclare(strict_types=1);\n\nuse PHPUnit\\Framework\\TestCase;\n\nfinal class SomeTest extends TestCase\n{\n    public function testSomething(): void\n    {\n        $this->assertEquals(null, $value);\n        $this->assertSame(true, $flag);\n        $this->assertEquals(false, $condition);\n    }\n}\n",
+    "category": "Correctness",
+    "requirements": {
+      "php-versions": [],
+      "integrations": [
+        524288
+      ]
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Use Compound Assignment",
+    "code": "use-compound-assignment",
+    "description": "Enforces the use of compound assignment operators (e.g., `+=`, `.=`)\nover their more verbose equivalents (`$var = $var + ...`).\n\nUsing compound assignments is more concise and idiomatic. For string\nconcatenation (`.=`), it can also be more performant as it avoids\ncreating an intermediate copy of the string.\n",
+    "good_example": "<?php\n\n$count += 1;\n$message .= ' Hello';\n",
+    "bad_example": "<?php\n\n$count = $count + 1;\n$message = $message . ' Hello';\n",
+    "category": "BestPractices",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Help"
+  },
+  {
+    "name": "Require `preg_quote` Delimiter",
+    "code": "require-preg-quote-delimiter",
+    "description": "This rule requires that when using `preg_quote()`, the second `$delimiter` argument is always provided.\nIf the string being quoted contains the same character used for your regex delimiter (e.g., `/`),\nfailing to provide the second argument will prevent that character from being escaped,\nwhich can break the regular expression.\n",
+    "good_example": "<?php\n\n// The delimiter is provided, ensuring it gets escaped if necessary.\n$pattern = '/' . preg_quote( $user_input, '/' ) . '/';\n",
+    "bad_example": "<?php\n\n// If $user_input contains '/', the regex will be invalid.\n$pattern = '/' . preg_quote( $user_input ) . '/';\n",
+    "category": "Security",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  },
+  {
+    "name": "Single Class Per File",
+    "code": "single-class-per-file",
+    "description": "Ensures that each file contains at most one class-like definition (class, interface, enum, or trait).\n",
+    "good_example": "<?php\n\nnamespace App;\n\nclass Foo\n{\n}\n",
+    "bad_example": "<?php\n\nnamespace App;\n\nclass Foo\n{\n}\n\nclass Bar\n{\n}\n",
+    "category": "BestPractices",
+    "requirements": {
+      "php-versions": [],
+      "integrations": []
+    },
+    "level": "Warning"
+  }
+]

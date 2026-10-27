@@ -1,0 +1,5 @@
+{
+  "exit": 3,
+  "stdout": "",
+  "stderr": "serena-mcp: Unknown run 'slice1-does-not-exist'; run ./bin/poc up or ./bin/poc agent-task first\n"
+}

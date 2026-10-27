@@ -1,0 +1,480 @@
+{
+  "schema": 1,
+  "base_demo": "8d2e2ef75c3e18df173d8bf2379a14abb58c4c31",
+  "base_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd",
+  "files": {
+    "composer.json": "0f090d7c8728f55753d3586e5499d55e1e4c09b3a8e47fb91edcb3e3f14f662f",
+    "composer.lock": "0a25c4e068e8b177b7e8eaeab0e74cf833bc79ebf365be191aec286f9ca32a49"
+  },
+  "added_packages": {
+    "byte-kitsune/mago-symfony-wiring": {
+      "name": "byte-kitsune/mago-symfony-wiring",
+      "version": "dev-poc-28c3f54",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/Byte-Kitsune/mago-symfony-wiring.git",
+        "reference": "28c3f54065b71fe046a7474ced401aeadc941b0f"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Byte-Kitsune/mago-symfony-wiring/zipball/28c3f54065b71fe046a7474ced401aeadc941b0f",
+        "reference": "28c3f54065b71fe046a7474ced401aeadc941b0f"
+      },
+      "require": {
+        "carthage-software/mago": "^1.50",
+        "nikic/php-parser": "^5.9",
+        "php": "^8.2",
+        "symfony/yaml": "^7.4 || ^8.0"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "ByteKitsune\\MagoSymfonyWiring\\": "src/"
+        }
+      },
+      "license": [
+        "MIT"
+      ]
+    },
+    "carthage-software/mago": {
+      "name": "carthage-software/mago",
+      "version": "1.58.2",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/carthage-software/mago.git",
+        "reference": "46df50c96d93d0ac3655c116c375574277cf0b30"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/carthage-software/mago/zipball/46df50c96d93d0ac3655c116c375574277cf0b30",
+        "reference": "46df50c96d93d0ac3655c116c375574277cf0b30"
+      },
+      "require": {
+        "php": "~8.1 || ~8.2 || ~8.3 || ~8.4 || ~8.5 || ~8.6",
+        "revolt/event-loop": "^1.0.9"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Mago\\": "composer/src/"
+        },
+        "files": [
+          "composer/src/functions.php",
+          "composer/src/internal.php"
+        ]
+      },
+      "license": [
+        "MIT",
+        "Apache-2.0"
+      ]
+    },
+    "revolt/event-loop": {
+      "name": "revolt/event-loop",
+      "version": "v1.0.9",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/revoltphp/event-loop.git",
+        "reference": "44061cf513e53c6200372fc935ac42271566295d"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/revoltphp/event-loop/zipball/44061cf513e53c6200372fc935ac42271566295d",
+        "reference": "44061cf513e53c6200372fc935ac42271566295d",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.1"
+      },
+      "require-dev": {
+        "ext-json": "*",
+        "jetbrains/phpstorm-stubs": "^2019.3",
+        "phpunit/phpunit": "^9",
+        "psalm/phar": "6.16.*"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-main": "1.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Revolt\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Aaron Piotrowski",
+          "email": "aaron@trowski.com"
+        },
+        {
+          "name": "Cees-Jan Kiewiet",
+          "email": "ceesjank@gmail.com"
+        },
+        {
+          "name": "Christian L\u00fcck",
+          "email": "christian@clue.engineering"
+        },
+        {
+          "name": "Niklas Keller",
+          "email": "me@kelunik.com"
+        }
+      ],
+      "description": "Rock-solid event loop for concurrent PHP applications.",
+      "keywords": [
+        "async",
+        "asynchronous",
+        "concurrency",
+        "event",
+        "event-loop",
+        "non-blocking",
+        "scheduler"
+      ],
+      "support": {
+        "issues": "https://github.com/revoltphp/event-loop/issues",
+        "source": "https://github.com/revoltphp/event-loop/tree/v1.0.9"
+      },
+      "time": "2026-05-16T17:55:38+00:00"
+    },
+    "symfony/ai-mate": {
+      "name": "symfony/ai-mate",
+      "version": "v0.15.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/ai-mate.git",
+        "reference": "0920fc01cbc9667804cfdb530b677a4df217c26a"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/ai-mate/zipball/0920fc01cbc9667804cfdb530b677a4df217c26a",
+        "reference": "0920fc01cbc9667804cfdb530b677a4df217c26a",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.2",
+        "psr/container": "^1.1|^2.0",
+        "psr/log": "^2.0|^3.0",
+        "symfony/ai-mate-composer-plugin": "^0.15",
+        "symfony/config": "^5.4|^6.4|^7.3|^8.0",
+        "symfony/console": "^5.4|^6.4|^7.3|^8.0",
+        "symfony/dependency-injection": "^5.4|^6.4|^7.3|^8.0",
+        "symfony/dotenv": "^5.4|^6.4|^7.3|^8.0",
+        "symfony/filesystem": "^5.4|^6.4|^7.3|^8.0",
+        "symfony/finder": "^5.4|^6.4|^7.3|^8.0",
+        "symfony/process": "^5.4|^6.4|^7.3|^8.0"
+      },
+      "require-dev": {
+        "ext-simplexml": "*",
+        "helgesverre/toon": "^3.2.1",
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2.0",
+        "phpunit/phpunit": "^11.5.53"
+      },
+      "bin": [
+        "bin/mate"
+      ],
+      "type": "library",
+      "extra": {
+        "thanks": {
+          "url": "https://github.com/symfony/ai",
+          "name": "symfony/ai"
+        },
+        "ai-mate": {
+          "skills": [
+            "skills"
+          ],
+          "scan-dirs": [
+            "src/Capability"
+          ],
+          "instructions": "INSTRUCTIONS.md"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Symfony\\AI\\Mate\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Johannes Wachter",
+          "email": "johannes@sulu.io"
+        },
+        {
+          "name": "Tobias Nyholm",
+          "email": "tobias.nyholm@gmail.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "AI development assistant CLI for Symfony projects",
+      "keywords": [
+        "ai",
+        "cli",
+        "debug",
+        "dev",
+        "development",
+        "symfony"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/ai-mate/tree/v0.15.0"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-10-22T23:44:24+00:00"
+    },
+    "symfony/ai-mate-composer-plugin": {
+      "name": "symfony/ai-mate-composer-plugin",
+      "version": "v0.15.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/ai-mate-composer-plugin.git",
+        "reference": "6005a24aa1c81c215e94925b6c45ac9cfb6bda99"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/ai-mate-composer-plugin/zipball/6005a24aa1c81c215e94925b6c45ac9cfb6bda99",
+        "reference": "6005a24aa1c81c215e94925b6c45ac9cfb6bda99",
+        "shasum": ""
+      },
+      "require": {
+        "composer-plugin-api": "^2.1",
+        "php": ">=8.2"
+      },
+      "require-dev": {
+        "composer/composer": "^2.1",
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2.0",
+        "phpunit/phpunit": "^11.5.53",
+        "symfony/ai-mate": "^0.15"
+      },
+      "type": "composer-plugin",
+      "extra": {
+        "class": "Symfony\\AI\\Mate\\ComposerPlugin\\MatePlugin",
+        "thanks": {
+          "url": "https://github.com/symfony/ai",
+          "name": "symfony/ai"
+        },
+        "plugin-optional": true
+      },
+      "autoload": {
+        "psr-4": {
+          "Symfony\\AI\\Mate\\ComposerPlugin\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Johannes Wachter",
+          "email": "johannes@sulu.io"
+        },
+        {
+          "name": "Tobias Nyholm",
+          "email": "tobias.nyholm@gmail.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Composer plugin that automatically discovers AI Mate extensions on install/update",
+      "keywords": [
+        "ai",
+        "auto-discovery",
+        "composer-plugin",
+        "mate"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/ai-mate-composer-plugin/tree/v0.15.0"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-10-22T23:44:24+00:00"
+    },
+    "symfony/ai-symfony-mate-extension": {
+      "name": "symfony/ai-symfony-mate-extension",
+      "version": "v0.15.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/ai-symfony-mate-extension.git",
+        "reference": "f721459ba45fa5752f3a1229c8611a689f6eba09"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/ai-symfony-mate-extension/zipball/f721459ba45fa5752f3a1229c8611a689f6eba09",
+        "reference": "f721459ba45fa5752f3a1229c8611a689f6eba09",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.2",
+        "symfony/ai-mate": "^0.15",
+        "symfony/dependency-injection": "^7.3|^8.0"
+      },
+      "require-dev": {
+        "doctrine/doctrine-bundle": "^2.13|^3.0",
+        "helgesverre/toon": "^3.2.1",
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2.0",
+        "phpunit/phpunit": "^11.5.53",
+        "symfony/dotenv": "^7.3|^8.0",
+        "symfony/http-client": "^7.3|^8.0",
+        "symfony/http-kernel": "^7.3|^8.0",
+        "symfony/mailer": "^7.3|^8.0",
+        "symfony/stopwatch": "^7.3|^8.0",
+        "symfony/translation": "^7.3|^8.0",
+        "symfony/var-dumper": "^7.3|^8.0",
+        "symfony/web-profiler-bundle": "^7.3|^8.0"
+      },
+      "suggest": {
+        "doctrine/doctrine-bundle": "Required for Doctrine database profiler formatter",
+        "symfony/dotenv": "Required for the symfony-dotenv-check tool",
+        "symfony/http-kernel": "Required for profiler data access tools",
+        "symfony/mailer": "Required for mailer profiler formatter",
+        "symfony/translation": "Required for translation profiler collector formatter",
+        "symfony/web-profiler-bundle": "Required for profiler data access tools"
+      },
+      "type": "symfony-ai-mate",
+      "extra": {
+        "thanks": {
+          "url": "https://github.com/symfony/ai",
+          "name": "symfony/ai"
+        },
+        "ai-mate": {
+          "skills": [
+            "skills"
+          ],
+          "includes": [
+            "config/config.php"
+          ],
+          "scan-dirs": [
+            "Capability"
+          ],
+          "instructions": "INSTRUCTIONS.md"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Symfony\\AI\\Mate\\Bridge\\Symfony\\": ""
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Tobias Nyholm",
+          "email": "tobias.nyholm@gmail.com"
+        },
+        {
+          "name": "Johannes Wachter",
+          "email": "johannes@sulu.io"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Symfony bridge for AI Mate - provides Symfony container introspection and optional profiler data access tools",
+      "keywords": [
+        "Bridge",
+        "ai",
+        "debug",
+        "dev",
+        "profiler",
+        "symfony"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/ai-symfony-mate-extension/tree/v0.15.0"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-10-23T00:19:04+00:00"
+    }
+  },
+  "resolution": "Composer 2.9.1 / PHP 8.5.12; retained platform PHP 8.4.1; update ONLY the two new root packages, --minimal-changes --no-plugins --no-scripts. Existing package records are byte-equivalent as parsed JSON.",
+  "changed_packages": {
+    "nikic/php-parser": {
+      "from": "v5.7.0",
+      "to": "v5.9.0",
+      "reason": "Pinned Symfony wiring snapshot requires nikic/php-parser ^5.9; other existing dependencies remain locked."
+    }
+  },
+  "mago_sdk": {
+    "version": "1.58.2",
+    "source": "46df50c96d93d0ac3655c116c375574277cf0b30",
+    "protocol": "MANA 2.1",
+    "executable": "/usr/local/bin/mago",
+    "reason": "Exact SDK source matches experimental executable; packaged vendor/bin/mago is intentionally not installed/invoked."
+  },
+  "wiring": {
+    "source": "28c3f54065b71fe046a7474ced401aeadc941b0f",
+    "package_version": "dev-poc-28c3f54",
+    "extension_version": "1.3.0-RC1",
+    "backend": "php",
+    "reason": "Explicit supported reference backend; no unrelated native engine download."
+  }
+}

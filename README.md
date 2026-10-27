@@ -1,5 +1,31 @@
 # Serena v2 REPL + experimental Mago LSP
 
+New Symfony work follows the [Mago-first roadmap](docs/ROADMAP.md): Mago owns
+PHP analysis, lint, safe fixes and scoped formatting; Serena supplies semantic
+navigation and Mate supplies compiled-container facts. Slice 1 investigates the
+existing [`TagsInputType` service](docs/SERVICE-SEMANTICS.md). The original
+rename/application acceptance below remains independently runnable.
+
+```sh
+./bin/poc slice1                         # Fresh combined service proof, then cleanup
+./bin/poc up --run inspect --no-build
+./bin/poc mago --run inspect -- analyze --reporting-format json
+./bin/poc quality --run inspect          # Native exits/findings retained; may be nonclean
+./bin/poc mate-prepare --run inspect     # Locked overlay + explicit dev metadata refresh
+./bin/mate --run inspect -- tools:list --format=json
+./bin/serena-mcp --run inspect            # MCP stdio for this exact workspace
+./bin/poc down --run inspect
+```
+
+Run the initial `./bin/poc up` below to build the image before `slice1`.
+Host launchers work from another directory and require/select an owned run.
+Formatting requires explicit PHP paths. The combined proof passes only when its
+PHP, semantics, compiled-wiring and behavioral controls pass; it does not label
+the Demo's existing native findings clean. Raw reports and failing attempts are
+retained under `artifacts/<run-id>/`. The legacy formatter/analyzer remain an
+explicit historical comparison via `poc exec --run <id> --
+/opt/poc/docker/check --legacy-comparison`, outside the default workflow.
+
 A pinned Symfony Demo fixture, Docker development service, external SolidLSP
 adapter, and acceptance harness proving **MCP → Serena REPL → Mago → PHP source**.
 

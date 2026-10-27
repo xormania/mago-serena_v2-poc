@@ -1,0 +1,1468 @@
+{
+  "schema": 1,
+  "kind": "installed_mago_service_calibration",
+  "run_id": "mago-slice",
+  "service": "App\\Form\\Type\\TagsInputType",
+  "service_file": "src/Form/Type/TagsInputType.php",
+  "context": [
+    "src/Form/Type/TagsInputType.php",
+    "src/Repository/TagRepository.php",
+    "src/Form/PostType.php",
+    "src/Form/DataTransformer/TagArrayToStringTransformer.php"
+  ],
+  "baseline": null,
+  "commands": [
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "config"
+      ],
+      "exit": 0,
+      "elapsed_s": 0.104747,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/effective-config"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "list-files",
+        "--command",
+        "analyzer"
+      ],
+      "exit": 0,
+      "elapsed_s": 0.110665,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/files"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "lint",
+        "--list-rules",
+        "--json"
+      ],
+      "exit": 0,
+      "elapsed_s": 0.107527,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/rules"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "analyze",
+        "--reporting-format",
+        "json"
+      ],
+      "exit": 1,
+      "elapsed_s": 0.326054,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/initial-analyze"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "lint",
+        "--reporting-format",
+        "json"
+      ],
+      "exit": 1,
+      "elapsed_s": 0.078013,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/initial-lint"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "format",
+        "--check",
+        "src/Form/Type/TagsInputType.php"
+      ],
+      "exit": 0,
+      "elapsed_s": 0.075951,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/healthy-format"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "guard",
+        "--structural",
+        "--reporting-format",
+        "json"
+      ],
+      "exit": 0,
+      "elapsed_s": 0.133018,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/healthy-guard"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "analyze",
+        "--reporting-format",
+        "json"
+      ],
+      "exit": 1,
+      "elapsed_s": 0.251699,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "f9557aa14e6aad4df0c58ca071892b04634c05e7dff230f420562b4e421c5f4f",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/type-defect"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "analyze",
+        "--reporting-format",
+        "json"
+      ],
+      "exit": 1,
+      "elapsed_s": 0.274325,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/type-restored"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "lint",
+        "--reporting-format",
+        "json"
+      ],
+      "exit": 1,
+      "elapsed_s": 0.113039,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "adbcb62448c729d754993fb6f094737e71cfc2bb0f8744b21e543b09ac9e3af9",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/lint-defect"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "lint",
+        "--reporting-format",
+        "json"
+      ],
+      "exit": 1,
+      "elapsed_s": 0.110484,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/lint-restored"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "lint",
+        "--reporting-format",
+        "json",
+        "src/Form/Type/TagsInputType.php"
+      ],
+      "exit": 0,
+      "elapsed_s": 0.112853,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "8670ddefd809141496c080fc67ed6deaf9f448cec0a043607d034cb0ecafc812",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/fix-before"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "lint",
+        "--only",
+        "no-redundant-parentheses",
+        "--fix",
+        "--fail-on-remaining",
+        "src/Form/Type/TagsInputType.php"
+      ],
+      "exit": 0,
+      "elapsed_s": 0.099492,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/safe-fix"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "lint",
+        "--reporting-format",
+        "json",
+        "src/Form/Type/TagsInputType.php"
+      ],
+      "exit": 0,
+      "elapsed_s": 0.09976,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/fix-after"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "guard",
+        "--structural",
+        "--reporting-format",
+        "json"
+      ],
+      "exit": 1,
+      "elapsed_s": 0.169718,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "4550e3f15ca83cbe552a00a5b04ba9574bbb94257b8362965ebd3a92dc46d177",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/guard-violation"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "guard",
+        "--structural",
+        "--reporting-format",
+        "json"
+      ],
+      "exit": 0,
+      "elapsed_s": 0.150777,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/guard-restored"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "format",
+        "--check",
+        "src/Form/Type/TagsInputType.php"
+      ],
+      "exit": 1,
+      "elapsed_s": 0.101555,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "e589bffbb8ff7c36e03d9bb82e0e58e6f93b3fac5055cbbd71e7caed3fdd6f90",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/format-detected"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "format",
+        "--dry-run",
+        "src/Form/Type/TagsInputType.php"
+      ],
+      "exit": 1,
+      "elapsed_s": 0.124403,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "e589bffbb8ff7c36e03d9bb82e0e58e6f93b3fac5055cbbd71e7caed3fdd6f90",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/format-diff"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "format",
+        "src/Form/Type/TagsInputType.php"
+      ],
+      "exit": 0,
+      "elapsed_s": 0.124211,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/format-applied"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "format",
+        "--check",
+        "src/Form/Type/TagsInputType.php"
+      ],
+      "exit": 0,
+      "elapsed_s": 0.127163,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/format-stable"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "format",
+        "src/Form/Type/TagsInputType.php"
+      ],
+      "exit": 0,
+      "elapsed_s": 0.120035,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/format-second"
+    },
+    {
+      "run_id": "mago-slice",
+      "host_workspace": "/home/scientdb/projects/xormania/mago-serena_v2-poc/workspaces/mago-slice/app",
+      "argv": [
+        "/usr/bin/docker",
+        "compose",
+        "--project-directory",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc",
+        "-f",
+        "/home/scientdb/projects/xormania/mago-serena_v2-poc/compose.yaml",
+        "-p",
+        "mago-poc-dfbf33de-mago-slice",
+        "exec",
+        "-T",
+        "-w",
+        "/app",
+        "php",
+        "env",
+        "MAGO_LOG=trace",
+        "mago",
+        "--workspace",
+        "/app",
+        "--config",
+        "/app/mago-php.toml",
+        "--php-version",
+        "8.5",
+        "--colors",
+        "never",
+        "cst",
+        "--json",
+        "--names",
+        "src/Form/Type/TagsInputType.php"
+      ],
+      "exit": 0,
+      "elapsed_s": 0.107989,
+      "tool": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "source_sha256": {
+        "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+        "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+        "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+        "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+      },
+      "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/cst"
+    }
+  ],
+  "status": "pass",
+  "tool": {
+    "config": "/app/mago-php.toml",
+    "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+    "version": "mago 1.58.2",
+    "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+    "binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+    "php_target": "8.5",
+    "workspace": "/app",
+    "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+  },
+  "coverage": {
+    "hosts": 46,
+    "compiled_source_files": 9450,
+    "host_manifest": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/files/stdout",
+    "dependency_coverage": "Actual native trace counts compiled host and vendor source files; builtin prelude enabled separately.",
+    "builtin_stubs": "Enabled native precompiled prelude; excluded from the compiled-source count.",
+    "available_vendor_php_files": 9404,
+    "vendor_inventory_limit": "Available dependency file hashes; individual loaded vendor files are not enumerated by list-files."
+  },
+  "initial": {
+    "analyzer_exit": 1,
+    "lint_exit": 1,
+    "analyzer_findings": 35,
+    "lint_findings": 125,
+    "analyzer_codes": {
+      "redundant-cast": 2,
+      "ambiguous-object-method-access": 1,
+      "invalid-return-statement": 3,
+      "possibly-invalid-argument": 4,
+      "incompatible-parameter-name": 3,
+      "mixed-assignment": 5,
+      "redundant-docblock-type": 1,
+      "invalid-argument": 6,
+      "possibly-null-operand": 1,
+      "possibly-null-argument": 1,
+      "possible-method-access-on-null": 1,
+      "implicit-to-string-cast": 1,
+      "less-specific-argument": 1,
+      "less-specific-return-statement": 2,
+      "possibly-false-operand": 2,
+      "redundant-logical-operation": 1
+    },
+    "lint_codes": {
+      "strict-types": 46,
+      "inline-variable-return": 1,
+      "assertion-style": 32,
+      "literal-named-argument": 17,
+      "sensitive-parameter": 5,
+      "too-many-methods": 4,
+      "no-empty": 6,
+      "prefer-early-continue": 1,
+      "no-shorthand-ternary": 2,
+      "no-literal-password": 2,
+      "no-else-clause": 4,
+      "no-boolean-flag-parameter": 4,
+      "readable-literal": 1
+    },
+    "service_analyzer": [],
+    "service_lint": [
+      {
+        "level": "Warning",
+        "code": "strict-types",
+        "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+        "notes": [
+          "The `strict_types` directive enforces strict type checking, which can prevent subtle bugs."
+        ],
+        "help": "Add `declare(strict_types=1);` at the top of your file.",
+        "annotations": [
+          {
+            "kind": "Primary",
+            "span": {
+              "file_id": {
+                "name": "src/Form/Type/TagsInputType.php",
+                "path": "/app/src/Form/Type/TagsInputType.php",
+                "size": 1934,
+                "file_type": "Host"
+              },
+              "start": {
+                "offset": 0,
+                "line": 0
+              },
+              "end": {
+                "offset": 5,
+                "line": 0
+              }
+            }
+          }
+        ],
+        "edits": [
+          [
+            {
+              "name": "src/Form/Type/TagsInputType.php",
+              "path": "/app/src/Form/Type/TagsInputType.php",
+              "size": 1934,
+              "file_type": "Host"
+            },
+            [
+              {
+                "range": {
+                  "start": 5,
+                  "end": 5
+                },
+                "new_text": [
+                  10,
+                  10,
+                  100,
+                  101,
+                  99,
+                  108,
+                  97,
+                  114,
+                  101,
+                  40,
+                  115,
+                  116,
+                  114,
+                  105,
+                  99,
+                  116,
+                  95,
+                  116,
+                  121,
+                  112,
+                  101,
+                  115,
+                  61,
+                  49,
+                  41,
+                  59,
+                  10
+                ],
+                "safety": "potentiallyunsafe"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "classification": "Existing application findings retained; no baseline, ignores or source repairs."
+  },
+  "type_control": {
+    "code": "invalid-return-statement",
+    "file": "src/Form/Type/TagsInputType.php",
+    "line": 57,
+    "diagnostic": {
+      "level": "Error",
+      "code": "invalid-return-statement",
+      "message": "Invalid return type for function `App\\Form\\Type\\TagsInputType::getParent`: expected `string`, but found `int(42)`.",
+      "help": "Change the return value to match `string`, or update the function's return type declaration.",
+      "annotations": [
+        {
+          "message": "This has type `int(42)`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Form/Type/TagsInputType.php",
+              "path": "/app/src/Form/Type/TagsInputType.php",
+              "size": 1921,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 1909,
+              "line": 56
+            },
+            "end": {
+              "offset": 1911,
+              "line": 56
+            }
+          }
+        }
+      ]
+    },
+    "restored": true
+  },
+  "lint_control": {
+    "code": "no-debug-symbols",
+    "file": "src/Form/Type/TagsInputType.php",
+    "line": 52,
+    "diagnostic": {
+      "level": "Error",
+      "code": "no-debug-symbols",
+      "message": "Do not commit debug functions.",
+      "notes": [
+        "Debug functions can expose sensitive application data if left in production code."
+      ],
+      "help": "Remove this function call.",
+      "annotations": [
+        {
+          "message": "Function `var_dump` should be removed before committing",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Form/Type/TagsInputType.php",
+              "path": "/app/src/Form/Type/TagsInputType.php",
+              "size": 1962,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 1795,
+              "line": 51
+            },
+            "end": {
+              "offset": 1813,
+              "line": 51
+            }
+          }
+        }
+      ]
+    },
+    "restored": true
+  },
+  "safe_fix": {
+    "rule": "no-redundant-parentheses",
+    "safe_default": true,
+    "diff": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/safe-fix.diff",
+    "restores_exact_source": true,
+    "unfixable_lint_control": "no-debug-symbols has no automatic fix; removed explicitly."
+  },
+  "guard": {
+    "allowed": true,
+    "violating": [
+      {
+        "level": "Error",
+        "code": "must-extend",
+        "message": "Structural flaw in `App\\Form\\Type\\TagsInputType`",
+        "notes": [
+          "TagsInputType is registered as a Symfony form type and must retain its AbstractType contract."
+        ],
+        "help": "Ensure this class extends the required base class.",
+        "annotations": [
+          {
+            "message": "Does not extend required base class: `Symfony\\Component\\Form\\AbstractType`",
+            "kind": "Primary",
+            "span": {
+              "file_id": {
+                "name": "src/Form/Type/TagsInputType.php",
+                "path": "/app/src/Form/Type/TagsInputType.php",
+                "size": 1913,
+                "file_type": "Host"
+              },
+              "start": {
+                "offset": 928,
+                "line": 30
+              },
+              "end": {
+                "offset": 941,
+                "line": 30
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "purpose": "Registered form retains Symfony AbstractType contract."
+  },
+  "behavior_before": {
+    "tests": 53,
+    "assertions": 120,
+    "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+  },
+  "behavior_after": {
+    "tests": 53,
+    "assertions": 120,
+    "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+  },
+  "format": {
+    "detected_exit": 1,
+    "restored_exact_source": true,
+    "second_pass_stable": true,
+    "behavior_unchanged": true,
+    "scope": "src/Form/Type/TagsInputType.php"
+  },
+  "cst": {
+    "status": "used",
+    "purpose": "Verify class, inheritance spelling, promoted parameter and method names in the native lossless CST; retain method bodies.",
+    "bytes": 1934,
+    "parse_errors": [],
+    "raw": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/cst/stdout",
+    "declaration": {
+      "class": "TagsInputType",
+      "extends_local_name": "AbstractType",
+      "constructor_parameter": "$tags",
+      "parameter_local_type": "TagRepository",
+      "promoted_modifiers": [
+        "Private",
+        "Readonly"
+      ],
+      "methods": [
+        "__construct",
+        "buildForm",
+        "buildView",
+        "getParent"
+      ]
+    }
+  },
+  "routing": {
+    "foreign_cwd": "pass",
+    "missing_run_exit": 3,
+    "workspace_override_exit": 3
+  },
+  "source_restored": true,
+  "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23"
+}

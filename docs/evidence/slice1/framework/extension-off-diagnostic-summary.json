@@ -1,0 +1,6 @@
+{
+  "full_report_sha256": "8f0458a23b4a8af77d9b8997960606998db709353e4aa980d886da29ca046210",
+  "full_report": "artifacts/framework-check/framework/0df62ae2cb124c809e377c4c67d58e04/extension-off.stdout",
+  "native_issues": 30,
+  "attestations": []
+}

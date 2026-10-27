@@ -1,5 +1,11 @@
 # Capability evidence
 
+Mago-first slice 1 adds calibrated native PHP checks, compiled Symfony wiring
+and a real selected-service investigation. See [PHP evidence](MAGO-PHP.md),
+[service semantics](SERVICE-SEMANTICS.md), [wiring](SYMFONY-WIRING.md) and the
+[current adoption/result table](SLICE-1.md). These additions retain the historical
+full-sync and stale-span findings at their original source pins.
+
 Recorded 2026-10-27 with the exact pins in `toolchain.lock.json`. Hardened
 validation is indexed in [strengthening/validation.json](evidence/strengthening/validation.json).
 The original pre-hardening run remains in `docs/evidence/acceptance-results.json`.
@@ -24,8 +30,9 @@ in the MCP stderr/protocol logs. A capability advertisement alone is never a pas
 | Workspace/database isolation | Not an LSP capability | Not applicable | Separate processes/state | Separate services | pass: two fresh suites, cleanup of A preserves B |
 | Backend identity and negative controls | mago-server initialize identity | Yes | Binary SHA check; no fallback | Startup errors observable | pass: missing/wrong executables rejected, wrong verifier expectation rejected |
 | Real model-driven coding task | Not an LSP capability | Historical model MCP calls retained | Historical | Historical | Historical pass; not rerun after hardening; current deterministic MCP acceptance is separate |
-| Hover/completion/signature help | Yes | not_exercised | Generic transport available | No dedicated facade methods | not_exercised |
-| Call/type hierarchy | Yes | not_exercised | Generic transport available | No dedicated facade methods | not_exercised |
+| Hover | Yes | Yes, slice 1 | Existing request_hover | include_info=True on find_symbol/find_declaration | pass: selected method signature and generic vendor declaration |
+| Completion/signature help | Yes | not_exercised | Generic transport available | No dedicated facade methods | not_exercised |
+| Call/type hierarchy | Yes | Yes, slice 1 direct LSP | Generic transport available | No dedicated facade methods | Direct server pass: AbstractType supertype and inherited findAll outgoing call; REPL exposure remains unproven |
 | Formatting/code actions | Yes | not_exercised | Generic transport available | No dedicated facade methods | not_exercised |
 | Cancellation and timeout exhaustion | Not asserted | not_exercised | Bounded base requests | Not separately tested | not_exercised |
 | Stale WorkspaceEdit version rejection / changes-form rename | Defensive adapter support / Mago negotiation | not_exercised as adverse/alternate cases | Implemented | Normal documentChanges path verified | not_exercised separately |

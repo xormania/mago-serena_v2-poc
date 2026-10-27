@@ -7,5 +7,12 @@ php bin/console lint:xliff translations
 php bin/console lint:translations
 php bin/console lint:container --no-debug
 php bin/console doctrine:schema:validate --skip-sync --no-interaction
-php vendor/bin/php-cs-fixer check --diff --using-cache=no
-php vendor/bin/phpstan analyze --no-progress --memory-limit=512M
+case "${1:-}" in
+  "") ;;
+  --legacy-comparison)
+    # Historical fixture comparison only. New PHP work uses bin/poc quality.
+    php vendor/bin/php-cs-fixer check --diff --using-cache=no
+    php vendor/bin/phpstan analyze --no-progress --memory-limit=512M
+    ;;
+  *) echo 'Usage: check [--legacy-comparison]' >&2; exit 2 ;;
+esac

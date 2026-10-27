@@ -1,0 +1,345 @@
+{
+  "schema": 1,
+  "run_id": "semantic-slice",
+  "status": "pass",
+  "evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/semantic-slice/service-semantics/20261027T143332Z-8f50cd",
+  "service": "src/Form/Type/TagsInputType.php",
+  "source_sha256": {
+    "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+    "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+    "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e"
+  },
+  "verification": "deterministic real MCP replay plus direct LSP hierarchy probes",
+  "host_launcher": "/home/scientdb/projects/xormania/mago-serena_v2-poc/bin/serena-mcp",
+  "launcher_cwd": "/tmp",
+  "probe_sha256": "917381ed9a48893e5a7a04cfcf606fa30b3c0ecd644e825f6e64632c84d35212",
+  "mcp": {
+    "reference_locations": [
+      {
+        "file": "src/Form/PostType.php",
+        "line": 15,
+        "character": 4
+      },
+      {
+        "file": "src/Form/PostType.php",
+        "line": 68,
+        "character": 26
+      }
+    ],
+    "inherited_definition": "vendor/doctrine/orm/src/EntityRepository.php",
+    "hover_via_existing_facade": true,
+    "diagnostics": {
+      "src/Form/Type/TagsInputType.php": {
+        "Warning": {
+          "<file>": [
+            {
+              "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file.",
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 0
+                },
+                "end": {
+                  "line": 0,
+                  "character": 5
+                }
+              },
+              "code": "strict-types",
+              "source": "mago"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "direct_hierarchy": {
+    "types": [
+      {
+        "name": "App\\Form\\Type\\TagsInputType",
+        "kind": 5,
+        "uri": "file:///app/src/Form/Type/TagsInputType.php",
+        "range": {
+          "start": {
+            "line": 30,
+            "character": 12
+          },
+          "end": {
+            "line": 58,
+            "character": 1
+          }
+        },
+        "selectionRange": {
+          "start": {
+            "line": 30,
+            "character": 12
+          },
+          "end": {
+            "line": 30,
+            "character": 25
+          }
+        },
+        "data": {
+          "workspace": "file:///app",
+          "key": [
+            97,
+            112,
+            112,
+            92,
+            102,
+            111,
+            114,
+            109,
+            92,
+            116,
+            121,
+            112,
+            101,
+            92,
+            116,
+            97,
+            103,
+            115,
+            105,
+            110,
+            112,
+            117,
+            116,
+            116,
+            121,
+            112,
+            101
+          ]
+        }
+      }
+    ],
+    "supertypes": [
+      {
+        "name": "Symfony\\Component\\Form\\AbstractType",
+        "kind": 5,
+        "uri": "file:///app/vendor/symfony/form/AbstractType.php",
+        "range": {
+          "start": {
+            "line": 20,
+            "character": 15
+          },
+          "end": {
+            "line": 47,
+            "character": 1
+          }
+        },
+        "selectionRange": {
+          "start": {
+            "line": 20,
+            "character": 15
+          },
+          "end": {
+            "line": 20,
+            "character": 27
+          }
+        },
+        "data": {
+          "workspace": "file:///app",
+          "key": [
+            115,
+            121,
+            109,
+            102,
+            111,
+            110,
+            121,
+            92,
+            99,
+            111,
+            109,
+            112,
+            111,
+            110,
+            101,
+            110,
+            116,
+            92,
+            102,
+            111,
+            114,
+            109,
+            92,
+            97,
+            98,
+            115,
+            116,
+            114,
+            97,
+            99,
+            116,
+            116,
+            121,
+            112,
+            101
+          ]
+        }
+      }
+    ],
+    "methods": [
+      {
+        "name": "App\\Form\\Type\\TagsInputType::buildView",
+        "kind": 6,
+        "uri": "file:///app/src/Form/Type/TagsInputType.php",
+        "range": {
+          "start": {
+            "line": 49,
+            "character": 4
+          },
+          "end": {
+            "line": 52,
+            "character": 5
+          }
+        },
+        "selectionRange": {
+          "start": {
+            "line": 49,
+            "character": 20
+          },
+          "end": {
+            "line": 49,
+            "character": 29
+          }
+        },
+        "data": {
+          "workspace": "file:///app",
+          "key": {
+            "Method": [
+              [
+                97,
+                112,
+                112,
+                92,
+                102,
+                111,
+                114,
+                109,
+                92,
+                116,
+                121,
+                112,
+                101,
+                92,
+                116,
+                97,
+                103,
+                115,
+                105,
+                110,
+                112,
+                117,
+                116,
+                116,
+                121,
+                112,
+                101
+              ],
+              [
+                98,
+                117,
+                105,
+                108,
+                100,
+                118,
+                105,
+                101,
+                119
+              ]
+            ]
+          }
+        }
+      }
+    ],
+    "outgoing": [
+      {
+        "to": {
+          "name": "Doctrine\\ORM\\EntityRepository::findAll",
+          "kind": 6,
+          "uri": "file:///app/vendor/doctrine/orm/src/EntityRepository.php",
+          "range": {
+            "start": {
+              "line": 93,
+              "character": 4
+            },
+            "end": {
+              "line": 96,
+              "character": 5
+            }
+          },
+          "selectionRange": {
+            "start": {
+              "line": 93,
+              "character": 20
+            },
+            "end": {
+              "line": 93,
+              "character": 27
+            }
+          },
+          "data": {
+            "workspace": "file:///app",
+            "key": {
+              "Method": [
+                [
+                  100,
+                  111,
+                  99,
+                  116,
+                  114,
+                  105,
+                  110,
+                  101,
+                  92,
+                  111,
+                  114,
+                  109,
+                  92,
+                  101,
+                  110,
+                  116,
+                  105,
+                  116,
+                  121,
+                  114,
+                  101,
+                  112,
+                  111,
+                  115,
+                  105,
+                  116,
+                  111,
+                  114,
+                  121
+                ],
+                [
+                  102,
+                  105,
+                  110,
+                  100,
+                  97,
+                  108,
+                  108
+                ]
+              ]
+            }
+          }
+        },
+        "fromRanges": [
+          {
+            "start": {
+              "line": 51,
+              "character": 43
+            },
+            "end": {
+              "line": 51,
+              "character": 50
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,457 @@
+[
+  {
+    "code": "redundant-cast",
+    "level": "Help",
+    "message": "Redundant cast to `(bool)`: the expression already has this type.",
+    "locations": [
+      {
+        "file": "tests/object-manager.php",
+        "line": 19
+      }
+    ],
+    "classification": "Existing redundant-source suggestion; no behavior repair required for this slice.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "ambiguous-object-method-access",
+    "level": "Warning",
+    "message": "Cannot statically verify method call on a generic `object` type.",
+    "locations": [
+      {
+        "file": "tests/object-manager.php",
+        "line": 22
+      }
+    ],
+    "classification": "Dynamic Console/input/object type or implicit conversion; refinement not established.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "invalid-return-statement",
+    "level": "Error",
+    "message": "Invalid return type for function `App\\Repository\\PostRepository::extractSearchTerms`: expected `array<array-key, string>`, but found `array<array-key, Symfony\\Component\\String\\UnicodeString&static>`.",
+    "locations": [
+      {
+        "file": "src/Repository/PostRepository.php",
+        "line": 104
+      }
+    ],
+    "classification": "Stringable coercion or array-element source-contract mismatch; review source types, not a proven missing framework feature.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "possibly-invalid-argument",
+    "level": "Error",
+    "message": "Possible argument type mismatch for argument #1 of `Symfony\\Component\\Console\\Tester\\TesterTrait::setInputs`: expected `list<string>`, but possibly received `array<int, mixed>`.",
+    "locations": [
+      {
+        "file": "tests/Command/AbstractCommandTestCase.php",
+        "line": 37
+      }
+    ],
+    "classification": "Array/key/value/refinement or declared source contract; unconfirmed application risk, retained for review.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "possibly-invalid-argument",
+    "level": "Error",
+    "message": "Possible argument type mismatch for argument #2 of `str_repeat`: expected `non-negative-int`, but possibly received `int`.",
+    "locations": [
+      {
+        "file": "tests/Controller/Admin/BlogControllerTest.php",
+        "line": 199
+      }
+    ],
+    "classification": "Array/key/value/refinement or declared source contract; unconfirmed application risk, retained for review.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "incompatible-parameter-name",
+    "level": "Warning",
+    "message": "Parameter #2 of `App\\Security\\PostVoter::voteonattribute()` is named `$post` but parent `Symfony\\Component\\Security\\Core\\Authorization\\Voter\\Voter::voteonattribute()` names it `$subject`",
+    "locations": [
+      {
+        "file": "src/Security/PostVoter.php",
+        "line": 47
+      }
+    ],
+    "classification": "Source API contract: override parameter names differ; named-argument compatibility concern.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "mixed-assignment",
+    "level": "Warning",
+    "message": "Assigning `mixed` type to a variable may lead to unexpected behavior.",
+    "locations": [
+      {
+        "file": "src/Command/DeleteUserCommand.php",
+        "line": 97
+      }
+    ],
+    "classification": "Dynamic Console/input/object type or implicit conversion; refinement not established.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "redundant-docblock-type",
+    "level": "Warning",
+    "message": "Redundant docblock type for variable `$user`.",
+    "locations": [
+      {
+        "file": "src/Command/DeleteUserCommand.php",
+        "line": 105
+      }
+    ],
+    "classification": "Existing redundant-source suggestion; no behavior repair required for this slice.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "invalid-argument",
+    "level": "Error",
+    "message": "Invalid argument type for argument #1 of `App\\Entity\\Post::setSlug`: expected `string`, but found `Symfony\\Component\\String\\AbstractUnicodeString`.",
+    "locations": [
+      {
+        "file": "src/DataFixtures/AppFixtures.php",
+        "line": 78
+      }
+    ],
+    "classification": "Stringable coercion or array-element source-contract mismatch; review source types, not a proven missing framework feature.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "invalid-return-statement",
+    "level": "Error",
+    "message": "Invalid return type for function `App\\DataFixtures\\AppFixtures::getRandomText`: expected `string`, but found `Symfony\\Component\\String\\UnicodeString&static`.",
+    "locations": [
+      {
+        "file": "src/DataFixtures/AppFixtures.php",
+        "line": 206
+      }
+    ],
+    "classification": "Stringable coercion or array-element source-contract mismatch; review source types, not a proven missing framework feature.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "invalid-return-statement",
+    "level": "Error",
+    "message": "Invalid return type for function `App\\Entity\\User::getUserIdentifier`: expected `non-empty-string`, but found `string`.",
+    "locations": [
+      {
+        "file": "src/Entity/User.php",
+        "line": 83
+      }
+    ],
+    "classification": "Array/key/value/refinement or declared source contract; unconfirmed application risk, retained for review.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "possibly-null-operand",
+    "level": "Warning",
+    "message": "Possibly null right operand used in string concatenation (type `int|null`).",
+    "locations": [
+      {
+        "file": "src/EventSubscriber/CommentNotificationSubscriber.php",
+        "line": 62
+      }
+    ],
+    "classification": "Nullable lifecycle/repeated-getter reasoning; runtime invariant not supplied to Mago here.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "possibly-null-argument",
+    "level": "Error",
+    "message": "Argument #1 of method `Symfony\\Component\\String\\Slugger\\SluggerInterface::slug` is possibly `null`, but parameter type `string` does not accept it.",
+    "locations": [
+      {
+        "file": "src/Form/PostType.php",
+        "line": 80
+      }
+    ],
+    "classification": "Nullable lifecycle/repeated-getter reasoning; runtime invariant not supplied to Mago here.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "invalid-argument",
+    "level": "Error",
+    "message": "Invalid argument type for argument #1 of `App\\Entity\\Post::setSlug`: expected `string`, but found `Symfony\\Component\\String\\AbstractUnicodeString&static`.",
+    "locations": [
+      {
+        "file": "src/Form/PostType.php",
+        "line": 80
+      }
+    ],
+    "classification": "Stringable coercion or array-element source-contract mismatch; review source types, not a proven missing framework feature.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "possible-method-access-on-null",
+    "level": "Error",
+    "message": "Attempting to call a method on `null`.",
+    "locations": [
+      {
+        "file": "src/EventSubscriber/CheckRequirementsSubscriber.php",
+        "line": 63
+      }
+    ],
+    "classification": "Nullable lifecycle/repeated-getter reasoning; runtime invariant not supplied to Mago here.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "mixed-assignment",
+    "level": "Warning",
+    "message": "Assigning `mixed` type to a variable may lead to unexpected behavior.",
+    "locations": [
+      {
+        "file": "src/Command/AddUserCommand.php",
+        "line": 120
+      }
+    ],
+    "classification": "Dynamic Console/input/object type or implicit conversion; refinement not established.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "implicit-to-string-cast",
+    "level": "Warning",
+    "message": "Implicit conversion to `string` for right operand via `Symfony\\Component\\String\\UnicodeString::__toString()`.",
+    "locations": [
+      {
+        "file": "src/Command/AddUserCommand.php",
+        "line": 126
+      }
+    ],
+    "classification": "Stringable coercion or array-element source-contract mismatch; review source types, not a proven missing framework feature.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "mixed-assignment",
+    "level": "Warning",
+    "message": "Assigning `mixed` type to a variable may lead to unexpected behavior.",
+    "locations": [
+      {
+        "file": "src/Command/AddUserCommand.php",
+        "line": 128
+      }
+    ],
+    "classification": "Dynamic Console/input/object type or implicit conversion; refinement not established.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "mixed-assignment",
+    "level": "Warning",
+    "message": "Assigning `mixed` type to a variable may lead to unexpected behavior.",
+    "locations": [
+      {
+        "file": "src/Command/AddUserCommand.php",
+        "line": 136
+      }
+    ],
+    "classification": "Dynamic Console/input/object type or implicit conversion; refinement not established.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "mixed-assignment",
+    "level": "Warning",
+    "message": "Assigning `mixed` type to a variable may lead to unexpected behavior.",
+    "locations": [
+      {
+        "file": "src/Command/AddUserCommand.php",
+        "line": 144
+      }
+    ],
+    "classification": "Dynamic Console/input/object type or implicit conversion; refinement not established.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "redundant-cast",
+    "level": "Help",
+    "message": "Redundant cast to `(string)`: the expression already has this type.",
+    "locations": [
+      {
+        "file": "src/Controller/BlogController.php",
+        "line": 164
+      }
+    ],
+    "classification": "Existing redundant-source suggestion; no behavior repair required for this slice.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "less-specific-argument",
+    "level": "Error",
+    "message": "Argument type mismatch for argument #1 of `App\\Tests\\Command\\AbstractCommandTestCase::executeCommand`: expected `array<string, int|string>`, but provided type `array<array-key, int(1)|string>` is less specific.",
+    "locations": [
+      {
+        "file": "tests/Command/AddUserCommandTest.php",
+        "line": 48
+      }
+    ],
+    "classification": "Array/key/value/refinement or declared source contract; unconfirmed application risk, retained for review.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "incompatible-parameter-name",
+    "level": "Warning",
+    "message": "Parameter #1 of `App\\Form\\DataTransformer\\TagArrayToStringTransformer::reversetransform()` is named `$string` but parent `Symfony\\Component\\Form\\DataTransformerInterface::reversetransform()` names it `$value`",
+    "locations": [
+      {
+        "file": "src/Form/DataTransformer/TagArrayToStringTransformer.php",
+        "line": 52
+      }
+    ],
+    "classification": "Source API contract: override parameter names differ; named-argument compatibility concern.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "incompatible-parameter-name",
+    "level": "Warning",
+    "message": "Parameter #1 of `App\\Form\\DataTransformer\\TagArrayToStringTransformer::transform()` is named `$tags` but parent `Symfony\\Component\\Form\\DataTransformerInterface::transform()` names it `$value`",
+    "locations": [
+      {
+        "file": "src/Form/DataTransformer/TagArrayToStringTransformer.php",
+        "line": 38
+      }
+    ],
+    "classification": "Source API contract: override parameter names differ; named-argument compatibility concern.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "invalid-argument",
+    "level": "Error",
+    "message": "Invalid argument type for argument #1 of `App\\Form\\DataTransformer\\TagArrayToStringTransformer::trim`: expected `array<array-key, string>`, but found `array<array-key, Symfony\\Component\\String\\UnicodeString&static>`.",
+    "locations": [
+      {
+        "file": "src/Form/DataTransformer/TagArrayToStringTransformer.php",
+        "line": 58
+      }
+    ],
+    "classification": "Stringable coercion or array-element source-contract mismatch; review source types, not a proven missing framework feature.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "possibly-invalid-argument",
+    "level": "Error",
+    "message": "Possible argument type mismatch for argument #1 of `App\\Entity\\Tag::__construct`: expected `string`, but possibly received `App\\Entity\\Tag|truthy-string`.",
+    "locations": [
+      {
+        "file": "src/Form/DataTransformer/TagArrayToStringTransformer.php",
+        "line": 69
+      }
+    ],
+    "classification": "Array/key/value/refinement or declared source contract; unconfirmed application risk, retained for review.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "less-specific-return-statement",
+    "level": "Error",
+    "message": "Returned type `array<array-key, App\\Entity\\Tag>|non-empty-list<App\\Entity\\Tag>` is less specific than the declared return type `array<int, App\\Entity\\Tag>` for function `App\\Form\\DataTransformer\\TagArrayToStringTransformer::reverseTransform`.",
+    "locations": [
+      {
+        "file": "src/Form/DataTransformer/TagArrayToStringTransformer.php",
+        "line": 77
+      }
+    ],
+    "classification": "Array/key/value/refinement or declared source contract; unconfirmed application risk, retained for review.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "possibly-false-operand",
+    "level": "Warning",
+    "message": "Left operand in arithmetic operation might be `false` (type `false|int`).",
+    "locations": [
+      {
+        "file": "src/Twig/SourceCodeExtension.php",
+        "line": 102
+      }
+    ],
+    "classification": "Potential source edge case: Reflection line API can return false; no isolated runtime reproduction.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "possibly-false-operand",
+    "level": "Warning",
+    "message": "Left operand in arithmetic operation might be `false` (type `false|int`).",
+    "locations": [
+      {
+        "file": "src/Twig/SourceCodeExtension.php",
+        "line": 115
+      }
+    ],
+    "classification": "Potential source edge case: Reflection line API can return false; no isolated runtime reproduction.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "redundant-logical-operation",
+    "level": "Help",
+    "message": "Redundant `&&` operation: left operand is evaluated and right operand is always truthy.",
+    "locations": [
+      {
+        "file": "src/Twig/SourceCodeExtension.php",
+        "line": 135
+      }
+    ],
+    "classification": "Existing redundant-source suggestion; no behavior repair required for this slice.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "possibly-invalid-argument",
+    "level": "Error",
+    "message": "Possible argument type mismatch for argument #1 of `ReflectionFunction::__construct`: expected `(closure(...mixed=): mixed)|string`, but possibly received `(callable(...mixed=): mixed)|Closure`.",
+    "locations": [
+      {
+        "file": "src/Twig/SourceCodeExtension.php",
+        "line": 141
+      }
+    ],
+    "classification": "Array/key/value/refinement or declared source contract; unconfirmed application risk, retained for review.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "invalid-argument",
+    "level": "Error",
+    "message": "Invalid argument type for argument #1 of `Symfony\\Component\\String\\u`: expected `null|string`, but found `Symfony\\Component\\String\\UnicodeString&static`.",
+    "locations": [
+      {
+        "file": "src/Twig/SourceCodeExtension.php",
+        "line": 170
+      }
+    ],
+    "classification": "Stringable coercion or array-element source-contract mismatch; review source types, not a proven missing framework feature.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "invalid-argument",
+    "level": "Error",
+    "message": "Invalid argument type for argument #1 of `Symfony\\Component\\String\\u`: expected `null|string`, but found `Symfony\\Component\\String\\UnicodeString&static`.",
+    "locations": [
+      {
+        "file": "src/Twig/SourceCodeExtension.php",
+        "line": 170
+      }
+    ],
+    "classification": "Stringable coercion or array-element source-contract mismatch; review source types, not a proven missing framework feature.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "invalid-argument",
+    "level": "Error",
+    "message": "Invalid argument type for argument #1 of `Symfony\\Component\\String\\u`: expected `null|string`, but found `Symfony\\Component\\String\\UnicodeString&static`.",
+    "locations": [
+      {
+        "file": "src/Twig/SourceCodeExtension.php",
+        "line": 175
+      }
+    ],
+    "classification": "Stringable coercion or array-element source-contract mismatch; review source types, not a proven missing framework feature.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "less-specific-return-statement",
+    "level": "Error",
+    "message": "Returned type `Traversable<array-key, object>` is less specific than the declared return type `Traversable<int, object>` for function `App\\Pagination\\Paginator::getResults`.",
+    "locations": [
+      {
+        "file": "src/Pagination/Paginator.php",
+        "line": 127
+      }
+    ],
+    "classification": "Array/key/value/refinement or declared source contract; unconfirmed application risk, retained for review.",
+    "confirmed_tool_defect": false
+  }
+]

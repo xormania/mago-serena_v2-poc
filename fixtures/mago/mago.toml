@@ -1,0 +1,30 @@
+# Native PHP checks for the Symfony understanding slice. LSP config stays separate.
+version = "1.58.2"
+php-version = "8.5"
+threads = 4
+
+[source]
+paths = ["src", "tests"]
+includes = ["vendor"]
+# Runtime-generated containers and semantic calibration fixtures are not app source.
+excludes = ["var", "semantic"]
+
+[linter]
+integrations = ["symfony", "doctrine", "phpunit"]
+
+[linter.rules]
+no-debug-symbols = { enabled = true, level = "error" }
+no-redundant-parentheses = { enabled = true }
+
+[formatter]
+print-width = 120
+# Retain the Demo's constructor and chained-call layout for the selected scope.
+inline-empty-constructor-braces = false
+method-chain-semicolon-on-next-line = true
+
+# Match the selected service's real extension contract; not a project layering claim.
+[[guard.structural.rules]]
+on = "App\\Form\\Type\\TagsInputType"
+target = "class"
+must-extend = "Symfony\\Component\\Form\\AbstractType"
+reason = "TagsInputType is registered as a Symfony form type and must retain its AbstractType contract."

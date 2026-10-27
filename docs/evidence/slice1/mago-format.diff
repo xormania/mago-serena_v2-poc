@@ -1,0 +1,12 @@
+diff of 'src/Form/Type/TagsInputType.php':
+--- original
++++ modified
+@@ -54,6 +54,6 @@
+
+     public function getParent(): string
+     {
+-        return   TextType::class ;
++        return TextType::class;
+     }
+ }
+

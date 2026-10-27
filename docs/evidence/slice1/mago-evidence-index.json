@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "run_id": "mago-slice",
+  "source_evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23",
+  "interpretation": "Actual native tool controls on original dependency lock; combined overlay run is separate. No baseline or suppression.",
+  "files": {
+    "mago-result.json": {
+      "source": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/result.json",
+      "sha256": "abc31be4e4ef462994340133a0771d6614b64844fda91620d368eeaaccffe474",
+      "bytes": 54747
+    },
+    "mago-analyze-initial.json": {
+      "source": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/initial-analyze/stdout",
+      "sha256": "10c1613d17eb728fb76343f6916db00373978ad2fad0fda035cd446a9637eeaa",
+      "bytes": 50228
+    },
+    "mago-lint-initial.json": {
+      "source": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/initial-lint/stdout",
+      "sha256": "8d312884d736c2bc1e56607b750b949b321672d1396b710bb449848d148ef274",
+      "bytes": 196683
+    },
+    "mago-effective.toml": {
+      "source": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/effective-config/stdout",
+      "sha256": "c1ea962b527e5f5ba8c35260a74f7311671d8cbdb10b628ccc2b4ee35c695c25",
+      "bytes": 25451
+    },
+    "mago-enabled-rules.json": {
+      "source": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/rules/stdout",
+      "sha256": "900fc28d5b110e9356801510215ec2fc2163e4d108e3d22313f190cfa67ef263",
+      "bytes": 92944
+    },
+    "mago-analysis-trace.txt": {
+      "source": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/initial-analyze/stderr",
+      "sha256": "5e0263610e7cd15a494ffb9366af27cb0b4a4485fe9b55ce4ea051110941066b",
+      "bytes": 5177
+    },
+    "mago-host-files.txt": {
+      "source": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/files/stdout",
+      "sha256": "bd302d5d9bdc4a92ef1746a06e911c4fdb9ff206f1fb15983db4b1df16819d2c",
+      "bytes": 1587
+    },
+    "mago-classified-analyzer.json": {
+      "source": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/classified-analyzer.json",
+      "sha256": "145f30a1a1dfe0a4af7fbf935d6fa12d5ae9dad5205e2779d7e97fa37a664931",
+      "bytes": 17446
+    },
+    "mago-classified-lint.json": {
+      "source": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/classified-lint.json",
+      "sha256": "efcfb41c1a80081d45ca7b35b21b1690fd6789582cc86c7ccb8df316fd8cf824",
+      "bytes": 49536
+    },
+    "mago-format.diff": {
+      "source": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/format-diff/stdout",
+      "sha256": "6cce248e4e743ee5e27e204f5c0a3a7304d024038e6e21e90a105b88b6b4767a",
+      "bytes": 216
+    },
+    "mago-safe-fix.diff": {
+      "source": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/safe-fix.diff",
+      "sha256": "fb6b0b9f06ee2b306fac6e9d32bbe5eae59fafee56db762c489844aec382c0fa",
+      "bytes": 317
+    },
+    "mago-phpunit-before-format.log": {
+      "source": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/phpunit-before-format.stdout",
+      "sha256": "b12d2d13346fc89820523aa671b6c677234bef29881a860751216989beba52f5",
+      "bytes": 268
+    },
+    "mago-phpunit-after-format.log": {
+      "source": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/mago-slice/mago/calibration-b1c0229ed9524cad85c109b1c21b7e23/phpunit-after-format.stdout",
+      "sha256": "4e45eeaec505811de9c2a216c79f435e87a930b6fe1f438e4610e44dbfef00dc",
+      "bytes": 268
+    }
+  }
+}

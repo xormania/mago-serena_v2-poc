@@ -1,0 +1,1627 @@
+[
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "tests/object-manager.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Repository/TagRepository.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Form/Type/DateTimePickerType.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Form/ChangePasswordType.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Repository/PostRepository.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "inline-variable-return",
+    "level": "Warning",
+    "message": "Variable assignment can be inlined into the return statement.",
+    "locations": [
+      {
+        "file": "src/Repository/PostRepository.php",
+        "line": 84
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "tests/Command/AbstractCommandTestCase.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Controller/SecurityController.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Form/UserType.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "tests/Controller/Admin/BlogControllerTest.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Controller/Admin/BlogControllerTest.php",
+        "line": 114
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Controller/Admin/BlogControllerTest.php",
+        "line": 115
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Controller/Admin/BlogControllerTest.php",
+        "line": 116
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Controller/Admin/BlogControllerTest.php",
+        "line": 173
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Controller/Admin/BlogControllerTest.php",
+        "line": 192
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "literal-named-argument",
+    "level": "Warning",
+    "message": "Literal argument `1` should be passed as a named argument for clarity.",
+    "locations": [
+      {
+        "file": "tests/Controller/Admin/BlogControllerTest.php",
+        "line": 199
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Security/PostVoter.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "literal-named-argument",
+    "level": "Warning",
+    "message": "Literal argument `true` should be passed as a named argument for clarity.",
+    "locations": [
+      {
+        "file": "src/Security/PostVoter.php",
+        "line": 41
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "sensitive-parameter",
+    "level": "Error",
+    "message": "Parameters that may contain sensitive information should be marked with the `#[SensitiveParameter]` attribute.",
+    "locations": [
+      {
+        "file": "src/Security/PostVoter.php",
+        "line": 47
+      }
+    ],
+    "classification": "Security policy finding; existing password/test-fixture usage needs contextual review.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "tests/Twig/AppExtensionTest.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Twig/AppExtensionTest.php",
+        "line": 23
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Twig/AppExtensionTest.php",
+        "line": 34
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Twig/AppExtensionTest.php",
+        "line": 35
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Twig/AppExtensionTest.php",
+        "line": 36
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Twig/AppExtensionTest.php",
+        "line": 37
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Command/DeleteUserCommand.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/DataFixtures/AppFixtures.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "too-many-methods",
+    "level": "Error",
+    "message": "Class has too many methods.",
+    "locations": [
+      {
+        "file": "src/DataFixtures/AppFixtures.php",
+        "line": 27
+      }
+    ],
+    "classification": "Existing design/API convention; no framework failure inferred.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "literal-named-argument",
+    "level": "Warning",
+    "message": "Literal argument `5` should be passed as a named argument for clarity.",
+    "locations": [
+      {
+        "file": "src/DataFixtures/AppFixtures.php",
+        "line": 85
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "literal-named-argument",
+    "level": "Warning",
+    "message": "Literal argument `512` should be passed as a named argument for clarity.",
+    "locations": [
+      {
+        "file": "src/DataFixtures/AppFixtures.php",
+        "line": 88
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "literal-named-argument",
+    "level": "Warning",
+    "message": "Literal argument `17` should be passed as a named argument for clarity.",
+    "locations": [
+      {
+        "file": "src/DataFixtures/AppFixtures.php",
+        "line": 147
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "literal-named-argument",
+    "level": "Warning",
+    "message": "Literal argument `49` should be passed as a named argument for clarity.",
+    "locations": [
+      {
+        "file": "src/DataFixtures/AppFixtures.php",
+        "line": 147
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "literal-named-argument",
+    "level": "Warning",
+    "message": "Literal argument `59` should be passed as a named argument for clarity.",
+    "locations": [
+      {
+        "file": "src/DataFixtures/AppFixtures.php",
+        "line": 147
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "literal-named-argument",
+    "level": "Warning",
+    "message": "Literal argument `1` should be passed as a named argument for clarity.",
+    "locations": [
+      {
+        "file": "src/DataFixtures/AppFixtures.php",
+        "line": 149
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "literal-named-argument",
+    "level": "Warning",
+    "message": "Literal argument `0` should be passed as a named argument for clarity.",
+    "locations": [
+      {
+        "file": "src/DataFixtures/AppFixtures.php",
+        "line": 258
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "literal-named-argument",
+    "level": "Warning",
+    "message": "Literal argument `4` should be passed as a named argument for clarity.",
+    "locations": [
+      {
+        "file": "src/DataFixtures/AppFixtures.php",
+        "line": 258
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Kernel.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Entity/User.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "too-many-methods",
+    "level": "Error",
+    "message": "Class has too many methods.",
+    "locations": [
+      {
+        "file": "src/Entity/User.php",
+        "line": 31
+      }
+    ],
+    "classification": "Existing design/API convention; no framework failure inferred.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "sensitive-parameter",
+    "level": "Error",
+    "message": "Parameters that may contain sensitive information should be marked with the `#[SensitiveParameter]` attribute.",
+    "locations": [
+      {
+        "file": "src/Entity/User.php",
+        "line": 111
+      }
+    ],
+    "classification": "Security policy finding; existing password/test-fixture usage needs contextual review.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "no-empty",
+    "level": "Error",
+    "message": "Use of the `empty` construct.",
+    "locations": [
+      {
+        "file": "src/Entity/User.php",
+        "line": 124
+      }
+    ],
+    "classification": "Existing design/API convention; no framework failure inferred.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Form/CommentType.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Utils/Validator.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "no-empty",
+    "level": "Error",
+    "message": "Use of the `empty` construct.",
+    "locations": [
+      {
+        "file": "src/Utils/Validator.php",
+        "line": 29
+      }
+    ],
+    "classification": "Existing design/API convention; no framework failure inferred.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "sensitive-parameter",
+    "level": "Error",
+    "message": "Parameters that may contain sensitive information should be marked with the `#[SensitiveParameter]` attribute.",
+    "locations": [
+      {
+        "file": "src/Utils/Validator.php",
+        "line": 40
+      }
+    ],
+    "classification": "Security policy finding; existing password/test-fixture usage needs contextual review.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "no-empty",
+    "level": "Error",
+    "message": "Use of the `empty` construct.",
+    "locations": [
+      {
+        "file": "src/Utils/Validator.php",
+        "line": 42
+      }
+    ],
+    "classification": "Existing design/API convention; no framework failure inferred.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "no-empty",
+    "level": "Error",
+    "message": "Use of the `empty` construct.",
+    "locations": [
+      {
+        "file": "src/Utils/Validator.php",
+        "line": 55
+      }
+    ],
+    "classification": "Existing design/API convention; no framework failure inferred.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "no-empty",
+    "level": "Error",
+    "message": "Use of the `empty` construct.",
+    "locations": [
+      {
+        "file": "src/Utils/Validator.php",
+        "line": 68
+      }
+    ],
+    "classification": "Existing design/API convention; no framework failure inferred.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Entity/Post.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "too-many-methods",
+    "level": "Error",
+    "message": "Class has too many methods.",
+    "locations": [
+      {
+        "file": "src/Entity/Post.php",
+        "line": 35
+      }
+    ],
+    "classification": "Existing design/API convention; no framework failure inferred.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "prefer-early-continue",
+    "level": "Help",
+    "message": "Consider using early continue pattern to reduce nesting.",
+    "locations": [
+      {
+        "file": "src/Entity/Post.php",
+        "line": 179
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/EventSubscriber/CommentNotificationSubscriber.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Form/Type/TagsInputType.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/EventSubscriber/RedirectToPreferredLocaleSubscriber.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "no-empty",
+    "level": "Error",
+    "message": "Use of the `empty` construct.",
+    "locations": [
+      {
+        "file": "src/EventSubscriber/RedirectToPreferredLocaleSubscriber.php",
+        "line": 38
+      }
+    ],
+    "classification": "Existing design/API convention; no framework failure inferred.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "no-shorthand-ternary",
+    "level": "Warning",
+    "message": "Use of the shorthand ternary operator.",
+    "locations": [
+      {
+        "file": "src/EventSubscriber/RedirectToPreferredLocaleSubscriber.php",
+        "line": 42
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "literal-named-argument",
+    "level": "Warning",
+    "message": "Literal argument `true` should be passed as a named argument for clarity.",
+    "locations": [
+      {
+        "file": "src/EventSubscriber/RedirectToPreferredLocaleSubscriber.php",
+        "line": 44
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Form/PostType.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Controller/UserController.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/EventSubscriber/CheckRequirementsSubscriber.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "literal-named-argument",
+    "level": "Warning",
+    "message": "Literal argument `true` should be passed as a named argument for clarity.",
+    "locations": [
+      {
+        "file": "src/EventSubscriber/CheckRequirementsSubscriber.php",
+        "line": 63
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "tests/Controller/BlogControllerTest.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Controller/BlogControllerTest.php",
+        "line": 38
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Controller/BlogControllerTest.php",
+        "line": 52
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Controller/BlogControllerTest.php",
+        "line": 90
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Controller/BlogControllerTest.php",
+        "line": 99
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Controller/BlogControllerTest.php",
+        "line": 100
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "tests/Utils/ValidatorTest.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "too-many-methods",
+    "level": "Error",
+    "message": "Class has too many methods.",
+    "locations": [
+      {
+        "file": "tests/Utils/ValidatorTest.php",
+        "line": 17
+      }
+    ],
+    "classification": "Existing design/API convention; no framework failure inferred.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Utils/ValidatorTest.php",
+        "line": 30
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Utils/ValidatorTest.php",
+        "line": 51
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Utils/ValidatorTest.php",
+        "line": 72
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Utils/ValidatorTest.php",
+        "line": 93
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Repository/UserRepository.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "tests/Controller/UserControllerTest.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Controller/UserControllerTest.php",
+        "line": 79
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Controller/UserControllerTest.php",
+        "line": 80
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "no-literal-password",
+    "level": "Error",
+    "message": "Literal passwords or sensitive data should not be stored in code.",
+    "locations": [
+      {
+        "file": "tests/Controller/UserControllerTest.php",
+        "line": 93
+      }
+    ],
+    "classification": "Security policy finding; existing password/test-fixture usage needs contextual review.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "tests/bootstrap.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Controller/Admin/BlogController.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Command/AddUserCommand.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "no-else-clause",
+    "level": "Help",
+    "message": "Avoid `else` clauses.",
+    "locations": [
+      {
+        "file": "src/Command/AddUserCommand.php",
+        "line": 119
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "no-else-clause",
+    "level": "Help",
+    "message": "Avoid `else` clauses.",
+    "locations": [
+      {
+        "file": "src/Command/AddUserCommand.php",
+        "line": 127
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "no-else-clause",
+    "level": "Help",
+    "message": "Avoid `else` clauses.",
+    "locations": [
+      {
+        "file": "src/Command/AddUserCommand.php",
+        "line": 135
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "no-else-clause",
+    "level": "Help",
+    "message": "Avoid `else` clauses.",
+    "locations": [
+      {
+        "file": "src/Command/AddUserCommand.php",
+        "line": 143
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "sensitive-parameter",
+    "level": "Error",
+    "message": "Parameters that may contain sensitive information should be marked with the `#[SensitiveParameter]` attribute.",
+    "locations": [
+      {
+        "file": "src/Command/AddUserCommand.php",
+        "line": 159
+      }
+    ],
+    "classification": "Security policy finding; existing password/test-fixture usage needs contextual review.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "no-boolean-flag-parameter",
+    "level": "Help",
+    "message": "Avoid boolean flag parameters.",
+    "locations": [
+      {
+        "file": "src/Command/AddUserCommand.php",
+        "line": 162
+      }
+    ],
+    "classification": "Existing design/API convention; no framework failure inferred.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "sensitive-parameter",
+    "level": "Error",
+    "message": "Parameters that may contain sensitive information should be marked with the `#[SensitiveParameter]` attribute.",
+    "locations": [
+      {
+        "file": "src/Command/AddUserCommand.php",
+        "line": 195
+      }
+    ],
+    "classification": "Security policy finding; existing password/test-fixture usage needs contextual review.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Twig/AppExtension.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "literal-named-argument",
+    "level": "Warning",
+    "message": "Literal argument `true` should be passed as a named argument for clarity.",
+    "locations": [
+      {
+        "file": "src/Twig/AppExtension.php",
+        "line": 71
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Entity/Tag.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Entity/Comment.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "readable-literal",
+    "level": "Warning",
+    "message": "Numeric literal could use underscore separators for readability.",
+    "locations": [
+      {
+        "file": "src/Entity/Comment.php",
+        "line": 44
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Event/CommentCreatedEvent.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Twig/Components/BlogSearchComponent.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php",
+        "line": 33
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php",
+        "line": 34
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php",
+        "line": 45
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php",
+        "line": 46
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php",
+        "line": 56
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php",
+        "line": 66
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php",
+        "line": 80
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php",
+        "line": 81
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php",
+        "line": 82
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php",
+        "line": 97
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Controller/BlogController.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "tests/Command/AddUserCommandTest.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "no-literal-password",
+    "level": "Error",
+    "message": "Literal passwords or sensitive data should not be stored in code.",
+    "locations": [
+      {
+        "file": "tests/Command/AddUserCommandTest.php",
+        "line": 25
+      }
+    ],
+    "classification": "Security policy finding; existing password/test-fixture usage needs contextual review.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "no-boolean-flag-parameter",
+    "level": "Help",
+    "message": "Avoid boolean flag parameters.",
+    "locations": [
+      {
+        "file": "tests/Command/AddUserCommandTest.php",
+        "line": 42
+      }
+    ],
+    "classification": "Existing design/API convention; no framework failure inferred.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "no-boolean-flag-parameter",
+    "level": "Help",
+    "message": "Avoid boolean flag parameters.",
+    "locations": [
+      {
+        "file": "tests/Command/AddUserCommandTest.php",
+        "line": 61
+      }
+    ],
+    "classification": "Existing design/API convention; no framework failure inferred.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "no-boolean-flag-parameter",
+    "level": "Help",
+    "message": "Avoid boolean flag parameters.",
+    "locations": [
+      {
+        "file": "tests/Command/AddUserCommandTest.php",
+        "line": 88
+      }
+    ],
+    "classification": "Existing design/API convention; no framework failure inferred.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Form/DataTransformer/TagArrayToStringTransformer.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/EventSubscriber/ControllerSubscriber.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "tests/Command/ListUsersCommandTest.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "assertion-style",
+    "level": "Warning",
+    "message": "Inconsistent assertions style.",
+    "locations": [
+      {
+        "file": "tests/Command/ListUsersCommandTest.php",
+        "line": 29
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "literal-named-argument",
+    "level": "Warning",
+    "message": "Literal argument `\"\\n\"` should be passed as a named argument for clarity.",
+    "locations": [
+      {
+        "file": "tests/Command/ListUsersCommandTest.php",
+        "line": 29
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Command/ListUsersCommand.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Twig/SourceCodeExtension.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "literal-named-argument",
+    "level": "Warning",
+    "message": "Literal argument `'/'` should be passed as a named argument for clarity.",
+    "locations": [
+      {
+        "file": "src/Twig/SourceCodeExtension.php",
+        "line": 43
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "literal-named-argument",
+    "level": "Warning",
+    "message": "Literal argument `'/'` should be passed as a named argument for clarity.",
+    "locations": [
+      {
+        "file": "src/Twig/SourceCodeExtension.php",
+        "line": 57
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "literal-named-argument",
+    "level": "Warning",
+    "message": "Literal argument `true` should be passed as a named argument for clarity.",
+    "locations": [
+      {
+        "file": "src/Twig/SourceCodeExtension.php",
+        "line": 108
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "tests/Controller/DefaultControllerTest.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "strict-types",
+    "level": "Warning",
+    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+    "locations": [
+      {
+        "file": "src/Pagination/Paginator.php",
+        "line": 1
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  },
+  {
+    "code": "no-shorthand-ternary",
+    "level": "Warning",
+    "message": "Use of the shorthand ternary operator.",
+    "locations": [
+      {
+        "file": "src/Pagination/Paginator.php",
+        "line": 68
+      }
+    ],
+    "classification": "Existing coding-style/strictness convention; not adopted by rewriting the fixture.",
+    "confirmed_tool_defect": false
+  }
+]

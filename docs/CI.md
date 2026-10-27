@@ -1,5 +1,16 @@
 # Hosted CI performance and evidence
 
+The Mago-first slice adds one captured `slice1` step after original acceptance,
+using the same built image and a fresh owned workspace. It exercises native
+PHP calibration, real host MCP semantics, compiled Mate/wiring-extension
+controls and the original PHPUnit identities. Native whole-application findings
+remain recorded rather than suppressed; this is a capability gate, not a claim
+that every Demo diagnostic has been repaired. The original default container
+check keeps Composer/Symfony validation; PHPStan/PHP-CS-Fixer require the explicit
+`--legacy-comparison` option. Cache scope, event/concurrency policy and the
+trusted default-branch Jev consumer are unchanged. No new calibration or local
+provider key is involved.
+
 The CI follow-up starts from merged default-branch commit
 `262e06d00024ab4ff2c025ce2b52a2ff49f65715`, on a new
 `ci/cache-and-live-jev` branch. PR1's branch is not the baseline. Application,

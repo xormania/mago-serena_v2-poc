@@ -1,0 +1,146 @@
+{
+  "run_id": "semantic-slice",
+  "status": "pass",
+  "cases": [
+    {
+      "name": "format-directory-mix",
+      "argv": [
+        "format",
+        "src/Form/Type/TagsInputType.php",
+        "."
+      ],
+      "exit": 3,
+      "stdout": "",
+      "stderr": "mago: Formatting/fixing requires explicit existing workspace-relative PHP file targets only; rejected target: .\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "format-absolute-mix",
+      "argv": [
+        "format",
+        "src/Form/Type/TagsInputType.php",
+        "/app/src/Form/Type/TagsInputType.php"
+      ],
+      "exit": 3,
+      "stdout": "",
+      "stderr": "mago: Formatting/fixing requires explicit existing workspace-relative PHP file targets only; rejected target: /app/src/Form/Type/TagsInputType.php\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "format-parent-mix",
+      "argv": [
+        "format",
+        "src/Form/Type/TagsInputType.php",
+        "../outside.php"
+      ],
+      "exit": 3,
+      "stdout": "",
+      "stderr": "mago: Formatting/fixing requires explicit existing workspace-relative PHP file targets only; rejected target: ../outside.php\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "format-help-operand",
+      "argv": [
+        "format",
+        "src/Form/Type/TagsInputType.php",
+        ".",
+        "--",
+        "--help"
+      ],
+      "exit": 3,
+      "stdout": "",
+      "stderr": "mago: Formatting/fixing requires explicit existing workspace-relative PHP file targets only; rejected target: .\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "lint-unscoped-fix",
+      "argv": [
+        "lint",
+        "--fix"
+      ],
+      "exit": 3,
+      "stdout": "",
+      "stderr": "mago: Formatting/fixing requires explicit existing workspace-relative PHP file targets only\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "analyze-unscoped-fix",
+      "argv": [
+        "analyze",
+        "--fix"
+      ],
+      "exit": 3,
+      "stdout": "",
+      "stderr": "mago: Formatting/fixing requires explicit existing workspace-relative PHP file targets only\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "lint-fix-directory-mix",
+      "argv": [
+        "lint",
+        "--fix",
+        "--only",
+        "no-redundant-parentheses",
+        "src/Form/Type/TagsInputType.php",
+        "."
+      ],
+      "exit": 3,
+      "stdout": "",
+      "stderr": "mago: Formatting/fixing requires explicit existing workspace-relative PHP file targets only; rejected target: .\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "analyze-variable-option",
+      "argv": [
+        "analyze",
+        "--fix",
+        "--only",
+        "invalid-return-statement",
+        "src/Form/Type/TagsInputType.php"
+      ],
+      "exit": 3,
+      "stdout": "",
+      "stderr": "mago: Formatting/fixing requires explicit existing workspace-relative PHP file targets only; unsupported scoped option: --only\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "scoped-format-check",
+      "argv": [
+        "format",
+        "--check",
+        "src/Form/Type/TagsInputType.php"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "DEBUG Sourcing configuration from /app/mago-php.toml.\n INFO Overriding PHP version with 8.5.0.\n INFO Overriding workspace directory with /app.\nDEBUG Configuration specifies 4 threads.\nDEBUG Configuration specifies a stack size of 12582912 bytes.\nTRACE Process startup (dyld and runtime init) took 6.057\u00b5s.\nTRACE CLI arguments parsed in 515.415\u00b5s.\nTRACE Logger initialized in 8.362\u00b5s.\nTRACE Configuration loaded in 175.891\u00b5s.\nTRACE Rayon thread pool built in 340.617\u00b5s.\nTRACE Ready to dispatch command after 1.063055ms.\nTRACE Discovered 1 host files in 419ns.\nTRACE Processed 1 files in parallel in 206.575\u00b5s (average 206.0 \u00b5s per file).\nTRACE Reduced results in 558ns.\nTRACE Pipeline finished in 240.074\u00b5s.\nTRACE Slowest 1 of 1 files during the \u2728 Formatting phase:\nTRACE    1. src/Form/Type/TagsInputType.php took 196.066\u00b5s.\n INFO All files are already formatted.\nTRACE Command finished in 800.494\u00b5s.\nTRACE Total time spent inside main so far: 1.865016ms.\nTRACE total process time: 1.865839ms\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "scoped-lint-safe-fix",
+      "argv": [
+        "lint",
+        "--only=no-redundant-parentheses",
+        "--fix",
+        "--fail-on-remaining",
+        "src/Form/Type/TagsInputType.php"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "DEBUG Sourcing configuration from /app/mago-php.toml.\n INFO Overriding PHP version with 8.5.0.\n INFO Overriding workspace directory with /app.\nDEBUG Configuration specifies 4 threads.\nDEBUG Configuration specifies a stack size of 12582912 bytes.\nTRACE Process startup (dyld and runtime init) took 5.257\u00b5s.\nTRACE CLI arguments parsed in 529.55\u00b5s.\nTRACE Logger initialized in 8.317\u00b5s.\nTRACE Configuration loaded in 179.202\u00b5s.\nTRACE Rayon thread pool built in 758.173\u00b5s.\nTRACE Ready to dispatch command after 1.499616ms.\nTRACE Discovered 1 host files in 175ns.\nTRACE Processed 1 files in parallel in 1.83485ms (average 1834.0 \u00b5s per file).\nTRACE Reduced results in 326ns.\nTRACE Pipeline finished in 1.862918ms.\nTRACE Slowest 1 of 1 files during the \ud83e\uddf9 Linting phase:\nTRACE    1. src/Form/Type/TagsInputType.php took 1.822609ms.\nTRACE Linted 1 files in the parallel phase.\nTRACE Parsing accounted for 0.044 ms of lint worker CPU time (average 44.49 \u00b5s per file).\nTRACE Name resolution accounted for 0.012 ms of lint worker CPU time (average 11.72 \u00b5s per file).\nTRACE Semantics checking accounted for 0.022 ms of lint worker CPU time (average 21.84 \u00b5s per file).\nTRACE Built-in and external lint rules accounted for 1.743 ms of worker CPU time (average 1743.17 \u00b5s per file).\nTRACE Total lint worker CPU time across all sub-phases was 1.821 ms (average 1821.38 \u00b5s per file).\n INFO No fixes were applied.\nTRACE Orchestrator initialized in 15.013\u00b5s.\nTRACE Database loaded in 106.31\u00b5s.\nTRACE Lint service ran in 1.894917ms.\nTRACE Issues filtered and reported in 3.887\u00b5s.\nTRACE Database dropped in 74.707\u00b5s.\nTRACE Orchestrator dropped in 4.077\u00b5s.\nTRACE Lint command finished in 2.122167ms.\nTRACE Command finished in 2.131554ms.\nTRACE Total time spent inside main so far: 3.632528ms.\nTRACE total process time: 3.633302ms\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "scoped-analyze-dry-fix",
+      "argv": [
+        "analyze",
+        "--fix",
+        "--dry-run",
+        "src/Form/Type/TagsInputType.php"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "DEBUG Sourcing configuration from /app/mago-php.toml.\n INFO Overriding PHP version with 8.5.0.\n INFO Overriding workspace directory with /app.\nDEBUG Configuration specifies 4 threads.\nDEBUG Configuration specifies a stack size of 12582912 bytes.\nTRACE Process startup (dyld and runtime init) took 6.384\u00b5s.\nTRACE CLI arguments parsed in 521.417\u00b5s.\nTRACE Logger initialized in 8.131\u00b5s.\nTRACE Configuration loaded in 178.176\u00b5s.\nTRACE Rayon thread pool built in 670.486\u00b5s.\nTRACE Ready to dispatch command after 1.403927ms.\nTRACE Skipping external analyzer initialization because no hosts are enabled.\nTRACE Class hierarchy populated. parallel_classes=7932 serial_classes=3\nTRACE Codebase population phase completed. phase=\"hierarchy\" elapsed=15.573157ms\nTRACE Codebase population phase completed. phase=\"types\" elapsed=8.337765ms\nTRACE Codebase population phase completed. phase=\"references_and_docblocks\" elapsed=7.840786ms\nTRACE External before-analysis hooks completed. issues=0 elapsed=8.778\u00b5s\nTRACE Discovered 9450 source files in 616.428\u00b5s.\nTRACE Compiled 9450 source files in parallel in 104.046672ms (average 11.0 \u00b5s per file).\nTRACE Merged partial codebases in 2.665703ms.\nTRACE Populated codebase metadata in 31.905263ms.\nTRACE Discovered 1 host files in 79.005\u00b5s.\nTRACE Analyzed 1 host files in parallel in 286.087\u00b5s (average 286.0 \u00b5s per file).\nTRACE Reduced analysis results in 763.662\u00b5s.\nTRACE Pipeline finished in 141.441391ms.\nTRACE Slowest 1 of 1 files during the analysis phase:\nTRACE    1. src/Form/Type/TagsInputType.php took 282.338\u00b5s.\nTRACE Analyzed 1 files in the parallel phase.\nTRACE Parsing accounted for 0.063 ms of worker CPU time (average 62.83 \u00b5s per file).\nTRACE Name resolution accounted for 0.007 ms of worker CPU time (average 7.22 \u00b5s per file).\nTRACE Analyzer construction accounted for 0.000 ms of worker CPU time (average 0.05 \u00b5s per file).\nTRACE Semantics checking accounted for 0.020 ms of worker CPU time (average 20.14 \u00b5s per file).\nTRACE Full analysis (Analyzer::analyze) accounted for 0.191 ms of worker CPU time (average 190.55 \u00b5s per file).\nTRACE Total worker CPU time across all sub-phases was 0.281 ms (average 281.12 \u00b5s per file).\nTRACE Analyzer setup accounted for 0.034 ms of CPU time (average 33.56 \u00b5s per file).\nTRACE Statement analysis accounted for 0.152 ms of CPU time (average 152.29 \u00b5s per file).\nTRACE Analyzer finalization accounted for 0.002 ms of CPU time (average 2.36 \u00b5s per file).\n INFO No fixes were applied.\nTRACE Orchestrator initialized in 18.438\u00b5s.\nTRACE Prelude decoded in 26.610143ms (concurrent task).\nTRACE Database loaded in 36.675697ms (concurrent task).\nTRACE Prelude and database loaded in 36.831287ms.\nTRACE Analysis service ran in 142.286433ms.\nTRACE Issues filtered and reported in 362.061\u00b5s.\nTRACE Database dropped in 67.816\u00b5s.\nTRACE Orchestrator dropped in 8.355\u00b5s.\nTRACE Analyze command finished in 179.656489ms.\nTRACE Command finished in 179.66717ms.\nTRACE Total time spent inside main so far: 181.072831ms.\nTRACE total process time: 181.073689ms\n",
+      "source_unchanged": true
+    }
+  ]
+}

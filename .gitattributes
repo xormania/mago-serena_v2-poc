@@ -1,3 +1,5 @@
 * text=auto eol=lf
 app/** -text
 fixtures/semantic/Positions.php -text
+# Native tool streams/diffs are hashed evidence, including their whitespace.
+docs/evidence/slice1/** -text -whitespace linguist-generated

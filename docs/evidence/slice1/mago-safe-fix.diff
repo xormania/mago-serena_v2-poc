@@ -1,0 +1,11 @@
+--- injected-parentheses
++++ safe-fix
+@@ -49,7 +49,7 @@
+ 
+     public function buildView(FormView $view, FormInterface $form, array $options): void
+     {
+-        $view->vars['tags'] = ($this->tags->findAll());
++        $view->vars['tags'] = $this->tags->findAll();
+     }
+ 
+     public function getParent(): string

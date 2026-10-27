@@ -232,6 +232,41 @@ written outside them.
   edits, fresh cross-file oracles and restart. Promising documentation contribution;
   finalize after U01/2115 boundary decisions. No submission prepared as an API promise.
 
+## U09 — Configured analyzer workers do not start in this Mago LSP pin
+
+- **Observed / attribution:** experimental Mago source
+  `46df50c96d93d0ac3655c116c375574277cf0b30`, matched-source PHP SDK/MANA 2.1,
+  wiring extension `28c3f54065b71fe046a7474ced401aeadc941b0f`, explicit PHP
+  backend. The configured CLI starts the external worker, completes its
+  after-analysis observer and emits a complete 34-file attestation. The same
+  configured LSP initializes and returns normal service symbols but never starts
+  that worker. This isolates server propagation from package compatibility and
+  Serena exposure. It does not establish behavior of a different server pin.
+- **Reproduction / healthy control:**
+  `.venv/bin/python tests/integration/service_semantics.py --run <prepared-run> --extension-propagation`.
+  The instrumented worker writes its startup marker under retained evidence;
+  CLI is the positive startup/contribution control, LSP is the negative result.
+  [Draft and source locations](upstream/mago-lsp-extension-hosts.md),
+  [live result](evidence/slice1/semantic-propagation-result.json), and
+  [the framework graph controls](SYMFONY-WIRING.md) retain exact identities and
+  input/output evidence. The probe refuses to report the old blocker if startup
+  behavior changes.
+- **Workaround / contribution:** use the matched CLI for framework-enriched
+  checks and Serena for demonstrated native semantics. This costs a separate
+  CLI analysis and does not enrich editor references. A server change must
+  initialize/configure external analyzer workers and handle their lifecycle;
+  an adapter wrapper cannot establish that native server behavior. Draft only;
+  no Rust/server source update or upstream message is included.
+
+Slice 1 also extends U05 with a positive compiled-wiring compatibility report:
+Mate confirms `TagsInputType → TagRepository → doctrine/Registry`, while the
+existing wiring package adds the repository-to-concrete-Registry Body edge to
+Mago's final graph. Off/on, unresolved-binding and restored controls distinguish
+the extension contribution from native signature references. The selected
+service's direct concrete edge is unchanged because Mago suppresses a redundant
+Body edge when its Signature reference already exists. No runtime call or
+universal Symfony/ORM coverage is inferred. See [slice adoption](SLICE-1.md).
+
 ## Prioritized handoff
 
 | Priority / category | Candidate | Recommendation and deliverable |
@@ -239,6 +274,7 @@ written outside them.
 | Ready to discuss | U04 | Mago external-span issue with [tiny repro, frames and healthy control](upstream/mago-external-spans.md) |
 | Ready to discuss | U01 | SolidLSP full-sync policy, [current-code live reproduction and draft](upstream/serena-full-sync.md) |
 | Ready to share | U05 | [Positive Symfony compatibility report](upstream/mago-compatibility.md), with U04 and unexercised features attached |
+| Ready to discuss | U09 | Configured CLI/LSP worker-start difference with matched SDK, active CLI control and [unpublished draft](upstream/mago-lsp-extension-hosts.md) |
 | Existing work to validate | U02 | [Additional Unicode/state properties](upstream/unicode-state-coverage.md) for2115 and xormania6; actual PR-branch A/B still pending |
 | Promising, more evidence/design | U06, U08 | Native lifecycle/collision tests and backend-author docs; cancellation/new API promises remain unproven |
 | Confined to our PoC | U03, U07 | Fixed adapter cache, whole-app verifier and report integrity; share tests without misattributing ownership |
