@@ -1,10 +1,15 @@
 name: Pinned Serena + Mago PoC
 on:
   push:
+    branches: [master]
   pull_request:
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  # PR updates replace only that PR's acceptance; master and other refs are separate.
+  group: poc-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 jobs:
   acceptance:
     runs-on: ubuntu-latest
@@ -22,11 +27,15 @@ jobs:
       - name: Fast properties, manifest verification and mocked diagnosis
         id: fast
         run: python3 tools/ci/capture_step.py run --step fast -- ./bin/poc fast
-      - uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1, Node 24
         id: builder
+      # CLI builds need the action-context cache credentials. This local Node24
+      # action exports an allowlist without logging credential values.
+      - uses: ./.github/actions/cache-runtime
+        id: cache_runtime
       - name: Build exact toolchain
         id: build
-        run: python3 tools/ci/capture_step.py run --step build -- docker buildx build --load --tag mago-serena-poc:local --progress plain .
+        run: python3 tools/ci/capture_step.py run --step build -- python3 tools/ci/build_image.py
       - name: Real Docker, original application tests and MCP acceptance
         id: acceptance
         run: python3 tools/ci/capture_step.py run --step acceptance -- ./bin/poc test
@@ -38,7 +47,7 @@ jobs:
         run: python3 tools/ci/capture_step.py collect
       - name: Upload diagnosis data without credentials
         if: always() && steps.collect.outcome == 'success'
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
         with:
           name: jev-input-${{ github.run_id }}-${{ github.run_attempt }}
           path: artifacts/jev-input/diagnosis-input.json
@@ -46,7 +55,7 @@ jobs:
           retention-days: 7
       - name: Retain all evidence, including failed scenarios
         if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
         with:
           name: poc-evidence-${{ github.run_id }}-${{ github.run_attempt }}
           path: artifacts/
