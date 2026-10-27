@@ -8,6 +8,7 @@ import re
 
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
+from trace import BoundedJsonl
 
 
 def text_of(result):
@@ -49,7 +50,7 @@ async def connect(root, evidence, command=None, extra_env=None):
     evidence.mkdir(parents=True, exist_ok=True)
     command = command or ['serena', 'start-mcp-server', '--project', str(root), '--agent-interface', 'REPL',
                           '--enable-web-dashboard', 'false', '--enable-gui-log-window', 'false', '--open-web-dashboard', 'false']
-    with (evidence / 'mcp.stderr').open('w') as stderr, (evidence / 'mcp.jsonl').open('w') as log:
+    with (evidence / 'mcp.stderr').open('w') as stderr, BoundedJsonl(evidence / 'mcp.jsonl') as log:
         params = StdioServerParameters(command=command[0], args=command[1:], cwd=str(root), env={**os.environ, **(extra_env or {})})
         async with stdio_client(params, errlog=stderr) as streams:
             async with ClientSession(*streams, read_timeout_seconds=120) as client:

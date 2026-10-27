@@ -1,0 +1,14 @@
+{
+  "source_revision": "41729d30d23459de1ba53023051eb55894fb33b9",
+  "fault": "Correct two-file rename plus root phpunit.dist.xml weakens suite selection to tests/Utils",
+  "before_fix": {
+    "reproduced": true,
+    "old_verifier_result": "accepted",
+    "reported_changed": [
+      "src/Controller/BlogController.php",
+      "src/Repository/PostRepository.php"
+    ],
+    "unreported_changed": "phpunit.dist.xml"
+  },
+  "healthy_control": "Exact two-file rename required and accepted by original verifier"
+}

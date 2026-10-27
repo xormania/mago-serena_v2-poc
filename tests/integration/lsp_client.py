@@ -6,6 +6,7 @@ import queue
 import subprocess
 import threading
 import time
+from trace import BoundedJsonl
 
 
 class LspError(RuntimeError):
@@ -17,7 +18,7 @@ class LspClient:
         self.root = Path(root).resolve()
         self.evidence = Path(evidence)
         self.evidence.mkdir(parents=True, exist_ok=True)
-        self.log = (self.evidence / 'direct-lsp.jsonl').open('w')
+        self.log = BoundedJsonl(self.evidence / 'direct-lsp.jsonl')
         self.stderr = (self.evidence / 'direct-lsp.stderr').open('w')
         self.process = subprocess.Popen(command, cwd=root, env={**os.environ, 'MAGO_EXPERIMENTAL_SERVER': '1'},
                                         stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=self.stderr)

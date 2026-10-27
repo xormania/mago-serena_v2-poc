@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Build, exercise and inspect the Serena REPL + Mago PoC."""
 import argparse
+import hashlib
+import os
+import shutil
 import json
 from pathlib import Path
 import subprocess
@@ -10,62 +13,172 @@ import time
 from poclib import ROOT, compose, docker, environment, execute, load, metadata, new_id, prepare, require_running, run, source_integrity, start, stop
 
 
+sys.path.insert(0, str(ROOT/'tests/integration'))
+from evidence import REQUIRED, check_record, digest, make_plan, result_document, validate, write_json, seal_artifacts, verify_artifacts, validate_runtime
+
+
+def fast(evidence=None):
+    python = ROOT/'.venv/bin/python'
+    if not python.is_file():
+        raise RuntimeError('Run uv sync --frozen --python 3.12 before fast tests')
+    env = {**os.environ}
+    if evidence:
+        env['POC_FAST_EVIDENCE'] = str(evidence)
+    return run([str(python), str(ROOT/'tests/fast/run.py')], env=env).returncode
+
+
+def capture_identity(data, source):
+    evidence = Path(data['evidence'])
+    response = execute(data, 'python', '/opt/poc/docker/executed_identity.py', capture_output=True, text=True, check=False)
+    (evidence/'executed-identity.json').write_text(response.stdout)
+    (evidence/'executed-identity.stderr').write_text(response.stderr)
+    assert response.returncode == 0, f'Runtime identity failed; see {evidence}/executed-identity.stderr'
+    actual = json.loads((evidence/'executed-identity.json').read_text())
+    assert actual['run_id'] == data['run_id'] and actual['attempt_id'] == '1'
+    prefixes = ('adapter/src/', 'tests/', 'docker/', 'config/', 'fixtures/')
+    explicit = ('uv.lock', 'pyproject.toml', 'adapter/pyproject.toml', 'toolchain.lock.json')
+    expected = {p:row['sha256'] for p,row in source['source_manifest'].items() if p.startswith(prefixes) or p in explicit}
+    changed = sorted(path for path in actual['installed_files'].keys() | expected.keys()
+                     if actual['installed_files'].get(path) != expected.get(path))
+    assert not changed, f'Installed code/file inventory differs from checkout: {changed}; rebuild image'
+    assert actual['installed_adapter']['sha256'] == expected['adapter/src/serena_mago/server.py']
+    validate_runtime(actual, source)
+    container = subprocess.check_output(compose(data, 'ps', '-q', 'php'), env=environment(data), text=True).strip()
+    inspected = json.loads(subprocess.check_output([docker(), 'inspect', '--format', '{{json .Image}}', container], text=True))
+    image = json.loads(subprocess.check_output([docker(), 'image', 'inspect', inspected], text=True))[0]
+    identity = {'container_id':container, 'image_id':inspected, 'repo_digests':image.get('RepoDigests', []),
+                'created':image['Created'], 'architecture':image['Architecture'], 'installed_files_checked':len(expected)}
+    write_json(evidence/'image-identity.json', identity)
+    return identity
+
+
 def report(run_id):
     path = ROOT / 'artifacts' / run_id / 'results.json'
     if not path.exists():
         raise RuntimeError(f'No results recorded for {run_id}')
     result = json.loads(path.read_text())
+    plan_path = ROOT/'workspaces'/run_id/'trusted/run-plan.json'
+    if not plan_path.exists():
+        # Evidence survives workspace purge, including the immutable run plan copy.
+        plan_path = path.parent/'run-plan.json'
+    plan = json.loads(plan_path.read_text())
+    assert plan['run_id'] == run_id, 'Report belongs to another run'
+    metadata_record = json.loads((path.parent/'metadata.json').read_text())
+    assert digest(metadata_record) == plan['context_sha256'], 'Metadata is stale or modified'
+    validate(result, plan, require_pass=False)
     for check in result['checks']:
         print(f"{check['status']:14} {check['name']}: {check.get('assertion', '')}")
     print(f"Evidence: {path.parent}")
-    return int(any(x['status'] != 'pass' and x.get('required', True) for x in result['checks']))
+    validate(result, plan)
+    verify_artifacts(path.parent, ROOT/'artifacts'/(run_id+'-b'), result, metadata_record)
+    return 0
 
 
 def test():
+    from verifier import snapshot, save_snapshot, expected_suite, verify_suite
     run_id = new_id('test')
     a, b = prepare(run_id), prepare(run_id + '-b')
     evidence = Path(a['evidence'])
-    checks = []
+    source = metadata(a)
+    plan = make_plan(run_id, source)
+    write_json(evidence/'metadata.json', source)
+    write_json(evidence/'run-plan.json', plan)
+    for data in (a, b):
+        write_json(Path(data['trusted'])/'run-plan.json', plan)
+    checks = {name: check_record(plan, name) for name in REQUIRED}
+    evidence_digest = None
+    def save():
+        value = result_document(plan, list(checks.values()))
+        if evidence_digest:
+            value['evidence_manifest_sha256'] = evidence_digest
+        write_json(evidence/'results.json', value)
     def record(name, function, assertion):
         started = time.monotonic()
+        assert checks[name]['status'] == 'not_exercised', f'Duplicate step {name}'
         try:
-            function()
-            checks.append({'name': name, 'status': 'pass', 'assertion': assertion, 'elapsed_s': round(time.monotonic()-started, 3)})
+            detail = function()
+            checks[name] = check_record(plan, name, 'pass', assertion, elapsed_s=round(time.monotonic()-started, 3))
+            if detail is not None:
+                checks[name]['detail'] = detail
         except Exception as exc:
-            checks.append({'name': name, 'status': 'fail', 'assertion': str(exc), 'elapsed_s': round(time.monotonic()-started, 3)})
+            checks[name] = check_record(plan, name, 'fail', str(exc), elapsed_s=round(time.monotonic()-started, 3))
             raise
-    try:
-        record('source_integrity', source_integrity, 'Original application files match upstream checksums plus declared fixture patch')
+        finally:
+            with (evidence/'step-attempts.jsonl').open('a') as ledger:
+                ledger.write(json.dumps({**checks[name], 'step':name, 'step_attempt':1})+'\n')
+            save()
+    def phpunit(data):
+        # Listing comes only from the fresh, hash-verified fixture before any semantic edit.
+        execute(data, 'php', 'vendor/bin/phpunit', '--configuration', 'phpunit.dist.xml',
+                '--list-tests-xml', '/evidence/expected-tests.xml', log=Path(data['evidence'])/'list-tests.log')
+        inventory = expected_suite(Path(data['evidence'])/'expected-tests.xml', ROOT/'app')
+        write_json(Path(data['trusted'])/'expected-suite.json', inventory)
+        shutil.copy2(Path(data['trusted'])/'expected-suite.json', Path(data['evidence'])/'expected-suite.json')
+        execute(data, 'php', 'vendor/bin/phpunit', '--configuration', 'phpunit.dist.xml', '--log-junit',
+                '/evidence/phpunit.xml', log=Path(data['evidence'])/'phpunit.log')
+        return verify_suite(inventory, Path(data['evidence'])/'phpunit.xml')
+    def identity():
+        identities = [capture_identity(data, source) for data in (a,b)]
+        assert identities[0]['image_id'] == identities[1]['image_id'], 'Fresh workspaces use different images'
+        return identities
+    def baseline():
         for data in (a, b):
-            record('setup_' + data['run_id'], lambda d=data: start(d), 'Fresh independent app, database, vendor tree and state; HTTP 200')
-            record('phpunit_' + data['run_id'], lambda d=data: execute(d, 'php', 'vendor/bin/phpunit', '--log-junit', '/evidence/phpunit.xml', log=Path(d['evidence'])/'phpunit.log'), 'Unmodified original Demo suite passes')
-        record('application_checks', lambda: execute(a, '/opt/poc/docker/check', log=evidence/'application-checks.log'), 'Upstream Composer, YAML, Twig, XLIFF, translation, service/entity, PHP-CS-Fixer and PHPStan checks pass')
-        (evidence / 'metadata.json').write_text(json.dumps(metadata(a), indent=2))
-        execute(a, 'cat', '/opt/toolchain-runtime.json', log=evidence/'runtime.json')
-        run(compose(a, 'images', '--format', 'json'), env=environment(a), log=evidence/'images.json')
-        execute(a, 'python', '/opt/poc/tests/integration/run.py', log=evidence/'integration.log', check=False)
-        core = evidence / 'integration-results.json'
-        if core.exists():
-            checks.extend(json.loads(core.read_text())['checks'])
-        else:
-            checks.append({'name': 'integration', 'status': 'blocked', 'assertion': 'Runner produced no result; see integration.log'})
-        before = (Path(b['app'])/'data/database_test.sqlite').read_bytes()
-        stop(a)
-        require_running(b)
-        assert before == (Path(b['app'])/'data/database_test.sqlite').read_bytes()
-        checks.append({'name':'workspace_isolation','status':'pass','assertion':'Separate files, databases and state; stopping A preserves running B and its database'})
+            save_snapshot(snapshot(data['app']), Path(data['trusted'])/'application.json', app_root=data['app'])
+            shutil.copy2(Path(data['trusted'])/'application.json', Path(data['evidence'])/'application-baseline.json')
+        return {data['run_id']:{p:hashlib.sha256((Path(data['trusted'])/p).read_bytes()).hexdigest()
+                               for p in ('application.json','expected-suite.json')} for data in (a,b)}
+    save()
+    try:
+        record('fast_tests', lambda: fast(evidence/'fast'), 'Deterministic properties, verifier regressions, evidence and mocked Jev tests passed')
+        record('source_integrity', source_integrity, 'Original application files match upstream checksums plus declared fixture patch')
+        for suffix, data in (('a', a), ('b', b)):
+            record('setup_'+suffix, lambda d=data: start(d, validate_image=lambda selected: capture_identity(selected, source)), 'Verified image; fresh independent app, database, vendor tree and state; HTTP 200')
+        record('executed_identity', identity, 'Installed adapter, harness, verifier, locks and actual container images match recorded source')
+        for suffix, data in (('a', a), ('b', b)):
+            record('phpunit_'+suffix, lambda d=data: phpunit(d), 'Exact original test identities and datasets pass without skips')
+        record('application_checks', lambda: execute(a, '/opt/poc/docker/check', log=evidence/'application-checks.log').returncode,
+               'Upstream Composer, lint, service/entity, PHP-CS-Fixer and PHPStan checks pass')
+        record('trusted_baseline', baseline, 'Complete manifests and test inventories sealed before semantic operations')
+        result = execute(a, 'python', '/opt/poc/tests/integration/run.py', log=evidence/'integration.log', check=False)
+        core = json.loads((evidence/'integration-results.json').read_text())
+        validate(core, plan, integration=True, require_pass=False)
+        for check in core['checks']:
+            checks[check['name']] = check
+        save()
+        validate(core, plan, integration=True)
+        assert result.returncode == 0, f'Integration exit {result.returncode} contradicts results'
+        def isolation():
+            before = (Path(b['app'])/'data/database_test.sqlite').read_bytes()
+            stop(a)
+            require_running(b)
+            assert before == (Path(b['app'])/'data/database_test.sqlite').read_bytes()
+        record('workspace_isolation', isolation, 'Stopping A preserves running B and its distinct database')
         record('baseline_unchanged', source_integrity, 'Acceptance did not rewrite checked-in application files')
     except Exception as exc:
-        if not checks or checks[-1]['status'] == 'pass':
-            checks.append({'name':'runner','status':'blocked','assertion':str(exc)})
+        write_json(evidence/'orchestration-error.json', {'type':type(exc).__name__, 'message':str(exc)})
+        for name, row in checks.items():
+            if row['status'] == 'not_exercised' and name != 'cleanup':
+                checks[name] = check_record(plan, name, 'blocked', 'Earlier required step failed; see orchestration-error.json')
     finally:
-        for data in (a, b):
-            run(compose(data, 'logs', '--no-color'), env=environment(data), log=Path(data['evidence'])/'container.log', check=False)
-            stop(data)
-        checks.append({'name':'real_agent','status':'not_exercised','required':False,'assertion':'Separate model-driven session required; use ./bin/poc agent-task'})
-        result = {'schema':1,'run_id':run_id,'checks':checks}
-        (evidence / 'results.json').write_text(json.dumps(result, indent=2)+'\n')
-        (evidence / 'report.txt').write_text('\n'.join(f"{x['status']}: {x['name']} — {x.get('assertion', '')}" for x in checks)+'\n')
+        def cleanup():
+            failures = []
+            for data in (a,b):
+                try:
+                    run(compose(data, 'logs', '--no-color'), env=environment(data), log=Path(data['evidence'])/'container.log', check=False)
+                    stop(data)
+                except Exception as exc:
+                    failures.append(str(exc))
+                    write_json(Path(data['evidence'])/'cleanup-error.json', {'error':str(exc)})
+            assert not failures, f'Cleanup failed: {failures}'
+        try:
+            record('cleanup', cleanup, 'Both owned Compose projects stopped; evidence and trusted baselines retained')
+        except Exception:
+            pass  # The failed required cleanup row is already persisted and prevents a pass.
+        write_json(evidence/'separate-runs.json', {'model_driven_acceptance':'not_exercised_after_hardening',
+                   'live_jev':'not_exercised; CI-only, pending activation'})
+        evidence_digest = seal_artifacts(evidence, Path(b['evidence']))
+        save()
+        (evidence/'report.txt').write_text('\n'.join(f"{x['status']}: {x['name']} — {x.get('assertion', '')}" for x in checks.values())+'\n')
     return report(run_id)
 
 
@@ -77,6 +190,7 @@ def main():
     up.add_argument('--no-build', action='store_true')
     doctor = sub.add_parser('doctor', help='Check Docker, fixture, runtime and selected backend')
     doctor.add_argument('--run', default='dev')
+    sub.add_parser('fast', help='Run deterministic property/verifier/evidence/mocked-provider tests without Docker')
     sub.add_parser('test', help='Run two isolated Demo baselines and the real MCP/LSP acceptance matrix')
     sub.add_parser('agent-task', help='Prepare a fresh real-agent workspace and exact MCP configuration')
     verify = sub.add_parser('verify-agent', help='Independently verify an agent run, its MCP transcript and original tests')
@@ -103,6 +217,8 @@ def main():
         execute(data, 'cat', '/opt/toolchain-runtime.json')
         execute(data, 'python', '-c', "from solidlsp.ls_config import LanguageServerRegistry; x=LanguageServerRegistry.get_instance().resolve('mago'); print('Backend:', x.get_key(), x.get_ls_class().__module__)")
         execute(data, 'composer', 'check-platform-reqs')
+    elif args.command == 'fast':
+        return fast()
     elif args.command == 'test':
         return test()
     elif args.command == 'report':
@@ -118,17 +234,30 @@ def main():
         return execute(data, *argv, check=False).returncode
     elif args.command == 'verify-agent':
         data = load(args.run_id)
+        capture_identity(data, json.loads((Path(data['evidence'])/'metadata.json').read_text()))
         sys.path.insert(0, str(ROOT/'tests/integration'))
-        from verifier import snapshot, verify_rename
-        changed = verify_rename(snapshot(ROOT/'app'), data['app'], data['evidence'])
-        execute(data, 'php', 'vendor/bin/phpunit', '--log-junit', '/evidence/agent-phpunit.xml', log=Path(data['evidence'])/'agent-phpunit.log')
+        from verifier import load_snapshot, verify_rename, verify_suite
+        changed = verify_rename(load_snapshot(Path(data['trusted'])/'application.json'), data['app'], data['evidence'])
+        execute(data, 'php', 'vendor/bin/phpunit', '--configuration', 'phpunit.dist.xml', '--log-junit', '/evidence/agent-phpunit.xml', log=Path(data['evidence'])/'agent-phpunit.log')
+        verify_suite(json.loads((Path(data['trusted'])/'expected-suite.json').read_text()), Path(data['evidence'])/'agent-phpunit.xml')
         execute(data, 'python', '/opt/poc/tests/integration/verify_agent.py', log=Path(data['evidence'])/'agent-verification.log')
         source_integrity()
         print(f'Agent verification passed: {changed}; evidence: {data["evidence"]}')
     elif args.command == 'agent-task':
+        from verifier import expected_suite, snapshot, save_snapshot, verify_suite
+        fast()
         data = prepare(new_id('agent'))
         start(data)
-        execute(data, 'php', 'vendor/bin/phpunit', log=Path(data['evidence'])/'baseline-phpunit.log')
+        source = metadata(data)
+        capture_identity(data, source)
+        execute(data, 'php', 'vendor/bin/phpunit', '--configuration', 'phpunit.dist.xml', '--list-tests-xml',
+                '/evidence/expected-tests.xml', log=Path(data['evidence'])/'list-tests.log')
+        inventory = expected_suite(Path(data['evidence'])/'expected-tests.xml', ROOT/'app')
+        write_json(Path(data['trusted'])/'expected-suite.json', inventory)
+        execute(data, 'php', 'vendor/bin/phpunit', '--configuration', 'phpunit.dist.xml', '--log-junit',
+                '/evidence/baseline-phpunit.xml', log=Path(data['evidence'])/'baseline-phpunit.log')
+        verify_suite(inventory, Path(data['evidence'])/'baseline-phpunit.xml')
+        save_snapshot(snapshot(data['app']), Path(data['trusted'])/'application.json', app_root=data['app'])
         # Index the exact starting sources so an agent can inspect ordinary git
         # diffs without creating commits or staging generated state/dependencies.
         run(['git','init','--initial-branch=poc-fixture',data['app']], capture_output=True)
@@ -139,7 +268,7 @@ def main():
         config = {'mcpServers': {'serena': {'command': str(ROOT/'bin/serena-mcp'), 'args': ['--run', data['run_id']]}}}
         (Path(data['evidence'])/'agent-task.txt').write_text(instructions)
         (Path(data['evidence'])/'mcp-config.json').write_text(json.dumps(config,indent=2))
-        (Path(data['evidence'])/'metadata.json').write_text(json.dumps(metadata(data),indent=2))
+        (Path(data['evidence'])/'metadata.json').write_text(json.dumps(source,indent=2))
         print(instructions + '\n' + json.dumps(config,indent=2))
         print(f"Run container commands: {ROOT/'bin/poc'} exec --run {data['run_id']} -- php vendor/bin/phpunit")
         print(f"Workspace: {data['app']}\nEvidence: {data['evidence']}\nAfter the session: ./bin/poc verify-agent {data['run_id']}")

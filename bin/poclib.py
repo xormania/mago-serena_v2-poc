@@ -1,10 +1,12 @@
 """Host orchestration. Every subprocess receives an argument array, never a shell string."""
 import hashlib
+import base64
 import json
 import os
 from pathlib import Path
 import re
 import shutil
+import stat
 import subprocess
 import time
 import uuid
@@ -40,6 +42,9 @@ def load(run_id='dev'):
     data = json.loads(marker.read_text())
     if data['repository'] != str(ROOT) or data['run_id'] != run_id:
         raise RuntimeError('Workspace ownership marker does not match this checkout')
+    # Earlier PoC workspaces have no trusted mount; retain their app/state intact.
+    data.setdefault('trusted', str(ROOT/'workspaces'/run_id/'trusted'))
+    Path(data['trusted']).mkdir(exist_ok=True)
     return data
 
 
@@ -54,12 +59,13 @@ def prepare(run_id, port=0):
     shutil.copy2(ROOT / 'config/project.yml', app / '.serena/project.yml')
     shutil.copy2(ROOT / 'config/mago.toml', app / 'mago.toml')
     shutil.copytree(ROOT / 'fixtures/semantic', app / 'semantic')
-    for directory in (workspace / 'state', ROOT / 'artifacts' / run_id):
+    for directory in (workspace / 'state', workspace / 'trusted', ROOT / 'artifacts' / run_id):
         directory.mkdir(parents=True)
     digest = hashlib.sha256(str(ROOT).encode()).hexdigest()[:8]
     data = {'schema': 1, 'run_id': run_id, 'repository': str(ROOT),
             'project': f'mago-poc-{digest}-{run_id}', 'app': str(app),
-            'state': str(workspace / 'state'), 'evidence': str(ROOT / 'artifacts' / run_id), 'port': port}
+            'state': str(workspace / 'state'), 'trusted': str(workspace / 'trusted'),
+            'evidence': str(ROOT / 'artifacts' / run_id), 'port': port}
     (workspace / 'run.json').write_text(json.dumps(data, indent=2) + '\n')
     return data
 
@@ -70,7 +76,10 @@ def compose(data, *args):
 
 def environment(data):
     return {**os.environ, 'POC_APP': data['app'], 'POC_STATE': data['state'],
+            'POC_TRUSTED': data.get('trusted', str(ROOT/'workspaces'/data['run_id']/'trusted')),
             'POC_EVIDENCE_DIR': data['evidence'], 'POC_PORT': str(data['port']),
+            'POC_RUN_ID': data['run_id'], 'POC_ATTEMPT_ID': '1',
+            'POC_TRACE': os.environ.get('POC_TRACE', '0'),
             'POC_UID': str(os.getuid()), 'POC_GID': str(os.getgid())}
 
 
@@ -84,11 +93,13 @@ def require_running(data):
         raise RuntimeError(f"Development container is stopped. Start it with ./bin/poc up --run {data['run_id']}")
 
 
-def start(data, build=False):
+def start(data, build=False, validate_image=None):
     env = environment(data)
     if build:
         run(compose(data, 'build'), env=env, log=Path(data['evidence']) / 'build.log')
     run(compose(data, 'up', '-d', '--no-build'), env=env)
+    if validate_image:
+        validate_image(data)
     execute(data, '/opt/poc/docker/setup', log=Path(data['evidence']) / 'setup.log')
     # Poll actual HTTP readiness with a deadline, never assume startup succeeded.
     deadline = time.monotonic() + 120
@@ -127,9 +138,25 @@ def source_integrity():
 
 
 def metadata(data):
-    paths = [ROOT / 'uv.lock', ROOT / 'app/composer.lock', *sorted((ROOT / 'adapter').rglob('*.py'))]
+    tracked = subprocess.check_output(['git', '-C', str(ROOT), 'ls-files', '-z']).decode().split('\0')
+    untracked = subprocess.check_output(['git', '-C', str(ROOT), 'ls-files', '-z', '--others', '--exclude-standard']).decode().split('\0')
+    changed = set(subprocess.check_output(['git', '-C', str(ROOT), 'diff', '--name-only', '-z', 'HEAD']).decode().split('\0')) | set(untracked)
+    files, dirty_content = {}, {}
+    for name in sorted(set(tracked + untracked) - {''}):
+        path = ROOT/name
+        if not path.exists() and not path.is_symlink():
+            if name in changed:
+                dirty_content[name] = {'deleted': True}
+            continue
+        info = path.lstat()
+        content = os.readlink(path).encode() if path.is_symlink() else path.read_bytes()
+        files[name] = {'sha256': hashlib.sha256(content).hexdigest(), 'mode': stat.S_IMODE(info.st_mode),
+                       'kind': 'symlink' if path.is_symlink() else 'file', 'size': len(content)}
+        if name in changed:
+            dirty_content[name] = {**files[name], 'content_base64': base64.b64encode(content).decode()}
     return {'run': data, 'source_files_verified': source_integrity(),
             'revision': subprocess.check_output(['git', '-C', str(ROOT), 'rev-parse', 'HEAD'], text=True).strip(),
             'dirty': bool(subprocess.check_output(['git', '-C', str(ROOT), 'status', '--porcelain'], text=True)),
-            'file_sha256': {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},
+            'source_manifest': files, 'dirty_content': dirty_content,
+            'fixture_provenance': {name: json.loads((ROOT/'fixtures'/name).read_text()) for name in ('upstream.sha256.json', 'adaptations.json')},
             'toolchain': json.loads((ROOT / 'toolchain.lock.json').read_text())}

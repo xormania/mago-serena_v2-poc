@@ -16,6 +16,14 @@ services:
       - type: bind
         source: ${POC_EVIDENCE_DIR:-./artifacts/dev}
         target: /evidence
+      - type: bind
+        source: ${POC_TRUSTED:-./workspaces/dev/trusted}
+        target: /trusted
+        read_only: true
+    environment:
+      POC_RUN_ID: ${POC_RUN_ID:-dev}
+      POC_ATTEMPT_ID: ${POC_ATTEMPT_ID:-1}
+      POC_TRACE: ${POC_TRACE:-0}
     ports:
       - "127.0.0.1:${POC_PORT:-8000}:8000"
     healthcheck:

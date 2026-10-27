@@ -11,7 +11,8 @@ import traceback
 
 from lsp_client import LspClient
 from mcp_client import connect
-from verifier import position, snapshot, verify_rename, verify_symbol
+from verifier import position, load_snapshot, verify_rename, verify_symbol, verify_suite
+from evidence import INTEGRATION_REQUIRED, check_record, result_document, validate, write_json
 
 ROOT = Path(os.environ.get('POC_ROOT', '/app')).resolve()
 EVIDENCE = Path(os.environ.get('POC_EVIDENCE', '/evidence')).resolve()
@@ -20,16 +21,19 @@ BLOG = 'src/Controller/BlogController.php'
 CALC = 'semantic/Calculator.php'
 REL = 'semantic/Relationships.php'
 POS = 'semantic/Positions.php'
-CORE = ['direct_lsp', 'demo_symbols', 'cross_file_references', 'composer_navigation', 'demo_rename',
-        'interface_inheritance', 'invalid_rename', 'semantic_body_edit', 'position_accuracy', 'diagnostics',
-        'external_edit', 'repl_persistence', 'partial_execution', 'restart_and_death', 'negative_backend', 'negative_verifier']
+TRUSTED = Path(os.environ.get('POC_TRUSTED_ROOT', '/trusted'))
+CORE = INTEGRATION_REQUIRED
 
 
 class Results:
     def __init__(self):
-        self.checks = {name: {'name':name,'status':'not_exercised','assertion':'Not reached'} for name in CORE}
+        self.plan = json.loads((TRUSTED/'run-plan.json').read_text())
+        assert self.plan['run_id'] == os.environ['POC_RUN_ID']
+        assert self.plan['attempt_id'] == os.environ['POC_ATTEMPT_ID']
+        self.checks = {name: check_record(self.plan, name) for name in CORE}
 
     async def check(self, name, function):
+        assert name in self.checks and self.checks[name]['status'] == 'not_exercised', f'Duplicate/unknown check: {name}'
         start = time.monotonic()
         try:
             assertion = await function()
@@ -38,14 +42,16 @@ class Results:
             status = 'fail'
             assertion = f'{type(exc).__name__}: {exc}'
             (EVIDENCE / f'{name}.traceback.txt').write_text(traceback.format_exc())
-        self.checks[name] = {'name':name,'status':status,'assertion':assertion,
-                             'elapsed_s':round(time.monotonic()-start,3),'evidence':str(EVIDENCE)}
+        self.checks[name] = check_record(self.plan, name, status, assertion,
+                             elapsed_s=round(time.monotonic()-start,3), evidence=str(EVIDENCE))
+        with (EVIDENCE/'integration-attempts.jsonl').open('a') as ledger:
+            ledger.write(json.dumps({**self.checks[name], 'step':name, 'step_attempt':1})+'\n')
         self.save()
         print(f'{status}: {name}: {assertion}', flush=True)
 
     def save(self):
         EVIDENCE.mkdir(parents=True, exist_ok=True)
-        (EVIDENCE/'integration-results.json').write_text(json.dumps({'schema':1,'checks':list(self.checks.values())},indent=2)+'\n')
+        write_json(EVIDENCE/'integration-results.json', result_document(self.plan, list(self.checks.values()), integration=True))
 
 
 def php(code):
@@ -54,15 +60,18 @@ def php(code):
 
 def suite(filename):
     with (EVIDENCE/filename).open('w') as log:
-        result = subprocess.run(['php','vendor/bin/phpunit','--log-junit',f'/evidence/{filename}.xml'],cwd=ROOT,
+        result = subprocess.run(['php','vendor/bin/phpunit','--configuration','phpunit.dist.xml','--log-junit',f'/evidence/{filename}.xml'],cwd=ROOT,
                                 stdout=log,stderr=subprocess.STDOUT,timeout=180)
     assert result.returncode == 0, f'PHPUnit exit {result.returncode}; see {filename}'
+    inventory = json.loads((TRUSTED/'expected-suite.json').read_text())
+    summary = verify_suite(inventory, EVIDENCE/f'{filename}.xml')
+    write_json(EVIDENCE/f'{filename}.verified.json', summary)
 
 
 async def main():
     results = Results()
     results.save()
-    before = snapshot(ROOT)
+    before = load_snapshot(TRUSTED/'application.json')
     fixture_before = {p:(ROOT/p).read_bytes() for p in (CALC,REL,POS)}
     async def direct():
         client = LspClient([os.environ.get('MAGO_BINARY','mago'),'language-server'],ROOT,EVIDENCE/'direct')
@@ -81,6 +90,16 @@ async def main():
         finally:
             client.close()
     await results.check('direct_lsp', direct)
+    async def mago_span_control():
+        from repro_mago_external_spans import reproduce
+        reproduce(EVIDENCE/'mago-external-spans')
+        return 'EXPECTED NEGATIVE: pinned Mago returns stale external-edit declaration span and refuses rename; fresh-process healthy control returns correct span and rename'
+    await results.check('mago_external_span_control', mago_span_control)
+    async def document_state():
+        from state_repro import run_mcp
+        await run_mcp(ROOT, EVIDENCE/'document-state')
+        return 'Closed externally replaced target queried from another file without reopening; actual MCP/REPL coordinates and resulting edits verified'
+    await results.check('document_state', document_state)
     try:
         async with connect(ROOT,EVIDENCE/'mcp') as r:
             await r.code('s.info("lsp", "edit", "LspSymbolCollection", "LspReferenceCollection", "LspDiagnostics")')
@@ -228,6 +247,7 @@ async def main():
                 refs = await data(f'[{{"file":x.get_relative_path(),"line":x.line,"character":x.character}} for x in s.lsp.find_referencing_symbols("PostRepository/findLatestPublished",{REPO!r}).references]')
                 assert refs == [{'file':BLOG,**position(ROOT,BLOG,'findLatestPublished(')}], refs
                 suite('rename-phpunit.log')
+                verify_rename(before, ROOT, EVIDENCE)
                 return f'Exact independent two-file diff; old symbol absent; new references correct; original PHPUnit suite passes: {files}'
             await results.check('demo_rename',rename)
 
@@ -291,8 +311,11 @@ async def main():
             return 'Deliberately wrong symbol coordinates are rejected by independent verifier'
         raise AssertionError('Wrong expectation incorrectly passed')
     await results.check('negative_verifier',negative_verifier)
+    # Tests and later lifecycle scenarios must not leave unrelated app mutations.
+    verify_rename(before, ROOT, EVIDENCE)
     results.save()
-    return int(any(x['status'] != 'pass' for x in results.checks.values()))
+    validate(result_document(results.plan, list(results.checks.values()), integration=True), results.plan, integration=True)
+    return 0
 
 
 if __name__ == '__main__':

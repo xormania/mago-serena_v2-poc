@@ -4,10 +4,14 @@ import json
 import os
 from pathlib import Path
 from mcp_client import connect
+from verifier import load_snapshot, verify_rename, verify_suite
 
 
 async def main():
     evidence = Path(os.environ['POC_EVIDENCE'])
+    trusted = Path(os.environ.get('POC_TRUSTED', '/trusted'))
+    changed = verify_rename(load_snapshot(trusted / 'application.json'), '/app', evidence)
+    suite = verify_suite(json.loads((trusted / 'expected-suite.json').read_text()), evidence / 'agent-phpunit.xml')
     transcript = evidence/'agent-transcript.jsonl'
     assert transcript.is_file(), 'Missing real-agent transcript; save the authenticated harness JSONL here'
     calls = []
@@ -29,7 +33,8 @@ async def main():
         new = await r.code('len(s.lsp.find_symbol("PostRepository/findLatestPublished",relative_path="src/Repository/PostRepository.php").symbols)')
         refs = await r.code('s.lsp.find_referencing_symbols("PostRepository/findLatestPublished","src/Repository/PostRepository.php")')
         assert old == '0' and new == '1' and 'BlogController/index' in refs, (old,new,refs)
-    (evidence/'agent-result.json').write_text(json.dumps({'status':'pass','assertion':'External exact diff + original PHPUnit + real model MCP semantic operations + independent fresh semantic requery','semantic_tool_calls':len(calls)},indent=2))
+    verify_rename(load_snapshot(trusted / 'application.json'), '/app', evidence)
+    (evidence/'agent-result.json').write_text(json.dumps({'status':'pass','assertion':'Complete application manifest + original PHPUnit identities + real model MCP semantic operations + independent fresh semantic requery','semantic_tool_calls':len(calls),'changed':changed,'original_suite':suite},indent=2))
 
 
 asyncio.run(main())

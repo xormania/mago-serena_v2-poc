@@ -1,0 +1,58 @@
+{
+  "after_fix": {
+    "healthy_exact_rename": "pass",
+    "changed": [
+      "src/Controller/BlogController.php",
+      "src/Repository/PostRepository.php"
+    ],
+    "root_configuration_fault": "rejected",
+    "assertion": "Unexpected changed files: {'src/Controller/BlogController.php', 'phpunit.dist.xml', 'src/Repository/PostRepository.php'}"
+  },
+  "original_suite": {
+    "tests": 53,
+    "assertions": 120,
+    "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa",
+    "execution": "actual PHP 8.5 Docker exec; original pinned Symfony Demo suite; no model",
+    "command": "php vendor/bin/phpunit --configuration phpunit.dist.xml --log-junit /evidence/verifier-original-suite.xml",
+    "raw_junit": "artifacts/dev/verifier-original-suite.xml",
+    "log": "artifacts/dev/verifier-original-suite.log"
+  },
+  "fast_tests": {
+    "command": "python3 -m unittest discover -s tests/fast -p test_verifier.py -v",
+    "tests": 37,
+    "result": "pass",
+    "junit_controls": "synthetic; actual execution is reported separately above"
+  },
+  "fixture_controls": {
+    "reviewed_verifier_revision": "41729d30d23459de1ba53023051eb55894fb33b9",
+    "reviewed_verifier_sha256": "1fcf44c55403872c3dac71c6a5bbdaa596e7e2f2cd3f807c31271a244856e282",
+    "original_suite_list_sha256": "908fbc399d0abfb58d9b1ba558fc6862104cecca9cc5b59f7728d61a449b0974"
+  },
+  "implementation_sha256": "5f8303b3d1d5bb343d7c18716f1140c0ec4449bdb2909c59b16ee485173a9151",
+  "exclusions": {
+    "trees": [
+      ".git",
+      ".serena/cache",
+      ".serena/memories",
+      ".phpunit.cache",
+      "var"
+    ],
+    "files": [
+      "config/reference.php"
+    ],
+    "known_databases": [
+      "data/database.sqlite",
+      "data/database_test.sqlite"
+    ],
+    "sqlite_sidecars": [
+      "-shm",
+      "-wal",
+      "-journal"
+    ],
+    "metadata_ignored": [
+      "ownership",
+      "timestamps",
+      "inode numbers"
+    ]
+  }
+}
