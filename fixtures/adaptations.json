@@ -1,0 +1,7 @@
+{
+  "src/DataFixtures/AppFixtures.php": {
+    "sha256": "affa30fda82b3c863c6baee4e553afe1495aa1957378be0aa22330ced27e5018",
+    "reason": "Seed comments in the past so the unchanged original new-comment assertion is repeatable immediately after fixture loading.",
+    "patch": "now + -> now - in comment publishedAt only"
+  }
+}

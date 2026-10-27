@@ -1,0 +1,23 @@
+PHPUnit 11.5.55 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.4.25
+Configuration: /home/scientdb/projects/xormania/mago-serena_v2-poc/.cache/baseline/phpunit.dist.xml
+
+F                                                                   1 / 1 (100%)
+
+Time: 00:00.342, Memory: 56.50 MB
+
+There was 1 failure:
+
+1) App\Tests\Controller\BlogControllerTest::testNewComment
+Failed asserting that two strings are identical.
+--- Expected
++++ Actual
+@@ @@
+-'Hi, Symfony!'
++'Silva de secundus galatae demitto quadra. Pellentesque et sapien pulvinar consectetur. Sunt seculaes transferre talis camerarius fluctuies. Urna nisl sollicitudin id varius orci quam id turpis. Diatrias tolerare tanquam noster caesium. Nulla porta lobortis ligula vel egestas. Nunc viverra elit ac laoreet suscipit. Ubi est barbatus nix. Sunt torquises imitari velox mirabilis medicinaes. In hac habitasse platea dictumst.'
+
+/home/scientdb/projects/xormania/mago-serena_v2-poc/.cache/baseline/tests/Controller/BlogControllerTest.php:90
+
+FAILURES!
+Tests: 1, Assertions: 1, Failures: 1.

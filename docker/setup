@@ -1,0 +1,20 @@
+#!/bin/sh
+# The fixture contract is independent of Serena and Mago. Run in the app root.
+set -eu
+cp .env.local.demo .env.local
+composer install --no-scripts --no-interaction --no-progress --prefer-dist
+php bin/console cache:clear
+php bin/console assets:install public
+php bin/console importmap:install
+php bin/console sass:build
+for app_environment in dev test; do
+    # DBAL 4 does not implement database:create/drop for SQLite. Unlink only
+    # the known databases in this disposable workspace; schema:create opens them.
+    if [ "$app_environment" = test ]; then
+        rm -f data/database_test.sqlite
+    else
+        rm -f data/database.sqlite
+    fi
+    php bin/console doctrine:schema:create --env="$app_environment"
+    php bin/console doctrine:fixtures:load --env="$app_environment" --no-interaction
+done
