@@ -1,0 +1,11 @@
+#!/bin/sh
+set -eu
+composer validate --no-check-publish --strict
+php bin/console lint:yaml config --parse-tags
+php bin/console lint:twig templates --env=prod
+php bin/console lint:xliff translations
+php bin/console lint:translations
+php bin/console lint:container --no-debug
+php bin/console doctrine:schema:validate --skip-sync --no-interaction
+php vendor/bin/php-cs-fixer check --diff --using-cache=no
+php vendor/bin/phpstan analyze --no-progress --memory-limit=512M

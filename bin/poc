@@ -1,0 +1,154 @@
+#!/usr/bin/env python3
+"""Build, exercise and inspect the Serena REPL + Mago PoC."""
+import argparse
+import json
+from pathlib import Path
+import subprocess
+import sys
+import time
+
+from poclib import ROOT, compose, docker, environment, execute, load, metadata, new_id, prepare, require_running, run, source_integrity, start, stop
+
+
+def report(run_id):
+    path = ROOT / 'artifacts' / run_id / 'results.json'
+    if not path.exists():
+        raise RuntimeError(f'No results recorded for {run_id}')
+    result = json.loads(path.read_text())
+    for check in result['checks']:
+        print(f"{check['status']:14} {check['name']}: {check.get('assertion', '')}")
+    print(f"Evidence: {path.parent}")
+    return int(any(x['status'] != 'pass' and x.get('required', True) for x in result['checks']))
+
+
+def test():
+    run_id = new_id('test')
+    a, b = prepare(run_id), prepare(run_id + '-b')
+    evidence = Path(a['evidence'])
+    checks = []
+    def record(name, function, assertion):
+        started = time.monotonic()
+        try:
+            function()
+            checks.append({'name': name, 'status': 'pass', 'assertion': assertion, 'elapsed_s': round(time.monotonic()-started, 3)})
+        except Exception as exc:
+            checks.append({'name': name, 'status': 'fail', 'assertion': str(exc), 'elapsed_s': round(time.monotonic()-started, 3)})
+            raise
+    try:
+        record('source_integrity', source_integrity, 'Original application files match upstream checksums plus declared fixture patch')
+        for data in (a, b):
+            record('setup_' + data['run_id'], lambda d=data: start(d), 'Fresh independent app, database, vendor tree and state; HTTP 200')
+            record('phpunit_' + data['run_id'], lambda d=data: execute(d, 'php', 'vendor/bin/phpunit', '--log-junit', '/evidence/phpunit.xml', log=Path(d['evidence'])/'phpunit.log'), 'Unmodified original Demo suite passes')
+        record('application_checks', lambda: execute(a, '/opt/poc/docker/check', log=evidence/'application-checks.log'), 'Upstream Composer, YAML, Twig, XLIFF, translation, service/entity, PHP-CS-Fixer and PHPStan checks pass')
+        (evidence / 'metadata.json').write_text(json.dumps(metadata(a), indent=2))
+        execute(a, 'cat', '/opt/toolchain-runtime.json', log=evidence/'runtime.json')
+        run(compose(a, 'images', '--format', 'json'), env=environment(a), log=evidence/'images.json')
+        execute(a, 'python', '/opt/poc/tests/integration/run.py', log=evidence/'integration.log', check=False)
+        core = evidence / 'integration-results.json'
+        if core.exists():
+            checks.extend(json.loads(core.read_text())['checks'])
+        else:
+            checks.append({'name': 'integration', 'status': 'blocked', 'assertion': 'Runner produced no result; see integration.log'})
+        before = (Path(b['app'])/'data/database_test.sqlite').read_bytes()
+        stop(a)
+        require_running(b)
+        assert before == (Path(b['app'])/'data/database_test.sqlite').read_bytes()
+        checks.append({'name':'workspace_isolation','status':'pass','assertion':'Separate files, databases and state; stopping A preserves running B and its database'})
+        record('baseline_unchanged', source_integrity, 'Acceptance did not rewrite checked-in application files')
+    except Exception as exc:
+        if not checks or checks[-1]['status'] == 'pass':
+            checks.append({'name':'runner','status':'blocked','assertion':str(exc)})
+    finally:
+        for data in (a, b):
+            run(compose(data, 'logs', '--no-color'), env=environment(data), log=Path(data['evidence'])/'container.log', check=False)
+            stop(data)
+        checks.append({'name':'real_agent','status':'not_exercised','required':False,'assertion':'Separate model-driven session required; use ./bin/poc agent-task'})
+        result = {'schema':1,'run_id':run_id,'checks':checks}
+        (evidence / 'results.json').write_text(json.dumps(result, indent=2)+'\n')
+        (evidence / 'report.txt').write_text('\n'.join(f"{x['status']}: {x['name']} — {x.get('assertion', '')}" for x in checks)+'\n')
+    return report(run_id)
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    sub = parser.add_subparsers(dest='command', required=True)
+    up = sub.add_parser('up', help='Build/start and provision the selected development workspace')
+    up.add_argument('--run', default='dev')
+    up.add_argument('--no-build', action='store_true')
+    doctor = sub.add_parser('doctor', help='Check Docker, fixture, runtime and selected backend')
+    doctor.add_argument('--run', default='dev')
+    sub.add_parser('test', help='Run two isolated Demo baselines and the real MCP/LSP acceptance matrix')
+    sub.add_parser('agent-task', help='Prepare a fresh real-agent workspace and exact MCP configuration')
+    verify = sub.add_parser('verify-agent', help='Independently verify an agent run, its MCP transcript and original tests')
+    verify.add_argument('run_id')
+    ex = sub.add_parser('exec', help='Run an argv command in the selected php service')
+    ex.add_argument('--run', default='dev')
+    ex.add_argument('argv', nargs=argparse.REMAINDER)
+    rep = sub.add_parser('report', help='Print recorded results; absent evidence is never a pass')
+    rep.add_argument('run_id')
+    down = sub.add_parser('down', help='Stop only this checkout’s selected environment')
+    down.add_argument('--run', default='dev')
+    down.add_argument('--purge', action='store_true', help='Also delete that disposable workspace; retain evidence')
+    args = parser.parse_args()
+    if args.command == 'up':
+        data = prepare(args.run, port=8000 if args.run == 'dev' else 0)
+        start(data, build=not args.no_build)
+        print(f"Ready: host {data['app']} → container /app; ./bin/serena-mcp --run {args.run}")
+    elif args.command == 'doctor':
+        print(f'Fixture integrity: {source_integrity()} upstream files checked')
+        run([docker(), 'info', '--format', 'Docker {{.ServerVersion}}'])
+        data = load(args.run)
+        require_running(data)
+        print(f"Compose project: {data['project']}\nApplication: {data['app']} → /app\nState: {data['state']}")
+        execute(data, 'cat', '/opt/toolchain-runtime.json')
+        execute(data, 'python', '-c', "from solidlsp.ls_config import LanguageServerRegistry; x=LanguageServerRegistry.get_instance().resolve('mago'); print('Backend:', x.get_key(), x.get_ls_class().__module__)")
+        execute(data, 'composer', 'check-platform-reqs')
+    elif args.command == 'test':
+        return test()
+    elif args.command == 'report':
+        return report(args.run_id)
+    elif args.command == 'down':
+        stop(load(args.run), args.purge)
+    elif args.command == 'exec':
+        argv = args.argv[1:] if args.argv[:1] == ['--'] else args.argv
+        if not argv:
+            raise ValueError('Supply a command after --')
+        data = load(args.run)
+        require_running(data)
+        return execute(data, *argv, check=False).returncode
+    elif args.command == 'verify-agent':
+        data = load(args.run_id)
+        sys.path.insert(0, str(ROOT/'tests/integration'))
+        from verifier import snapshot, verify_rename
+        changed = verify_rename(snapshot(ROOT/'app'), data['app'], data['evidence'])
+        execute(data, 'php', 'vendor/bin/phpunit', '--log-junit', '/evidence/agent-phpunit.xml', log=Path(data['evidence'])/'agent-phpunit.log')
+        execute(data, 'python', '/opt/poc/tests/integration/verify_agent.py', log=Path(data['evidence'])/'agent-verification.log')
+        source_integrity()
+        print(f'Agent verification passed: {changed}; evidence: {data["evidence"]}')
+    elif args.command == 'agent-task':
+        data = prepare(new_id('agent'))
+        start(data)
+        execute(data, 'php', 'vendor/bin/phpunit', log=Path(data['evidence'])/'baseline-phpunit.log')
+        # Index the exact starting sources so an agent can inspect ordinary git
+        # diffs without creating commits or staging generated state/dependencies.
+        run(['git','init','--initial-branch=poc-fixture',data['app']], capture_output=True)
+        originals = json.loads((ROOT/'fixtures/upstream.sha256.json').read_text())
+        existing = [path for path in originals if Path(data['app'],path).is_file()]
+        run(['git','-C',data['app'],'add','--',*existing], capture_output=True)
+        instructions = (ROOT/'docs/agent-task.txt').read_text()
+        config = {'mcpServers': {'serena': {'command': str(ROOT/'bin/serena-mcp'), 'args': ['--run', data['run_id']]}}}
+        (Path(data['evidence'])/'agent-task.txt').write_text(instructions)
+        (Path(data['evidence'])/'mcp-config.json').write_text(json.dumps(config,indent=2))
+        (Path(data['evidence'])/'metadata.json').write_text(json.dumps(metadata(data),indent=2))
+        print(instructions + '\n' + json.dumps(config,indent=2))
+        print(f"Run container commands: {ROOT/'bin/poc'} exec --run {data['run_id']} -- php vendor/bin/phpunit")
+        print(f"Workspace: {data['app']}\nEvidence: {data['evidence']}\nAfter the session: ./bin/poc verify-agent {data['run_id']}")
+    return 0
+
+
+if __name__ == '__main__':
+    try:
+        sys.exit(main())
+    except (RuntimeError, ValueError, AssertionError, subprocess.SubprocessError, OSError) as exc:
+        print(f'poc: {exc}', file=sys.stderr)
+        sys.exit(1)

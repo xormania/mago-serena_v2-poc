@@ -1,0 +1,27 @@
+services:
+  php:
+    image: mago-serena-poc:local
+    build:
+      context: .
+    user: "${POC_UID:-1000}:${POC_GID:-1000}"
+    init: true
+    working_dir: /app
+    volumes:
+      - type: bind
+        source: ${POC_APP:-./app}
+        target: /app
+      - type: bind
+        source: ${POC_STATE:-./workspaces/dev/state}
+        target: /state
+      - type: bind
+        source: ${POC_EVIDENCE_DIR:-./artifacts/dev}
+        target: /evidence
+    ports:
+      - "127.0.0.1:${POC_PORT:-8000}:8000"
+    healthcheck:
+      test: [CMD, php, -r, "exit(@file_get_contents('http://127.0.0.1:8000/en/blog/') === false ? 1 : 0);"]
+      interval: 3s
+      timeout: 10s
+      retries: 30
+      start_period: 120s
+    stop_grace_period: 10s
