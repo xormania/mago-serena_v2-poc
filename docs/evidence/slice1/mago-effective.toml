@@ -1,0 +1,977 @@
+{
+  "version": "1.58.2",
+  "threads": 4,
+  "stack-size": 12582912,
+  "php-version": "8.5.0",
+  "allow-unsupported-php-version": false,
+  "no-version-check": false,
+  "version-drift-fail-level": "major",
+  "source": {
+    "workspace": "/app",
+    "paths": [
+      "src",
+      "tests"
+    ],
+    "includes": [
+      "vendor"
+    ],
+    "patches": [],
+    "excludes": [
+      "var",
+      "semantic"
+    ],
+    "extensions": [
+      "php"
+    ],
+    "glob": {
+      "case-insensitive": false,
+      "literal-separator": false,
+      "backslash-escape": true,
+      "empty-alternates": false
+    }
+  },
+  "extension-hosts": {},
+  "language-server": {
+    "disable": [],
+    "hide-zero-reference-code-lenses": false,
+    "restart-on": []
+  },
+  "linter": {
+    "excludes": [],
+    "integrations": [
+      "Symfony",
+      "Doctrine",
+      "PHPUnit"
+    ],
+    "rules": {
+      "ambiguous-constant-access": {
+        "enabled": false,
+        "level": "Help"
+      },
+      "ambiguous-function-call": {
+        "enabled": false,
+        "level": "Help"
+      },
+      "array-style": {
+        "enabled": true,
+        "level": "Note",
+        "style": "short"
+      },
+      "assert-description": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "assertion-style": {
+        "enabled": true,
+        "level": "Warning",
+        "style": "static"
+      },
+      "block-statement": {
+        "enabled": true,
+        "level": "Note"
+      },
+      "braced-string-interpolation": {
+        "enabled": true,
+        "level": "Note"
+      },
+      "class-name": {
+        "enabled": true,
+        "level": "Help",
+        "psr": false
+      },
+      "combine-consecutive-issets": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "constant-name": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "cyclomatic-complexity": {
+        "enabled": true,
+        "level": "Error",
+        "threshold": 15,
+        "method-threshold": null
+      },
+      "disallowed-functions": {
+        "enabled": true,
+        "level": "Warning",
+        "functions": [],
+        "extensions": []
+      },
+      "disallowed-type-instantiation": {
+        "enabled": false,
+        "level": "Warning",
+        "types": []
+      },
+      "enum-name": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "excessive-nesting": {
+        "enabled": true,
+        "level": "Warning",
+        "threshold": 7,
+        "function-like-threshold": null
+      },
+      "excessive-parameter-list": {
+        "enabled": true,
+        "level": "Error",
+        "threshold": 5,
+        "constructor-threshold": null
+      },
+      "final-controller": {
+        "enabled": true,
+        "level": "Error"
+      },
+      "halstead": {
+        "enabled": true,
+        "level": "Warning",
+        "volume-threshold": 1000.0,
+        "difficulty-threshold": 12.0,
+        "effort-threshold": 5000.0
+      },
+      "kan-defect": {
+        "enabled": true,
+        "level": "Error",
+        "threshold": 1.6
+      },
+      "literal-named-argument": {
+        "enabled": true,
+        "level": "Warning",
+        "check-first-argument": false,
+        "threshold": 1
+      },
+      "loop-does-not-iterate": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "lowercase-keyword": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "method-name": {
+        "enabled": false,
+        "level": "Help",
+        "camel": true,
+        "either": false,
+        "use-snake-case-for-tests": false
+      },
+      "no-debug-symbols": {
+        "enabled": true,
+        "level": "Error"
+      },
+      "no-request-variable": {
+        "enabled": true,
+        "level": "Error"
+      },
+      "no-shell-execute-string": {
+        "enabled": true,
+        "level": "Error"
+      },
+      "no-short-opening-tag": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "no-shorthand-ternary": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "no-sprintf-concat": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "optional-param-order": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "deprecated-cast": {
+        "enabled": true,
+        "level": "Error"
+      },
+      "deprecated-shell-execute-string": {
+        "enabled": true,
+        "level": "Error"
+      },
+      "deprecated-switch-semicolon": {
+        "enabled": true,
+        "level": "Error"
+      },
+      "prefer-interface": {
+        "enabled": true,
+        "level": "Note"
+      },
+      "prefer-datetimeimmutable-create-from-timestamp": {
+        "enabled": false,
+        "level": "Help"
+      },
+      "prefer-first-class-callable": {
+        "enabled": true,
+        "level": "Warning",
+        "check-functions": false
+      },
+      "no-void-reference-return": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "no-underscore-class": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "no-trailing-space": {
+        "enabled": true,
+        "level": "Note"
+      },
+      "no-redundant-write-visibility": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-redundant-string-concat": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-duplicate-match-arm": {
+        "enabled": true,
+        "level": "Note"
+      },
+      "no-redundant-binary-string-prefix": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-redundant-parentheses": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-redundant-method-override": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-redundant-isset": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-redundant-nullsafe": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-redundant-math": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-redundant-label": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-redundant-literal-return": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "no-redundant-final": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-redundant-readonly": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-redundant-file": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-redundant-continue": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-redundant-else": {
+        "enabled": false,
+        "level": "Help"
+      },
+      "no-redundant-block": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-redundant-use": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "no-redundant-variable": {
+        "enabled": false,
+        "level": "Warning"
+      },
+      "no-dead-store": {
+        "enabled": false,
+        "level": "Warning"
+      },
+      "no-unused-static": {
+        "enabled": false,
+        "level": "Warning"
+      },
+      "no-unused-global": {
+        "enabled": false,
+        "level": "Warning"
+      },
+      "no-unused-closure-capture": {
+        "enabled": false,
+        "level": "Warning"
+      },
+      "no-redundant-yield-from": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-self-assignment": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "no-protected-in-final": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "redundant-static": {
+        "enabled": false,
+        "level": "Help"
+      },
+      "no-php-tag-terminator": {
+        "enabled": true,
+        "level": "Note"
+      },
+      "no-noop": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-multi-assignments": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "no-negated-ternary": {
+        "enabled": false,
+        "level": "Help"
+      },
+      "no-nested-ternary": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "no-hash-emoji": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "no-hash-comment": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "no-variable-variable": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "no-goto": {
+        "enabled": true,
+        "level": "Note"
+      },
+      "no-global": {
+        "enabled": true,
+        "level": "Error"
+      },
+      "no-ffi": {
+        "enabled": true,
+        "level": "Error"
+      },
+      "no-eval": {
+        "enabled": true,
+        "level": "Error"
+      },
+      "no-error-control-operator": {
+        "enabled": true,
+        "level": "Error"
+      },
+      "no-empty": {
+        "enabled": true,
+        "level": "Error"
+      },
+      "no-is-null": {
+        "enabled": false,
+        "level": "Note"
+      },
+      "no-iterator-to-array-in-foreach": {
+        "enabled": false,
+        "level": "Warning"
+      },
+      "no-isset": {
+        "enabled": true,
+        "level": "Warning",
+        "allow-array-checks": false
+      },
+      "no-empty-loop": {
+        "enabled": true,
+        "level": "Note"
+      },
+      "no-empty-comment": {
+        "enabled": true,
+        "level": "Note",
+        "preserve-single-line-comments": false
+      },
+      "no-empty-catch-clause": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "no-else-clause": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-closing-tag": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-boolean-flag-parameter": {
+        "enabled": true,
+        "level": "Help",
+        "exclude-setters": false,
+        "exclude-constructors": true
+      },
+      "no-assign-in-argument": {
+        "enabled": false,
+        "level": "Warning"
+      },
+      "no-missing-format-argument": {
+        "enabled": true,
+        "level": "Error"
+      },
+      "no-assign-in-condition": {
+        "enabled": true,
+        "level": "Warning",
+        "ignore-while-statements": false
+      },
+      "no-fully-qualified-global-class-like": {
+        "enabled": false,
+        "level": "Help"
+      },
+      "no-fully-qualified-global-constant": {
+        "enabled": false,
+        "level": "Help"
+      },
+      "no-fully-qualified-global-function": {
+        "enabled": false,
+        "level": "Help",
+        "namespaced": false
+      },
+      "no-alias-function": {
+        "enabled": true,
+        "level": "Note"
+      },
+      "lowercase-type-hint": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "identity-comparison": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "suspicious-explode-arguments": {
+        "enabled": true,
+        "level": "Warning",
+        "threshold": 10
+      },
+      "ineffective-format-ignore-next": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "inline-variable-return": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "ineffective-format-ignore-region": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "instanceof-stringable": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "interface-name": {
+        "enabled": true,
+        "level": "Help",
+        "psr": false
+      },
+      "invalid-open-tag": {
+        "enabled": true,
+        "level": "Note"
+      },
+      "file-name": {
+        "enabled": true,
+        "level": "Warning",
+        "check-functions": false
+      },
+      "function-name": {
+        "enabled": true,
+        "level": "Help",
+        "camel": false,
+        "either": false
+      },
+      "explicit-octal": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "readable-literal": {
+        "enabled": true,
+        "level": "Warning",
+        "min-digits": 5
+      },
+      "explicit-nullable-param": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "prefer-arrow-function": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "prefer-early-continue": {
+        "enabled": true,
+        "level": "Help",
+        "max_allowed_statements": 0
+      },
+      "prefer-early-return": {
+        "enabled": false,
+        "level": "Help",
+        "max_allowed_statements": 0
+      },
+      "prefer-static-closure": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "prefer-test-attribute": {
+        "enabled": false,
+        "level": "Warning"
+      },
+      "prefer-while-loop": {
+        "enabled": true,
+        "level": "Note"
+      },
+      "str-contains": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "str-starts-with": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "strict-behavior": {
+        "enabled": true,
+        "level": "Warning",
+        "allow-loose-behavior": false
+      },
+      "strict-types": {
+        "enabled": true,
+        "level": "Warning",
+        "allow-disabling": false
+      },
+      "tagged-fixme": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "tagged-todo": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "too-many-enum-cases": {
+        "enabled": true,
+        "level": "Error",
+        "threshold": 20
+      },
+      "too-many-methods": {
+        "enabled": true,
+        "level": "Error",
+        "threshold": 10,
+        "count-hooks": false,
+        "count-setters-and-getters": false
+      },
+      "too-many-properties": {
+        "enabled": true,
+        "level": "Error",
+        "threshold": 10
+      },
+      "trait-name": {
+        "enabled": true,
+        "level": "Help",
+        "psr": false
+      },
+      "valid-docblock": {
+        "enabled": true,
+        "level": "Note"
+      },
+      "variable-name": {
+        "enabled": false,
+        "level": "Help",
+        "camel": false,
+        "either": true,
+        "check-parameters": true
+      },
+      "constant-condition": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "no-array-accumulation-in-loop": {
+        "enabled": false,
+        "level": "Warning"
+      },
+      "prefer-array-spread": {
+        "enabled": false,
+        "level": "Warning"
+      },
+      "no-ini-set": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "no-parameter-shadowing": {
+        "enabled": false,
+        "level": "Warning"
+      },
+      "no-inline": {
+        "enabled": false,
+        "level": "Error"
+      },
+      "no-side-effects-with-declarations": {
+        "enabled": false,
+        "level": "Warning",
+        "allow-conditional-declarations": true,
+        "allow-class-alias": true,
+        "allow-class-exists": true
+      },
+      "no-insecure-comparison": {
+        "enabled": true,
+        "level": "Error"
+      },
+      "no-literal-password": {
+        "enabled": true,
+        "level": "Error"
+      },
+      "tainted-data-to-sink": {
+        "enabled": true,
+        "level": "Error",
+        "known-sink-functions": [
+          "printf"
+        ]
+      },
+      "sensitive-parameter": {
+        "enabled": true,
+        "level": "Error"
+      },
+      "property-name": {
+        "enabled": false,
+        "level": "Help",
+        "camel": true,
+        "either": false
+      },
+      "no-unsafe-finally": {
+        "enabled": true,
+        "level": "Error"
+      },
+      "strict-assertions": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "use-specific-assertions": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "no-service-state-mutation": {
+        "enabled": false,
+        "level": "Warning",
+        "include-namespaces": [
+          "App\\"
+        ],
+        "exclude-namespaces": [
+          "App\\Entity\\",
+          "App\\DTO\\",
+          "App\\ValueObject\\"
+        ],
+        "allowed-methods": [
+          "__construct",
+          "reset"
+        ],
+        "reset-interfaces": [
+          "Symfony\\Contracts\\Service\\ResetInterface"
+        ]
+      },
+      "use-compound-assignment": {
+        "enabled": true,
+        "level": "Help"
+      },
+      "require-preg-quote-delimiter": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "require-namespace": {
+        "enabled": false,
+        "level": "Warning"
+      },
+      "sorted-integer-keys": {
+        "enabled": false,
+        "level": "Help"
+      },
+      "string-style": {
+        "enabled": false,
+        "level": "Note",
+        "style": "interpolation"
+      },
+      "single-class-per-file": {
+        "enabled": true,
+        "level": "Warning"
+      },
+      "yoda-conditions": {
+        "enabled": false,
+        "level": "Help",
+        "mode": "require"
+      },
+      "no-literal-namespace-string": {
+        "enabled": false,
+        "level": "Warning"
+      },
+      "no-short-bool-cast": {
+        "enabled": false,
+        "level": "Help"
+      },
+      "no-alternative-syntax": {
+        "enabled": false,
+        "level": "Warning"
+      },
+      "prefer-pre-increment": {
+        "enabled": false,
+        "level": "Help"
+      },
+      "prefer-self-return-type": {
+        "enabled": false,
+        "level": "Help"
+      },
+      "prefer-self": {
+        "enabled": false,
+        "level": "Help"
+      },
+      "switch-continue-to-break": {
+        "enabled": false,
+        "level": "Warning"
+      },
+      "missing-docs": {
+        "enabled": false,
+        "level": "Help",
+        "functions": true,
+        "classes": false,
+        "interfaces": false,
+        "traits": false,
+        "enums": false,
+        "enum-cases": true,
+        "constants": true,
+        "statics": true,
+        "methods": true,
+        "properties": true,
+        "exclusions": {
+          "functions": [],
+          "classes": [],
+          "interfaces": [],
+          "traits": [],
+          "enums": [],
+          "enum-cases": [],
+          "constants": [],
+          "statics": [],
+          "methods": [],
+          "properties": []
+        }
+      },
+      "no-null-property-init": {
+        "enabled": false,
+        "level": "Help"
+      },
+      "prefer-explode-over-preg-split": {
+        "enabled": false,
+        "level": "Warning"
+      }
+    },
+    "baseline": null,
+    "baseline-variant": "loose"
+  },
+  "parser": {
+    "enable-short-tags": true
+  },
+  "formatter": {
+    "print-width": 120,
+    "tab-width": 4,
+    "use-tabs": false,
+    "end-of-line": "auto",
+    "single-quote": true,
+    "trailing-comma": true,
+    "remove-trailing-close-tag": true,
+    "control-brace-style": "same_line",
+    "following-clause-on-newline": false,
+    "closure-brace-style": "same_line",
+    "function-brace-style": "next_line",
+    "method-brace-style": "next_line",
+    "classlike-brace-style": "always_next_line",
+    "inline-empty-control-braces": false,
+    "inline-empty-closure-braces": true,
+    "inline-empty-function-braces": true,
+    "inline-empty-method-braces": true,
+    "inline-empty-constructor-braces": false,
+    "inline-empty-classlike-braces": true,
+    "inline-empty-anonymous-class-braces": true,
+    "method-chain-breaking-style": "next_line",
+    "first-method-chain-on-new-line": true,
+    "method-chain-semicolon-on-next-line": true,
+    "preserve-breaking-member-access-chain": false,
+    "preserve-breaking-member-access-chain-first-method-on-same-line": false,
+    "preserve-breaking-argument-list": false,
+    "inline-single-breaking-value-argument": false,
+    "preserve-breaking-array-like": true,
+    "preserve-breaking-parameter-list": false,
+    "preserve-breaking-attribute-list": false,
+    "preserve-breaking-conditional-expression": false,
+    "preserve-breaking-condition-expression": false,
+    "preserve-breaking-binary-expression": false,
+    "preserve-breaking-pipe-expression": false,
+    "break-promoted-properties-list": true,
+    "parameter-attribute-on-new-line": true,
+    "line-before-binary-operator": true,
+    "indent-binary-expression-continuation": false,
+    "omit-redundant-arithmetic-binary-expression-parentheses": false,
+    "omit-redundant-bitwise-binary-expression-parentheses": false,
+    "preserve-redundant-logical-binary-expression-parentheses": false,
+    "always-break-named-arguments-list": false,
+    "always-break-attribute-named-argument-lists": false,
+    "align-named-arguments": false,
+    "align-parameters": false,
+    "array-table-style-alignment": true,
+    "align-assignment-like": false,
+    "sort-uses": "alphanumeric-ascending",
+    "sort-class-methods": false,
+    "separate-use-types": true,
+    "expand-use-groups": true,
+    "null-type-hint": "question",
+    "parentheses-around-new-in-member-access": false,
+    "parentheses-in-new-expression": true,
+    "parentheses-in-exit-and-die": true,
+    "parentheses-in-attribute": false,
+    "space-before-arrow-function-parameter-list-parenthesis": false,
+    "space-before-closure-parameter-list-parenthesis": true,
+    "space-before-hook-parameter-list-parenthesis": false,
+    "inline-abstract-property-hooks": true,
+    "space-before-closure-use-clause-parenthesis": true,
+    "space-after-cast-unary-prefix-operators": true,
+    "space-after-reference-unary-prefix-operator": false,
+    "space-after-error-control-unary-prefix-operator": false,
+    "space-after-logical-not-unary-prefix-operator": false,
+    "space-after-bitwise-not-unary-prefix-operator": false,
+    "space-after-increment-unary-prefix-operator": false,
+    "space-after-decrement-unary-prefix-operator": false,
+    "space-after-additive-unary-prefix-operator": false,
+    "space-around-concatenation-binary-operator": true,
+    "space-around-assignment-in-declare": false,
+    "space-within-grouping-parenthesis": false,
+    "empty-line-after-control-structure": false,
+    "opening-tag-on-own-line": true,
+    "empty-line-after-opening-tag": true,
+    "empty-line-after-declare": true,
+    "combine-opening-tag-and-declare": false,
+    "empty-line-after-namespace": true,
+    "empty-line-after-use": true,
+    "empty-line-after-symbols": true,
+    "empty-line-between-same-symbols": true,
+    "empty-line-after-class-like-constant": false,
+    "empty-line-after-class-like-open": false,
+    "empty-line-before-class-like-close": false,
+    "empty-line-after-enum-case": false,
+    "empty-line-after-trait-use": false,
+    "empty-line-after-property": false,
+    "empty-line-after-method": true,
+    "empty-line-before-return": false,
+    "empty-line-before-dangling-comments": true,
+    "separate-class-like-members": true,
+    "attributes-order": "preserve",
+    "separate-attributes": false,
+    "separate-trait-use": true,
+    "indent-heredoc": true,
+    "uppercase-literal-keyword": false,
+    "excludes": []
+  },
+  "analyzer": {
+    "excludes": [],
+    "ignore": [],
+    "baseline": null,
+    "baseline-variant": "loose",
+    "minimum-fail-level": "Error",
+    "disable-default-plugins": false,
+    "plugins": [],
+    "find-unused-expressions": true,
+    "find-unused-definitions": true,
+    "find-overly-wide-return-types": false,
+    "analyze-dead-code": false,
+    "memoize-properties": true,
+    "allow-possibly-undefined-array-keys": true,
+    "check-throws": false,
+    "check-dead-catch": false,
+    "unchecked-exceptions": [],
+    "unchecked-exception-classes": [],
+    "strict-list-index-checks": false,
+    "strict-array-index-existence": false,
+    "allow-array-truthy-operand": false,
+    "allow-operator-overloading": false,
+    "no-boolean-literal-comparison": false,
+    "check-missing-type-hints": false,
+    "check-closure-missing-type-hints": false,
+    "check-arrow-function-missing-type-hints": false,
+    "allow-implicit-pipe-callable-types": false,
+    "register-super-globals": true,
+    "check-missing-override": false,
+    "find-unused-parameters": false,
+    "trust-existence-checks": true,
+    "class-initializers": [],
+    "check-property-initialization": false,
+    "check-use-statements": false,
+    "check-experimental": false,
+    "check-name-casing": false,
+    "enforce-class-finality": false,
+    "require-api-or-internal": false,
+    "allow-side-effects-in-conditions": true,
+    "performance": {
+      "saturation-complexity-threshold": 8192,
+      "disjunction-complexity-threshold": 4096,
+      "negation-complexity-threshold": 4096,
+      "consensus-limit-threshold": 256,
+      "formula-size-threshold": 512,
+      "string-combination-threshold": 128,
+      "integer-combination-threshold": 128,
+      "array-combination-threshold": 32,
+      "loop-assignment-depth-threshold": 1,
+      "slow-file-warning-threshold-ms": 5000
+    }
+  },
+  "guard": {
+    "excludes": [],
+    "baseline": null,
+    "baseline-variant": "loose",
+    "minimum-fail-level": "Error",
+    "mode": "default",
+    "perimeter": {
+      "layers": {},
+      "layering": [],
+      "layering-reason": null,
+      "rules": [],
+      "restrictions": []
+    },
+    "structural": {
+      "rules": [
+        {
+          "on": "App\\Form\\Type\\TagsInputType",
+          "not-on": null,
+          "target": "class",
+          "must-be": null,
+          "must-be-named": null,
+          "must-be-final": null,
+          "must-be-abstract": null,
+          "must-be-readonly": null,
+          "must-implement": null,
+          "must-extend": "Symfony\\Component\\Form\\AbstractType",
+          "must-use-trait": null,
+          "must-use-attribute": null,
+          "only-public-methods": null,
+          "reason": "TagsInputType is registered as a Symfony form type and must retain its AbstractType contract."
+        }
+      ]
+    }
+  }
+}

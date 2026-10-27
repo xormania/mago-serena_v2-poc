@@ -1,0 +1,84 @@
+{
+  "run_id": "semantic-slice",
+  "mago_source": "46df50c96d93d0ac3655c116c375574277cf0b30",
+  "serena_source": "9e1cced0c34ed48d668e179f7c56c77b4d14a3e3",
+  "kind": "agent-selected live inspection; separate deterministic replay",
+  "files": {
+    "semantic-agent-mcp.jsonl": {
+      "source": "artifacts/semantic-slice/agent-investigation/mcp.jsonl",
+      "sha256": "e9b7bfc21ad2de98c7bb2fc53c830e51743078f5a4381c56bc46f012a27fcaee"
+    },
+    "semantic-agent-mcp-summary.json": {
+      "source": "artifacts/semantic-slice/agent-investigation/mcp.jsonl.summary.json",
+      "sha256": "d0a40343ce292dfab399ecd878038fc3fb211cea8979273a9e7ed729416bebaf"
+    },
+    "semantic-result.json": {
+      "source": "artifacts/semantic-slice/service-semantics/20261027T143332Z-8f50cd/result.json",
+      "sha256": "93fe9a0b57691da4d74a6a27d8888ef1f634057e3450581f95f54c8bc849dc7b"
+    },
+    "semantic-replay-mcp.jsonl": {
+      "source": "artifacts/semantic-slice/service-semantics/20261027T143332Z-8f50cd/mcp/mcp.jsonl",
+      "sha256": "5f7a6452345369d8775dee17b2d44026cc42af16959bb71bc7d80d410b8d295c"
+    },
+    "semantic-replay-mcp-summary.json": {
+      "source": "artifacts/semantic-slice/service-semantics/20261027T143332Z-8f50cd/mcp/mcp.jsonl.summary.json",
+      "sha256": "f14da124e5e48e9244e8211c9c6f1b53009c1edef8a56ad449f6a0c847f4869c"
+    },
+    "semantic-direct-lsp.jsonl": {
+      "source": "artifacts/semantic-slice/service-semantics/20261027T143332Z-8f50cd/direct/direct-lsp.jsonl",
+      "sha256": "97f7ac981c248b4d88395088502e53751249023082697fd5c092a51531d43773"
+    },
+    "semantic-server-capabilities.json": {
+      "source": "artifacts/semantic-slice/service-semantics/20261027T143332Z-8f50cd/direct/capabilities.json",
+      "sha256": "d2005c1752d0629201995f451f5fbd79b10ddae68e03d3c094d32804d8dd343d"
+    },
+    "semantic-wrong-run.json": {
+      "source": "artifacts/semantic-slice/service-semantics/20261027T143332Z-8f50cd/wrong-run.json",
+      "sha256": "d5fc987471c61c65f3ff995d6d43684d601b02ab260a16b6eec6792f5404b78e"
+    },
+    "semantic-propagation-result.json": {
+      "source": "artifacts/mate-investigate/service-semantics/propagation-dfec5168/result.json",
+      "sha256": "b7dbcfda818013396fac0f62d66b79d7875389e8a06d5d8aaedd75832fca8cdf"
+    },
+    "semantic-propagation-probe.py": {
+      "source": "artifacts/mate-investigate/service-semantics/propagation-dfec5168/probe.py",
+      "sha256": "75559c28927b89bcede0a49604a55af60df2eb5f8a33b776966c516d7ccdb24e"
+    },
+    "semantic-propagation-instrumented.toml": {
+      "source": "artifacts/mate-investigate/service-semantics/propagation-dfec5168/instrumented.toml",
+      "sha256": "f960e6b7e406e1cbbbe7cc2a3e8ad454ddeb79c1fba4ad2cca2f7db70ba67598"
+    },
+    "semantic-propagation-worker-launch.py": {
+      "source": "artifacts/mate-investigate/service-semantics/propagation-dfec5168/worker-launch.py",
+      "sha256": "29d3ede282f41cbef830d9b30a086e66bc936da86bd87653c49e7351f2619c38"
+    },
+    "semantic-propagation-cli-worker-starts.txt": {
+      "source": "artifacts/mate-investigate/service-semantics/propagation-dfec5168/cli-worker-starts.txt",
+      "sha256": "a51062d57cd54fcff96921d96cc1e164cda4794ee2417f99c2ff189ea4a88ea9"
+    },
+    "semantic-propagation-cli-observation.json": {
+      "source": "artifacts/mate-investigate/service-semantics/propagation-dfec5168/cli-observation.json",
+      "sha256": "b798a329713379000ffba47c6bfe3a79f9993f8979675092ef08b3f68016d443"
+    },
+    "semantic-propagation-cli-report.json": {
+      "source": "artifacts/mate-investigate/service-semantics/propagation-dfec5168/cli.stdout.json",
+      "sha256": "53580db174ba4276e48ead550d5ca3761fde3546c323fd2aca55ff7a2eeeba48"
+    },
+    "semantic-propagation-cli.stderr": {
+      "source": "artifacts/mate-investigate/service-semantics/propagation-dfec5168/cli.stderr",
+      "sha256": "a919760c60320a41ac4ee6cd4ccce986f0b810ce4383b8ee5da40de2fd0a201b"
+    },
+    "semantic-propagation-lsp.jsonl": {
+      "source": "artifacts/mate-investigate/service-semantics/propagation-dfec5168/lsp/direct-lsp.jsonl",
+      "sha256": "0db8dd046e6f921864f0f38b09e1f3bf4d8da7fb5b693e429bd7821906fe9f13"
+    },
+    "semantic-propagation-lsp-summary.json": {
+      "source": "artifacts/mate-investigate/service-semantics/propagation-dfec5168/lsp/direct-lsp.jsonl.summary.json",
+      "sha256": "f14208b91921f27759e32e7a09e3733acfeb1d4f243185e84c79f9beef8c2332"
+    },
+    "semantic-propagation-lsp.stderr": {
+      "source": "artifacts/mate-investigate/service-semantics/propagation-dfec5168/lsp/direct-lsp.stderr",
+      "sha256": "8493f46a0e2966e14da31e90f04884abdac17d9b941a0c8bef407d44b86a93b5"
+    }
+  }
+}

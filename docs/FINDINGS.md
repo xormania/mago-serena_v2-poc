@@ -1,3 +1,26 @@
+# Mago-first service slice
+
+The selected `TagsInputType` proof now uses Mago for PHP analysis, lint, safe
+fixes, formatting and a relevant Guard contract. Real Serena REPL queries resolve
+its dependency, caller, inherited vendor methods and hover information. Mate
+confirms its compiled service binding. A matched-source Mago SDK and the pinned
+Symfony wiring extension add a concrete Doctrine registry reference to Mago's
+own graph, with extension-off/on, invalid-binding and restored controls.
+
+The experimental executable and SDK both use source `46df50c...`/MANA 2.1;
+no broad Composer constraint mixes in the stable 1.59/MANA 2.2 worker. The
+extension executes through its explicit PHP backend. Existing Demo findings are
+retained without a new suppression baseline. See the [slice result/adoption
+table](SLICE-1.md), [PHP calibration](MAGO-PHP.md), [actual service investigation](SERVICE-SEMANTICS.md)
+and [compiled wiring proof](SYMFONY-WIRING.md).
+
+One separately reproduced boundary remains: at this source pin, CLI analysis
+starts the configured external analyzer worker, but the LSP workspace loader
+does not. Consequently the successful CLI graph contribution is not claimed
+through Serena. That is a server initialization gap, not an SDK incompatibility
+or an absent hover adapter feature. Historical full-sync and stale-span
+reproductions below keep their original attribution and remain acceptance checks.
+
 # CI follow-up after PR1 merged
 
 The [CI performance report](CI.md) records the merged baseline, actual hosted

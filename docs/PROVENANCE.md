@@ -1,5 +1,14 @@
 # Sources and licenses
 
+Slice 1 preserves the original toolchain lock and `app/` manifest. The separate
+[`fixtures/mate` overlay](../fixtures/mate/overlay.json) declares its own exact
+Composer lock, Mate/Symfony packages, experimental Mago SDK source and wiring
+package. It also records the single required existing-package update and why.
+The executable remains the original source-built experimental Mago; no packaged
+Mago binary replaces it. The new PHP observer uses Mago's public SDK and is
+authored here; its scoped formatting and second-pass stability were checked
+with Mago. Installed overlay package licenses remain in their vendor directories.
+
 All source starting pins in the implementation plan were retained. Exact
 versions, source SHAs, image manifest digests and dependency lock hashes are in
 `toolchain.lock.json`. `uv.lock` resolves the pinned Serena commit together with

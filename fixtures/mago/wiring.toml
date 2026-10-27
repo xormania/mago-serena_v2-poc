@@ -1,0 +1,11 @@
+version = "1"
+php-version = "8.5"
+
+[source]
+paths = ["src"]
+includes = ["vendor"]
+excludes = ["var"]
+
+[extension-hosts.php]
+working-directory = ".."
+command = ["env", "MAGO_EXTENSION_BACKEND=php", "MAGO_SYMFONY_WIRING_ATTESTATION=1", "php", "-d", "display_errors=stderr", "-d", "memory_limit=1G", ".mago/extensions.php"]

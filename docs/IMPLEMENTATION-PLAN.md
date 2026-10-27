@@ -1,6 +1,10 @@
 # Serena v2 REPL + Mago LSP: Symfony Demo PoC
 Implementation handoff for Sol Ultra · prepared 2026-10-27
 
+Historical handoff for the original integration. New Symfony work follows the
+[Mago-first three-slice roadmap](ROADMAP.md), revision 2. References below to
+deferring Mate or retaining legacy PHP tooling describe that original scope.
+
 ## 1. Goal and scope
 
 Implement the PoC in https://github.com/xormania/mago-serena_v2-poc.

@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "env",
+    "POC_WIRING=0",
+    "POC_WIRING_OBSERVATION=/evidence/framework/0df62ae2cb124c809e377c4c67d58e04/extension-off-graph.json",
+    "mago",
+    "--workspace",
+    "/app",
+    "--config",
+    "/app/.mago/wiring.toml",
+    "--threads",
+    "1",
+    "analyze",
+    "--reporting-format",
+    "json"
+  ],
+  "exit": 1,
+  "controlled_reference": false,
+  "source_sha256": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+  "reference_sha256": "5b7ea5b93fa495b3984e4b75083844cf9be918b0ece5180ce5b9f41ebae408a8",
+  "preparation_id": "prepare-000244fc4af9417a9b4ef88ccf37cd08"
+}

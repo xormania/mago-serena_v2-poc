@@ -1,0 +1,45 @@
+{
+  "views": {
+    "types": {
+      "argv": [
+        "env",
+        "APP_ENV=dev",
+        "APP_DEBUG=1",
+        "php",
+        "bin/console",
+        "debug:container",
+        "--env=dev",
+        "--format=json",
+        "--no-interaction",
+        "--types"
+      ],
+      "exit": 0,
+      "sha256": "0e811f8bbf2966d5c828e14c5e861b3f76c4256a906aa18260d467b0b1b75c03"
+    },
+    "services": {
+      "argv": [
+        "env",
+        "APP_ENV=dev",
+        "APP_DEBUG=1",
+        "php",
+        "bin/console",
+        "debug:container",
+        "--env=dev",
+        "--format=json",
+        "--no-interaction"
+      ],
+      "exit": 0,
+      "sha256": "3cc2f8ea87601c5bceb92b021fd51a67888d4afef0fc33430f414bb15ae1a9f2"
+    }
+  },
+  "exporter": {
+    "argv": [
+      "php",
+      "vendor/byte-kitsune/mago-symfony-wiring/bin/create-container-reference.php",
+      "--types=/state/wiring-types.json",
+      "--services=/state/wiring-services.json",
+      "--autoload=/app/vendor/autoload.php"
+    ],
+    "exit": 0
+  }
+}

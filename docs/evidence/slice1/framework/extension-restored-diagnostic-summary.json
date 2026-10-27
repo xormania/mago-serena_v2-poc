@@ -1,0 +1,36 @@
+{
+  "full_report_sha256": "53580db174ba4276e48ead550d5ca3761fde3546c323fd2aca55ff7a2eeeba48",
+  "full_report": "artifacts/framework-check/framework/0df62ae2cb124c809e377c4c67d58e04/extension-restored.stdout",
+  "native_issues": 30,
+  "attestations": [
+    {
+      "level": "Note",
+      "code": "byte-kitsune/symfony-wiring/analysis-attestation",
+      "message": "Symfony service wiring analysis completed.",
+      "notes": [
+        "extension-attestation: {\"schema_version\":\"1\",\"extension\":\"byte-kitsune/symfony-wiring\",\"version\":\"1.3.0-RC1\",\"capability\":\"service_wiring\",\"complete\":true,\"source_files\":34}"
+      ],
+      "annotations": [
+        {
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Repository/TagRepository.php",
+              "path": "/app/src/Repository/TagRepository.php",
+              "size": 1030,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 0,
+              "line": 0
+            },
+            "end": {
+              "offset": 1,
+              "line": 0
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

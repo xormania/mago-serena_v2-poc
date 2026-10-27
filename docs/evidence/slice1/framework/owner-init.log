@@ -1,0 +1,42 @@
+
+AI Mate Initialization
+======================
+
+ Setting up AI Mate configuration and directory structure...
+
+Summary
+-------
+
+ --- --------- ------------------------------------------------ 
+      Action    Item                                            
+ --- --------- ------------------------------------------------ 
+  ○   Skipped   mate/extensions.php (already exists)            
+  ○   Skipped   mate/config.php (already exists)                
+  ○   Skipped   mate/.env (already exists)                      
+  ○   Skipped   mate/.gitignore (already exists)                
+  ○   Skipped   mate/AGENT_INSTRUCTIONS.md (already exists)     
+  ○   Exists    mate/src/ directory                             
+  ○   Exists    extra.ai-mate configuration                     
+  ○   Exists    Mate\ autoloader                                
+  ✓   Updated   AGENTS.md (AI Mate managed instructions block)  
+  ✓   Updated   CLAUDE.md (imports AGENTS.md for Claude Code)   
+ --- --------- ------------------------------------------------ 
+
+ [OK] AI Mate initialization complete!                                          
+
+ // Next steps:                                                                 
+ //                                                                             
+ //   1. Run "composer dump-autoload" to register the Mate\ autoloader          
+ //                                                                             
+ //   2. Add custom tools to mate/src/ (public methods with the #[MateTool]     
+ // attribute)                                                                  
+ //                                                                             
+ //   3. Point your coding agent at the CLI; it reads mate/AGENT_INSTRUCTIONS.md
+ // and runs                                                                    
+ //                                                                             
+ //      "/home/scientdb/projects/xormania/mago-serena_v2-poc/bin/mate --run    
+ // framework-check -- tools:list", "tools:inspect <tool>" and "tools:call <tool> --<param>=<value>"
+
+ ! [NOTE] Tip: install "helgesverre/toon" (composer require helgesverre/toon) to
+ !        reduce tokens in tool responses.                                      
+

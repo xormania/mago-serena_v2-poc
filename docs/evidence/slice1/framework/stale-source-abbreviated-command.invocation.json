@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/home/scientdb/projects/xormania/mago-serena_v2-poc/bin/mate",
+    "--run",
+    "framework-check",
+    "--",
+    "tools:ca",
+    "symfony-service-detail",
+    "--id=App\\Form\\Type\\TagsInputType",
+    "--context=inspection-dev",
+    "--format=json"
+  ],
+  "cwd": "/tmp",
+  "exit": 3
+}

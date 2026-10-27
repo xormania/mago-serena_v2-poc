@@ -1,0 +1,210 @@
+{
+    "name": "symfony/symfony-demo",
+    "license": "MIT",
+    "type": "project",
+    "description": "Symfony Demo Application",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.4",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "ext-pdo_sqlite": "*",
+        "doctrine/dbal": "^4.0",
+        "doctrine/doctrine-bundle": "^3.0",
+        "doctrine/orm": "^3.5",
+        "league/commonmark": "^2.1",
+        "symfony/apache-pack": "^1.0",
+        "symfony/asset": "^8",
+        "symfony/asset-mapper": "^8",
+        "symfony/console": "^8",
+        "symfony/dotenv": "^8",
+        "symfony/expression-language": "^8",
+        "symfony/flex": "^2",
+        "symfony/form": "^8",
+        "symfony/framework-bundle": "^8",
+        "symfony/html-sanitizer": "^8",
+        "symfony/http-client": "^8",
+        "symfony/intl": "^8",
+        "symfony/mailer": "^8",
+        "symfony/monolog-bundle": "^4",
+        "symfony/polyfill-intl-messageformatter": "^1.12",
+        "symfony/runtime": "^8",
+        "symfony/security-bundle": "^8",
+        "symfony/stimulus-bundle": "^2.12",
+        "symfony/string": "^8",
+        "symfony/translation": "^8",
+        "symfony/twig-bundle": "^8",
+        "symfony/ux-icons": "^2.20",
+        "symfony/ux-live-component": "^2.6",
+        "symfony/validator": "^8",
+        "symfony/yaml": "^8",
+        "symfonycasts/sass-bundle": "^0.9.0",
+        "twbs/bootstrap": "^5",
+        "twig/extra-bundle": "^3.3",
+        "twig/intl-extra": "^3.3",
+        "twig/markdown-extra": "^3.3"
+    },
+    "require-dev": {
+        "dama/doctrine-test-bundle": "^8.0.2",
+        "doctrine/doctrine-fixtures-bundle": "^4.1",
+        "friendsofphp/php-cs-fixer": "^3.92",
+        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan-doctrine": "^2.0",
+        "phpstan/phpstan-symfony": "^2.0",
+        "phpunit/phpunit": "^11.5.50",
+        "symfony/browser-kit": "^8",
+        "symfony/css-selector": "^8",
+        "symfony/debug-bundle": "^8",
+        "symfony/maker-bundle": "^1.36",
+        "symfony/stopwatch": "^8",
+        "symfony/web-profiler-bundle": "^8",
+        "symfony/ai-mate": "0.15.0",
+        "symfony/ai-symfony-mate-extension": "0.15.0",
+        "carthage-software/mago": "1.58.2",
+        "byte-kitsune/mago-symfony-wiring": "dev-poc-28c3f54"
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php73": "*",
+        "symfony/polyfill-php74": "*",
+        "symfony/polyfill-php80": "*",
+        "symfony/polyfill-php81": "*",
+        "symfony/polyfill-php82": "*",
+        "symfony/polyfill-php83": "*",
+        "symfony/polyfill-php84": "*"
+    },
+    "config": {
+        "allow-plugins": {
+            "symfony/flex": true,
+            "symfony/runtime": true,
+            "symfony/ai-mate-composer-plugin": true
+        },
+        "platform": {
+            "php": "8.4.1"
+        },
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true,
+        "audit": {
+            "ignore": {
+                "PKSA-m4t9-vsgq-8khn": "Preserve the pinned upstream Demo baseline for isolated development inspection; no baseline upgrade in slice 1.",
+                "PKSA-m2dq-1fhr-29b1": "Preserve the pinned upstream Demo baseline for isolated development inspection; no baseline upgrade in slice 1.",
+                "PKSA-vq1j-sc3k-jzzk": "Preserve the pinned upstream Demo baseline for isolated development inspection; no baseline upgrade in slice 1.",
+                "PKSA-xz3r-9gp4-4m1z": "Preserve the pinned upstream Demo baseline for isolated development inspection; no baseline upgrade in slice 1.",
+                "PKSA-xmwy-rmx5-m7h4": "Preserve the pinned upstream Demo baseline for isolated development inspection; no baseline upgrade in slice 1."
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/",
+            "Mate\\": "mate/src/"
+        }
+    },
+    "scripts": {
+        "auto-scripts": {
+            "-r \"@rename('.env.local.demo', '.env.local');\"": "php-script",
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "importmap:install": "symfony-cmd",
+            "sass:build": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": true,
+            "require": "8.1.*"
+        },
+        "ai-mate": {
+            "extension": false,
+            "scan-dirs": [
+                "mate/src"
+            ],
+            "includes": [
+                "mate/config.php"
+            ]
+        }
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "carthage-software/mago",
+                "version": "1.58.2",
+                "type": "library",
+                "license": [
+                    "MIT",
+                    "Apache-2.0"
+                ],
+                "require": {
+                    "php": "~8.1 || ~8.2 || ~8.3 || ~8.4 || ~8.5 || ~8.6",
+                    "revolt/event-loop": "^1.0.9"
+                },
+                "autoload": {
+                    "psr-4": {
+                        "Mago\\": "composer/src/"
+                    },
+                    "files": [
+                        "composer/src/functions.php",
+                        "composer/src/internal.php"
+                    ]
+                },
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/carthage-software/mago.git",
+                    "reference": "46df50c96d93d0ac3655c116c375574277cf0b30"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://api.github.com/repos/carthage-software/mago/zipball/46df50c96d93d0ac3655c116c375574277cf0b30",
+                    "reference": "46df50c96d93d0ac3655c116c375574277cf0b30"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "byte-kitsune/mago-symfony-wiring",
+                "version": "dev-poc-28c3f54",
+                "type": "library",
+                "license": "MIT",
+                "require": {
+                    "php": "^8.2",
+                    "carthage-software/mago": "^1.50",
+                    "nikic/php-parser": "^5.9",
+                    "symfony/yaml": "^7.4 || ^8.0"
+                },
+                "autoload": {
+                    "psr-4": {
+                        "ByteKitsune\\MagoSymfonyWiring\\": "src/"
+                    }
+                },
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/Byte-Kitsune/mago-symfony-wiring.git",
+                    "reference": "28c3f54065b71fe046a7474ced401aeadc941b0f"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://api.github.com/repos/Byte-Kitsune/mago-symfony-wiring/zipball/28c3f54065b71fe046a7474ced401aeadc941b0f",
+                    "reference": "28c3f54065b71fe046a7474ced401aeadc941b0f"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+
+Extension Discovery
+===================
+
+ Scanning for packages with extra.ai-mate configuration...
+
+Discovered 2 Extensions
+-----------------------
+
+ ---------- ----------------------------------- ------------------ 
+  Status     Package                             Scan Directories  
+ ---------- ----------------------------------- ------------------ 
+  existing   symfony/ai-mate                     1 directory       
+  existing   symfony/ai-symfony-mate-extension   1 directory       
+ ---------- ----------------------------------- ------------------ 
+
+ [OK] Configuration written to: /app/mate/extensions.php                        
+
+ Updated mate/AGENT_INSTRUCTIONS.md.
+ Updated AGENTS.md managed instructions block.
+ Updated CLAUDE.md to import AGENTS.md.
+
+Skills
+------
+
+ Total: 6 skill(s) installed.
+
+ // Next steps:                                                                 
+ //                                                                             
+ //   • Edit mate/extensions.php to enable/disable specific extensions          
+

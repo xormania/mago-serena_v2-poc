@@ -1,0 +1,33 @@
+{
+  "extraction": "Selected definitions from the retained complete compiled reference, not a fresh metadata export.",
+  "full_reference_sha256": "5b7ea5b93fa495b3984e4b75083844cf9be918b0ece5180ce5b9f41ebae408a8",
+  "source_sha256": "55f347bebb4fc7294306c53fbe25fd43935eed8685b8a0a53df67982d732c570",
+  "environment": "dev",
+  "scope": "compiled_container_autowiring",
+  "definitions_count": 885,
+  "aliases_count": 177,
+  "definitions": {
+    "App\\Form\\Type\\TagsInputType": {
+      "class": "App\\Form\\Type\\TagsInputType",
+      "arguments": [
+        "App\\Repository\\TagRepository"
+      ]
+    },
+    "App\\Repository\\TagRepository": {
+      "class": "App\\Repository\\TagRepository",
+      "arguments": [
+        "doctrine"
+      ]
+    },
+    "doctrine": {
+      "class": "Doctrine\\Bundle\\DoctrineBundle\\Registry",
+      "arguments": [
+        "service_container",
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
