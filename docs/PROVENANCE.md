@@ -30,3 +30,5 @@ licenses and notices must accompany any redistributed image; see
 `docker/collect-licenses` for the image's `/opt/licenses` collection. PHP,
 Python, Rust, uv, Composer and Composer/Python dependencies retain their own
 licenses. Runtime copies are distinct from the PoC repository's MIT grant.
+Pinned uv and Composer notices are also preserved in `licenses/`; the image
+collects these alongside the PHP and Python runtime licenses.

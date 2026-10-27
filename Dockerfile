@@ -36,6 +36,11 @@ COPY --from=mago /src/crates/prelude/assets/extensions/rdkafka.NOTICE /opt/licen
 COPY --from=mago /src/Cargo.lock /opt/licenses/mago/Cargo.lock
 COPY --from=mago /cargo-licenses /opt/licenses/cargo/
 COPY --from=mago /mago-source.sha /mago-rust-version.txt /opt/
+COPY licenses /opt/licenses/tools/
+COPY LICENSE /opt/licenses/poc/LICENSE
+RUN mkdir -p /opt/licenses/php /opt/licenses/python-runtime && \
+    tar -xOf /usr/src/php.tar.xz php-8.5.12/LICENSE > /opt/licenses/php/LICENSE && \
+    cp /usr/local/lib/python3.12/LICENSE.txt /opt/licenses/python-runtime/LICENSE.txt
 ENV UV_PROJECT_ENVIRONMENT=/opt/venv UV_PYTHON_DOWNLOADS=never
 WORKDIR /opt/poc
 COPY pyproject.toml uv.lock .python-version ./
