@@ -123,6 +123,9 @@ def test():
         return identities
     def baseline():
         for data in (a, b):
+            # First activation expands project.yml and creates .serena/.gitignore.
+            # Seal these known generated files instead of excluding configuration.
+            execute(data, 'python', '/opt/poc/tests/integration/prime_project.py', log=Path(data['evidence'])/'baseline-mcp.log')
             save_snapshot(snapshot(data['app']), Path(data['trusted'])/'application.json', app_root=data['app'])
             shutil.copy2(Path(data['trusted'])/'application.json', Path(data['evidence'])/'application-baseline.json')
         return {data['run_id']:{p:hashlib.sha256((Path(data['trusted'])/p).read_bytes()).hexdigest()
@@ -257,6 +260,7 @@ def main():
         execute(data, 'php', 'vendor/bin/phpunit', '--configuration', 'phpunit.dist.xml', '--log-junit',
                 '/evidence/baseline-phpunit.xml', log=Path(data['evidence'])/'baseline-phpunit.log')
         verify_suite(inventory, Path(data['evidence'])/'baseline-phpunit.xml')
+        execute(data, 'python', '/opt/poc/tests/integration/prime_project.py', log=Path(data['evidence'])/'baseline-mcp.log')
         save_snapshot(snapshot(data['app']), Path(data['trusted'])/'application.json', app_root=data['app'])
         # Index the exact starting sources so an agent can inspect ordinary git
         # diffs without creating commits or staging generated state/dependencies.

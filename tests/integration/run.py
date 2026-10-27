@@ -312,7 +312,10 @@ async def main():
         raise AssertionError('Wrong expectation incorrectly passed')
     await results.check('negative_verifier',negative_verifier)
     # Tests and later lifecycle scenarios must not leave unrelated app mutations.
-    verify_rename(before, ROOT, EVIDENCE)
+    async def final_integrity():
+        verify_rename(before, ROOT, EVIDENCE)
+        return 'Whole application still equals trusted baseline plus exact two-file rename after suite, lifecycle and negative controls'
+    await results.check('application_integrity_final', final_integrity)
     results.save()
     validate(result_document(results.plan, list(results.checks.values()), integration=True), results.plan, integration=True)
     return 0

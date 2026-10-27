@@ -8,7 +8,7 @@ INTEGRATION_REQUIRED = (
     'direct_lsp', 'demo_symbols', 'cross_file_references', 'composer_navigation', 'demo_rename',
     'interface_inheritance', 'invalid_rename', 'semantic_body_edit', 'position_accuracy', 'document_state',
     'diagnostics', 'external_edit', 'repl_persistence', 'partial_execution', 'restart_and_death',
-    'negative_backend', 'negative_verifier', 'mago_external_span_control',
+    'negative_backend', 'negative_verifier', 'mago_external_span_control', 'application_integrity_final',
 )
 HOST_REQUIRED = ('fast_tests', 'source_integrity', 'setup_a', 'phpunit_a', 'setup_b', 'phpunit_b',
                  'application_checks', 'executed_identity', 'trusted_baseline', 'workspace_isolation', 'baseline_unchanged', 'cleanup')
