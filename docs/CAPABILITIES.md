@@ -47,7 +47,7 @@ Hardened validation adds:
 | Original suite execution | Trusted fixture method hashes plus exact class/method/dataset/file/line inventory; same-total fake, skipped, omitted and substituted results rejected |
 | Execution/evidence identity | Source+dirty contents, exact installed code inventory, tool/source/lock pins, two actual image IDs, run/attempt/context and sealed artifact hashes; missing/stale/duplicate rows rejected |
 | Mago closed external declaration span | **Known failure**, direct wire40 vs51 after byte-length-changing prefix; rename refuses -32803; fresh-process healthy control51 and rename succeeds. Expected-negative/control test pass does not repair this capability |
-| Jev diagnosis | Implemented isolated CI wiring; local mocked provider/boundary/calibration tests pass. No live request or live calibration observed; default-branch activation pending |
+| Jev diagnosis | Merged default consumer active; actual four-call calibration: one accepted diagnosis, two abstentions, one invalid duplicate-reference response rejected. Exact model and usage retained; candidate reservation/reporting changes are not claimed live until merged. See JEV.md |
 
 See [upstream candidates](UPSTREAM-CONTRIBUTIONS.md) for exact revisions, tiny
 fixtures, protocol evidence, draft reports and contribution readiness.

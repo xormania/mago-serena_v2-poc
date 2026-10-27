@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "registered_default_revision": "262e06d00024ab4ff2c025ce2b52a2ff49f65715",
+  "never_triggered": {
+    "source_run": 40489054256,
+    "reason": "Default workflow-name filter has unescaped plus; registered producer literal-plus name does not match documented glob. No Jev run object; not a skipped job."
+  },
+  "triggered_job_skipped": {
+    "observed": false,
+    "note": "No such hosted result is claimed; candidate cancellation/skip/rerun gates are mocked tests."
+  },
+  "branch_display_name_control": {
+    "source_run": 40492209788,
+    "automatic_consumer_triggered": false,
+    "registered_name_remained": "Pinned Serena + Mago PoC",
+    "note": "Changing per-run name did not change default workflow registration; not counted as successful activation."
+  },
+  "registered_name_healthy_control": {
+    "schema": 1,
+    "consumer_run_id": 40493363925,
+    "consumer_url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40493363925",
+    "source_run_id": 40493337758,
+    "source_url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40493337758",
+    "source_commit": "15c4ba5c5d921b38b366015367c19bf381c18d50",
+    "trusted_code_commit": "262e06d00024ab4ff2c025ce2b52a2ff49f65715",
+    "result_status": "nothing_to_diagnose",
+    "provider_requests_observed": 0,
+    "provider_evidence": "nothing_to_diagnose; no http_status; empty response; observed_model and usage null",
+    "input_kind": "observed healthy workflow trigger control; not application acceptance",
+    "input_checks": [
+      {
+        "attempt": 1,
+        "excerpt_ids": [
+          "trigger_probe.attempt1"
+        ],
+        "id": "trigger_probe.attempt1",
+        "status": "pass",
+        "step": "trigger_probe"
+      }
+    ],
+    "registered_producer_workflow_id": 398145743,
+    "registered_producer_name": "Pinned Serena  Mago PoC",
+    "artifact_id": 12730300198,
+    "artifact_name": "jev-advisory-40493337758-1",
+    "artifact_reading": "ZIP members parsed as bounded data; no extraction/execution",
+    "candidate_consumer_validation": "Existing default-branch262e06d code executed. This does not prove unmerged listener/idempotency/provider changes."
+  },
+  "live_calibration": {
+    "run_id": 40489607174,
+    "provider_calls": 4,
+    "http_200": 4,
+    "accepted_diagnoses": 1,
+    "abstentions": 2,
+    "invalid_responses_rejected": 1,
+    "http_transport_failures": 0,
+    "validation_error": "Duplicate supporting reference",
+    "additional_calls": 0
+  },
+  "candidate_listener_and_gate": {
+    "status": "implemented and fast-tested; awaits merge onto default branch for actual trusted execution",
+    "literal_filter": "Pinned Serena \\+ Mago PoC",
+    "no_claim_that_default_calibration_proves_candidate": true
+  },
+  "temporary_registered_control_removed_in_final_tree": true,
+  "temporary_control_registration": {
+    "workflow_id": 398145743,
+    "state_after_cleanup": "disabled_manually",
+    "source_file_removed": true
+  }
+}

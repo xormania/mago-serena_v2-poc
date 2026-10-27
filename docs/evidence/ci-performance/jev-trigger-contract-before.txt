@@ -1,0 +1,16 @@
+test_consumer_matches_literal_producer_name (test_workflow_name_filter.WorkflowNameFilterTests.test_consumer_matches_literal_producer_name) ... FAIL
+test_documented_positive_and_deliberate_old_fault_controls (test_workflow_name_filter.WorkflowNameFilterTests.test_documented_positive_and_deliberate_old_fault_controls) ... ok
+test_oracle_rejects_unsupported_glob_shapes (test_workflow_name_filter.WorkflowNameFilterTests.test_oracle_rejects_unsupported_glob_shapes) ... ok
+
+======================================================================
+FAIL: test_consumer_matches_literal_producer_name (test_workflow_name_filter.WorkflowNameFilterTests.test_consumer_matches_literal_producer_name)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/scientdb/projects/xormania/mago-serena_v2-poc/tests/fast/test_workflow_name_filter.py", line 50, in test_consumer_matches_literal_producer_name
+    self.assertTrue(any(literal_plus_match(pattern,PRODUCER) for pattern in patterns),
+AssertionError: False is not true : workflow_run filter does not match literal producer name: ['Pinned Serena + Mago PoC']
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.003s
+
+FAILED (failures=1)

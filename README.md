@@ -85,9 +85,11 @@ reported separately and absent from deterministic CI.
 diagnostics on success and failure. The separate default-branch Jev consumer is
 advisory, receives the TypeSafe key only in its diagnosis step, and never executes
 artifact contents or suggested probes. Local tests use mocked provider responses.
-**Live Jev/calibration and hosted workflow activation remain pending.** See
-[Jev commands and activation](docs/JEV.md); merging the trusted consumer onto the
-default branch is required for `workflow_run` activation.
+The consumer is now registered on merged default `master`. Its four-call hosted
+calibration produced one accepted diagnosis, two abstentions and one strictly
+rejected duplicate-reference response. See [live Jev evidence and boundaries](docs/JEV.md)
+and [CI cache/scheduling measurements](docs/CI.md). Unmerged diagnostic changes
+remain separate from the trusted code actually used by those calls.
 
 See [architecture](docs/ARCHITECTURE.md), the standalone [fixture contract](docs/FIXTURE-CONTRACT.md),
 [provenance and licenses](docs/PROVENANCE.md), and [the implementation plan](docs/IMPLEMENTATION-PLAN.md).

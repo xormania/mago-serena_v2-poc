@@ -1,3 +1,14 @@
+# CI follow-up after PR1 merged
+
+The [CI performance report](CI.md) records the merged baseline, actual hosted
+timings, restored BuildKit layers and duplicate-run removal. The default-branch
+Jev consumer is now registered. Its [four-call live calibration](JEV.md) produced
+one accepted diagnosis, two abstentions and one strictly rejected provider
+response; sanitized evidence and exact trusted revision are retained. The
+historical activation-pending statements below describe the original PR1 session,
+not the current merged state. Unmerged follow-up diagnostic changes are not
+claimed proven by those live calls. Upstream findings and source pins are retained.
+
 # Hardened results
 
 The strengthened rebuilt-image run passed **31/31 required checks** on

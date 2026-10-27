@@ -1,0 +1,49 @@
+{
+  "provider_calls": 0,
+  "actual_response_origin_run": 40489607174,
+  "checks": [
+    {
+      "case": "ambiguous",
+      "route": "offline validation of retained actual provider request/response; no model call",
+      "status": "validated",
+      "diagnosis": {
+        "failure_layer_hypothesis": "unknown",
+        "supporting_excerpt_ids": [],
+        "next_probe": "none",
+        "abstained": true
+      }
+    },
+    {
+      "case": "closed-file",
+      "route": "offline validation of retained actual provider request/response; no model call",
+      "status": "rejected",
+      "validation_error": "Duplicate supporting reference"
+    },
+    {
+      "case": "healthy",
+      "route": "offline validation of retained actual provider request/response; no model call",
+      "status": "validated",
+      "diagnosis": {
+        "failure_layer_hypothesis": "unknown",
+        "supporting_excerpt_ids": [
+          "e1"
+        ],
+        "next_probe": "none",
+        "abstained": true
+      }
+    },
+    {
+      "case": "root-config",
+      "route": "offline validation of retained actual provider request/response; no model call",
+      "status": "validated",
+      "diagnosis": {
+        "failure_layer_hypothesis": "application_integrity",
+        "supporting_excerpt_ids": [
+          "e1"
+        ],
+        "next_probe": "verify_run_identity",
+        "abstained": false
+      }
+    }
+  ]
+}

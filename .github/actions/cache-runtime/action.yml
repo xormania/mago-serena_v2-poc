@@ -1,0 +1,5 @@
+name: Prepare BuildKit cache access
+description: Expose only GitHub cache runtime variables to CLI builds without logging values
+runs:
+  using: node24
+  main: index.cjs

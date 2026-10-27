@@ -1,10 +1,92 @@
 # Advisory Jev diagnosis
 
-This iteration implements a credential-free CI producer and a separate trusted
-consumer. Local diagnosis and boundary tests use deterministic fixtures and
-mocked responses. **No live TypeSafe request or live calibration has been run
-for this iteration.** Workflow wiring is implemented; hosted activation and
-provider behavior remain pending.
+PR1 merged into default `master` at
+`262e06d00024ab4ff2c025ce2b52a2ff49f65715`. Both workflows are registered and
+active. The old explanation that the consumer exists only on a PR branch is no
+longer applicable. The CI follow-up uses a fresh branch from that merged revision.
+
+## Automatic activation: registration versus name matching
+
+The first merged default-branch producer
+[40489054256](https://github.com/xormania/mago-serena_v2-poc/actions/runs/40489054256)
+completed successfully, but **no automatic Jev run was created**. This was neither
+a skipped diagnostic job nor a healthy evidence-only run. The registered consumer
+used `workflows: [Pinned Serena + Mago PoC]`: GitHub interprets these names as glob
+patterns, where `+` repeats the preceding character. It does not literally match
+the producer's plus sign. The candidate uses the single-quoted pattern
+`'Pinned Serena \+ Mago PoC'` and includes a focused old/fixed matching regression.
+This follows [GitHub's documented workflow-name filter contract](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onworkflow_runworkflows).
+
+A branch-only two-space display-name control in representative run40492209788
+did **not** trigger the listener; the existing workflow's registered default name
+remained the literal-plus name. That failed probe is retained as an observation.
+
+A separate temporary registered workflow with the two-space name then supplied
+an actual healthy, credential-free trigger control. Source
+[40493337758](https://github.com/xormania/mago-serena_v2-poc/actions/runs/40493337758)
+at `15c4ba5c5d921b38b366015367c19bf381c18d50` triggered real automatic consumer
+[40493363925](https://github.com/xormania/mago-serena_v2-poc/actions/runs/40493363925).
+The consumer executed trusted default revision262e06d, downloaded the bounded
+packet successfully and recorded **`nothing_to_diagnose`, zero provider calls**.
+Its response file is empty, with no HTTP status, returned model or usage.
+This is observed healthy workflow-control evidence, **not application acceptance**.
+[Source/trusted identities and sanitized outputs](evidence/ci-performance/healthy-consumer-verification-40493363925.json)
+make that distinction reviewable. The temporary workflow is removed from the final
+tree and its registration disabled after observation; its [source snapshot](evidence/ci-performance/trigger-control.workflow.txt)
+remains evidence. It did not duplicate the expensive acceptance job.
+
+The final producer name is restored to `Pinned Serena + Mago PoC`. This isolates
+the registered-name matching defect and demonstrates that the existing consumer's
+artifact/condition/permission/healthy-data path works. The corrected literal-plus
+listener and new reservation/reporting code become trusted only when this PR
+reaches the default branch. Their post-merge execution remains to be observed;
+the successful old-code control does not substitute for it.
+
+Workflow registration, job status, evidence-only operation and validated provider
+outcomes are inspected separately. Manual calibration proves provider access;
+it does not by itself prove the broken automatic filter or unmerged repair works.
+[The classification record](evidence/ci-performance/activation-classification.json)
+distinguishes never-triggered, skipped-job (not observed), evidence-only, rejected
+provider-response and completed-diagnosis cases. No provider HTTP/transport failure
+was observed in the four-call calibration; the rejected case returned HTTP200.
+
+## Observed live calibration
+
+The single authorized calibration ran on GitHub Actions in
+[40489607174](https://github.com/xormania/mago-serena_v2-poc/actions/runs/40489607174).
+It made exactly **four live requests**, with no provider retries, using the
+existing Actions secret. All returned HTTP200 and exact model `jev-1.14.0`.
+There was **one accepted diagnosis, two abstentions and one rejected response**.
+Sanitized requests/responses, models, usage, latency and source identities are
+retained under [live calibration evidence](evidence/ci-performance/live-calibration-40489607174/)
+and its [summary](evidence/ci-performance/live-calibration-summary.json).
+No key was retrieved locally. Local provider tests remain mocked.
+
+The actual trusted code and calibration fixture revision for those calls is
+`262e06d00024ab4ff2c025ce2b52a2ff49f65715`. This is **not** live validation of the
+new PR's unmerged reservation/reporting changes. Recorded defect/healthy inputs
+are replays; the ambiguous timeout control is synthetic. No fresh defect
+execution or production calibration/diagnostic-accuracy claim follows.
+
+| Case | Live outcome | Latency | Input / output tokens |
+| --- | --- | --- | --- |
+| Closed-file defect replay | Response rejected: `support_1=e2` and `support_2=e2` violate distinct-reference validation | 0.233480s | 1649 / 242 |
+| Root-configuration defect replay | `application_integrity`, supporting `e1`, suggested `verify_run_identity` | 0.093961s | 1521 / 225 |
+| Healthy replay | Abstained: `unknown`, `none` probe | 0.102696s | 1526 / 220 |
+| Synthetic ambiguous control | Abstained: `unknown`, `none` probe | 0.128364s | 1394 / 219 |
+
+The closed-file provider selected the plausible layer and probe but repeated the
+support ID. Local deterministic replay of the retained response reproduces
+`ValueError: Duplicate supporting reference`; strict rejection is preserved.
+The existing workflow completed green because diagnosis is advisory and its CLI
+did not signal rejected case outcomes. Candidate code now records the validation
+reason, explicit attempt count and per-case calibration summary, and returns
+nonzero for rejected responses while keeping the source verdict independent.
+No further live calibration requests are authorized in this iteration.
+
+Total available usage was6090input/906output tokens. The dated public input-price
+estimate is USD0.00025578; the provider returned no cost/invoice, so actual billed
+cost remains unknown. A useful-looking hypothesis is not proof of causal accuracy.
 
 ## Local validation
 
@@ -75,10 +157,12 @@ This workflow adapts the independent producer/consumer pattern in
 later default-branch consumer runs trusted diagnostic code. The producer never
 calls a branch-controlled reusable workflow with the key.
 
-GitHub must have this consumer and its trusted tools on the **default branch**
-before `workflow_run` can activate it. This branch alone does not activate the
-consumer. Manual calibration is also restricted to the default branch. The
-existing repository secret suffices for the supplied workflow; repository-secret
+GitHub requires this consumer and its trusted tools on the **default branch**.
+That requirement is now satisfied by merged PR1, as the actual calibration proves.
+New changes in a follow-up PR remain unexecuted by the trusted consumer until
+merged. Automatic runs check out default-branch diagnosis code and record the
+tested source revision separately. Manual calibration is also restricted to the
+default branch. The existing repository secret suffices; repository-secret
 visibility does not independently prevent a writer from creating another
 secret-reading workflow. Restricting that broader permission requires repository
 policy or an environment-only secret restricted to a protected branch. No secret
@@ -121,10 +205,10 @@ without a request, even when a key exists. Missing keys produce
 tests, approve a run, or execute its proposed probe. Consumer failure affects
 only the advisory consumer and never changes the producing workflow's verdict.
 
-## Explicit calibration, pending live execution
+## Explicit calibration and duplicate prevention
 
-After default-branch activation, manually dispatch **Jev advisory diagnosis** on
-the default branch with `calibration: true`. This is an explicit bounded mode:
+For a future explicitly authorized calibration, manually dispatch **Jev advisory
+diagnosis** on the default branch with `calibration: true`. This is a bounded mode:
 **at most four requests, one attempt per case**. It uses the trusted
 `tools/ci/calibration.json` fixture:
 
@@ -142,6 +226,28 @@ observations and probe choices. Calibration records its plan before calls,
 actual request/response/model/usage/latency and statuses per case. Healthy and
 ambiguous controls deliberately exercise the abstention path. This small chosen
 set is not a production accuracy or confidence-calibration estimate.
+
+The follow-up adds a key-free evidence/reservation gate before the provider step.
+Healthy evidence writes `nothing_to_diagnose` with zero provider requests and
+never receives the TypeSafe key. Missing evidence and duplicate suppression have
+explicit gate artifacts. A failure needing diagnosis first checks bounded Actions
+metadata for a previous reservation owned by the default-branch Jev workflow,
+then uploads an immutable reservation before the key-bearing step. API lookup or
+reservation upload failure prevents a call. Artifact contents are never executed.
+
+Ordinary reservations are keyed by producer run ID and attempt. Calibration
+reservations use their dispatch run ID, independent of rerun attempt. Consumer
+reruns are suppressed even if an older marker has expired; failed/interrupted
+provider attempts remain reserved rather than retried. Reservations are retained
+for90days. Concurrency serializes matching source attempts; it is not treated as
+durable duplicate prevention by itself. A new explicit calibration dispatch is a
+new authorization decision and must respect its own four-call budget.
+
+Sanitized output names include consumer run/attempt to retain rerun suppression
+evidence without immutable-artifact name collisions. The gate and provider outputs
+record trusted-code and tested-source/fixture revisions separately. Candidate
+reservation/reporting behavior has mocked/local and PR fast-test coverage; the
+four actual live calls above used the existing merged implementation.
 
 The [independent v1 review](https://github.com/xormania/xorchestrate/blob/cfa3549490ee9db1c3e6cad918523cd854902e51/experiments/jev_failure_correlation/INDEPENDENT_REVIEW.md)
 and [v2 methodology review](https://github.com/xormania/xorchestrate/blob/cfa3549490ee9db1c3e6cad918523cd854902e51/experiments/jev_failure_correlation_v2/reviews/methodology-review.md)

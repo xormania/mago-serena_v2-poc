@@ -1,0 +1,78 @@
+{
+  "source": "read-only parsed uploaded evidence; no extracted artifact content executed",
+  "artifact_id": 12728754161,
+  "artifact_name": "poc-evidence-40492209788-1",
+  "runs": [
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "source_revision": "a614746cfdabfa759d400803646966e639b867e7",
+      "source_dirty": false,
+      "checks": 31,
+      "status_counts": {
+        "pass": 31
+      },
+      "inventory": [
+        "fast_tests",
+        "source_integrity",
+        "setup_a",
+        "phpunit_a",
+        "setup_b",
+        "phpunit_b",
+        "application_checks",
+        "executed_identity",
+        "trusted_baseline",
+        "workspace_isolation",
+        "baseline_unchanged",
+        "cleanup",
+        "direct_lsp",
+        "demo_symbols",
+        "cross_file_references",
+        "composer_navigation",
+        "demo_rename",
+        "interface_inheritance",
+        "invalid_rename",
+        "semantic_body_edit",
+        "position_accuracy",
+        "document_state",
+        "diagnostics",
+        "external_edit",
+        "repl_persistence",
+        "partial_execution",
+        "restart_and_death",
+        "negative_backend",
+        "negative_verifier",
+        "mago_external_span_control",
+        "application_integrity_final"
+      ],
+      "evidence_manifest_sha256": "e5ac45051f181841e6ec3863f156ed69d83fb8aae12930c29c314d3efb4c4c30",
+      "fast": {
+        "schema": 1,
+        "kind": "deterministic_fast_tests",
+        "tests": 122,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "elapsed_s": 1.331,
+        "pass": true
+      },
+      "image": {
+        "container_id": "3c3997251050383b564aaf67ea5a77cc798dcd72df2725888f6c14f7a82b9cd3",
+        "image_id": "sha256:dcf68b72cc4e40d0092068381759b7942b40417cabf80a2a126d1fdd7ecf614d",
+        "repo_digests": [],
+        "created": "2026-10-27T10:56:02.041167324Z",
+        "architecture": "amd64",
+        "installed_files_checked": 45
+      },
+      "phpunit_a": {
+        "tests": 53,
+        "assertions": 120,
+        "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+      },
+      "phpunit_b": {
+        "tests": 53,
+        "assertions": 120,
+        "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+      }
+    }
+  ]
+}

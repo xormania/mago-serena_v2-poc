@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "consumer_run_id": 40493363925,
+  "consumer_url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40493363925",
+  "source_run_id": 40493337758,
+  "source_url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40493337758",
+  "source_commit": "15c4ba5c5d921b38b366015367c19bf381c18d50",
+  "trusted_code_commit": "262e06d00024ab4ff2c025ce2b52a2ff49f65715",
+  "result_status": "nothing_to_diagnose",
+  "provider_requests_observed": 0,
+  "provider_evidence": "nothing_to_diagnose; no http_status; empty response; observed_model and usage null",
+  "input_kind": "observed healthy workflow trigger control; not application acceptance",
+  "input_checks": [
+    {
+      "attempt": 1,
+      "excerpt_ids": [
+        "trigger_probe.attempt1"
+      ],
+      "id": "trigger_probe.attempt1",
+      "status": "pass",
+      "step": "trigger_probe"
+    }
+  ],
+  "registered_producer_workflow_id": 398145743,
+  "registered_producer_name": "Pinned Serena  Mago PoC",
+  "artifact_id": 12730300198,
+  "artifact_name": "jev-advisory-40493337758-1",
+  "artifact_reading": "ZIP members parsed as bounded data; no extraction/execution",
+  "candidate_consumer_validation": "Existing default-branch262e06d code executed. This does not prove unmerged listener/idempotency/provider changes."
+}

@@ -1,0 +1,6 @@
+acceptance	Build exact toolchain	2026-10-27T10:40:58.0391661Z #15 importing cache manifest from gha:560613852948580596
+acceptance	Build exact toolchain	2026-10-27T10:50:28.0330984Z #25 550.1     Finished `release` profile [optimized] target(s) in 9m 09s
+acceptance	Build exact toolchain	2026-10-27T10:50:28.0331435Z #25 DONE 550.6s
+acceptance	Build exact toolchain	2026-10-27T10:51:18.6784533Z #53 exporting to GitHub Actions Cache
+acceptance	Build exact toolchain	2026-10-27T10:51:18.6785498Z #53 sending cache export
+acceptance	Build exact toolchain	2026-10-27T10:52:10.2522567Z #53 sending cache export 78.9s done

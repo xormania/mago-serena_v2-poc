@@ -1,0 +1,403 @@
+{
+  "schema": 2,
+  "run_id": "test-20261027-105620-6fd4d9",
+  "attempt_id": "1",
+  "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+  "inventory": [
+    "fast_tests",
+    "source_integrity",
+    "setup_a",
+    "phpunit_a",
+    "setup_b",
+    "phpunit_b",
+    "application_checks",
+    "executed_identity",
+    "trusted_baseline",
+    "workspace_isolation",
+    "baseline_unchanged",
+    "cleanup",
+    "direct_lsp",
+    "demo_symbols",
+    "cross_file_references",
+    "composer_navigation",
+    "demo_rename",
+    "interface_inheritance",
+    "invalid_rename",
+    "semantic_body_edit",
+    "position_accuracy",
+    "document_state",
+    "diagnostics",
+    "external_edit",
+    "repl_persistence",
+    "partial_execution",
+    "restart_and_death",
+    "negative_backend",
+    "negative_verifier",
+    "mago_external_span_control",
+    "application_integrity_final"
+  ],
+  "integration_inventory": [
+    "direct_lsp",
+    "demo_symbols",
+    "cross_file_references",
+    "composer_navigation",
+    "demo_rename",
+    "interface_inheritance",
+    "invalid_rename",
+    "semantic_body_edit",
+    "position_accuracy",
+    "document_state",
+    "diagnostics",
+    "external_edit",
+    "repl_persistence",
+    "partial_execution",
+    "restart_and_death",
+    "negative_backend",
+    "negative_verifier",
+    "mago_external_span_control",
+    "application_integrity_final"
+  ],
+  "checks": [
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "fast_tests",
+      "status": "pass",
+      "assertion": "Deterministic properties, verifier regressions, evidence and mocked Jev tests passed",
+      "elapsed_s": 1.396,
+      "detail": 0
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "source_integrity",
+      "status": "pass",
+      "assertion": "Original application files match upstream checksums plus declared fixture patch",
+      "elapsed_s": 0.012,
+      "detail": 244
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "setup_a",
+      "status": "pass",
+      "assertion": "Verified image; fresh independent app, database, vendor tree and state; HTTP 200",
+      "elapsed_s": 9.258
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "phpunit_a",
+      "status": "pass",
+      "assertion": "Exact original test identities and datasets pass without skips",
+      "elapsed_s": 1.258,
+      "detail": {
+        "tests": 53,
+        "assertions": 120,
+        "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+      }
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "setup_b",
+      "status": "pass",
+      "assertion": "Verified image; fresh independent app, database, vendor tree and state; HTTP 200",
+      "elapsed_s": 10.451
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "phpunit_b",
+      "status": "pass",
+      "assertion": "Exact original test identities and datasets pass without skips",
+      "elapsed_s": 1.267,
+      "detail": {
+        "tests": 53,
+        "assertions": 120,
+        "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+      }
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "application_checks",
+      "status": "pass",
+      "assertion": "Upstream Composer, lint, service/entity, PHP-CS-Fixer and PHPStan checks pass",
+      "elapsed_s": 5.653,
+      "detail": 0
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "executed_identity",
+      "status": "pass",
+      "assertion": "Installed adapter, harness, verifier, locks and actual container images match recorded source",
+      "elapsed_s": 1.822,
+      "detail": [
+        {
+          "container_id": "3c3997251050383b564aaf67ea5a77cc798dcd72df2725888f6c14f7a82b9cd3",
+          "image_id": "sha256:dcf68b72cc4e40d0092068381759b7942b40417cabf80a2a126d1fdd7ecf614d",
+          "repo_digests": [],
+          "created": "2026-10-27T10:56:02.041167324Z",
+          "architecture": "amd64",
+          "installed_files_checked": 45
+        },
+        {
+          "container_id": "d11e3d765f0c5e330de9f753f9d8a634ba28eb571c84bc930eea75ac1e5a2556",
+          "image_id": "sha256:dcf68b72cc4e40d0092068381759b7942b40417cabf80a2a126d1fdd7ecf614d",
+          "repo_digests": [],
+          "created": "2026-10-27T10:56:02.041167324Z",
+          "architecture": "amd64",
+          "installed_files_checked": 45
+        }
+      ]
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "trusted_baseline",
+      "status": "pass",
+      "assertion": "Complete manifests and test inventories sealed before semantic operations",
+      "elapsed_s": 10.302,
+      "detail": {
+        "test-20261027-105620-6fd4d9": {
+          "application.json": "81f91e2776560b46710db913126c3fd7669609e7648806e371aaa319b9c7c440",
+          "expected-suite.json": "84a4a91302a2f3af11a1877762f129a5c794347237741df046c6fb1f19fbf3f1"
+        },
+        "test-20261027-105620-6fd4d9-b": {
+          "application.json": "81f91e2776560b46710db913126c3fd7669609e7648806e371aaa319b9c7c440",
+          "expected-suite.json": "84a4a91302a2f3af11a1877762f129a5c794347237741df046c6fb1f19fbf3f1"
+        }
+      }
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "workspace_isolation",
+      "status": "pass",
+      "assertion": "Stopping A preserves running B and its distinct database",
+      "elapsed_s": 0.649
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "baseline_unchanged",
+      "status": "pass",
+      "assertion": "Acceptance did not rewrite checked-in application files",
+      "elapsed_s": 0.013,
+      "detail": 244
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "cleanup",
+      "status": "pass",
+      "assertion": "Both owned Compose projects stopped; evidence and trusted baselines retained",
+      "elapsed_s": 0.43
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "direct_lsp",
+      "status": "pass",
+      "assertion": "initialize + hierarchical symbols + Doctrine vendor definition; raw wire and stderr retained",
+      "elapsed_s": 0.566,
+      "evidence": "/evidence"
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "demo_symbols",
+      "status": "pass",
+      "assertion": "Demo overview, both declarations, exact name positions and source bodies verified independently",
+      "elapsed_s": 0.312,
+      "evidence": "/evidence"
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "cross_file_references",
+      "status": "pass",
+      "assertion": "Exactly the pinned BlogController::index call, with independently derived position",
+      "elapsed_s": 0.256,
+      "evidence": "/evidence"
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "composer_navigation",
+      "status": "pass",
+      "assertion": "Direct LSP and REPL resolve Doctrine declaration in the same vendor tree; vendor indexing enabled explicitly",
+      "elapsed_s": 0.356,
+      "evidence": "/evidence"
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "demo_rename",
+      "status": "pass",
+      "assertion": "Exact independent two-file diff; old symbol absent; new references correct; original PHPUnit suite passes: ['src/Controller/BlogController.php', 'src/Repository/PostRepository.php']",
+      "elapsed_s": 4.267,
+      "evidence": "/evidence"
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "interface_inheritance",
+      "status": "pass",
+      "assertion": "Exact implementation family, declaration and reference; semantic rename updates family and calls; PHP behavior passes",
+      "elapsed_s": 1.053,
+      "evidence": "/evidence"
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "invalid_rename",
+      "status": "pass",
+      "assertion": "Colliding rename refused with feedback; file hash unchanged",
+      "elapsed_s": 0.329,
+      "evidence": "/evidence"
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "semantic_body_edit",
+      "status": "pass",
+      "assertion": "Only method body changed; fresh Mago query sees 11; PHP returns 11",
+      "elapsed_s": 0.31,
+      "evidence": "/evidence"
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "position_accuracy",
+      "status": "pass",
+      "assertion": "Non-ASCII + non-BMP before target on same CRLF line: exact Python name column, semantic rename and PHP behavior correct; newline counts recorded",
+      "elapsed_s": 0.419,
+      "evidence": "/evidence"
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "document_state",
+      "status": "pass",
+      "assertion": "Closed externally replaced target queried from another file without reopening; actual MCP/REPL coordinates and resulting edits verified",
+      "elapsed_s": 5.346,
+      "evidence": "/evidence"
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "diagnostics",
+      "status": "pass",
+      "assertion": "Known invalid return type produces a file diagnostic; restoring contents clears it to the recorded baseline",
+      "elapsed_s": 0.788,
+      "evidence": "/evidence"
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "external_edit",
+      "status": "pass",
+      "assertion": "Fresh query sees external edit; retained symbol behavior recorded; recovery always re-queries",
+      "elapsed_s": 0.319,
+      "evidence": "/evidence"
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "repl_persistence",
+      "status": "pass",
+      "assertion": "Same-session variable yields 42; a new MCP process/session has no such variable",
+      "elapsed_s": 3.238,
+      "evidence": "/evidence"
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "partial_execution",
+      "status": "pass",
+      "assertion": "Cell mutates then raises; independent file and fresh semantic query observe mutation before recovery",
+      "elapsed_s": 0.634,
+      "evidence": "/evidence"
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "restart_and_death",
+      "status": "pass",
+      "assertion": "Restart changes PID; SIGKILL yields intelligible failure in 0.78s; explicit restart restores query",
+      "elapsed_s": 2.466,
+      "evidence": "/evidence"
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "negative_backend",
+      "status": "pass",
+      "assertion": "Both missing executable and wrong executable fail backend startup visibly; no fallback",
+      "elapsed_s": 4.645,
+      "evidence": "/evidence"
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "negative_verifier",
+      "status": "pass",
+      "assertion": "Deliberately wrong symbol coordinates are rejected by independent verifier",
+      "elapsed_s": 0.0,
+      "evidence": "/evidence"
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "mago_external_span_control",
+      "status": "pass",
+      "assertion": "EXPECTED NEGATIVE: pinned Mago returns stale external-edit declaration span and refuses rename; fresh-process healthy control returns correct span and rename",
+      "elapsed_s": 0.13,
+      "evidence": "/evidence"
+    },
+    {
+      "run_id": "test-20261027-105620-6fd4d9",
+      "attempt_id": "1",
+      "context_sha256": "8ad0fedf579d97c4ba2a810fe218d99887471a7e3572dfa3e6abe0f0f3fe8c96",
+      "name": "application_integrity_final",
+      "status": "pass",
+      "assertion": "Whole application still equals trusted baseline plus exact two-file rename after suite, lifecycle and negative controls",
+      "elapsed_s": 0.817,
+      "evidence": "/evidence"
+    }
+  ],
+  "evidence_manifest_sha256": "e5ac45051f181841e6ec3863f156ed69d83fb8aae12930c29c314d3efb4c4c30"
+}

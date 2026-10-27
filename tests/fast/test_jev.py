@@ -150,7 +150,10 @@ class JevTests(unittest.TestCase):
 
     def test_duplicate_support_rejected(self):
         r = reply(); r['answers']['support_2']['choice']='e1'
-        self.assertEqual(self.run_mock(r)['status'],'malformed_response')
+        result=self.run_mock(r)
+        self.assertEqual(result['status'],'malformed_response')
+        self.assertEqual(result['validation_error'],'Duplicate supporting reference')
+        self.assertEqual(result['provider_request_attempts'],1)
 
     def test_duplicate_json_fields_and_nonfinite_numbers_rejected(self):
         for raw in (b'{"model":"a","model":"b"}',b'{"value":NaN}',b'{"value":Infinity}',b'{"value":1e999}'):
@@ -299,7 +302,7 @@ class BoundaryTests(unittest.TestCase):
         self.assertNotIn('ref: ${{ github.event.workflow_run.head_sha }}',consumer)
         self.assertIn('python3 -I trusted/tools/ci/jev.py',consumer)
         self.assertNotIn('pull_request_target',consumer)
-        self.assertIn('steps.data.outputs.found',consumer)
+        self.assertIn('steps.gate.outputs.provider_needed',consumer)
 
 
 if __name__=='__main__':unittest.main()
