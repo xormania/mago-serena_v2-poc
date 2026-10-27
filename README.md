@@ -3,11 +3,13 @@
 A pinned Symfony Demo fixture, Docker development service, external SolidLSP
 adapter, and acceptance harness proving **MCP → Serena REPL → Mago → PHP source**.
 
-On 2026-10-27 the core matrix passed in Docker. Two independent fresh Demo
-workspaces each passed **53 PHPUnit tests / 120 assertions**; the renamed app
-passed the same suite. A separate authenticated Codex agent completed the
-semantic rename and passed independent verification. See [findings](docs/FINDINGS.md)
-and the [capability matrix](docs/CAPABILITIES.md) for evidence and limits.
+The hardened harness verifies the whole disposable application, exact original
+test identities, document state and run-bound evidence. It exercises real
+MCP → Serena REPL → Mago without a model. A separate historical Codex run completed
+the semantic rename; it has **not been rerun after hardening**. A direct-Mago
+external-edit span defect remains documented with a healthy restart control.
+See [findings](docs/FINDINGS.md), [capabilities](docs/CAPABILITIES.md), and the
+[prioritized contribution ledger](docs/UPSTREAM-CONTRIBUTIONS.md).
 
 Prerequisites: Linux/macOS/WSL with Python 3, Git, Docker Engine or Desktop,
 Compose v2, and network access to image registries, GitHub, PyPI, crates.io,
@@ -16,12 +18,22 @@ minutes and needs several GB of memory and disk. No model credentials are needed
 for automated acceptance.
 
 ```sh
+uv sync --frozen --python 3.12.12
+./bin/poc fast             # Properties, verifier/evidence faults and mocked Jev; no Docker/key
 ./bin/poc up               # Build, provision fresh dev copy, wait for HTTP
 ./bin/poc doctor           # Fixture, Docker, toolchain and dependency checks
 ./bin/poc test             # Two independent baselines + real MCP acceptance
 ./bin/poc report <run-id>  # Read recorded results; missing checks cannot pass
 ./bin/poc down             # Stop dev; add --purge to discard its workspace
 ```
+
+`poc test` repeats fast checks before starting containers and refuses stale
+installed code/tool pins. Rebuild after changing the adapter or harness.
+`POC_TRACE=1 ./bin/poc test` adds bounded hash/version document-state traces;
+MCP/direct-LSP traces are always bounded and disclose truncation. Each invocation
+gets its own evidence directory, preserving failed attempts. The known Mago
+external-span diagnostic is an expected-negative test paired with a fresh-process
+healthy control; its passing check does not claim that feature is fixed.
 
 The Demo is at <http://localhost:8000/en/blog/>. The checked-in `app/` stays
 unchanged: the editable dev copy is `workspaces/dev/app`, mapped to container
@@ -62,9 +74,20 @@ without that evidence.
 Results live in `artifacts/<id>/results.json` and `report.txt`, with runtime
 identity, PHPUnit JUnit/logs, raw MCP/LSP transcripts, diagnostics, diffs and
 failure tracebacks. Statuses are `pass`, `fail`, `blocked`, `not_exercised`.
-Every required core row must pass for exit 0. Real model execution is reported
-separately and is deliberately absent from CI. `.github/workflows/poc.yml` builds
-the same pinned image and uploads evidence even after failures.
+Every inventory row must be present, unique, current and pass for exit0. Reports
+also verify retained artifact hashes, installed code, actual image IDs, runtime
+pins, and trusted baseline copies. Original test class/method/dataset/file/line
+identities are compared; counts alone do not establish suite execution. Baselines
+live outside `/app` and are read-only at `/trusted`. Real model execution is
+reported separately and absent from deterministic CI.
+
+`.github/workflows/poc.yml` runs fast checks before the image build and uploads
+diagnostics on success and failure. The separate default-branch Jev consumer is
+advisory, receives the TypeSafe key only in its diagnosis step, and never executes
+artifact contents or suggested probes. Local tests use mocked provider responses.
+**Live Jev/calibration and hosted workflow activation remain pending.** See
+[Jev commands and activation](docs/JEV.md); merging the trusted consumer onto the
+default branch is required for `workflow_run` activation.
 
 See [architecture](docs/ARCHITECTURE.md), the standalone [fixture contract](docs/FIXTURE-CONTRACT.md),
 [provenance and licenses](docs/PROVENANCE.md), and [the implementation plan](docs/IMPLEMENTATION-PLAN.md).

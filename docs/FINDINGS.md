@@ -1,4 +1,64 @@
-# Observed results
+# Hardened results
+
+The strengthened rebuilt-image run passed **31/31 required checks** on
+2026-10-27. It includes **96 deterministic fast tests**, genuine stdio
+MCP → Serena REPL → Mago execution, two independent fresh Demo workspaces and the
+semantic `findLatest` → `findLatestPublished` rename. All three application suite
+executions passed **53 tests / 120 assertions**, with exact original
+class/method/dataset/file/line identities verified. Complete application manifests
+include root configuration, dependencies, unknown paths and relevant metadata.
+The final post-scenario comparison matches the baseline plus the exact two-file
+rename. Actual image/code/tool identities and artifact hashes are checked.
+
+See the [validation index](evidence/strengthening/validation.json) for exact
+source/run/image hashes, full evidence locations, and clean-checkout validation.
+[Earlier attempts](evidence/strengthening/failed-attempts.json) are preserved and
+not counted as reproducing the intended adapter/verifier defects. The first
+identity parse exposed mixed Composer stderr; subsequent identity guards rejected
+code edited after image builds. The full manifest also caught Serena's legitimate
+first-start project.yml expansion. Real MCP initialization now canonicalizes that
+state **before** sealing the external baseline; project configuration stays covered.
+
+Confirmed before/after findings:
+
+- The reviewed adapter returned Python column51 instead of50 after a closed
+  target's equal-byte-length external non-BMP replacement. The corrected adapter
+  returns50; direct Mago's equivalent UTF-16 column is51. Actual MCP reference and
+  rename assertions plus hash/event evidence prove the target stayed closed.
+- The reviewed verifier accepted an exact rename plus weakened root PHPUnit
+  configuration. Whole-application verification rejects it and other root,
+  dependency, test, file-type/mode, addition/deletion faults. Healthy controls pass.
+- The reviewed report accepted an empty checks list. Required inventories now
+  reject missing, duplicate, skipped, stale or foreign checks. Retained artifacts
+  and their image/runtime/baseline content are also required and verified.
+- Jev's mocked HTTP-error telemetry and calibration-bound review faults were
+  reproduced and fixed. These provider tests are not live diagnosis results.
+
+There are two independently assessable upstream findings. Current Serena main
+still emits ranged changes to full-sync Mago, and the full-document bridge
+remains necessary. A separate **direct-Mago** probe on current experimental
+next-server finds stale cross-file declaration spans after a byte-length-changing
+external edit: wire column40 versus expected51, then rename refusal -32803. A fresh
+process returns51 and valid edits. This Mago limitation is **not fixed here**.
+The required negative/control check asserts both outcomes without claiming the
+affected feature passes. The equal-byte adapter reproduction isolates our cache
+fault from that server issue.
+
+[The contribution ledger](UPSTREAM-CONTRIBUTIONS.md) prioritizes both draft
+reports, positive Symfony compatibility evidence, Unicode/property coverage for
+existing PR2115, reusable fixtures and local-only fixes. Current tips, existing
+PRs and contribution guidance were checked; no source pin changed and nothing was
+submitted upstream. Cancellation, secondary editor APIs, adverse stale edit
+versions and PR2115 branch compatibility remain unproven.
+
+**Model-driven acceptance was not rerun after hardening.** The earlier authenticated
+Codex run below remains historical evidence. Deterministic MCP execution is a
+different check. **No live Jev request or live calibration ran locally.** The
+trusted consumer requires default-branch activation; hosted workflow results and
+provider behavior are pending. [Jev documentation](JEV.md) explains the boundary,
+commands and bounded recorded/synthetic calibration controls.
+
+# Historical results before hardening
 
 The pinned Docker integration and required acceptance matrix passed locally on
 2026-10-27. Two independent fresh Symfony Demo copies/databases each passed
@@ -69,7 +129,9 @@ and versioned documentChanges worked in this PoC. Preserve the exact source SHA
 when reporting results: `mago 1.58.2` alone does not identify this experimental
 server. The analyzer remained enabled. Pre-existing app diagnostics were not
 suppressed, and passing tests do not establish the correctness of every analyzer
-finding. No confirmed Mago integration defect requiring a source patch was found.
+finding. No confirmed Mago defect was found in that original run; the hardening
+work above subsequently isolated an external-span defect directly against the
+same experimental revision.
 
 Serena automatically restarts a server that dies between requests. The death
 test therefore kills an actual process during an observed in-flight LSP request,

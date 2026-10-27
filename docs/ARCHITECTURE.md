@@ -40,3 +40,47 @@ default identity is an unprivileged `poc` user. There is no Docker socket or hos
 credential mount, and MCP is not served over the network. The REPL has process
 privileges: its API configuration and read-only flag are agent steering, not a
 security boundary. The host authenticated agent can use shell commands normally.
+
+Each new workspace also has a host-owned `trusted/` directory outside its app,
+bound read-only at `/trusted`. Before any semantic edits, the host seals the full
+post-setup application manifest, original PHPUnit test identities, and run plan
+there. The manifest covers dependencies, root configuration, manifests, locks,
+tests, entrypoints, symlink targets and file/directory permissions. Only named
+generated caches, the known SQLite databases/sidecars and Symfony's generated
+`config/reference.php` are excluded; see the executable policy in
+`tests/integration/verifier.py`. Ownership, timestamps and inode numbers are not
+compared. `.serena/project.yml` remains covered.
+An actual MCP initialization first establishes Serena's canonical generated
+project configuration and `.gitignore`; these are then included in the baseline,
+rather than allowing future configuration changes as generated output.
+
+Document text follows server state: transmitted open buffers are authoritative
+even if disk changes or disappears; didClose discards buffer text and version.
+Closed files are read afresh on each response, including creation, deletion and
+atomic replacement. A conversion uses one text snapshot per URI. Restart clears
+the transport and replays surviving SolidLSP open buffers after initialization.
+The full-document synchronization bridge is preserved. Only LF, CRLF and CR
+delimit LSP lines; other Unicode separators remain characters. Disk reads normalize
+universal newlines; transmitted buffers retain their text and Serena writes use
+configured native LF on Linux. Positions splitting a surrogate pair are refused.
+Independent seeded properties and `state_repro.py` check exact coordinates and
+resulting text.
+
+The source commit, full source hashes and dirty-file contents bind the run plan
+and required-check inventory. Both services' actual image IDs and installed
+adapter, verifier and harness inventories must match that source snapshot. Every
+result carries run, attempt and context digests. Missing, duplicate, stale,
+foreign or unexecuted required results prevent success, including missing
+integration results or failed cleanup. `poc report` validates the same contract.
+The final sealed artifact inventory covers both services' evidence. Report also
+requires the retained runtime/image records and trusted baseline copies, with
+contents matching the recorded execution and baseline hashes.
+Each invocation gets a fresh run directory; failures survive subsequent attempts.
+
+MCP and direct LSP JSONL traces are bounded with truncation summaries. Set
+`POC_TRACE=1` when creating acceptance workspaces for optional hash-only adapter
+state records: versions, disk byte/normalized hashes, transmitted text hashes,
+and selected conversion text hashes. Full Serena wire debug logging is disabled
+by default. Jev consumes bounded excerpts in a separate trusted default-branch
+workflow and cannot change test outcomes or execute probes. See
+[Jev's boundary and activation](JEV.md).

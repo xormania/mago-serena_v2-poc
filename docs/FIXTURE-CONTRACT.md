@@ -38,3 +38,21 @@ can be reused without an agent orchestrator. Protocol probes, adapter setup and
 MCP transcript assertions belong to this integration. Outputs stay outside
 fixture sources. A future second consumer may extract and pin this contract;
 no MinSpec repository or package migration is included here.
+
+The hardened verifier captures the **whole post-setup application**, including
+vendor, root PHPUnit/Composer configuration, lockfiles, tests, public entrypoints,
+unknown files, directories and symlink targets, plus permission bits. Its narrow
+exclusions are defined in `tests/integration/verifier.py`; runtime caches and the
+two known SQLite databases/sidecars are mutable, while `.serena/project.yml` is
+covered. Baselines are host-owned outside the editable app and read-only at
+`/trusted/application.json`. A correct two-file rename accompanied by any other
+covered change is rejected.
+
+Before edits, PHPUnit's trusted `--list-tests-xml` inventory is checked against
+the original fixture's public test methods/source hashes and sealed outside the
+app. JUnit must name exactly those class/method/dataset/file/line identities, use
+the original `phpunit.dist.xml`, contain no skips/failures, and execute assertions
+in every test. Aggregate counts and exit status are supporting evidence. Fast
+controls deliberately weaken root configuration, change tests/dependencies,
+replace paths with symlinks, change modes, add/delete files and forge incomplete
+or same-total suite records; each is rejected alongside healthy controls.

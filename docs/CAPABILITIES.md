@@ -1,7 +1,8 @@
 # Capability evidence
 
-Recorded 2026-10-27 with the exact pins in `toolchain.lock.json`. The latest
-recorded core run is identified in `docs/evidence/acceptance-results.json`.
+Recorded 2026-10-27 with the exact pins in `toolchain.lock.json`. Hardened
+validation is indexed in [strengthening/validation.json](evidence/strengthening/validation.json).
+The original pre-hardening run remains in `docs/evidence/acceptance-results.json`.
 “Wire” includes actual LSP requests/publications made by the adapter, retained
 in the MCP stderr/protocol logs. A capability advertisement alone is never a pass.
 
@@ -16,13 +17,13 @@ in the MCP stderr/protocol logs. A capability advertisement alone is never a pas
 | Symbol body edit | Client operation | Full document changes | Yes | edit.replace_symbol_body | pass: exact source change, fresh query and PHP result |
 | UTF-16 / non-BMP / CRLF positions | UTF-16 default | Yes | Codepoint conversion | Yes | pass: exact target after café/emoji on same line |
 | Diagnostics | Push notifications; no pull provider | Yes | Push cache with empty clear publications | Yes | pass: exact introduced return-type range and restoration to baseline |
-| External changes | Watched files and full document updates | Yes | Existing SolidLSP synchronization | Yes | pass: fresh query sees changed body |
+| External changes | Watched files and full document updates | Yes | Existing SolidLSP synchronization plus corrected closed-file text lifetime | Yes | Fresh body query and equal-byte-prefix cross-file closed-target cases pass; byte-length-changing declaration update exposes known Mago defect below |
 | Server restart/death | Process lifecycle | Yes | Existing process manager | Yes | pass: PID changes, bounded in-flight error, explicit recovery |
 | Full sync compatibility | change=1 | Yes; separate live reproduction | Full document bridge | Covered by edits/rename | pass; unbridged SolidLSP leaves old method indexed |
 | REPL persistence/partial execution | Not an LSP capability | Real MCP sessions | Not applicable | Yes | pass: 42, independent session isolation, mutation before exception |
 | Workspace/database isolation | Not an LSP capability | Not applicable | Separate processes/state | Separate services | pass: two fresh suites, cleanup of A preserves B |
 | Backend identity and negative controls | mago-server initialize identity | Yes | Binary SHA check; no fallback | Startup errors observable | pass: missing/wrong executables rejected, wrong verifier expectation rejected |
-| Real model-driven coding task | Not an LSP capability | Model's MCP tool calls retained | Yes | Yes | pass: Codex CLI, independent exact diff/test/query verification |
+| Real model-driven coding task | Not an LSP capability | Historical model MCP calls retained | Historical | Historical | Historical pass; not rerun after hardening; current deterministic MCP acceptance is separate |
 | Hover/completion/signature help | Yes | not_exercised | Generic transport available | No dedicated facade methods | not_exercised |
 | Call/type hierarchy | Yes | not_exercised | Generic transport available | No dedicated facade methods | not_exercised |
 | Formatting/code actions | Yes | not_exercised | Generic transport available | No dedicated facade methods | not_exercised |
@@ -35,3 +36,18 @@ edit coordinates, not byte-for-byte line-ending preservation. Retained symbol
 objects can contain an old body; re-query after any mutation. Existing Demo
 analyzer diagnostics are retained separately from deliberately introduced errors.
 No zero-warning baseline or framework-specific analyzer correctness is claimed.
+
+Hardened validation adds:
+
+| Check | Evidence / interpretation |
+| --- | --- |
+| Closed file inspected, closed, externally replaced with non-BMP, queried from another file without reopen | Actual adapter/direct/MCP responses, state-event/hash proof, exact rename/requery; reviewed adapter failure reproduced before fix |
+| Position/edit properties | Independent seeded oracle, ASCII/BMP/astral, LF/CRLF/CR, empty/EOF, selected converter mutations; deterministic fast tests |
+| Entire application integrity | Complete external manifest including vendor, root config/manifests/locks/tests, types/modes/symlinks and narrow generated exclusions |
+| Original suite execution | Trusted fixture method hashes plus exact class/method/dataset/file/line inventory; same-total fake, skipped, omitted and substituted results rejected |
+| Execution/evidence identity | Source+dirty contents, exact installed code inventory, tool/source/lock pins, two actual image IDs, run/attempt/context and sealed artifact hashes; missing/stale/duplicate rows rejected |
+| Mago closed external declaration span | **Known failure**, direct wire40 vs51 after byte-length-changing prefix; rename refuses -32803; fresh-process healthy control51 and rename succeeds. Expected-negative/control test pass does not repair this capability |
+| Jev diagnosis | Implemented isolated CI wiring; local mocked provider/boundary/calibration tests pass. No live request or live calibration observed; default-branch activation pending |
+
+See [upstream candidates](UPSTREAM-CONTRIBUTIONS.md) for exact revisions, tiny
+fixtures, protocol evidence, draft reports and contribution readiness.

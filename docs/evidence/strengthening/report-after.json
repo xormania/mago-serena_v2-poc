@@ -1,0 +1,19 @@
+{
+  "route": "actual bin/poc report imported; copied real successful artifacts then deliberate faults",
+  "controls": [
+    {
+      "case": "complete_actual_retained_run",
+      "result": "pass"
+    },
+    {
+      "case": "missing_actual_retained_image_identity",
+      "result": "rejected",
+      "assertion": "Missing, added or modified retained evidence"
+    },
+    {
+      "case": "empty_actual_report",
+      "result": "rejected",
+      "assertion": "Missing/unexpected results: {'repl_persistence', 'negative_backend', 'fast_tests', 'application_integrity_final', 'phpunit_a', 'workspace_isolation', 'position_accuracy', 'setup_a', 'partial_execution', 'cross_file_references', 'composer_navigation', 'document_state', 'source_integrity', 'executed_identity', 'mago_external_span_control', 'restart_and_death', 'semantic_body_edit', 'baseline_unchanged', 'demo_symbols', 'invalid_rename', 'negative_verifier', 'external_edit', 'diagnostics', 'trusted_baseline', 'interface_inheritance', 'phpunit_b', 'setup_b', 'cleanup', 'demo_rename', 'direct_lsp', 'application_checks'}"
+    }
+  ]
+}

@@ -32,3 +32,30 @@ Python, Rust, uv, Composer and Composer/Python dependencies retain their own
 licenses. Runtime copies are distinct from the PoC repository's MIT grant.
 Pinned uv and Composer notices are also preserved in `licenses/`; the image
 collects these alongside the PHP and Python runtime licenses.
+
+The hardening work starts from reviewed PoC commit
+`41729d30d23459de1ba53023051eb55894fb33b9`, on `poc/serena-mago-hardening`.
+The fetched source branch had no later changes. All application/tool pins and
+dependency locks remain unchanged. New tiny PHP probes and Python clients are
+authored here under this repository's MIT license; they are independent of the
+Demo except where explicitly labeled. Upstream source inspected for comparison
+retains its own license and is not vendored by these probes. The
+[contribution ledger](UPSTREAM-CONTRIBUTIONS.md) records exact inspected revisions,
+guidance, prior work, protocol evidence and draft material.
+
+Each hardened run records `metadata.json` with the source commit, complete source
+manifest and base64 dirty-file contents/deletions, fixture checksum/adaptation
+manifests and pinned toolchain. `executed-identity.json` hashes the installed
+adapter, SolidLSP, verifier/harness and locks, lists installed package/runtime
+versions, and is checked against host source. `image-identity.json` records the
+actual container image ID and available registry digests for each fresh service.
+Local images may have no repository digest; their content-addressed image IDs
+are still recorded. `run-plan.json` defines the expected inventory before checks;
+each result is bound to its source context, run and attempt. Full dirty content
+describes the tested tree without pretending that HEAD alone contains it.
+
+Jev is a separate optional TypeSafe CI API call, not an application dependency.
+Its model, endpoint, configuration, sanitized request/response, latency and
+available usage/cost are retained separately. Local provider tests are mocked and
+labeled accordingly. Historical model-driven acceptance is not evidence that a
+model or live Jev reran after hardening. See [the Jev notes](JEV.md).
