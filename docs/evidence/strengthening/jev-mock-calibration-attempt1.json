@@ -1,0 +1,250 @@
+{
+  "execution": "Mocked responses deliberately match frozen labels; this exercises transport/validation, NOT model accuracy.",
+  "live_calls": 0,
+  "results": [
+    {
+      "case": "closed-file",
+      "record": {
+        "schema": 1,
+        "source": {
+          "run_id": "0",
+          "attempt": 1,
+          "source_sha": "0000000000000000000000000000000000000000"
+        },
+        "mode": "calibration_replay",
+        "calibration_case_kind": "confirmed_defect_replay",
+        "provider": "typesafe",
+        "endpoint": "https://api.typesafe.ai/v1/systemone",
+        "requested_model": "jev-1.14.0",
+        "observed_model": "jev-1.14.0",
+        "configuration": {
+          "timeout_seconds": 15,
+          "max_attempts": 1,
+          "max_response_bytes": 65536,
+          "max_request_bytes": 58000
+        },
+        "transport": "mock",
+        "request_sha256": "dac1e1d5457e5992c0af4c3f594cc6525065b73284f5cbbfd7d494a61aab6d8c",
+        "status": "diagnosed",
+        "latency_seconds": 0.000129,
+        "usage": {
+          "input_tokens": 100,
+          "output_tokens": 4
+        },
+        "cost": null,
+        "actual_invoiced_cost": null,
+        "estimated_input_cost_usd": 4.2000000000000004e-06,
+        "price_reference": {
+          "url": "https://docs.typesafe.ai/models",
+          "checked": "2026-10-27",
+          "usd_per_million_input_tokens": 0.042,
+          "output_tokens_free": true
+        },
+        "trusted_code": {
+          "checkout_commit": null,
+          "workflow_sha": null,
+          "file_sha256": {
+            "calibration.json": "1f7aa57f7da937a930244e78c038aea83ec8a1d792dd4f05747dcab154f5411e",
+            "capture_step.py": "c717aafe80d0905f244b50b5b45f5a32b894b96d7bb8ec633b9cfcdcc225c2c6",
+            "download_inputs.py": "0e3c89a932aabe2cc8825b09e3acf2669d26bbf19f50398752baefd005b88163",
+            "jev.py": "b3c423949c547b5eb924ccb7cf25a7b0dba61a96057bf69f119ea892f0e04d7e"
+          }
+        },
+        "response_truncated": false,
+        "advisory_only": true,
+        "probe_executed": false,
+        "http_status": 200,
+        "diagnosis": {
+          "failure_layer_hypothesis": "document_state",
+          "supporting_excerpt_ids": [
+            "e1"
+          ],
+          "next_probe": "compare_document_hashes",
+          "abstained": false
+        }
+      }
+    },
+    {
+      "case": "root-config",
+      "record": {
+        "schema": 1,
+        "source": {
+          "run_id": "0",
+          "attempt": 1,
+          "source_sha": "0000000000000000000000000000000000000000"
+        },
+        "mode": "calibration_replay",
+        "calibration_case_kind": "confirmed_defect_replay",
+        "provider": "typesafe",
+        "endpoint": "https://api.typesafe.ai/v1/systemone",
+        "requested_model": "jev-1.14.0",
+        "observed_model": "jev-1.14.0",
+        "configuration": {
+          "timeout_seconds": 15,
+          "max_attempts": 1,
+          "max_response_bytes": 65536,
+          "max_request_bytes": 58000
+        },
+        "transport": "mock",
+        "request_sha256": "2fd3d6edc1d6f27610efa4196c570fbf333e95172c6e65b45cd9fa2c1abf48f7",
+        "status": "diagnosed",
+        "latency_seconds": 4.3e-05,
+        "usage": {
+          "input_tokens": 100,
+          "output_tokens": 4
+        },
+        "cost": null,
+        "actual_invoiced_cost": null,
+        "estimated_input_cost_usd": 4.2000000000000004e-06,
+        "price_reference": {
+          "url": "https://docs.typesafe.ai/models",
+          "checked": "2026-10-27",
+          "usd_per_million_input_tokens": 0.042,
+          "output_tokens_free": true
+        },
+        "trusted_code": {
+          "checkout_commit": null,
+          "workflow_sha": null,
+          "file_sha256": {
+            "calibration.json": "1f7aa57f7da937a930244e78c038aea83ec8a1d792dd4f05747dcab154f5411e",
+            "capture_step.py": "c717aafe80d0905f244b50b5b45f5a32b894b96d7bb8ec633b9cfcdcc225c2c6",
+            "download_inputs.py": "0e3c89a932aabe2cc8825b09e3acf2669d26bbf19f50398752baefd005b88163",
+            "jev.py": "b3c423949c547b5eb924ccb7cf25a7b0dba61a96057bf69f119ea892f0e04d7e"
+          }
+        },
+        "response_truncated": false,
+        "advisory_only": true,
+        "probe_executed": false,
+        "http_status": 200,
+        "diagnosis": {
+          "failure_layer_hypothesis": "application_integrity",
+          "supporting_excerpt_ids": [
+            "e1"
+          ],
+          "next_probe": "verify_full_manifest",
+          "abstained": false
+        }
+      }
+    },
+    {
+      "case": "healthy",
+      "record": {
+        "schema": 1,
+        "source": {
+          "run_id": "0",
+          "attempt": 1,
+          "source_sha": "0000000000000000000000000000000000000000"
+        },
+        "mode": "calibration_replay",
+        "calibration_case_kind": "healthy_replay",
+        "provider": "typesafe",
+        "endpoint": "https://api.typesafe.ai/v1/systemone",
+        "requested_model": "jev-1.14.0",
+        "observed_model": "jev-1.14.0",
+        "configuration": {
+          "timeout_seconds": 15,
+          "max_attempts": 1,
+          "max_response_bytes": 65536,
+          "max_request_bytes": 58000
+        },
+        "transport": "mock",
+        "request_sha256": "86a351b9e20f9143487fa9f84f200bd74646532669800a82a6b5cb9ac39288cb",
+        "status": "abstained",
+        "latency_seconds": 3.5e-05,
+        "usage": {
+          "input_tokens": 100,
+          "output_tokens": 4
+        },
+        "cost": null,
+        "actual_invoiced_cost": null,
+        "estimated_input_cost_usd": 4.2000000000000004e-06,
+        "price_reference": {
+          "url": "https://docs.typesafe.ai/models",
+          "checked": "2026-10-27",
+          "usd_per_million_input_tokens": 0.042,
+          "output_tokens_free": true
+        },
+        "trusted_code": {
+          "checkout_commit": null,
+          "workflow_sha": null,
+          "file_sha256": {
+            "calibration.json": "1f7aa57f7da937a930244e78c038aea83ec8a1d792dd4f05747dcab154f5411e",
+            "capture_step.py": "c717aafe80d0905f244b50b5b45f5a32b894b96d7bb8ec633b9cfcdcc225c2c6",
+            "download_inputs.py": "0e3c89a932aabe2cc8825b09e3acf2669d26bbf19f50398752baefd005b88163",
+            "jev.py": "b3c423949c547b5eb924ccb7cf25a7b0dba61a96057bf69f119ea892f0e04d7e"
+          }
+        },
+        "response_truncated": false,
+        "advisory_only": true,
+        "probe_executed": false,
+        "http_status": 200,
+        "diagnosis": {
+          "failure_layer_hypothesis": "unknown",
+          "supporting_excerpt_ids": [],
+          "next_probe": "none",
+          "abstained": true
+        }
+      }
+    },
+    {
+      "case": "ambiguous",
+      "record": {
+        "schema": 1,
+        "source": {
+          "run_id": "0",
+          "attempt": 1,
+          "source_sha": "0000000000000000000000000000000000000000"
+        },
+        "mode": "calibration_replay",
+        "calibration_case_kind": "synthetic_ambiguous",
+        "provider": "typesafe",
+        "endpoint": "https://api.typesafe.ai/v1/systemone",
+        "requested_model": "jev-1.14.0",
+        "observed_model": "jev-1.14.0",
+        "configuration": {
+          "timeout_seconds": 15,
+          "max_attempts": 1,
+          "max_response_bytes": 65536,
+          "max_request_bytes": 58000
+        },
+        "transport": "mock",
+        "request_sha256": "f180bb5b68d06ca318aa04b30f90dda9cbd92e1d65cbc1735ba7019da5d00098",
+        "status": "abstained",
+        "latency_seconds": 6.1e-05,
+        "usage": {
+          "input_tokens": 100,
+          "output_tokens": 4
+        },
+        "cost": null,
+        "actual_invoiced_cost": null,
+        "estimated_input_cost_usd": 4.2000000000000004e-06,
+        "price_reference": {
+          "url": "https://docs.typesafe.ai/models",
+          "checked": "2026-10-27",
+          "usd_per_million_input_tokens": 0.042,
+          "output_tokens_free": true
+        },
+        "trusted_code": {
+          "checkout_commit": null,
+          "workflow_sha": null,
+          "file_sha256": {
+            "calibration.json": "1f7aa57f7da937a930244e78c038aea83ec8a1d792dd4f05747dcab154f5411e",
+            "capture_step.py": "c717aafe80d0905f244b50b5b45f5a32b894b96d7bb8ec633b9cfcdcc225c2c6",
+            "download_inputs.py": "0e3c89a932aabe2cc8825b09e3acf2669d26bbf19f50398752baefd005b88163",
+            "jev.py": "b3c423949c547b5eb924ccb7cf25a7b0dba61a96057bf69f119ea892f0e04d7e"
+          }
+        },
+        "response_truncated": false,
+        "advisory_only": true,
+        "probe_executed": false,
+        "http_status": 200,
+        "diagnosis": {
+          "failure_layer_hypothesis": "unknown",
+          "supporting_excerpt_ids": [],
+          "next_probe": "none",
+          "abstained": true
+        }
+      }
+    }
+  ]
+}

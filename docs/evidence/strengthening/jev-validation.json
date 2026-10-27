@@ -1,0 +1,18 @@
+{
+  "execution": "deterministic stdlib tests with mocked provider and actual local subprocess controls; no network/provider call",
+  "command": "python3 -m unittest discover -s tests/fast -p test_jev.py -v",
+  "tests": 32,
+  "exit_status": 0,
+  "live_jev_requests": 0,
+  "live_calibration": "pending default-branch activation and explicit dispatch",
+  "local_api_key": "not read or requested; tests pass explicit fake keys to mocks",
+  "files": {
+    "tools/ci/download_inputs.py": "63bab5de41b68703b5b0ea7e2c960482530760a3fc1f0182144d8328c7dd0c22",
+    "tools/ci/capture_step.py": "a725f2a87f323ea0ae79b150dde48e3845af3e5c1291ac45e54a79ca6aa6fb39",
+    "tools/ci/jev.py": "8e95b373ec3cb033e6940447020b5300073e41904d07cdd5eb7a8d84faa879c8",
+    "tools/ci/calibration.json": "1f7aa57f7da937a930244e78c038aea83ec8a1d792dd4f05747dcab154f5411e",
+    ".github/workflows/poc.yml": "7e07f34d5e12919502b792f4d4247e8f1956c693c00d8121134ac06010794a32",
+    ".github/workflows/jev.yml": "2dee6b72dcf049c44711e28d220df1b06f9a30de8c5e819fa9b93dc331bb538b",
+    "tests/fast/test_jev.py": "1c11f5b14f0e0cc81b1239f94e96995cf80fce15df07676d2b90919117d0517c"
+  }
+}
