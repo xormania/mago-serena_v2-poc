@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "cwd": "/tmp",
+  "actual_checkout_path_contains_spaces": true,
+  "forwarded_arguments": [
+    "--tool-timeout",
+    "90"
+  ],
+  "real_mcp_symbol": "PostRepository/findLatest",
+  "stopped_exit": 3,
+  "stopped_stdout_bytes": 0,
+  "stopped_stderr": "serena-mcp: Development container is stopped. Start it with ./bin/poc up --run space-wrapper\n"
+}

@@ -1,0 +1,13 @@
+Use the configured Serena REPL and its Mago backend to locate
+PostRepository::findLatest, identify its PHP callers, and rename it to
+findLatestPublished. Preserve all existing behavior. Show the references and
+symbol information that informed the edit, perform the semantic rename through
+Serena, re-query after the change, inspect the diff, and run the original Demo
+tests in the container. Report the exact files changed and any integration problem.
+
+The host working directory is the disposable application copy. It maps to /app
+in the running php service. Use the configured serena MCP server and
+initial_instructions to obtain the REPL session. Read s.info("lsp") before using
+the LSP facade. The final expression returns a cell's result; Python print does
+not return tool content. Shell access for inspecting the diff and running tests
+is available. Do not change tests or tool configuration, and do not commit or push.

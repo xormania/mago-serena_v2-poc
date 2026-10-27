@@ -1,0 +1,10 @@
+DEBUG:solidlsp.ls_process:Returning result:
+DEBUG:solidlsp.ls:LSP: solidlsp -> ls: {'jsonrpc': '2.0', 'method': 'textDocument/didChange', 'params': {'textDocument': {'version': 1, 'uri': 'file:///tmp/mago-sync-vhuwey5_/Probe.php'}, 'contentChanges': [{'range': {'start': {'line': 0, 'character': 40}, 'end': {'line': 0, 'character': 45}}, 'text': ''}]}}
+DEBUG:solidlsp.ls:LSP: solidlsp -> ls: {'jsonrpc': '2.0', 'method': 'textDocument/didChange', 'params': {'textDocument': {'version': 2, 'uri': 'file:///tmp/mago-sync-vhuwey5_/Probe.php'}, 'contentChanges': [{'range': {'start': {'line': 0, 'character': 40}, 'end': {'line': 0, 'character': 40}}, 'text': 'renamed'}]}}
+DEBUG:solidlsp.ls_process:Returning result:
+DEBUG:solidlsp.ls_process:Returning result:
+DEBUG:solidlsp.ls_process:Returning result:
+DEBUG:solidlsp.ls:LSP: solidlsp -> ls: {'jsonrpc': '2.0', 'method': 'textDocument/didChange', 'params': {'textDocument': {'version': 1, 'uri': 'file:///tmp/mago-sync-4k691a7_/Probe.php'}, 'contentChanges': [{'text': '<?php class SyncProbe { public function (): int { return 7; } }\n'}]}}
+DEBUG:solidlsp.ls:LSP: solidlsp -> ls: {'jsonrpc': '2.0', 'method': 'textDocument/didChange', 'params': {'textDocument': {'version': 2, 'uri': 'file:///tmp/mago-sync-4k691a7_/Probe.php'}, 'contentChanges': [{'text': '<?php class SyncProbe { public function renamed(): int { return 7; } }\n'}]}}
+DEBUG:solidlsp.ls_process:Returning result:
+DEBUG:solidlsp.ls_process:Returning result:

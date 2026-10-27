@@ -1,0 +1,124 @@
+{
+  "UnbridgedMago": {
+    "advertised_sync": {
+      "openClose": true,
+      "change": 1,
+      "willSave": false,
+      "willSaveWaitUntil": false,
+      "save": true
+    },
+    "symbols_after_edit": [
+      {
+        "name": "SyncProbe",
+        "kind": 5,
+        "range": {
+          "start": {
+            "line": 0,
+            "character": 6
+          },
+          "end": {
+            "line": 0,
+            "character": 68
+          }
+        },
+        "selectionRange": {
+          "start": {
+            "line": 0,
+            "character": 12
+          },
+          "end": {
+            "line": 0,
+            "character": 21
+          }
+        },
+        "children": [
+          {
+            "name": "value",
+            "kind": 6,
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 24
+              },
+              "end": {
+                "line": 0,
+                "character": 66
+              }
+            },
+            "selectionRange": {
+              "start": {
+                "line": 0,
+                "character": 40
+              },
+              "end": {
+                "line": 0,
+                "character": 45
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "MagoServer": {
+    "advertised_sync": {
+      "openClose": true,
+      "change": 1,
+      "willSave": false,
+      "willSaveWaitUntil": false,
+      "save": true
+    },
+    "symbols_after_edit": [
+      {
+        "name": "SyncProbe",
+        "kind": 5,
+        "range": {
+          "start": {
+            "line": 0,
+            "character": 6
+          },
+          "end": {
+            "line": 0,
+            "character": 70
+          }
+        },
+        "selectionRange": {
+          "start": {
+            "line": 0,
+            "character": 12
+          },
+          "end": {
+            "line": 0,
+            "character": 21
+          }
+        },
+        "children": [
+          {
+            "name": "renamed",
+            "kind": 6,
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 24
+              },
+              "end": {
+                "line": 0,
+                "character": 68
+              }
+            },
+            "selectionRange": {
+              "start": {
+                "line": 0,
+                "character": 40
+              },
+              "end": {
+                "line": 0,
+                "character": 47
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

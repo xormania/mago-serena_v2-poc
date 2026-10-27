@@ -1,0 +1,171 @@
+{
+  "schema": 1,
+  "run_id": "test-20261027-085150-bd9813",
+  "checks": [
+    {
+      "name": "source_integrity",
+      "status": "pass",
+      "assertion": "Original application files match upstream checksums plus declared fixture patch",
+      "elapsed_s": 0.011
+    },
+    {
+      "name": "setup_test-20261027-085150-bd9813",
+      "status": "pass",
+      "assertion": "Fresh independent app, database, vendor tree and state; HTTP 200",
+      "elapsed_s": 8.605
+    },
+    {
+      "name": "phpunit_test-20261027-085150-bd9813",
+      "status": "pass",
+      "assertion": "Unmodified original Demo suite passes",
+      "elapsed_s": 0.915
+    },
+    {
+      "name": "setup_test-20261027-085150-bd9813-b",
+      "status": "pass",
+      "assertion": "Fresh independent app, database, vendor tree and state; HTTP 200",
+      "elapsed_s": 11.807
+    },
+    {
+      "name": "phpunit_test-20261027-085150-bd9813-b",
+      "status": "pass",
+      "assertion": "Unmodified original Demo suite passes",
+      "elapsed_s": 0.807
+    },
+    {
+      "name": "application_checks",
+      "status": "pass",
+      "assertion": "Upstream Composer, YAML, Twig, XLIFF, translation, service/entity, PHP-CS-Fixer and PHPStan checks pass",
+      "elapsed_s": 4.649
+    },
+    {
+      "name": "direct_lsp",
+      "status": "pass",
+      "assertion": "initialize + hierarchical symbols + Doctrine vendor definition; raw wire and stderr retained",
+      "elapsed_s": 0.328,
+      "evidence": "/evidence"
+    },
+    {
+      "name": "demo_symbols",
+      "status": "pass",
+      "assertion": "Demo overview, both declarations, exact name positions and source bodies verified independently",
+      "elapsed_s": 0.316,
+      "evidence": "/evidence"
+    },
+    {
+      "name": "cross_file_references",
+      "status": "pass",
+      "assertion": "Exactly the pinned BlogController::index call, with independently derived position",
+      "elapsed_s": 0.2,
+      "evidence": "/evidence"
+    },
+    {
+      "name": "composer_navigation",
+      "status": "pass",
+      "assertion": "Direct LSP and REPL resolve Doctrine declaration in the same vendor tree; vendor indexing enabled explicitly",
+      "elapsed_s": 0.237,
+      "evidence": "/evidence"
+    },
+    {
+      "name": "demo_rename",
+      "status": "pass",
+      "assertion": "Exact independent two-file diff; old symbol absent; new references correct; original PHPUnit suite passes: ['src/Controller/BlogController.php', 'src/Repository/PostRepository.php']",
+      "elapsed_s": 1.658,
+      "evidence": "/evidence"
+    },
+    {
+      "name": "interface_inheritance",
+      "status": "pass",
+      "assertion": "Exact implementation family, declaration and reference; semantic rename updates family and calls; PHP behavior passes",
+      "elapsed_s": 0.773,
+      "evidence": "/evidence"
+    },
+    {
+      "name": "invalid_rename",
+      "status": "pass",
+      "assertion": "Colliding rename refused with feedback; file hash unchanged",
+      "elapsed_s": 0.226,
+      "evidence": "/evidence"
+    },
+    {
+      "name": "semantic_body_edit",
+      "status": "pass",
+      "assertion": "Only method body changed; fresh Mago query sees 11; PHP returns 11",
+      "elapsed_s": 0.308,
+      "evidence": "/evidence"
+    },
+    {
+      "name": "position_accuracy",
+      "status": "pass",
+      "assertion": "Non-ASCII + non-BMP before target on same CRLF line: exact Python name column, semantic rename and PHP behavior correct; newline counts recorded",
+      "elapsed_s": 0.334,
+      "evidence": "/evidence"
+    },
+    {
+      "name": "diagnostics",
+      "status": "pass",
+      "assertion": "Known invalid return type produces a file diagnostic; restoring contents clears it to the recorded baseline",
+      "elapsed_s": 0.599,
+      "evidence": "/evidence"
+    },
+    {
+      "name": "external_edit",
+      "status": "pass",
+      "assertion": "Fresh query sees external edit; retained symbol behavior recorded; recovery always re-queries",
+      "elapsed_s": 0.316,
+      "evidence": "/evidence"
+    },
+    {
+      "name": "repl_persistence",
+      "status": "pass",
+      "assertion": "Same-session variable yields 42; a new MCP process/session has no such variable",
+      "elapsed_s": 2.457,
+      "evidence": "/evidence"
+    },
+    {
+      "name": "partial_execution",
+      "status": "pass",
+      "assertion": "Cell mutates then raises; independent file and fresh semantic query observe mutation before recovery",
+      "elapsed_s": 0.321,
+      "evidence": "/evidence"
+    },
+    {
+      "name": "restart_and_death",
+      "status": "pass",
+      "assertion": "Restart changes PID; SIGKILL yields intelligible failure in 0.50s; explicit restart restores query",
+      "elapsed_s": 1.794,
+      "evidence": "/evidence"
+    },
+    {
+      "name": "negative_backend",
+      "status": "pass",
+      "assertion": "Both missing executable and wrong executable fail backend startup visibly; no fallback",
+      "elapsed_s": 3.694,
+      "evidence": "/evidence"
+    },
+    {
+      "name": "negative_verifier",
+      "status": "pass",
+      "assertion": "Deliberately wrong symbol coordinates are rejected by independent verifier",
+      "elapsed_s": 0.0,
+      "evidence": "/evidence"
+    },
+    {
+      "name": "workspace_isolation",
+      "status": "pass",
+      "assertion": "Separate files, databases and state; stopping A preserves running B and its database"
+    },
+    {
+      "name": "baseline_unchanged",
+      "status": "pass",
+      "assertion": "Acceptance did not rewrite checked-in application files",
+      "elapsed_s": 0.01
+    },
+    {
+      "name": "real_agent",
+      "status": "not_exercised",
+      "required": false,
+      "assertion": "Separate model-driven session required; use ./bin/poc agent-task"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+# Capability evidence
+
+Recorded 2026-10-27 with the exact pins in `toolchain.lock.json`. The latest
+recorded core run is identified in `docs/evidence/acceptance-results.json`.
+“Wire” includes actual LSP requests/publications made by the adapter, retained
+in the MCP stderr/protocol logs. A capability advertisement alone is never a pass.
+
+| Feature | Mago advertises | Verified on LSP wire | Adapter | REPL | End-to-end result |
+| --- | --- | --- | --- | --- | --- |
+| Hierarchical document symbols and source/name ranges | Yes | Yes | Yes | Yes | pass: Demo declarations and exact source positions/bodies |
+| References | Yes | Yes | Yes | Yes | pass: exact BlogController caller and renamed references |
+| Definitions/declarations | Definition provider | Yes | Yes | Yes, find_declaration uses definition | pass: Demo and installed Doctrine declaration |
+| Implementations/inheritance | Yes | Yes | Yes | Yes | pass: both Greeter implementations and inherited family rename |
+| Semantic rename | Yes | Yes, documentChanges | Yes | Yes | pass: exact two-file Demo diff and unchanged original tests |
+| Colliding rename | Request error | Yes | Yes | Yes | pass: useful error, unchanged file |
+| Symbol body edit | Client operation | Full document changes | Yes | edit.replace_symbol_body | pass: exact source change, fresh query and PHP result |
+| UTF-16 / non-BMP / CRLF positions | UTF-16 default | Yes | Codepoint conversion | Yes | pass: exact target after café/emoji on same line |
+| Diagnostics | Push notifications; no pull provider | Yes | Push cache with empty clear publications | Yes | pass: exact introduced return-type range and restoration to baseline |
+| External changes | Watched files and full document updates | Yes | Existing SolidLSP synchronization | Yes | pass: fresh query sees changed body |
+| Server restart/death | Process lifecycle | Yes | Existing process manager | Yes | pass: PID changes, bounded in-flight error, explicit recovery |
+| Full sync compatibility | change=1 | Yes; separate live reproduction | Full document bridge | Covered by edits/rename | pass; unbridged SolidLSP leaves old method indexed |
+| REPL persistence/partial execution | Not an LSP capability | Real MCP sessions | Not applicable | Yes | pass: 42, independent session isolation, mutation before exception |
+| Workspace/database isolation | Not an LSP capability | Not applicable | Separate processes/state | Separate services | pass: two fresh suites, cleanup of A preserves B |
+| Backend identity and negative controls | mago-server initialize identity | Yes | Binary SHA check; no fallback | Startup errors observable | pass: missing/wrong executables rejected, wrong verifier expectation rejected |
+| Real model-driven coding task | Not an LSP capability | Model's MCP tool calls retained | Yes | Yes | pass: Codex CLI, independent exact diff/test/query verification |
+| Hover/completion/signature help | Yes | not_exercised | Generic transport available | No dedicated facade methods | not_exercised |
+| Call/type hierarchy | Yes | not_exercised | Generic transport available | No dedicated facade methods | not_exercised |
+| Formatting/code actions | Yes | not_exercised | Generic transport available | No dedicated facade methods | not_exercised |
+| Cancellation and timeout exhaustion | Not asserted | not_exercised | Bounded base requests | Not separately tested | not_exercised |
+| Stale WorkspaceEdit version rejection / changes-form rename | Defensive adapter support / Mago negotiation | not_exercised as adverse/alternate cases | Implemented | Normal documentChanges path verified | not_exercised separately |
+
+Serena's configured native line endings normalize CRLF to LF on Linux writes.
+The position test records that normalization; it proves correct navigation and
+edit coordinates, not byte-for-byte line-ending preservation. Retained symbol
+objects can contain an old body; re-query after any mutation. Existing Demo
+analyzer diagnostics are retained separately from deliberately introduced errors.
+No zero-warning baseline or framework-specific analyzer correctness is claimed.
