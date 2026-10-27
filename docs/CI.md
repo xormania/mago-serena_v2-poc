@@ -86,12 +86,14 @@ BuildKit cache; old entries belonged to a sibling feature branch.
 | Hosted run | Build | Full acceptance | Total | Mago layer |
 | --- | --- | --- | --- | --- |
 | Baseline PR40486178957 | 10m00s | 1m40s | 12m13s | Compiled |
+| [Merged default40489054256](https://github.com/xormania/mago-serena_v2-poc/actions/runs/40489054256) | 9m37s | 1m40s | 11m54s | Compiled; no persistent cache |
 | [Cache population40490285225](https://github.com/xormania/mago-serena_v2-poc/actions/runs/40490285225) | 11m15s | 1m36s | 13m37s | Compiled; cache export78.9s |
 | [Representative40492209788](https://github.com/xormania/mago-serena_v2-poc/actions/runs/40492209788) | 38s | 1m13s | 2m21s | **CACHED**; export3.9s |
 
 These are actual measurements, indexed in
 [measurements.json](evidence/ci-performance/measurements.json). Compared with the
 baseline, the representative build was93.7% shorter and total time80.8% shorter.
+Against the newly merged default run, reductions were93.4% and80.3% respectively.
 The population run paid the initial export cost; it was not faster than baseline.
 This is one population and one representative sample, not a statistical benchmark.
 Total includes startup/queue/teardown; build/acceptance use step timestamps.
@@ -112,8 +114,13 @@ with no feature-push acceptance. The temporary producer display-name control did
 not alter the full acceptance inventory or warm-cache scope; the final candidate
 restores its literal-plus display name. That control alone did not trigger the
 existing default listener: the registered workflow still had its default-branch
-plus name. A separate short registered-workflow diagnostic control is tracked in
-JEV.md and removed from the final tree. It never replaces acceptance.
+plus name. A separate short registered-workflow diagnostic control then triggered
+trusted consumer40493363925, which wrote `nothing_to_diagnose` with zero provider
+calls. It is tracked in JEV.md and removed from the final tree. It never replaces
+acceptance.
+The temporary registered workflow was also disabled after the observation, so no
+diagnostic probe remains active. Existing default consumer warnings and unmerged
+gate deployment remain separately documented in JEV.md.
 
 ## Local and hosted commands
 

@@ -71,5 +71,14 @@
   "literal_plus_producer_name_restored_in_final_candidate": true,
   "live_calibration_run": 40489607174,
   "live_provider_calls": 4,
-  "trusted_diagnostic_revision_live": "262e06d00024ab4ff2c025ce2b52a2ff49f65715"
+  "trusted_diagnostic_revision_live": "262e06d00024ab4ff2c025ce2b52a2ff49f65715",
+  "merged_baseline": {
+    "run_id": 40489054256,
+    "source_commit": "262e06d00024ab4ff2c025ce2b52a2ff49f65715",
+    "build_seconds": 577,
+    "acceptance_seconds": 100,
+    "total_seconds": 714
+  },
+  "build_reduction_vs_merged_baseline_percent": 93.4,
+  "total_reduction_vs_merged_baseline_percent": 80.3
 }

@@ -17,17 +17,38 @@ the producer's plus sign. The candidate uses the single-quoted pattern
 `'Pinned Serena \+ Mago PoC'` and includes a focused old/fixed matching regression.
 This follows [GitHub's documented workflow-name filter contract](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onworkflow_runworkflows).
 
-A controlled representative producer run will temporarily use two spaces in its
-display name, matching the existing default-branch pattern, while executing the
-entire acceptance inventory. Its event/result will distinguish actual healthy
-automatic operation from the proposed escaping correction. The final producer
-name is restored to `Pinned Serena + Mago PoC`; the corrected listener becomes
-active only when its PR reaches the default branch. Changing the tested branch
-cannot silently deploy trusted diagnostic code.
+A branch-only two-space display-name control in representative run40492209788
+did **not** trigger the listener; the existing workflow's registered default name
+remained the literal-plus name. That failed probe is retained as an observation.
+
+A separate temporary registered workflow with the two-space name then supplied
+an actual healthy, credential-free trigger control. Source
+[40493337758](https://github.com/xormania/mago-serena_v2-poc/actions/runs/40493337758)
+at `15c4ba5c5d921b38b366015367c19bf381c18d50` triggered real automatic consumer
+[40493363925](https://github.com/xormania/mago-serena_v2-poc/actions/runs/40493363925).
+The consumer executed trusted default revision262e06d, downloaded the bounded
+packet successfully and recorded **`nothing_to_diagnose`, zero provider calls**.
+Its response file is empty, with no HTTP status, returned model or usage.
+This is observed healthy workflow-control evidence, **not application acceptance**.
+[Source/trusted identities and sanitized outputs](evidence/ci-performance/healthy-consumer-verification-40493363925.json)
+make that distinction reviewable. The temporary workflow is removed from the final
+tree and its registration disabled after observation; its [source snapshot](evidence/ci-performance/trigger-control.workflow.txt)
+remains evidence. It did not duplicate the expensive acceptance job.
+
+The final producer name is restored to `Pinned Serena + Mago PoC`. This isolates
+the registered-name matching defect and demonstrates that the existing consumer's
+artifact/condition/permission/healthy-data path works. The corrected literal-plus
+listener and new reservation/reporting code become trusted only when this PR
+reaches the default branch. Their post-merge execution remains to be observed;
+the successful old-code control does not substitute for it.
 
 Workflow registration, job status, evidence-only operation and validated provider
 outcomes are inspected separately. Manual calibration proves provider access;
 it does not by itself prove the broken automatic filter or unmerged repair works.
+[The classification record](evidence/ci-performance/activation-classification.json)
+distinguishes never-triggered, skipped-job (not observed), evidence-only, rejected
+provider-response and completed-diagnosis cases. No provider HTTP/transport failure
+was observed in the four-call calibration; the rejected case returned HTTP200.
 
 ## Observed live calibration
 
