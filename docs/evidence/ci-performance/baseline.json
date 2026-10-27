@@ -274,89 +274,125 @@
       "event": "push",
       "branch": "master",
       "head_sha": "262e06d00024ab4ff2c025ce2b52a2ff49f65715",
-      "status": "in_progress",
-      "conclusion": null,
-      "run_created_to_updated_seconds": null,
-      "job_seconds": null,
-      "mago_compile_seconds": null,
-      "build_seconds": null,
-      "acceptance_seconds": null,
-      "steps": [
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-27T10:30:50Z",
+      "updated_at": "2026-10-27T10:42:44Z",
+      "total_seconds": 714.0,
+      "jobs": [
         {
-          "name": "Set up job",
-          "seconds": 2.0,
-          "conclusion": "success"
-        },
-        {
-          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
-          "seconds": 1.0,
-          "conclusion": "success"
-        },
-        {
-          "name": "Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
-          "seconds": 2.0,
-          "conclusion": "success"
-        },
-        {
-          "name": "Install locked fast-test environment",
-          "seconds": 3.0,
-          "conclusion": "success"
-        },
-        {
-          "name": "Fast properties, manifest verification and mocked diagnosis",
-          "seconds": 3.0,
-          "conclusion": "success"
-        },
-        {
-          "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
-          "seconds": 6.0,
-          "conclusion": "success"
-        },
-        {
-          "name": "Build exact toolchain",
-          "seconds": null,
-          "conclusion": null
-        },
-        {
-          "name": "Real Docker, original application tests and MCP acceptance",
-          "seconds": null,
-          "conclusion": null
-        },
-        {
-          "name": "Collect bounded advisory diagnosis data",
-          "seconds": null,
-          "conclusion": null
-        },
-        {
-          "name": "Upload diagnosis data without credentials",
-          "seconds": null,
-          "conclusion": null
-        },
-        {
-          "name": "Retain all evidence, including failed scenarios",
-          "seconds": null,
-          "conclusion": null
-        },
-        {
-          "name": "Post Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
-          "seconds": null,
-          "conclusion": null
-        },
-        {
-          "name": "Post Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
-          "seconds": null,
-          "conclusion": null
-        },
-        {
-          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
-          "seconds": null,
-          "conclusion": null
+          "id": 122138074977,
+          "url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40489054256/job/122138074977",
+          "name": "acceptance",
+          "status": "completed",
+          "conclusion": "success",
+          "seconds": 712.0,
+          "steps": [
+            {
+              "name": "Set up job",
+              "seconds": 2.0,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "seconds": 1.0,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
+              "seconds": 2.0,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Install locked fast-test environment",
+              "seconds": 3.0,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Fast properties, manifest verification and mocked diagnosis",
+              "seconds": 3.0,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+              "seconds": 6.0,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Build exact toolchain",
+              "seconds": 577.0,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Real Docker, original application tests and MCP acceptance",
+              "seconds": 100.0,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Collect bounded advisory diagnosis data",
+              "seconds": 1.0,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Upload diagnosis data without credentials",
+              "seconds": 1.0,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Retain all evidence, including failed scenarios",
+              "seconds": 2.0,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+              "seconds": 8.0,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
+              "seconds": 2.0,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "seconds": 0.0,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "seconds": 0.0,
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
         }
       ],
-      "buildkit_cache_import_observed": false,
-      "buildkit_cache_export_observed": false,
-      "cargo_step_cached": false,
-      "node20_warning": null
+      "mago_buildkit_step_id": "24",
+      "mago_layer_seconds": 531.0,
+      "mago_layer_cached": false,
+      "cargo_release_line": "acceptance\tBuild exact toolchain\t2026-10-27T10:40:28.1711272Z #24 530.3     Finished `release` profile [optimized] target(s) in 8m 50s",
+      "cache_import_observed": false,
+      "cache_export_observed": false,
+      "cached_step_count": 0,
+      "node20_warning_lines": [
+        "acceptance\tComplete job\t2026-10-27T10:42:41.7294782Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02, docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+      ],
+      "cache_export_seconds": null
     }
   ],
   "cache_inventory": {

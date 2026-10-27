@@ -15,9 +15,10 @@ acceptance checks and fresh app/database/vendor/state isolation.
 | Push to a feature branch | No second push acceptance alongside its PR |
 | Explicit workflow dispatch | Full acceptance on the selected ref |
 
-Concurrency is keyed by workflow plus PR number, or ref for non-PR runs. A newer
-update supersedes only that PR/ref. Other PRs and default-branch validation use
-different groups. There are no path filters that leave required PR checks pending.
+Concurrency is keyed by workflow, event and PR number, or ref for push runs.
+Explicit dispatches use their run ID. A newer update supersedes only that PR or
+push ref. Other PRs, default-branch pushes and manual validations use different
+groups. There are no path filters that leave required PR checks pending.
 
 ## Persistent cache, not persistent runner disks
 
@@ -82,12 +83,37 @@ The old cached workflow's historical run was also cold; its existence is not
 warm-cache performance evidence. Before this follow-up there was no default-branch
 BuildKit cache; old entries belonged to a sibling feature branch.
 
-Hosted population and representative timings will be recorded in
-`docs/evidence/ci-performance/measurements.json` after completion. A valid reuse
-claim requires the actual Mago compile RUN to be marked `CACHED` in a later
-hosted runner's log. Cache flags, local builds and the existence of cache entries
-alone do not establish reuse. Total time includes startup/queue/teardown; build
-and acceptance use their step timestamps. No duration below is an estimate.
+| Hosted run | Build | Full acceptance | Total | Mago layer |
+| --- | --- | --- | --- | --- |
+| Baseline PR40486178957 | 10m00s | 1m40s | 12m13s | Compiled |
+| [Cache population40490285225](https://github.com/xormania/mago-serena_v2-poc/actions/runs/40490285225) | 11m15s | 1m36s | 13m37s | Compiled; cache export78.9s |
+| [Representative40492209788](https://github.com/xormania/mago-serena_v2-poc/actions/runs/40492209788) | 38s | 1m13s | 2m21s | **CACHED**; export3.9s |
+
+These are actual measurements, indexed in
+[measurements.json](evidence/ci-performance/measurements.json). Compared with the
+baseline, the representative build was93.7% shorter and total time80.8% shorter.
+The population run paid the initial export cost; it was not faster than baseline.
+This is one population and one representative sample, not a statistical benchmark.
+Total includes startup/queue/teardown; build/acceptance use step timestamps.
+
+The representative commit changed diagnostic code, added18fast tests and updated
+documentation. Both runs passed the identical31required checks, original fresh
+application isolation and exact source/image verification; fast tests grew from104
+to122. Runner IDs differed (`1000022680` versus `1000022682`). The warm log records
+Mago's compile step24as`CACHED`, with24cached steps and no new Cargo compilation.
+[Cold excerpts](evidence/ci-performance/excerpts-40490285225.txt) and
+[warm excerpts](evidence/ci-performance/excerpts-40492209788.txt) preserve the
+import/export and compile/cache assertions. Both new producer logs have no Node20
+deprecation warnings. The representative image changed with the new tests, so this
+was not acceptance against an unchanged stale image.
+
+Head-SHA run inventories show exactly one PR acceptance for both measured commits,
+with no feature-push acceptance. The temporary producer display-name control did
+not alter the full acceptance inventory or warm-cache scope; the final candidate
+restores its literal-plus display name. That control alone did not trigger the
+existing default listener: the registered workflow still had its default-branch
+plus name. A separate short registered-workflow diagnostic control is tracked in
+JEV.md and removed from the final tree. It never replaces acceptance.
 
 ## Local and hosted commands
 

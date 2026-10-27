@@ -1,0 +1,136 @@
+{
+  "id": 40490285225,
+  "url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40490285225",
+  "event": "pull_request",
+  "branch": "ci/cache-and-live-jev",
+  "head_sha": "d3231a2393462fef25dbb43ed53ee3463b0ea9f5",
+  "attempt": 1,
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-10-27T10:40:21Z",
+  "updated_at": "2026-10-27T10:53:58Z",
+  "total_seconds": 817.0,
+  "jobs": [
+    {
+      "id": 122142213127,
+      "url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40490285225/job/122142213127",
+      "name": "acceptance",
+      "status": "completed",
+      "conclusion": "success",
+      "seconds": 809.0,
+      "runner_id": 1000022680,
+      "runner_name": "GitHub Actions 1000022680",
+      "runner_group_name": "GitHub Actions",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "steps": [
+        {
+          "name": "Set up job",
+          "seconds": 2.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "seconds": 1.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
+          "seconds": 1.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install locked fast-test environment",
+          "seconds": 4.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Fast properties, manifest verification and mocked diagnosis",
+          "seconds": 5.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069",
+          "seconds": 9.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run ./.github/actions/cache-runtime",
+          "seconds": 0.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build exact toolchain",
+          "seconds": 675.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Real Docker, original application tests and MCP acceptance",
+          "seconds": 96.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Collect bounded advisory diagnosis data",
+          "seconds": 0.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Upload diagnosis data without credentials",
+          "seconds": 1.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain all evidence, including failed scenarios",
+          "seconds": 2.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069",
+          "seconds": 5.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
+          "seconds": 1.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "seconds": 0.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "seconds": 0.0,
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "mago_buildkit_step_id": "25",
+  "mago_layer_seconds": 550.6,
+  "mago_layer_cached": false,
+  "cargo_release_line": "acceptance\tBuild exact toolchain\t2026-10-27T10:50:28.0330984Z #25 550.1     Finished `release` profile [optimized] target(s) in 9m 09s",
+  "cache_import_observed": true,
+  "cache_export_observed": true,
+  "cached_step_count": 0,
+  "node20_warning_lines": [],
+  "cache_export_seconds": 78.9
+}

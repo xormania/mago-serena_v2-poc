@@ -1,6 +1,4 @@
-# Temporary measured control: two spaces match the old trusted listener's '+'.
-# The final candidate restores the literal-plus name after observing its event.
-name: Pinned Serena  Mago PoC
+name: Pinned Serena + Mago PoC
 on:
   push:
     branches: [master]
@@ -9,8 +7,9 @@ on:
 permissions:
   contents: read
 concurrency:
-  # PR updates replace only that PR's acceptance; master and other refs are separate.
-  group: poc-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  # PR updates supersede that PR; explicit dispatches retain their own run IDs.
+  # Event scoping prevents a master push from cancelling a manual validation.
+  group: poc-${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.event_name == 'workflow_dispatch' && github.run_id || github.ref }}
   cancel-in-progress: true
 jobs:
   acceptance:

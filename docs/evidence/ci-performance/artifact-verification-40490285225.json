@@ -1,0 +1,68 @@
+{
+  "source": "read-only parsed uploaded evidence; no extracted artifact content executed",
+  "artifact_id": 12728348492,
+  "artifact_name": "poc-evidence-40490285225-1",
+  "runs": [
+    {
+      "run_id": "test-20261027-105210-151103",
+      "source_revision": "9ee5207de5b6d1aecc7f1ad5c73d7f0484e933b2",
+      "source_dirty": false,
+      "checks": 31,
+      "status_counts": {
+        "pass": 31
+      },
+      "inventory": [
+        "fast_tests",
+        "source_integrity",
+        "setup_a",
+        "phpunit_a",
+        "setup_b",
+        "phpunit_b",
+        "application_checks",
+        "executed_identity",
+        "trusted_baseline",
+        "workspace_isolation",
+        "baseline_unchanged",
+        "cleanup",
+        "direct_lsp",
+        "demo_symbols",
+        "cross_file_references",
+        "composer_navigation",
+        "demo_rename",
+        "interface_inheritance",
+        "invalid_rename",
+        "semantic_body_edit",
+        "position_accuracy",
+        "document_state",
+        "diagnostics",
+        "external_edit",
+        "repl_persistence",
+        "partial_execution",
+        "restart_and_death",
+        "negative_backend",
+        "negative_verifier",
+        "mago_external_span_control",
+        "application_integrity_final"
+      ],
+      "evidence_manifest_sha256": "d7c14c6147745a5d4742826e7ec1c74f48b21b2fa0da5773f25ff6d46bb9d808",
+      "fast": {
+        "schema": 1,
+        "kind": "deterministic_fast_tests",
+        "tests": 104,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "elapsed_s": 1.735,
+        "pass": true
+      },
+      "image": {
+        "container_id": "f39598dfad52a1908a072dc56ebed9ccb334dc793a441af83647b7f9f94d37b0",
+        "image_id": "sha256:5224b425fcd8441c8f6919e39db2c3ac95bb633e5f24c5031e679c8602f8a4d5",
+        "repo_digests": [],
+        "created": "2026-10-27T10:50:32.576435101Z",
+        "architecture": "amd64",
+        "installed_files_checked": 43
+      }
+    }
+  ]
+}

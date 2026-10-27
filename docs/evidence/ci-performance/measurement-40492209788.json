@@ -1,0 +1,136 @@
+{
+  "id": 40492209788,
+  "url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40492209788",
+  "event": "pull_request",
+  "branch": "ci/cache-and-live-jev",
+  "head_sha": "8c53349791c37c64f7ee1b262abc3b13f63e77a1",
+  "attempt": 1,
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-10-27T10:55:21Z",
+  "updated_at": "2026-10-27T10:57:42Z",
+  "total_seconds": 141.0,
+  "jobs": [
+    {
+      "id": 122148664040,
+      "url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40492209788/job/122148664040",
+      "name": "acceptance",
+      "status": "completed",
+      "conclusion": "success",
+      "seconds": 138.0,
+      "runner_id": 1000022682,
+      "runner_name": "GitHub Actions 1000022682",
+      "runner_group_name": "GitHub Actions",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "steps": [
+        {
+          "name": "Set up job",
+          "seconds": 2.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "seconds": 1.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
+          "seconds": 2.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install locked fast-test environment",
+          "seconds": 1.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Fast properties, manifest verification and mocked diagnosis",
+          "seconds": 2.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069",
+          "seconds": 9.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run ./.github/actions/cache-runtime",
+          "seconds": 0.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build exact toolchain",
+          "seconds": 38.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Real Docker, original application tests and MCP acceptance",
+          "seconds": 73.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Collect bounded advisory diagnosis data",
+          "seconds": 0.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Upload diagnosis data without credentials",
+          "seconds": 1.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain all evidence, including failed scenarios",
+          "seconds": 2.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069",
+          "seconds": 3.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
+          "seconds": 0.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "seconds": 1.0,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "seconds": 0.0,
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "mago_buildkit_step_id": "24",
+  "mago_layer_seconds": null,
+  "mago_layer_cached": true,
+  "cargo_release_line": null,
+  "cache_import_observed": true,
+  "cache_export_observed": true,
+  "cached_step_count": 24,
+  "node20_warning_lines": [],
+  "cache_export_seconds": 3.9
+}

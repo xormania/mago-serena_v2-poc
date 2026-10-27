@@ -78,6 +78,8 @@ class AcceptanceSchedulingTests(unittest.TestCase):
         self.assertIn('github.event.pull_request.number',group)
         self.assertIn('github.ref',group)
         self.assertIn('github.workflow',group)
+        self.assertIn('github.event_name',group)
+        self.assertIn('github.run_id',group)
 
 
 class CacheRuntimeActionTests(unittest.TestCase):
