@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "run_id": "test-20261027-095829-fc34be",
+  "run_id": "test-20261027-100407-41c86b",
   "attempt_id": "1",
   "installed_adapter": {
     "path": "/opt/poc/adapter/src/serena_mago/server.py",

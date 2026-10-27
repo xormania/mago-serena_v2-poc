@@ -17,7 +17,7 @@
         {
           "textDocument": {
             "version": 0,
-            "uri": "file:///tmp/mago-closed-state-w9t136ie/Caller.php"
+            "uri": "file:///tmp/mago-closed-state-mvekktc6/Caller.php"
           },
           "edits": [
             {
@@ -38,7 +38,7 @@
         {
           "textDocument": {
             "version": null,
-            "uri": "file:///tmp/mago-closed-state-w9t136ie/Target.php"
+            "uri": "file:///tmp/mago-closed-state-mvekktc6/Target.php"
           },
           "edits": [
             {
@@ -79,7 +79,7 @@
         {
           "textDocument": {
             "version": 0,
-            "uri": "file:///tmp/mago-closed-state-gjyhfqm6/Caller.php"
+            "uri": "file:///tmp/mago-closed-state-lsgk918s/Caller.php"
           },
           "edits": [
             {
@@ -100,7 +100,7 @@
         {
           "textDocument": {
             "version": null,
-            "uri": "file:///tmp/mago-closed-state-gjyhfqm6/Target.php"
+            "uri": "file:///tmp/mago-closed-state-lsgk918s/Target.php"
           },
           "edits": [
             {

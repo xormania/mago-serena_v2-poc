@@ -1,25 +1,12 @@
 {
   "schema": 1,
   "reviewed_base": "41729d30d23459de1ba53023051eb55894fb33b9",
-  "tested_source_commit": "05940ad9017c98fff1c7ef9a6a9e1e10a5799ccb",
-  "tested_tree_dirty": true,
-  "dirty_paths": [
-    "README.md",
-    "docs/ARCHITECTURE.md",
-    "docs/CAPABILITIES.md",
-    "docs/FIXTURE-CONTRACT.md",
-    "docs/PROVENANCE.md",
-    "docs/UPSTREAM-CONTRIBUTIONS.md",
-    "docs/evidence/strengthening/serena-fullsync-current.json",
-    "docs/evidence/strengthening/serena-fullsync-frames.txt",
-    "docs/evidence/strengthening/serena-upstream-tip.json",
-    "docs/upstream/mago-compatibility.md",
-    "docs/upstream/serena-full-sync.md",
-    "docs/upstream/unicode-state-coverage.md"
-  ],
-  "run_id": "test-20261027-095829-fc34be",
+  "tested_source_commit": "b0cac12fec7c4fcdb016114a845b0f825dc1f02d",
+  "tested_tree_dirty": false,
+  "dirty_paths": [],
+  "run_id": "test-20261027-100407-41c86b",
   "attempt_id": "1",
-  "context_sha256": "ed20a5476c3c09ae120445abd67cb2af22f424f8ff45f03043bd5d135d56cab6",
+  "context_sha256": "23ff21c0bfe764ff2d68f0d86a523b2c0eaaa6f70bd645959764dfa3397ff41c",
   "required_checks": 31,
   "passed_checks": 31,
   "fast_tests": {
@@ -29,7 +16,7 @@
     "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "elapsed_s": 0.9,
+    "elapsed_s": 0.942,
     "pass": true
   },
   "suite_a": {
@@ -48,7 +35,7 @@
     "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
   },
   "image": {
-    "container_id": "3fc785263bca940fd2834255df4d35095d263dc7d94dffb306d9bbf35d1be430",
+    "container_id": "dd609e51a1783015f5d7aec580bba9125b4b495457acec054bc233a77ef3350c",
     "image_id": "sha256:6d43afe2736778ca6e744a7451eecb7a522697cccbf612d2d09426f9de3acc03",
     "repo_digests": [],
     "created": "2026-10-27T09:58:18.714927582Z",
@@ -60,13 +47,39 @@
   "live_calibration": "pending",
   "hosted_ci": "not_observed",
   "clean_checkout_validation": {
-    "status": "pending"
+    "status": "pass",
+    "source_commit": "b0cac12fec7c4fcdb016114a845b0f825dc1f02d",
+    "dirty": false,
+    "dirty_content": {},
+    "checkout": "/home/scientdb/projects/xormania/mago-serena_v2-poc/.cache/hardening clean checkout",
+    "required_checks": 31,
+    "note": "Local environment symlinks excluded via .git/info/exclude before this run; no source changes. Earlier clone run recorded those two links as dirty and also passed, retained separately."
   },
-  "full_evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/test-20261027-095829-fc34be",
-  "retained_manifest_sha256": "49b6daadcd0c2824cc07d3c16a51cd9d9dada9a1954e8e00bcd99443ccb391b1",
+  "full_evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/test-20261027-100407-41c86b",
+  "retained_manifest_sha256": "ead0bca953ed99e9c980cf8aafcd7478f9e5fafa5bc380f6f73efb3c39f367ce",
   "known_mago_external_span": "expected-negative with fresh-process control; remains unfixed",
   "upstream_current_tips": {
     "serena_main": "9e1cced0c34ed48d668e179f7c56c77b4d14a3e3",
     "mago_next_server": "46df50c96d93d0ac3655c116c375574277cf0b30"
-  }
+  },
+  "original_execution_evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/.cache/hardening clean checkout/artifacts/test-20261027-100407-41c86b",
+  "earlier_successful_runs": [
+    {
+      "run_id": "test-20261027-095829-fc34be",
+      "source_commit": "05940ad9017c98fff1c7ef9a6a9e1e10a5799ccb",
+      "dirty": true,
+      "raw_evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/artifacts/test-20261027-095829-fc34be"
+    },
+    {
+      "run_id": "test-20261027-100157-d79487",
+      "source_commit": "b0cac12fec7c4fcdb016114a845b0f825dc1f02d",
+      "dirty": true,
+      "only_dirty_paths": [
+        ".cache",
+        ".venv"
+      ],
+      "raw_evidence": "/home/scientdb/projects/xormania/mago-serena_v2-poc/.cache/hardening clean checkout/artifacts/test-20261027-100157-d79487"
+    }
+  ],
+  "final_commit_note": "The later evidence-only commit records these results; executed code is the named clean source commit and matches final installed file hashes."
 }
