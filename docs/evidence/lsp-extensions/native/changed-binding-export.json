@@ -1,0 +1,65 @@
+{
+  "argv": [
+    [
+      "php",
+      "bin/console",
+      "cache:clear",
+      "--env=dev",
+      "--no-interaction"
+    ],
+    [
+      "php",
+      "bin/console",
+      "debug:container",
+      "--env=dev",
+      "--format=json",
+      "--no-interaction",
+      "--types"
+    ],
+    [
+      "php",
+      "bin/console",
+      "debug:container",
+      "--env=dev",
+      "--format=json",
+      "--no-interaction"
+    ],
+    [
+      "php",
+      "vendor/byte-kitsune/mago-symfony-wiring/bin/create-container-reference.php",
+      "--types=/state/lspext-types.json",
+      "--services=/state/lspext-services.json",
+      "--autoload=/app/vendor/autoload.php"
+    ]
+  ],
+  "sha256": "a555dae9dd7f3f1356b3da1dbce0a272306d0be37571e42c94ab04f35f134abf",
+  "definitions": {
+    "App\\Repository\\TagRepository": {
+      "class": "App\\Repository\\TagRepository",
+      "arguments": [
+        "lspext.registry"
+      ]
+    },
+    "doctrine": {
+      "class": "Doctrine\\Bundle\\DoctrineBundle\\Registry",
+      "arguments": [
+        "service_container",
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "lspext.registry": {
+      "class": "App\\LspProof\\AlternateRegistry",
+      "arguments": [
+        "service_container",
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  "source_sha256": "9ea2dbecdf551f1d0eb46e240e850de6af3a02aae8139f0196c87302b1448fe8"
+}

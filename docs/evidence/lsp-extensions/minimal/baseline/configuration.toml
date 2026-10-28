@@ -1,0 +1,10 @@
+version = "1"
+php-version = "8.5"
+threads = 1
+[source]
+paths = ["src"]
+[extension-hosts.php]
+workers = 1
+request-timeout-ms = 5000
+shutdown-timeout-ms = 1000
+command = ["php", "/tmp/mago-lsp-worker-repro-vwcz7087/worker.php", "/app/vendor/autoload.php"]

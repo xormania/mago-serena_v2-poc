@@ -1,0 +1,76 @@
+{
+  "name": "mago-poc-3aa45f25-lspext-20261028b-candidate",
+  "networks": {
+    "default": {
+      "name": "mago-poc-3aa45f25-lspext-20261028b-candidate_default",
+      "ipam": {}
+    }
+  },
+  "services": {
+    "php": {
+      "build": {
+        "context": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b",
+        "dockerfile": "Dockerfile"
+      },
+      "command": null,
+      "entrypoint": null,
+      "environment": {
+        "POC_ATTEMPT_ID": "1",
+        "POC_RUN_ID": "lspext-20261028b-candidate",
+        "POC_TRACE": "0"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "php",
+          "-r",
+          "exit(@file_get_contents('http://127.0.0.1:8000/en/blog/') === false ? 1 : 0);"
+        ],
+        "timeout": "10s",
+        "interval": "3s",
+        "retries": 30,
+        "start_period": "2m0s"
+      },
+      "image": "mago-serena-poc:lsp-workers-20261028b",
+      "init": true,
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8000,
+          "published": "0",
+          "protocol": "tcp"
+        }
+      ],
+      "stop_grace_period": "10s",
+      "user": "1006:1006",
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/workspaces/lspext-20261028b-candidate/app",
+          "target": "/app"
+        },
+        {
+          "type": "bind",
+          "source": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/workspaces/lspext-20261028b-candidate/state",
+          "target": "/state"
+        },
+        {
+          "type": "bind",
+          "source": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/artifacts/lspext-20261028b-candidate",
+          "target": "/evidence"
+        },
+        {
+          "type": "bind",
+          "source": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/workspaces/lspext-20261028b-candidate/trusted",
+          "target": "/trusted",
+          "read_only": true
+        }
+      ],
+      "working_dir": "/app"
+    }
+  }
+}

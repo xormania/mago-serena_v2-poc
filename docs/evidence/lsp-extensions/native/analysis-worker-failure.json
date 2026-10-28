@@ -1,0 +1,415 @@
+{
+  "killed_owned_worker": 315,
+  "error": "{\"code\": -32803, \"message\": \"Workspace analysis failed; edit or save a file to retry\"}",
+  "logs": [
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file:///app/src/Security/PostVoter.php",
+        "diagnostics": [
+          {
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 0
+              },
+              "end": {
+                "line": 0,
+                "character": 5
+              }
+            },
+            "severity": 2,
+            "code": "strict-types",
+            "source": "mago",
+            "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+          },
+          {
+            "range": {
+              "start": {
+                "line": 40,
+                "character": 105
+              },
+              "end": {
+                "line": 40,
+                "character": 109
+              }
+            },
+            "severity": 2,
+            "code": "literal-named-argument",
+            "source": "mago",
+            "message": "Literal argument `true` should be passed as a named argument for clarity.\n = This literal is being passed positionally.\n = Passing literals positionally can make code less clear, especially with booleans, numbers, or `null`.\n = Help: Consider using a named argument instead: `function_name(param: true)`."
+          },
+          {
+            "range": {
+              "start": {
+                "line": 46,
+                "character": 80
+              },
+              "end": {
+                "line": 46,
+                "character": 86
+              }
+            },
+            "severity": 1,
+            "code": "sensitive-parameter",
+            "source": "mago",
+            "message": "Parameters that may contain sensitive information should be marked with the `#[SensitiveParameter]` attribute.\n = Sensitive parameter found here.\n = Marking sensitive parameters helps prevent accidental logging or exposure of sensitive data in exception backtraces.\n = Help: Add the `#[SensitiveParameter]` attribute to the parameter declaration."
+          }
+        ]
+      }
+    },
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file:///app/tests/Command/AddUserCommandTest.php",
+        "diagnostics": [
+          {
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 0
+              },
+              "end": {
+                "line": 0,
+                "character": 5
+              }
+            },
+            "severity": 2,
+            "code": "strict-types",
+            "source": "mago",
+            "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+          },
+          {
+            "range": {
+              "start": {
+                "line": 24,
+                "character": 8
+              },
+              "end": {
+                "line": 24,
+                "character": 18
+              }
+            },
+            "severity": 1,
+            "code": "no-literal-password",
+            "source": "mago",
+            "message": "Literal passwords or sensitive data should not be stored in code.\n = Sensitive item found here.\n = Storing passwords or sensitive information as literals in code is a security risk.\n = This can lead to accidental exposure of sensitive data in version control or logs.\n = Help: Use environment variables or secure configuration management instead."
+          },
+          {
+            "range": {
+              "start": {
+                "line": 41,
+                "character": 54
+              },
+              "end": {
+                "line": 41,
+                "character": 62
+              }
+            },
+            "severity": 4,
+            "code": "no-boolean-flag-parameter",
+            "source": "mago",
+            "message": "Avoid boolean flag parameters.\n = This parameter acts as a boolean flag\n = Boolean flags often indicate a function has more than one responsibility, making it harder to understand and test.\n = Help: Refactor by splitting the function into two separate methods, each with a clear, descriptive name."
+          },
+          {
+            "range": {
+              "start": {
+                "line": 60,
+                "character": 51
+              },
+              "end": {
+                "line": 60,
+                "character": 59
+              }
+            },
+            "severity": 4,
+            "code": "no-boolean-flag-parameter",
+            "source": "mago",
+            "message": "Avoid boolean flag parameters.\n = This parameter acts as a boolean flag\n = Boolean flags often indicate a function has more than one responsibility, making it harder to understand and test.\n = Help: Refactor by splitting the function into two separate methods, each with a clear, descriptive name."
+          },
+          {
+            "range": {
+              "start": {
+                "line": 87,
+                "character": 44
+              },
+              "end": {
+                "line": 87,
+                "character": 52
+              }
+            },
+            "severity": 4,
+            "code": "no-boolean-flag-parameter",
+            "source": "mago",
+            "message": "Avoid boolean flag parameters.\n = This parameter acts as a boolean flag\n = Boolean flags often indicate a function has more than one responsibility, making it harder to understand and test.\n = Help: Refactor by splitting the function into two separate methods, each with a clear, descriptive name."
+          }
+        ]
+      }
+    },
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file:///app/src/Entity/User.php",
+        "diagnostics": [
+          {
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 0
+              },
+              "end": {
+                "line": 0,
+                "character": 5
+              }
+            },
+            "severity": 2,
+            "code": "strict-types",
+            "source": "mago",
+            "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+          },
+          {
+            "range": {
+              "start": {
+                "line": 30,
+                "character": 0
+              },
+              "end": {
+                "line": 30,
+                "character": 10
+              }
+            },
+            "severity": 1,
+            "code": "too-many-methods",
+            "source": "mago",
+            "message": "Class has too many methods.\n = Class has 11 methods, which exceeds the threshold of 10.\n = Having a large number of methods can make structures harder to understand and maintain.\n = Help: Try reducing the number of methods, or consider splitting the structure into smaller, more focused structures."
+          },
+          {
+            "range": {
+              "start": {
+                "line": 110,
+                "character": 39
+              },
+              "end": {
+                "line": 110,
+                "character": 48
+              }
+            },
+            "severity": 1,
+            "code": "sensitive-parameter",
+            "source": "mago",
+            "message": "Parameters that may contain sensitive information should be marked with the `#[SensitiveParameter]` attribute.\n = Sensitive parameter found here.\n = Marking sensitive parameters helps prevent accidental logging or exposure of sensitive data in exception backtraces.\n = Help: Add the `#[SensitiveParameter]` attribute to the parameter declaration."
+          },
+          {
+            "range": {
+              "start": {
+                "line": 123,
+                "character": 12
+              },
+              "end": {
+                "line": 123,
+                "character": 25
+              }
+            },
+            "severity": 1,
+            "code": "no-empty",
+            "source": "mago",
+            "message": "Use of the `empty` construct.\n = Ambiguous check due to `empty()` loose semantic\n = `empty()` exhibits unexpected behavior on specific value.\n = It is unclear what condition is being treated with `empty()`.\n = Help: Use strict comparison or specific predicate function to clearly convey your intent."
+          }
+        ]
+      }
+    },
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file:///app/src/Repository/TagRepository.php",
+        "version": 4,
+        "diagnostics": [
+          {
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 0
+              },
+              "end": {
+                "line": 0,
+                "character": 5
+              }
+            },
+            "severity": 2,
+            "code": "strict-types",
+            "source": "mago",
+            "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+          }
+        ]
+      }
+    },
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file:///app/src/Pagination/Paginator.php",
+        "diagnostics": [
+          {
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 0
+              },
+              "end": {
+                "line": 0,
+                "character": 5
+              }
+            },
+            "severity": 2,
+            "code": "strict-types",
+            "source": "mago",
+            "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+          },
+          {
+            "range": {
+              "start": {
+                "line": 67,
+                "character": 35
+              },
+              "end": {
+                "line": 67,
+                "character": 56
+              }
+            },
+            "severity": 2,
+            "code": "no-shorthand-ternary",
+            "source": "mago",
+            "message": "Use of the shorthand ternary operator.\n = Ambiguous check due to `? :` loose comparison\n = Help: Use null coalesce operator (`??`) or ternary operator with explicit strict comparison."
+          }
+        ]
+      }
+    },
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file:///app/src/Controller/BlogController.php",
+        "diagnostics": [
+          {
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 0
+              },
+              "end": {
+                "line": 0,
+                "character": 5
+              }
+            },
+            "severity": 2,
+            "code": "strict-types",
+            "source": "mago",
+            "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+          }
+        ]
+      }
+    },
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file:///app/src/EventSubscriber/CommentNotificationSubscriber.php",
+        "diagnostics": [
+          {
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 0
+              },
+              "end": {
+                "line": 0,
+                "character": 5
+              }
+            },
+            "severity": 2,
+            "code": "strict-types",
+            "source": "mago",
+            "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+          }
+        ]
+      }
+    },
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file:///app/src/Twig/SourceCodeExtension.php",
+        "diagnostics": [
+          {
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 0
+              },
+              "end": {
+                "line": 0,
+                "character": 5
+              }
+            },
+            "severity": 2,
+            "code": "strict-types",
+            "source": "mago",
+            "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+          },
+          {
+            "range": {
+              "start": {
+                "line": 42,
+                "character": 46
+              },
+              "end": {
+                "line": 42,
+                "character": 49
+              }
+            },
+            "severity": 2,
+            "code": "literal-named-argument",
+            "source": "mago",
+            "message": "Literal argument `'/'` should be passed as a named argument for clarity.\n = This literal is being passed positionally.\n = Passing literals positionally can make code less clear, especially with booleans, numbers, or `null`.\n = Help: Consider using a named argument instead: `function_name(param: '/')`."
+          },
+          {
+            "range": {
+              "start": {
+                "line": 56,
+                "character": 34
+              },
+              "end": {
+                "line": 56,
+                "character": 37
+              }
+            },
+            "severity": 2,
+            "code": "literal-named-argument",
+            "source": "mago",
+            "message": "Literal argument `'/'` should be passed as a named argument for clarity.\n = This literal is being passed positionally.\n = Passing literals positionally can make code less clear, especially with booleans, numbers, or `null`.\n = Help: Consider using a named argument instead: `function_name(param: '/')`."
+          },
+          {
+            "range": {
+              "start": {
+                "line": 107,
+                "character": 49
+              },
+              "end": {
+                "line": 107,
+                "character": 53
+              }
+            },
+            "severity": 2,
+            "code": "literal-named-argument",
+            "source": "mago",
+            "message": "Literal argument `true` should be passed as a named argument for clarity.\n = This literal is being passed positionally.\n = Passing literals positionally can make code less clear, especially with booleans, numbers, or `null`.\n = Help: Consider using a named argument instead: `function_name(param: true)`."
+          }
+        ]
+      }
+    }
+  ]
+}

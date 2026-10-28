@@ -1,0 +1,54 @@
+{
+    "class": "Doctrine\\Bundle\\DoctrineBundle\\Registry",
+    "public": true,
+    "synthetic": false,
+    "lazy": false,
+    "shared": true,
+    "abstract": false,
+    "autowire": false,
+    "autoconfigure": false,
+    "deprecated": false,
+    "description": "References all Doctrine connections and entity managers in a given Container.",
+    "arguments": [
+        {
+            "type": "service",
+            "id": "service_container"
+        },
+        "%doctrine.connections%",
+        "%doctrine.entity_managers%",
+        "default",
+        "default"
+    ],
+    "file": null,
+    "tags": [
+        {
+            "name": "kernel.reset",
+            "parameters": {
+                "method": "reset"
+            }
+        }
+    ],
+    "usages": [
+        "Doctrine\\Persistence\\ManagerRegistry",
+        "App\\Repository\\PostRepository",
+        "App\\Repository\\TagRepository",
+        "App\\Repository\\UserRepository",
+        "services_resetter",
+        "security.user.provider.concrete.database_users",
+        "data_collector.doctrine",
+        "doctrine.database_create_command",
+        "doctrine.database_drop_command",
+        "Doctrine\\Bundle\\DoctrineBundle\\Controller\\ProfilerController",
+        "form.type_guesser.doctrine",
+        "form.type.entity",
+        "doctrine.orm.validator.unique",
+        "doctrine.orm.validator_initializer",
+        "doctrine.orm.command.entity_manager_provider",
+        "doctrine.orm.entity_value_resolver",
+        "doctrine.event_manager_debug_command",
+        "doctrine.entity_listeners_debug_command",
+        "doctrine.fixtures_load_command",
+        "maker.doctrine_helper",
+        "ux.live_component.doctrine_entity_hydration_extension"
+    ]
+}

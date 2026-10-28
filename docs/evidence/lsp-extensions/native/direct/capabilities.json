@@ -1,0 +1,62 @@
+{
+  "capabilities": {
+    "textDocumentSync": {
+      "openClose": true,
+      "change": 1,
+      "willSave": false,
+      "willSaveWaitUntil": false,
+      "save": true
+    },
+    "completionProvider": {
+      "triggerCharacters": [
+        "$",
+        ":",
+        "\\",
+        ">",
+        " "
+      ],
+      "resolveProvider": false
+    },
+    "hoverProvider": true,
+    "signatureHelpProvider": {
+      "triggerCharacters": [
+        "(",
+        ","
+      ]
+    },
+    "definitionProvider": true,
+    "typeDefinitionProvider": true,
+    "implementationProvider": true,
+    "referencesProvider": true,
+    "documentHighlightProvider": true,
+    "documentSymbolProvider": true,
+    "codeLensProvider": {
+      "resolveProvider": true
+    },
+    "documentLinkProvider": {
+      "resolveProvider": false
+    },
+    "workspaceSymbolProvider": true,
+    "documentFormattingProvider": true,
+    "documentRangeFormattingProvider": true,
+    "renameProvider": true,
+    "foldingRangeProvider": true,
+    "selectionRangeProvider": true,
+    "callHierarchyProvider": true,
+    "typeHierarchyProvider": true,
+    "inlayHintProvider": true,
+    "workspace": {
+      "workspaceFolders": {
+        "supported": true,
+        "changeNotifications": true
+      }
+    },
+    "experimental": {
+      "symbolReferencesProvider": true
+    }
+  },
+  "serverInfo": {
+    "name": "mago-server",
+    "version": "1.58.2"
+  }
+}

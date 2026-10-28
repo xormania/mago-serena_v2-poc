@@ -1,0 +1,12 @@
+ INFO Overriding workspace directory with /tmp/mago-lsp-worker-repro-bapwlif8.
+ WARN The `language-server` subcommand is a work in progress. The set of advertised capabilities, the wire behaviour, the flags below, and even the existence of this subcommand can change or disappear without notice.
+ WARN There are no compatibility guarantees until mago 2.0. if you need a stable editor integration, wait for that release.
+ WARN If you want to help shape the LSP, or if you have a specific editor integration in mind, please open an issue or a PR.
+ INFO bootstrap starting root=/tmp/mago-lsp-worker-repro-bapwlif8
+ INFO Silencing project version drift warning.
+ INFO Overriding workspace directory with /tmp/mago-lsp-worker-repro-bapwlif8.
+ INFO analyzer pass complete elapsed=6.386554ms issues=0
+ INFO file analysis pass complete elapsed=102.793µs files=1 issues=3
+ INFO ready elapsed=30.666921ms workspaces=1
+ INFO shutdown request received, shutting down
+ INFO exit notification received, stopping

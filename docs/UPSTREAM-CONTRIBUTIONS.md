@@ -232,43 +232,57 @@ written outside them.
   edits, fresh cross-file oracles and restart. Promising documentation contribution;
   finalize after U01/2115 boundary decisions. No submission prepared as an API promise.
 
-## U09 — Native LSP external analyzer candidate and baseline omission
+## U09 — Native LSP external analyzer lifecycle and dependency graph candidate
 
-- **Observed / attribution:** experimental Mago source
-  `46df50c96d93d0ac3655c116c375574277cf0b30`, matched-source PHP SDK/MANA 2.1,
-  wiring extension `28c3f54065b71fe046a7474ced401aeadc941b0f`, explicit PHP
-  backend. The configured CLI starts the external worker, completes its
-  after-analysis observer and emits a complete 34-file attestation. The same
-  configured LSP initializes and returns normal service symbols but never starts
-  that worker. This isolates server propagation from package compatibility and
-  Serena exposure. It does not establish behavior of a different server pin.
-- **Reproduction / healthy control:**
-  `.venv/bin/python tests/integration/service_semantics.py --run <prepared-run> --extension-propagation`.
-  The instrumented worker writes its startup marker under retained evidence;
-  CLI is the positive startup/contribution control, LSP is the negative result.
-  [Draft and source locations](upstream/mago-lsp-extension-hosts.md),
-  [live result](evidence/slice1/semantic-propagation-result.json), and
-  [the framework graph controls](SYMFONY-WIRING.md) retain exact identities and
-  input/output evidence. The probe refuses to report the old blocker if startup
-  behavior changes.
-- **Baseline workaround:** use the matched CLI for framework-enriched
-  checks and Serena for demonstrated native semantics. This costs a separate
-  CLI analysis and does not enrich editor references. A server change must
-  initialize/configure external analyzer workers and handle their lifecycle;
-  an adapter wrapper cannot establish that native server behavior. The original
-  slice reproduction made no Rust/server source update.
-- **Candidate correction / validation pending:** the new unpublished patch on
-  the same Mago base attaches native external analyzer state to each workspace
-  registry and uses the existing incremental pipeline. It adds a separate
-  `mago/symbolReferences` read-only native graph request because the demonstrated
-  Symfony Body edge has no source span. The adapter forwards server data and an
-  additive patch to pinned Serena exposes it to the REPL. Workspace replacement
-  and shutdown release workers; failed analysis/reload refuses stale semantic
-  results. Metadata freshness requires a full reload through configured
-  `restart-on` watched paths or explicit restart. SDK `1.58.2`/MANA `2.1` remain
-  unchanged. Candidate hashes, actual lifecycle/graph/agent controls and
-  acceptance results are pending in [the focused document](MAGO-LSP-EXTENSIONS.md).
-  No upstream publication or acceptance is claimed.
+- **Baseline / attribution:** experimental Mago
+  `46df50c96d93d0ac3655c116c375574277cf0b30`, matched SDK `1.58.2`/MANA `2.1`,
+  wiring extension `28c3f54065b71fe046a7474ced401aeadc941b0f`, PHP backend.
+  The corrected matched control starts/completes the CLI worker and observes its
+  concrete Registry Body dependency; unpatched LSP serves native symbols without
+  worker startup. This remains a named-source server omission, not a general
+  extension/Serena incompatibility.
+- **Harness correction:** a folder's own `mago.toml` overrides launch `--config`.
+  The earlier launch-config-only slice probe did not prove matched effective LSP
+  configuration. Historical snapshots remain intact; the new probe temporarily
+  installs the same instrumented configuration at the workspace root, restores
+  original bytes and independently reproduces the omission. See the
+  [corrected baseline and configuration](evidence/lsp-extensions/baseline/index.json).
+- **Implemented candidate:** the [native patch](../patches/mago-lsp-extensions.patch)
+  attaches existing external analyzer state to each workspace registry, loads
+  initialization stubs and uses the native incremental pipeline. Worker lifetime
+  follows workspace generations and shutdown. Failed analysis/reload refuses
+  stale semantic results. The separate `mago/symbolReferences` request returns
+  actual typed dependency edges; the adapter and
+  [small Serena facade patch](../patches/serena-symbol-references.patch) forward
+  those results without a CLI fallback. The edge has no source span, runtime-call
+  meaning or per-edge provider provenance. Class/function/member queries are the
+  intended scope; top-level case-sensitive constants are not demonstrated.
+- **Proof / boundaries:** [19 real-worker/direct-LSP controls and four focused
+  Rust tests](evidence/lsp-extensions/native/index.json) pass. They cover unsaved
+  contents without duplicate startup, real compiled changed/restored bindings,
+  analysis and worker-command failure/recovery, host disable/re-enable,
+  shutdown/restart and independent folder isolation. The [adaptive host MCP
+  investigation](evidence/lsp-extensions/agent/result.json) has 15 agent-selected
+  calls and four true off/on/change/restoration flags; the original 53 tests and
+  120 assertions pass with source/test identities. The [minimal real-SDK
+  regression](upstream/lsp-extensions-repro/README.md) independently compares the
+  two executables. Broad semantic acceptance and slices 1/2 pass on their recorded
+  image; a final gate-strengthening rerun is recorded separately.
+- **Identities / freshness:** base and SDK/protocol are unchanged. Mago patch
+  SHA-256 `ca955e0db6023a997fe708d46d3bd0b92e6dd91237aee7c206f13768effdea11`,
+  executable SHA-256 `5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46`.
+  Fresh compiled metadata requires export plus a configured `restart-on`
+  watched-file reload or explicit server restart; source edits do not recompile
+  Symfony metadata. The [compatibility record](evidence/lsp-extensions/compatibility.json)
+  verifies actual SDK header/package sources. The [diagnostic comparison](evidence/lsp-extensions/diagnostic-comparison.json)
+  shows identical complete 35-native-Issue sets for baseline and candidate off/on
+  across 46 files; enabled reports add one real attestation. The historical
+  30-diagnostic/34-source-file record remains unchanged. Initial load failure requires process restart or folder
+  remove/re-add. [The focused document](MAGO-LSP-EXTENSIONS.md) records exact
+  patches/build identities, opt-in config, observations and limits.
+- **Upstream readiness:** local reviewable patch and regression fixture; no
+  upstream publication or acceptance. The historical external-span finding is
+  separate. [Draft](upstream/mago-lsp-extension-hosts.md).
 
 Slice 1 also extends U05 with a positive compiled-wiring compatibility report:
 Mate confirms `TagsInputType → TagRepository → doctrine/Registry`, while the
@@ -296,7 +310,7 @@ tracked separately and does not retroactively change that result.
 | Ready to discuss | U04 | Mago external-span issue with [tiny repro, frames and healthy control](upstream/mago-external-spans.md) |
 | Ready to discuss | U01 | SolidLSP full-sync policy, [current-code live reproduction and draft](upstream/serena-full-sync.md) |
 | Ready to share | U05 | [Positive Symfony compatibility report](upstream/mago-compatibility.md), with U04 and unexercised features attached |
-| Candidate validation pending | U09 | Native worker lifecycle and faithful dependency-graph exposure on the matched base; [unpublished draft](upstream/mago-lsp-extension-hosts.md) and [focused contract](MAGO-LSP-EXTENSIONS.md) |
+| Local candidate ready for review | U09 | Native worker lifecycle, typed graph exposure and real CLI/LSP/Serena controls; [unpublished draft](upstream/mago-lsp-extension-hosts.md) and [results/limits](MAGO-LSP-EXTENSIONS.md) |
 | Existing work to validate | U02 | [Additional Unicode/state properties](upstream/unicode-state-coverage.md) for2115 and xormania6; actual PR-branch A/B still pending |
 | Promising, more evidence/design | U06, U08 | Native lifecycle/collision tests and backend-author docs; cancellation/new API promises remain unproven |
 | Confined to our PoC | U03, U07 | Fixed adapter cache, whole-app verifier and report integrity; share tests without misattributing ownership |

@@ -1,0 +1,15 @@
+{
+  "old_owner": {
+    "source": {
+      "symbol": "app\\repository\\tagrepository",
+      "member": "__construct"
+    },
+    "references": []
+  },
+  "disk_sha256": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+  "buffer_sha256": "61234cb28b792f3e480a657c07678966a01948fd023bfe27afe585e6dabadb8a",
+  "worker_pids": [
+    258,
+    315
+  ]
+}

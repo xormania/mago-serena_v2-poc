@@ -1,0 +1,157 @@
+{
+  "schema": 1,
+  "kind": "corrected_matched_baseline_cli_lsp_control",
+  "run_id": "lspext-20261028b-baseline",
+  "status": "baseline_omission_observed",
+  "candidate": false,
+  "mago_base": "46df50c96d93d0ac3655c116c375574277cf0b30",
+  "source_probe_directory": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/artifacts/lspext-20261028b-baseline/service-semantics/propagation-2e606492",
+  "harness_correction": "A workspace-root mago.toml overrides launch --config. This corrected rerun installs workspace-config.toml extending the instrumented config for both CLI/LSP, then restores original bytes. Replaces earlier propagation-c60cb584 snapshot; historical slice-1 files are not rewritten.",
+  "observed": {
+    "cli_exit": 1,
+    "cli_worker_started": true,
+    "cli_observer_ran": true,
+    "lsp_worker_started": false,
+    "lsp_observer_ran": false,
+    "lsp_native_symbols_returned": true
+  },
+  "files": {
+    "baseline/result.json": {
+      "source": "artifacts/lspext-20261028b-baseline/service-semantics/propagation-2e606492/result.json",
+      "sha256": "1c5ae0e93440d6fce2d714f08aaa4dfac05b1e178245a12d49f96ae7f5bb08d4",
+      "bytes": 8127,
+      "source_sha256": "1c5ae0e93440d6fce2d714f08aaa4dfac05b1e178245a12d49f96ae7f5bb08d4",
+      "source_bytes": 8127,
+      "truncated": false
+    },
+    "baseline/probe.py": {
+      "source": "artifacts/lspext-20261028b-baseline/service-semantics/propagation-2e606492/probe.py",
+      "sha256": "8d650ffa527082ae5eb1a460aaae4f56e2c1c819a5160f93fc9bc2a1cb48efa1",
+      "bytes": 5108,
+      "source_sha256": "8d650ffa527082ae5eb1a460aaae4f56e2c1c819a5160f93fc9bc2a1cb48efa1",
+      "source_bytes": 5108,
+      "truncated": false
+    },
+    "baseline/instrumented.toml": {
+      "source": "artifacts/lspext-20261028b-baseline/service-semantics/propagation-2e606492/instrumented.toml",
+      "sha256": "c478b9d585b77f45009c46811ef562fa6a4885a768dd94a9216f2c6641ed9690",
+      "bytes": 335,
+      "source_sha256": "c478b9d585b77f45009c46811ef562fa6a4885a768dd94a9216f2c6641ed9690",
+      "source_bytes": 335,
+      "truncated": false
+    },
+    "baseline/workspace-config.toml": {
+      "source": "artifacts/lspext-20261028b-baseline/service-semantics/propagation-2e606492/workspace-config.toml",
+      "sha256": "d5cca2ab16d2ec9bf68be4f2bf2451200ba025c8803b2e8af735d46fbf08e316",
+      "bytes": 79,
+      "source_sha256": "d5cca2ab16d2ec9bf68be4f2bf2451200ba025c8803b2e8af735d46fbf08e316",
+      "source_bytes": 79,
+      "truncated": false
+    },
+    "baseline/worker-launch.py": {
+      "source": "artifacts/lspext-20261028b-baseline/service-semantics/propagation-2e606492/worker-launch.py",
+      "sha256": "29d3ede282f41cbef830d9b30a086e66bc936da86bd87653c49e7351f2619c38",
+      "bytes": 174,
+      "source_sha256": "29d3ede282f41cbef830d9b30a086e66bc936da86bd87653c49e7351f2619c38",
+      "source_bytes": 174,
+      "truncated": false
+    },
+    "baseline/cli-observation.json": {
+      "source": "artifacts/lspext-20261028b-baseline/service-semantics/propagation-2e606492/cli-observation.json",
+      "sha256": "5d582e8097723664b91fda5b4d55ffc91d35cce1189815981fe0363156b89069",
+      "bytes": 12389,
+      "source_sha256": "5d582e8097723664b91fda5b4d55ffc91d35cce1189815981fe0363156b89069",
+      "source_bytes": 12389,
+      "truncated": false
+    },
+    "baseline/cli-worker-starts.txt": {
+      "source": "artifacts/lspext-20261028b-baseline/service-semantics/propagation-2e606492/cli-worker-starts.txt",
+      "sha256": "a51062d57cd54fcff96921d96cc1e164cda4794ee2417f99c2ff189ea4a88ea9",
+      "bytes": 240,
+      "source_sha256": "a51062d57cd54fcff96921d96cc1e164cda4794ee2417f99c2ff189ea4a88ea9",
+      "source_bytes": 240,
+      "truncated": false
+    },
+    "baseline/cli.stdout.json": {
+      "source": "artifacts/lspext-20261028b-baseline/service-semantics/propagation-2e606492/cli.stdout.json",
+      "sha256": "6f2f1b161fb61b5c82e1a10976169087868aac4d49e72d1a5cfd793f0925e401",
+      "bytes": 51116,
+      "source_sha256": "6f2f1b161fb61b5c82e1a10976169087868aac4d49e72d1a5cfd793f0925e401",
+      "source_bytes": 51116,
+      "truncated": false
+    },
+    "baseline/cli.stderr": {
+      "source": "artifacts/lspext-20261028b-baseline/service-semantics/propagation-2e606492/cli.stderr",
+      "sha256": "a919760c60320a41ac4ee6cd4ccce986f0b810ce4383b8ee5da40de2fd0a201b",
+      "bytes": 48,
+      "source_sha256": "a919760c60320a41ac4ee6cd4ccce986f0b810ce4383b8ee5da40de2fd0a201b",
+      "source_bytes": 48,
+      "truncated": false
+    },
+    "baseline/lsp/direct-lsp.jsonl": {
+      "source": "artifacts/lspext-20261028b-baseline/service-semantics/propagation-2e606492/lsp/direct-lsp.jsonl",
+      "sha256": "ff4e021d314d56cd2c3583ebcdc54481d1eec133922f14d7f16778299e979f05",
+      "bytes": 74398,
+      "source_sha256": "ff4e021d314d56cd2c3583ebcdc54481d1eec133922f14d7f16778299e979f05",
+      "source_bytes": 74398,
+      "truncated": false
+    },
+    "baseline/lsp/direct-lsp.jsonl.summary.json": {
+      "source": "artifacts/lspext-20261028b-baseline/service-semantics/propagation-2e606492/lsp/direct-lsp.jsonl.summary.json",
+      "sha256": "4e607c022478f032456a3fa592d9d02640d4385d6ed6878b4b8b6a91313c1759",
+      "bytes": 171,
+      "source_sha256": "4e607c022478f032456a3fa592d9d02640d4385d6ed6878b4b8b6a91313c1759",
+      "source_bytes": 171,
+      "truncated": false
+    },
+    "baseline/lsp/direct-lsp.stderr": {
+      "source": "artifacts/lspext-20261028b-baseline/service-semantics/propagation-2e606492/lsp/direct-lsp.stderr",
+      "sha256": "7a0c5a49ee89e7acd4b836f45cfb6ab3d91b9fde0fba00a8011e536f00391d18",
+      "bytes": 912,
+      "source_sha256": "7a0c5a49ee89e7acd4b836f45cfb6ab3d91b9fde0fba00a8011e536f00391d18",
+      "source_bytes": 912,
+      "truncated": false
+    },
+    "baseline/lsp/capabilities.json": {
+      "source": "artifacts/lspext-20261028b-baseline/service-semantics/propagation-2e606492/lsp/capabilities.json",
+      "sha256": "d2005c1752d0629201995f451f5fbd79b10ddae68e03d3c094d32804d8dd343d",
+      "bytes": 1339,
+      "source_sha256": "d2005c1752d0629201995f451f5fbd79b10ddae68e03d3c094d32804d8dd343d",
+      "source_bytes": 1339,
+      "truncated": false
+    },
+    "baseline/wiring.toml": {
+      "source": "workspaces/lspext-20261028b-baseline/app/.mago/wiring.toml",
+      "sha256": "e4e7946632cae6ea0269fcd2a58016b5cefb4d9d46c767e03446ab7d73d0ee68",
+      "bytes": 330,
+      "source_sha256": "e4e7946632cae6ea0269fcd2a58016b5cefb4d9d46c767e03446ab7d73d0ee68",
+      "source_bytes": 330,
+      "truncated": false
+    },
+    "baseline/extensions.php": {
+      "source": "workspaces/lspext-20261028b-baseline/app/.mago/extensions.php",
+      "sha256": "286efdf27fce68f255af61d186748e97b15f3b3f14239cbe2a1983c8ab4f9d65",
+      "bytes": 5319,
+      "source_sha256": "286efdf27fce68f255af61d186748e97b15f3b3f14239cbe2a1983c8ab4f9d65",
+      "source_bytes": 5319,
+      "truncated": false
+    },
+    "baseline/image-identity.json": {
+      "source": "read-only baseline container/upstream observation",
+      "sha256": "66eff3bbfcd8d7e5d9d434bfa536b0bf5327c375b2855b2048797708d3fd6f73",
+      "bytes": 3703,
+      "truncated": false
+    },
+    "baseline/upstream-refs.json": {
+      "source": "read-only baseline container/upstream observation",
+      "sha256": "2b7b06c3ddb0327928272cd56058000a7424afdbca34bdb699113fb0287b2376",
+      "bytes": 623,
+      "truncated": false
+    }
+  },
+  "total_artifact_bytes": 164411,
+  "bounds": {
+    "max_artifact_bytes": 1048576,
+    "truncated_files": []
+  }
+}

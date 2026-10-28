@@ -1,0 +1,27 @@
+{
+    "class": "App\\LspProof\\AlternateRegistry",
+    "public": true,
+    "synthetic": false,
+    "lazy": false,
+    "shared": true,
+    "abstract": false,
+    "autowire": false,
+    "autoconfigure": false,
+    "deprecated": false,
+    "arguments": [
+        {
+            "type": "service",
+            "id": "service_container"
+        },
+        "%doctrine.connections%",
+        "%doctrine.entity_managers%",
+        "default",
+        "default"
+    ],
+    "file": null,
+    "tags": [],
+    "usages": [
+        "App\\LspProof\\AlternateRegistry",
+        "App\\Repository\\TagRepository"
+    ]
+}

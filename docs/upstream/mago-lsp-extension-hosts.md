@@ -1,107 +1,124 @@
 # Draft: native LSP external analyzer lifecycle and dependency graph
 
-Prepared locally only; nothing posted upstream.
+Prepared locally only; nothing posted upstream. This contains a native candidate
+and real regression evidence on experimental Mago
+`46df50c96d93d0ac3655c116c375574277cf0b30`. Full identities, opt-in configuration,
+results and remaining limits are in [Mago LSP extensions](../MAGO-LSP-EXTENSIONS.md).
 
-The omission below is the retained unpatched-base reproduction. A native
-candidate correction is now being prepared; its design and pending validation
-are recorded separately in [Mago LSP extensions](../MAGO-LSP-EXTENSIONS.md).
-Historical evidence is not a candidate result.
+## Baseline and a corrected matched reproduction
 
-## Tested identities
+The baseline executable reports `1.58.2`; its Composer SDK comes from the same
+source SHA and uses MANA `2.1`. The Symfony wiring package is
+`28c3f54065b71fe046a7474ced401aeadc941b0f`, using its explicit PHP backend, on the
+PoC's declared Symfony Demo `8d2e2ef75c3e18df173d8bf2379a14abb58c4c31` overlay.
 
-- Mago experimental source `46df50c96d93d0ac3655c116c375574277cf0b30`, executable reports `mago 1.58.2`.
-- Composer `carthage-software/mago` SDK `1.58.2` distributed from that same source SHA, not a broad constraint resolved to 1.59.
-- `byte-kitsune/mago-symfony-wiring` source `28c3f54065b71fe046a7474ced401aeadc941b0f`, PHP worker backend; its native-backend candidates are outside this reproduction.
-- Symfony Demo `8d2e2ef75c3e18df173d8bf2379a14abb58c4c31` with the declared development overlay and healthy dev compiled-container export.
-
-## Reproduction
-
-Prepare a selected slice workspace, then run:
+Prepare an owned disposable slice workspace, then run the corrected probe on
+the unpatched executable:
 
 ```sh
 .venv/bin/python tests/integration/service_semantics.py --run <run-id> --extension-propagation
 ```
 
-The bounded probe inherits `/app/.mago/wiring.toml` and changes only the external
-host launch command to prepend a small Python marker wrapper. The wrapper
-records worker startup and executes the original command without modifying
-its arguments or environment. Both CLI and LSP use that same inherited
-configuration and `/app` workspace. The source and compiled reference remain
-unchanged.
+The worker marker wrapper records startup, then executes the configured PHP
+worker unchanged. The probe selects the same instrumented configuration at the
+workspace root for CLI and LSP and restores the original configuration bytes.
+This matters because a workspace's `mago.toml` overrides launch-time `--config`.
+The earlier slice-1 launch-config-only probe did not establish matched effective
+LSP configuration. Those historical artifacts are preserved below; the current
+[corrected rerun](../evidence/lsp-extensions/baseline/index.json) independently
+establishes the boundary:
 
-1. CLI `analyze --reporting-format json` starts the worker, creates the final
-   graph observation, and returns the extension's
-   `byte-kitsune/symfony-wiring/analysis-attestation` with `complete: true`.
-   Native application findings make the CLI exit 1, independently of successful
-   extension execution.
-2. `language-server` initializes and returns the selected service's document
-   symbols. No worker-start marker or final-graph observation is created.
+1. CLI `analyze --reporting-format json` starts the worker, runs the final graph
+   observer and returns the package's complete 46-file analysis attestation.
+   Ordinary native application findings produce exit 1.
+2. Unpatched LSP initializes and returns native service document symbols without
+   starting the configured worker or completing the observer.
 
-Expected: honor configured external analyzer hosts, or explicitly report that
-this experimental server does not support them. Actual: normal native analysis
-and navigation silently proceed without starting those hosts.
+At that base, `src/language_server/workspace/loading.rs` creates the native
+plugin registry without initializing external analyzers, while the CLI does
+initialize them. This is a named-source integration omission. It does not imply
+an SDK incompatibility or a Serena adapter startup fault.
 
-## Attribution and bounds
+The [minimal upstream regression](lsp-extensions-repro/README.md) removes Symfony
+and the PoC adapter. A real SDK test plugin adds an explicitly declared test Body
+edge and observes the final native graph. Both CLI variants pass; unpatched LSP
+has no worker startup, while candidate LSP starts/completes the worker and returns
+the test edge only when enabled. Its [retained results and frames](../evidence/lsp-extensions/minimal/index.json)
+separately corroborate the matched fixture result.
 
-At the tested source, `src/language_server/workspace/loading.rs:89` calls
-`create_registry_with_plugins` for native plugins. The LSP path has no
-`initialize_external_analyzer` or `start_external_analyzer` call, while
-`src/commands/analyze.rs` initializes those hosts. Thus this is a server
-integration omission at a named experimental pin. It does not establish a
-universal Mago extension limitation, a worker-protocol incompatibility, or a
-Serena adapter failure. No Mago Rust patch or binary update was made in this
-slice. Adding external lifecycle support to the server also needs incremental
-reanalysis and failure-handling tests, so it was not replaced with an adapter
-that fabricates enriched answers.
+## Candidate implementation and native data interface
 
-At that baseline, the CLI framework bridge is the workaround. Its cost
-is separate CLI inspection for enriched graph information; that information
-cannot be assumed available in semantic editor queries. Existing full-sync
-and stale-external-span findings remain separately attributed to their
-original reproductions.
+The [source patch](../../patches/mago-lsp-extensions.patch) attaches the existing
+`ExternalAnalyzerHandle` to the workspace's `PluginRegistry` before analysis and
+loads external initialization stubs before constructing the analysis baseline.
+The existing incremental service executes supported hooks against the current
+in-memory file database and consumes their real contributions. Worker pools
+belong to workspace generations and drop on replacement/removal and shutdown;
+no enriched CLI runs behind the server interface.
 
-## Candidate correction (validation pending)
+The concrete Symfony constructor dependency has no source span. The candidate
+adds a separate read-only `mago/symbolReferences` request returning actual
+`{source, references: [{kind, target}]}` graph data. It does not fabricate ordinary
+LSP reference locations, measured calls or per-edge provider attribution.
+Class/function/member origins are the intended API scope; top-level
+case-sensitive constants remain unproven. A
+[small additive Serena REPL patch](../../patches/serena-symbol-references.patch)
+and Mago adapter forwarding expose that supported server data as
+`s.lsp.get_symbol_references(relative_path, symbol, member)`.
 
-The candidate attaches Mago's existing `ExternalAnalyzerHandle` to the
-workspace's `PluginRegistry` before initial analysis. The native incremental
-analysis service then executes supported external hooks against its in-memory
-database and consumes real contributions. Worker pools belong to one workspace
-generation and are released on replacement/removal and shutdown. No enriched
-CLI runs behind the server interface.
+The exact source base, SDK `1.58.2` and MANA `2.1` remain unchanged. Mago patch
+SHA-256 is `ca955e0db6023a997fe708d46d3bd0b92e6dd91237aee7c206f13768effdea11`;
+executable SHA-256 is
+`5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46`.
+The PoC Docker build retains the runnable unpatched binary and records both
+identities, compiler, lock and applied patch. Stable `1.59.0`/MANA `2.2` is not
+an interchangeable SDK/backend input.
 
-The concrete Symfony `body` dependency has no source span, so it cannot become
-a faithful ordinary LSP reference location. The candidate adds a read-only
-`mago/symbolReferences` request returning current native dependency edges and
-their kinds, with no fabricated positions, runtime calls or edge provenance.
-Serena exposes that supported response through a Mago backend method and an
-additive patch to its pinned REPL API.
+## Proven behavior and freshness limits
 
-Compiled wiring references are worker-startup state. A valid refreshed export
-requires a full workspace reload or server restart; the PoC uses existing
-`restart-on` watched paths for the metadata/configuration. Clients must send the
-relevant watched-file event or explicitly restart. A failed semantic analysis
-or failed reload refuses graph queries instead of presenting old enriched
-results as current. Initial workspace load failure retains the existing narrower
-recovery contract: process restart or remove/re-add the workspace.
+[Four focused native Rust tests and 19 real-worker/direct controls](../evidence/lsp-extensions/native/index.json)
+pass. Unsaved source removes/replaces the old graph contribution without changing
+disk bytes or starting duplicate workers. A real changed Symfony service binding
+and fresh package export replace Registry with AlternateRegistry after a watched
+reference reload; a restored export removes the alternate edge. Extension
+analysis failures and broken worker commands refuse stale graph queries and
+recover after supported edits/reloads. Disable/re-enable, shutdown before exit,
+restart and independent folder isolation pass.
 
-The exact upstream base remains `46df50c96d93d0ac3655c116c375574277cf0b30`,
-executable/SDK `1.58.2`, MANA `2.1`; the patch does not change SDK/protocol files.
-Candidate patch/build hashes, focused Rust results, direct worker controls,
-adaptive host MCP/Serena result and original semantic/slice acceptance are
-**pending**. See the dedicated document for the three separate claims and
-required controls. Nothing in this section claims an upstream fix was accepted
-or repairs the separate historical external-span defect.
+The [real adaptive host MCP investigation](../evidence/lsp-extensions/agent/result.json)
+uses 15 agent-selected Serena REPL calls. Healthy on, extension-off removal,
+real exported changed binding and exact restoration all pass; the original
+53 test identities and 120 assertions subsequently pass. This evidence is
+separate from deterministic acceptance replay. Broad semantic acceptance and
+slices 1/2 pass on their recorded image; final gate-strengthening results are
+linked by the dedicated document.
 
-## Retained evidence
+Compiled references are worker-startup state. Refreshing an export requires a
+full workspace reload through configured `restart-on` watched paths, or explicit
+server restart. The direct proof sends the watched event; the adaptive agent
+uses `mate-prepare` and explicit Serena restart. Source edits do not automatically
+recompile Symfony metadata. Failed analysis/reload refuses old semantic data;
+initial workspace load failure retains a narrower recovery contract of process
+restart or removing/re-adding the folder. File-local native operations can remain
+available while semantic analysis is invalid.
 
-- [Result and matched identities](../evidence/slice1/semantic-propagation-result.json)
-- [Actual generated probe](../evidence/slice1/semantic-propagation-probe.py)
-- [Instrumented configuration](../evidence/slice1/semantic-propagation-instrumented.toml) and [launch wrapper](../evidence/slice1/semantic-propagation-worker-launch.py)
-- [CLI worker-start marker](../evidence/slice1/semantic-propagation-cli-worker-starts.txt), [observer graph](../evidence/slice1/semantic-propagation-cli-observation.json), and [full report](../evidence/slice1/semantic-propagation-cli-report.json)
-- [LSP frames](../evidence/slice1/semantic-propagation-lsp.jsonl) and [server log](../evidence/slice1/semantic-propagation-lsp.stderr)
+The [complete native Issue comparison](../evidence/lsp-extensions/diagnostic-comparison.json)
+retains identical 35-Issue sets for baseline CLI and candidate off/on across 46
+source/test files; enabled reports add one real completion note. The historical
+30-native-diagnostic/34-source-file record remains unchanged. The [compatibility
+record](../evidence/lsp-extensions/compatibility.json) checks installed source
+identities and the actual MANA 2.1 SDK header. This patch neither suppresses
+findings nor repairs the separately attributed historical external-span defect.
 
-All snapshots are indexed with hashes in
-[the semantic evidence index](../evidence/slice1/semantic-evidence-index.json).
-Absence of an output file alone is not the argument: the working CLI control,
-separate worker-start instrumentation, successful LSP requests and pinned
-server source distinguish the layers.
+## Historical evidence (before the configuration correction)
+
+These snapshots retain the original slice's tested identities and observations.
+Their launch-config-only LSP invocation is not the current matched control:
+
+- [Original result](../evidence/slice1/semantic-propagation-result.json) and [generated probe](../evidence/slice1/semantic-propagation-probe.py)
+- [Instrumented config](../evidence/slice1/semantic-propagation-instrumented.toml), [wrapper](../evidence/slice1/semantic-propagation-worker-launch.py), [CLI starts](../evidence/slice1/semantic-propagation-cli-worker-starts.txt)
+- [CLI graph](../evidence/slice1/semantic-propagation-cli-observation.json), [CLI report](../evidence/slice1/semantic-propagation-cli-report.json), [LSP frames](../evidence/slice1/semantic-propagation-lsp.jsonl), [stderr](../evidence/slice1/semantic-propagation-lsp.stderr)
+
+Their [original hash index](../evidence/slice1/semantic-evidence-index.json) remains
+unchanged. The corrected rerun, minimal SDK regression and native source establish
+the worker omission without relying on that earlier harness assumption.
