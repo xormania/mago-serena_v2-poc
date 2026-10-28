@@ -198,16 +198,24 @@ def run(out):
 
         active = [pid for pid in worker_pids() if alive(pid)]
         assert len(active) == 1, active
+        # A dead idle worker may be replaced before checkout. Force the real
+        # extension's next analysis hook to fail on malformed metadata in that
+        # replacement; this is a labelled failure injection, not a binding fact.
+        healthy_reference = reference.read_bytes()
+        reference.write_bytes(b'{invalid compiled-reference failure control')
         os.kill(active[0], signal.SIGKILL)
         time.sleep(.1)
         client.notify('textDocument/didChange', {'textDocument': {'uri': source.as_uri(), 'version': 4},
                                                'contentChanges': [{'text': original_source+'\n// worker failure control\n'}]})
         try:
-            old = graph(client)
-        except LspError as exc:
-            incremental_failure = str(exc)
-        else:
-            raise AssertionError(('failed worker returned a completed graph', old))
+            try:
+                old = graph(client)
+            except LspError as exc:
+                incremental_failure = str(exc)
+            else:
+                raise AssertionError(('failed extension returned a completed graph', old))
+        finally:
+            reference.write_bytes(healthy_reference)
         assert 'analy' in incremental_failure.lower(), incremental_failure
         retain('analysis-worker-failure', {'killed_owned_worker': active[0], 'error': incremental_failure,
                                             'logs': client.notifications[-8:]})
