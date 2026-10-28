@@ -303,6 +303,16 @@ That baseline slice-2 run adds feature-workflow evidence under the same pins
 without changing its LSP worker-start boundary. The later U09 candidate is
 tracked separately and does not retroactively change that result.
 
+The [slice-3 request task](SLICE-3.md) adds runtime integration evidence with
+Mate and the official Symfony/Monolog extensions at `0.15.0`. Its stale-profiler
+reproduction is attributed to this PoC's `matelib.call()` freshness guard: it
+applied the compiled-service lifetime to recorded request/log data. The local
+correction separates those policies and keeps compiled reads guarded. The
+injected invalid ORM field and expected absence of a pre-boot profile are task
+controls, not upstream defects. No additional upstream defect or submission is
+established by this slice; the source-semantic/CLI wiring results leave U09
+with its existing pin-specific attribution.
+
 ## Prioritized handoff
 
 | Priority / category | Candidate | Recommendation and deliverable |

@@ -1,0 +1,65 @@
+{
+  "status": "pass",
+  "run_id": "s3-policy-20261028a",
+  "exact_http_token": "278543",
+  "old_behavior": {
+    "exit": 3,
+    "error": "Application/dependencies changed; run mate-prepare explicitly",
+    "source_changed": true,
+    "baseline_revision": "88abf50",
+    "old_matelib_sha256": "e99ecc6e32db3f33ee423c9347e8b822f9c2a2b085dd2fd3ae9e2829a739c26f"
+  },
+  "new_behavior": {
+    "profile": {
+      "argv": [
+        "--no-interaction",
+        "tools:call",
+        "symfony-profiler-get",
+        "--token=278543",
+        "--format=json"
+      ],
+      "exit": 0
+    },
+    "collector": {
+      "argv": [
+        "resources:read",
+        "symfony-profiler://profile/278543/exception",
+        "--format=json"
+      ],
+      "exit": 0
+    },
+    "logs": {
+      "argv": [
+        "tools:call",
+        "monolog-search",
+        "--term=Matched route",
+        "--environment=dev",
+        "--kernelContext=inspection-dev",
+        "--limit=10",
+        "--format=json"
+      ],
+      "exit": 0
+    },
+    "compiled": {
+      "argv": [
+        "tools:call",
+        "symfony-service-detail",
+        "--id=App\\Repository\\TagRepository",
+        "--context=inspection-dev",
+        "--format=json"
+      ],
+      "exit": 3
+    },
+    "compiled_alias": {
+      "argv": [
+        "-n",
+        "tools:ca",
+        "symfony-service-detail",
+        "--id=App\\Repository\\TagRepository",
+        "--context=inspection-dev",
+        "--format=json"
+      ],
+      "exit": 3
+    }
+  }
+}

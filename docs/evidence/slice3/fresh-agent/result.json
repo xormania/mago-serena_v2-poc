@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "kind": "fresh_adaptive_agent",
+  "status": "pass",
+  "run_id": "s3-agent-20261028a",
+  "route": "host MCP -> Serena REPL -> Mago",
+  "execution_kind": "Actual coding session adaptively selected queries and repair after observing real runtime/source results. Not a blinded benchmark.",
+  "agent_use": [
+    "Mate profiler list/get and exception/db/logger resources",
+    "Monolog term/structured context/time-filtered search",
+    "Mate selected compiled TagRepository binding",
+    "Mate server-info own PHP process",
+    "Actual host MCP -> Serena REPL -> Mago definitions, method/entity bodies and successful replace_symbol_body",
+    "Public native and Symfony-enriched Mago CLI",
+    "PHPUnit defective/focused/full suites and independent identities"
+  ],
+  "runtime": {
+    "healthy": {
+      "status": 200,
+      "token": "702a12",
+      "marker": "s3-agent-20261028a-healthy",
+      "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_marker=s3-agent-20261028a-healthy",
+      "provenance": "X-Debug-Token header from this exact HTTP response"
+    },
+    "defective": {
+      "status": 500,
+      "token": "f50b98",
+      "marker": "s3-agent-20261028a-defective-current",
+      "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_marker=s3-agent-20261028a-defective-current",
+      "provenance": "X-Debug-Token header from this exact HTTP response"
+    },
+    "repaired": {
+      "status": 200,
+      "token": "7bf144",
+      "marker": "s3-agent-20261028a-repaired",
+      "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_marker=s3-agent-20261028a-repaired",
+      "provenance": "X-Debug-Token header from this exact HTTP response"
+    }
+  },
+  "source_integrity": "Original controller exact bytes; sole task output new regression. Initial/final complete manifests and narrow setup reconciliation retained.",
+  "native_comparison": {
+    "analyze": {
+      "before": 35,
+      "after": 35,
+      "introduced": [],
+      "removed": [],
+      "task_findings": [],
+      "comparison": "Complete native diagnostic bodies as an order-independent multiset"
+    },
+    "lint": {
+      "before": 125,
+      "after": 125,
+      "introduced": [],
+      "removed": [],
+      "task_findings": [],
+      "comparison": "Complete native diagnostic bodies as an order-independent multiset"
+    }
+  },
+  "suite": {
+    "status": "pass",
+    "original": {
+      "tests": 53,
+      "assertions": 120,
+      "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+    },
+    "combined": {
+      "tests": 54,
+      "assertions": 134,
+      "identities_sha256": "f7a0421b1df797c3f9efa572d90852549f01e9dc4d142b6ac83c1c7ef7aac4c0"
+    },
+    "regression": {
+      "tests": 1,
+      "identities": [
+        "App\\Tests\\Controller\\BlogTagFilterTest::testKnownTagFilter"
+      ],
+      "assertions": 14
+    },
+    "original_projection": "artifacts/s3-agent-20261028a/fresh/original-after.xml"
+  },
+  "image_interpretation": "Adaptive exercise used initial immutable image5192ec... while host wrapper correction developed. Separate final-image replay and original gates use rebuilt candidate ff82c2...; actual image IDs retained in preparation and Compose evidence."
+}

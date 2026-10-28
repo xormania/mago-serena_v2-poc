@@ -1,0 +1,9 @@
+[
+    {
+        "uri": "symfony-profiler://profile/d61d3f/exception",
+        "mimeType": "text/plain",
+        "text": {
+            "error": "Profile not found for token: \"d61d3f\""
+        }
+    }
+]

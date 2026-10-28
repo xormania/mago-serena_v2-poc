@@ -1,0 +1,16 @@
+HTTP/1.1 500 Internal Server Error
+Host: 127.0.0.1:8000
+Connection: close
+X-Powered-By: PHP/8.5.12
+Content-Type: text/html; charset=UTF-8
+X-Debug-Exception: Unrecognized%20field%3A%20App%5CEntity%5CTag%3A%3A%24label
+X-Debug-Exception-File: %2Fapp%2Fvendor%2Fdoctrine%2Form%2Fsrc%2FPersisters%2FException%2FUnrecognizedField.php:22
+Cache-Control: no-cache, private
+Date: Wed, 28 Oct 2026 22:49:39 GMT
+X-Robots-Tag: noindex
+X-Debug-Token: 590e6e
+X-Debug-Token-Link: http://127.0.0.1:8000/_profiler/590e6e
+X-Previous-Debug-Token: cd1463
+Set-Cookie: main_deauth_profile_token=590e6e; path=/; httponly; samesite=lax
+Set-Cookie: main_auth_profile_token=deleted; expires=Tue, 28 Oct 2025 22:49:38 GMT; Max-Age=0; path=/; httponly
+

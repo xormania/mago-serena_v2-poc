@@ -3,3 +3,4 @@ app/** -text
 fixtures/semantic/Positions.php -text
 # Native tool streams/diffs are hashed evidence, including their whitespace.
 docs/evidence/slice1/** -text -whitespace linguist-generated
+docs/evidence/slice3/** -text -whitespace linguist-generated

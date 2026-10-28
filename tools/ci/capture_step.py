@@ -39,13 +39,13 @@ def _slice_excerpt(stage, reason, trace):
 
 
 def _slice_failures(run_dir, source_sha):
-    """Read only the two declared slice layouts, never crawl arbitrary artifacts.
+    """Read only declared slice layouts, never crawl arbitrary artifacts.
 
     Latest-result files mirror an attempt; they are validated, not emitted as
     additional observations. Every retained retry remains a distinct attempt.
     """
     failures = []
-    for slice_name in ('slice1', 'slice2'):
+    for slice_name in ('slice1', 'slice2', 'slice3'):
         directory = run_dir/slice_name
         summary = run_dir/(slice_name+'-result.json')
         if directory.is_symlink():

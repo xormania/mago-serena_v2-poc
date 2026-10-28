@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/app/phpunit.dist.xml" tests="1" assertions="14" errors="0" failures="0" skipped="0" time="0.351987">
+    <testsuite name="Project Test Suite" tests="1" assertions="14" errors="0" failures="0" skipped="0" time="0.351987">
+      <testsuite name="App\Tests\Controller\BlogTagFilterTest" file="/app/tests/Controller/BlogTagFilterTest.php" tests="1" assertions="14" errors="0" failures="0" skipped="0" time="0.351987">
+        <testcase name="testKnownTagFilter" file="/app/tests/Controller/BlogTagFilterTest.php" line="17" class="App\Tests\Controller\BlogTagFilterTest" classname="App.Tests.Controller.BlogTagFilterTest" assertions="14" time="0.351987"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,18 @@
+[
+  {
+    "attempt": 1,
+    "status": 200,
+    "marker": "s3-defective-8e3f374b6a8e49a5",
+    "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_request=s3-defective-8e3f374b6a8e49a5",
+    "headers": "defective-attempt-1-headers.txt",
+    "body": "defective-attempt-1-body.html"
+  },
+  {
+    "attempt": 2,
+    "status": 500,
+    "marker": "s3-defective-59eb0d7487744aa1",
+    "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_request=s3-defective-59eb0d7487744aa1",
+    "headers": "defective-attempt-2-headers.txt",
+    "body": "defective-attempt-2-body.html"
+  }
+]

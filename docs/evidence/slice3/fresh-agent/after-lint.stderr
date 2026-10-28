@@ -1,0 +1,52 @@
+DEBUG Sourcing configuration from /app/mago-php.toml.
+ INFO Overriding PHP version with 8.5.0.
+ INFO Overriding workspace directory with /app.
+DEBUG Configuration specifies 4 threads.
+DEBUG Configuration specifies a stack size of 12582912 bytes.
+TRACE Process startup (dyld and runtime init) took 5.628µs.
+TRACE CLI arguments parsed in 428.77µs.
+TRACE Logger initialized in 9.912µs.
+TRACE Configuration loaded in 172.181µs.
+TRACE Rayon thread pool built in 449.761µs.
+TRACE Ready to dispatch command after 1.085749ms.
+TRACE Discovered 47 host files in 871ns.
+TRACE Processed 47 files in parallel in 4.110917ms (average 87.4 µs per file).
+TRACE Reduced results in 6.387µs.
+TRACE Pipeline finished in 4.148199ms.
+TRACE Slowest 20 of 47 files during the 🧹 Linting phase:
+TRACE    1. src/Command/DeleteUserCommand.php took 2.31952ms.
+TRACE    2. src/Controller/UserController.php took 2.319043ms.
+TRACE    3. tests/Command/AbstractCommandTestCase.php took 2.311694ms.
+TRACE    4. tests/object-manager.php took 2.276797ms.
+TRACE    5. src/DataFixtures/AppFixtures.php took 476.007µs.
+TRACE    6. tests/Controller/Admin/BlogControllerTest.php took 447.915µs.
+TRACE    7. src/Twig/SourceCodeExtension.php took 438.654µs.
+TRACE    8. src/Form/ChangePasswordType.php took 412.928µs.
+TRACE    9. tests/Form/DataTransformer/TagArrayToStringTransformerTest.php took 358.153µs.
+TRACE   10. src/EventSubscriber/CheckRequirementsSubscriber.php took 297.52µs.
+TRACE   11. tests/Controller/BlogControllerTest.php took 252.733µs.
+TRACE   12. src/Pagination/Paginator.php took 228.345µs.
+TRACE   13. src/Command/AddUserCommand.php took 181.619µs.
+TRACE   14. src/Repository/PostRepository.php took 172.648µs.
+TRACE   15. src/Controller/Admin/BlogController.php took 140.097µs.
+TRACE   16. tests/Command/AddUserCommandTest.php took 132.145µs.
+TRACE   17. src/Controller/BlogController.php took 119.988µs.
+TRACE   18. src/Entity/Post.php took 107.461µs.
+TRACE   19. src/Entity/User.php took 102.915µs.
+TRACE   20. src/Command/ListUsersCommand.php took 87.941µs.
+TRACE Linted 47 files in the parallel phase.
+TRACE Parsing accounted for 2.609 ms of lint worker CPU time (average 55.51 µs per file).
+TRACE Name resolution accounted for 0.317 ms of lint worker CPU time (average 6.75 µs per file).
+TRACE Semantics checking accounted for 0.556 ms of lint worker CPU time (average 11.84 µs per file).
+TRACE Built-in and external lint rules accounted for 11.002 ms of worker CPU time (average 234.08 µs per file).
+TRACE Total lint worker CPU time across all sub-phases was 14.494 ms (average 308.38 µs per file).
+TRACE Orchestrator initialized in 17.411µs.
+TRACE Database loaded in 547.29µs.
+TRACE Lint service ran in 4.316314ms.
+TRACE Issues filtered and reported in 281.392µs.
+TRACE Database dropped in 89.332µs.
+TRACE Orchestrator dropped in 5.337µs.
+TRACE Lint command finished in 5.284311ms.
+TRACE Command finished in 5.294304ms.
+TRACE Total time spent inside main so far: 6.381502ms.
+TRACE total process time: 6.382363ms

@@ -1,0 +1,18 @@
+[
+  {
+    "step": 1,
+    "decision": "Before repairing anything, declare healthy GET /en/blog/?tag=lorem -> 200 with filtered posts; inject only name->label in BlogController index. Final controller must restore exact original bytes. Add only a new grouped regression test. Candidate Monolog overlay baseline must be measured independently before fault."
+  },
+  {
+    "step": 2,
+    "decision": "Observed initial post-edit HTTP200 then real500 d61d3f; old wrapper rejects profile exit3. New runtime-policy bootstrap explicitly archived d61d3f before cacheclear, which removed live profile; missing-profile responses retained. Issued fresh failed request f50b98. After new-test whitespace made preparation stale, public profiler/get, exception/db/logger collectors and structured marker/context/exception log search succeeded. Exact token URL/time match marker, same-second critical record. DB collector has zero SQL because invalid mapped criterion fails before query. Mago semantic declarations show Tag has mapped name only, TagRepository binds Tag, inherited Doctrine findOneBy takes field criteria. Repair will replace label with name inside retrieved method, preserving original bytes."
+  },
+  {
+    "step": 3,
+    "decision": "Successful semantic replace_symbol_body restored exact original controller hash. New regression passes behavior, but Mago found 3 analyzer findings on unrefined container get and 3 lint assertion-style findings. Refine repository via an actual PHPUnit instance assertion, use static assertions consistently, rerun checks; no suppressions or unsafe automatic fixes. REPL collection subscripting/body attempts failed; repair used the previously successful serialized symbol retrieval."
+  },
+  {
+    "step": 4,
+    "decision": "Refined regression has no native findings, complete diagnostic multisets match measured candidate35/125; scoped safe-fix empty and formatting stable. Full suite54/134 with original53/120 unchanged. Separate missing-service compile1HTTP500 had no profiler token, but prior f50 and logs readable0 while compiled alias rejected3. Restored control, explicitly prepared final metadata, actual public enriched CLI retains native exit1 and wiring Body edge, fresh request200token7bf144 with4SQL queries. Integrity allows only declared new test plus explicitly recorded runtime instruction/lock normalization setup reconciliation."
+  }
+]

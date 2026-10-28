@@ -3,8 +3,8 @@
   "base_demo": "8d2e2ef75c3e18df173d8bf2379a14abb58c4c31",
   "base_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd",
   "files": {
-    "composer.json": "0f090d7c8728f55753d3586e5499d55e1e4c09b3a8e47fb91edcb3e3f14f662f",
-    "composer.lock": "0a25c4e068e8b177b7e8eaeab0e74cf833bc79ebf365be191aec286f9ca32a49"
+    "composer.json": "66bc4248e01fa0ff57b4245672a84c0496e8d43c63a468305c3566158c4149a7",
+    "composer.lock": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
   },
   "added_packages": {
     "byte-kitsune/mago-symfony-wiring": {
@@ -453,9 +453,108 @@
         }
       ],
       "time": "2026-10-23T00:19:04+00:00"
+    },
+    "symfony/ai-monolog-mate-extension": {
+      "name": "symfony/ai-monolog-mate-extension",
+      "version": "v0.15.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/ai-monolog-mate-extension.git",
+        "reference": "d85a949ccc537f1a8be2fd2b02a1f0d6a5d5f25b"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/ai-monolog-mate-extension/zipball/d85a949ccc537f1a8be2fd2b02a1f0d6a5d5f25b",
+        "reference": "d85a949ccc537f1a8be2fd2b02a1f0d6a5d5f25b",
+        "shasum": ""
+      },
+      "require": {
+        "monolog/monolog": "^2.0|^3.0",
+        "php": ">=8.2",
+        "symfony/ai-mate": "^0.15"
+      },
+      "require-dev": {
+        "helgesverre/toon": "^3.2.1",
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2.0",
+        "phpunit/phpunit": "^11.5.53"
+      },
+      "type": "symfony-ai-mate",
+      "extra": {
+        "thanks": {
+          "url": "https://github.com/symfony/ai",
+          "name": "symfony/ai"
+        },
+        "ai-mate": {
+          "skills": [
+            "skills"
+          ],
+          "includes": [
+            "config/config.php"
+          ],
+          "scan-dirs": [
+            "Capability"
+          ],
+          "instructions": "INSTRUCTIONS.md"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Symfony\\AI\\Mate\\Bridge\\Monolog\\": ""
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Johannes Wachter",
+          "email": "johannes@sulu.io"
+        },
+        {
+          "name": "Tobias Nyholm",
+          "email": "tobias.nyholm@gmail.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Monolog bridge for AI Mate - provides log search and analysis tools",
+      "keywords": [
+        "Bridge",
+        "ai",
+        "dev",
+        "logs",
+        "monolog"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/ai-monolog-mate-extension/tree/v0.15.0"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-10-22T23:44:24+00:00"
     }
   },
-  "resolution": "Composer 2.9.1 / PHP 8.5.12; retained platform PHP 8.4.1; update ONLY the two new root packages, --minimal-changes --no-plugins --no-scripts. Existing package records are byte-equivalent as parsed JSON.",
+  "resolution": "Composer 2.9.1 / PHP 8.5.12; retained platform PHP 8.4.1. Slice 3 updates ONLY symfony/ai-monolog-mate-extension 0.15.0 with --minimal-changes --no-plugins --no-scripts --no-install. All previously locked package records are unchanged. A temporary uncommitted audit.block-insecure=false was required to retain the existing symfony/mime advisory PKSA-wtxr-p26d-nn42; final audit settings are unchanged, content-hash recalculated with Composer Locker::getContentHash after restoring the manifest. Composer reports 5 ignored advisories and 1 existing unsuppressed advisory.",
   "changed_packages": {
     "nikic/php-parser": {
       "from": "v5.7.0",

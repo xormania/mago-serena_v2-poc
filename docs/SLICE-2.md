@@ -150,5 +150,5 @@ The experimental Mago executable and SDK remain at source
 and edits are demonstrated; the pinned LSP still does not start external analyzer
 workers. CLI enrichment is therefore separately attributed, and no enriched LSP
 result is claimed. Existing slice-1 calibrations, rename/full-sync/stale-span
-evidence and original acceptance remain independently runnable. Slice 3 remains
-later work.
+evidence and original acceptance remain independently runnable. Request diagnosis
+and repair are tracked separately in [slice 3](SLICE-3.md).

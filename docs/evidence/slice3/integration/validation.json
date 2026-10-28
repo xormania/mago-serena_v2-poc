@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "kind": "local_exact_image_integration",
+  "image_id": "sha256:ff82c2ee2de6eedba1d5e93a6d62652a788998de0a22afec3bce802102eb40ec",
+  "image_tag": "mago-serena-poc:s3-runtime-20261028a",
+  "gates": {
+    "fast": {
+      "tests": 165,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0
+    },
+    "original_acceptance": {
+      "required_checks": 31,
+      "passed": 31,
+      "original_tests": 53,
+      "original_assertions": 120
+    },
+    "slice1": {
+      "stages": 9,
+      "passed": 9
+    },
+    "slice2": {
+      "stages": 12,
+      "passed": 12
+    },
+    "slice3": {
+      "stages": 14,
+      "passed": 14,
+      "original_tests": 53,
+      "original_assertions": 120,
+      "combined_tests": 54,
+      "combined_assertions": 135,
+      "new_tests": 1,
+      "new_assertions": 15
+    }
+  },
+  "prior_incomplete_attempt": {
+    "run_id": "s3-replay-20261028a",
+    "passed": 13,
+    "stages": 14,
+    "reason": "Final artifact-index readiness gate ran before the fresh evidence index was available. All runtime/repair/suite stages passed. Separate fresh rerun b passed all14. First result and exact error retained."
+  },
+  "native": {
+    "analyzer": 35,
+    "lint": 125,
+    "complete_bodies_equal": true,
+    "native_exits": 1,
+    "before_hosts": 46,
+    "after_hosts": 47,
+    "vendor_php_files": 9871,
+    "before_compiled_source_files": 9917,
+    "after_compiled_source_files": 9918
+  },
+  "lsp_limitations": "Original expected-negative span and worker controls retained. CLI enrichment does not fix external worker lifecycle.",
+  "hosted": "Pending PR execution; report separately."
+}

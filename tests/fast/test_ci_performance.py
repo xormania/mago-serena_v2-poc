@@ -49,7 +49,7 @@ class BuildCacheTests(unittest.TestCase):
                 with patch.dict(os.environ,env,clear=True):
                     launched=environment({'app':'/app','state':'/state','trusted':'/trusted',
                                           'evidence':'/evidence','port':0,'run_id':'image-test'})
-                    self.assertEqual(launched.get('POC_IMAGE'),selected)
+                    self.assertEqual(launched.get('POC_IMAGE'),selected or 'mago-serena-poc:local')
 
     def test_plan_has_source_attempt_and_no_cache_or_provider_credentials(self):
         env=self.environment()
@@ -75,6 +75,16 @@ class BuildCacheTests(unittest.TestCase):
         self.assertEqual(build_plan(env)['cache'],original)
         self.assertFalse(original['cache_mounts_persisted'])
 
+    def test_build_selection_matches_compose_default_and_selected_session_tag(self):
+        for selection, expected in ((None, 'mago-serena-poc:local'), ('', 'mago-serena-poc:local'),
+                                    ('mago-serena-poc:s3-session', 'mago-serena-poc:s3-session')):
+            env = self.environment()
+            if selection is not None:
+                env['POC_IMAGE'] = selection
+            with self.subTest(selection=selection):
+                command = build_plan(env)['command']
+                self.assertEqual(command[command.index('--tag')+1], expected)
+
 
 class AcceptanceSchedulingTests(unittest.TestCase):
     def workflow(self):
@@ -98,6 +108,25 @@ class AcceptanceSchedulingTests(unittest.TestCase):
         self.assertIn('github.workflow',group)
         self.assertIn('github.event_name',group)
         self.assertIn('github.run_id',group)
+
+    def test_runtime_and_lsp_gates_run_once_after_existing_gates_with_captured_exit(self):
+        steps = self.workflow()['jobs']['acceptance']['steps']
+        ids = [step.get('id') for step in steps]
+        self.assertEqual(ids.count('slice3'), 1)
+        self.assertEqual(ids.count('lsp_extensions'), 1)
+        self.assertLess(ids.index('acceptance'), ids.index('slice1'))
+        self.assertLess(ids.index('slice1'), ids.index('slice2'))
+        self.assertLess(ids.index('slice2'), ids.index('slice3'))
+        self.assertLess(ids.index('slice3'), ids.index('lsp_extensions'))
+        self.assertLess(ids.index('lsp_extensions'), ids.index('collect'))
+        runtime = steps[ids.index('slice3')]
+        self.assertEqual(runtime['run'],
+                         'python3 tools/ci/capture_step.py run --step slice3 -- ./bin/poc slice3')
+        self.assertNotIn('continue-on-error', runtime)
+        lsp = steps[ids.index('lsp_extensions')]
+        self.assertEqual(lsp['run'],
+                         'python3 tools/ci/capture_step.py run --step lsp_extensions -- .venv/bin/python tests/integration/lsp_extensions.py --fresh')
+        self.assertNotIn('continue-on-error', lsp)
 
 
 class CacheRuntimeActionTests(unittest.TestCase):

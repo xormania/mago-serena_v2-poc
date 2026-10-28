@@ -6,6 +6,16 @@ and a real selected-service investigation. See [PHP evidence](MAGO-PHP.md),
 [current adoption/result table](SLICE-1.md). These additions retain the historical
 full-sync and stale-span findings at their original source pins.
 
+Slice 2 adds [Maker generation and a semantically edited command](SLICE-2.md).
+Slice 3 adds [request diagnosis and repair](SLICE-3.md): selected-run Mate
+profiler/log access, exact failed-request correlation, source investigation and
+fresh recovery. Historical runtime reads have a separate policy from fresh
+compiled services and Symfony-enriched CLI analysis. The
+[Symfony coverage inventory](RUNTIME-COVERAGE.md) distinguishes installed,
+agent-accessible, exercised and remaining workflows, including database,
+forms/security and browser/UI work. These slice results do not establish
+external-worker propagation through the unchanged pinned LSP.
+
 Recorded 2026-10-27 with the exact pins in `toolchain.lock.json`. Hardened
 validation is indexed in [strengthening/validation.json](evidence/strengthening/validation.json).
 The original pre-hardening run remains in `docs/evidence/acceptance-results.json`.

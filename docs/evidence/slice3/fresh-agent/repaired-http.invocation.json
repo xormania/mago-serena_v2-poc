@@ -1,0 +1,23 @@
+{
+  "name": "repaired-http",
+  "argv": [
+    "./bin/poc",
+    "exec",
+    "--run",
+    "s3-agent-20261028a",
+    "--",
+    "curl",
+    "--silent",
+    "--show-error",
+    "--dump-header",
+    "/evidence/fresh/repaired.headers",
+    "--output",
+    "/evidence/fresh/repaired.html",
+    "--write-out",
+    "%{http_code}",
+    "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_marker=s3-agent-20261028a-repaired"
+  ],
+  "exit": 0,
+  "time_unix": 1793227565.4574344,
+  "elapsed_s": 0.209
+}

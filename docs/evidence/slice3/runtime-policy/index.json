@@ -1,0 +1,46 @@
+{
+  "kind": "focused_real_policy_regression",
+  "run_id": "s3-policy-20261028a",
+  "image_tag": "mago-serena-poc:s3-runtime-20261028a",
+  "status": "pass",
+  "files": {
+    "README.md": "8d3cc111f80d27f751ea8af98cbe650324b522e9dc63d24467f4c3d424f4cedb",
+    "collector.stdout": "6cf686b783803713b2805d54663fa30dfe9a3dc977e291c711cefee07bb52ba6",
+    "compiled.stderr": "48f8f11caed38ff3f6492dcabf8c979862a4b97a0ee7e640972fc071bbb60144",
+    "compiled_alias.stderr": "48f8f11caed38ff3f6492dcabf8c979862a4b97a0ee7e640972fc071bbb60144",
+    "healthy.headers": "1e1664329159bbc3da8cb245b177e74466c7c56617005fa0118d19fd5144feea",
+    "logs.stdout": "b5c963ccdd1f0dc27f4dfe6c5afedcda4500376ee93be63c7be41cbd7705d454",
+    "profile.stdout": "1f982cecb9db49334729b98337f553d3d184223089e8b53b35a4dd6533502f7b",
+    "result.json": "4efc5375cdd8e6c8a7816e95d13f8da83644f2d88407e4f0657e45b158df8e2a",
+    "unbootable-compile.stderr": "85b574539d582eaabee8f45bbc3d66973196a84cc852f911fd36ffc3a2ba3b49",
+    "unbootable-logs.stdout": "b5c963ccdd1f0dc27f4dfe6c5afedcda4500376ee93be63c7be41cbd7705d454",
+    "unbootable-profile.stdout": "1f982cecb9db49334729b98337f553d3d184223089e8b53b35a4dd6533502f7b",
+    "unbootable-result.json": "8dd68e0a49144eab9315d29c34f865374f0e667e3ca56f5bd16e4fb1ea989d72",
+    "unbootable-services.stderr": "48f8f11caed38ff3f6492dcabf8c979862a4b97a0ee7e640972fc071bbb60144"
+  },
+  "limitations": "Policy isolation control only. Healthy captured profile proves historical-read availability after source changes and an independent failed compile. This is not the adaptive request repair exercise. Logs are bounded historical generic request matches, not claimed as correlation to this healthy request.",
+  "identity": {
+    "container_id": "8008bd372e88ef4e61d0e5c432b03496d128ae151853c7886593ebf24b992a19",
+    "image_id": "sha256:5192ec634881121d80499932a078480b2e109c0c8467474a307e8f127676c48b",
+    "preparation_id": "prepare-6f307ea8db78411ca977663721f10c20",
+    "mago_sdk": {
+      "version": "1.58.2",
+      "source": "46df50c96d93d0ac3655c116c375574277cf0b30",
+      "protocol": "MANA 2.1",
+      "executable": "/usr/local/bin/mago",
+      "reason": "Exact SDK source matches experimental executable; packaged vendor/bin/mago is intentionally not installed/invoked."
+    },
+    "wiring": {
+      "source": "28c3f54065b71fe046a7474ced401aeadc941b0f",
+      "package_version": "dev-poc-28c3f54",
+      "extension_version": "1.3.0-RC1",
+      "backend": "php",
+      "reason": "Explicit supported reference backend; no unrelated native engine download."
+    },
+    "mate": "0.15.0",
+    "monolog": "0.15.0",
+    "monolog_source": "d85a949ccc537f1a8be2fd2b02a1f0d6a5d5f25b",
+    "php": "8.5.12",
+    "composer": "2.9.1"
+  }
+}

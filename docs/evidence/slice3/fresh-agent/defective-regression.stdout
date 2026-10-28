@@ -1,0 +1,69 @@
+PHPUnit 11.5.55 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.5.12
+Configuration: /app/phpunit.dist.xml
+
+F                                                                   1 / 1 (100%)
+
+Time: 00:00.307, Memory: 66.50 MB
+
+There was 1 failure:
+
+1) App\Tests\Controller\BlogTagFilterTest::testKnownTagFilter
+Failed asserting that the Response is successful.
+HTTP/1.1 500 Internal Server Error
+Cache-Control: no-cache, private
+Content-Type:  text/html; charset=UTF-8
+Date:          Wed, 28 Oct 2026 22:40:26 GMT
+X-Robots-Tag:  noindex
+
+Doctrine\ORM\Persisters\Exception\UnrecognizedField {#10598
+  #message: "Unrecognized field: App\Entity\Tag::$label"
+  #code: 0
+  #file: "/app/vendor/doctrine/orm/src/Persisters/Exception/UnrecognizedField.php"
+  #line: 22
+  trace: {
+    /app/vendor/doctrine/orm/src/Persisters/Exception/UnrecognizedField.php:22 { …}
+    /app/vendor/doctrine/orm/src/Persisters/Entity/BasicEntityPersister.php:1771 { …}
+    /app/vendor/doctrine/orm/src/Persisters/Entity/BasicEntityPersister.php:1635 { …}
+    /app/vendor/doctrine/orm/src/Persisters/Entity/BasicEntityPersister.php:1788 { …}
+    /app/vendor/doctrine/orm/src/Persisters/Entity/BasicEntityPersister.php:1136 { …}
+    /app/vendor/doctrine/orm/src/Persisters/Entity/BasicEntityPersister.php:736 { …}
+    /app/vendor/doctrine/orm/src/EntityRepository.php:125 { …}
+    /app/vendor/doctrine/doctrine-bundle/src/Repository/ServiceEntityRepository.php:86 { …}
+    /app/src/Controller/BlogController.php:57 {
+      App\Controller\BlogController->index(Request $request, int $page, string $_format, PostRepository $posts, TagRepository $tags): Response
+      › if ($request->query->has('tag')) {
+      ›     $tag = $tags->findOneBy(['label' => $request->query->get('tag')]);
+      › }
+      arguments: {
+        $criteria: array:1 [ …1]
+      }
+    }
+    /app/vendor/symfony/http-kernel/HttpKernel.php:188 { …}
+    /app/vendor/symfony/http-kernel/HttpKernel.php:79 { …}
+    /app/vendor/symfony/http-kernel/Kernel.php:143 { …}
+    /app/vendor/symfony/http-kernel/HttpKernelBrowser.php:62 { …}
+    /app/vendor/symfony/framework-bundle/KernelBrowser.php:188 { …}
+    /app/vendor/symfony/browser-kit/AbstractBrowser.php:377 { …}
+    /app/tests/Controller/BlogTagFilterTest.php:25 { …}
+    /app/vendor/phpunit/phpunit/src/Framework/TestCase.php:1667 { …}
+    /app/vendor/phpunit/phpunit/src/Framework/TestCase.php:519 { …}
+    /app/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php:87 { …}
+    /app/vendor/phpunit/phpunit/src/Framework/TestCase.php:365 { …}
+    /app/vendor/phpunit/phpunit/src/Framework/TestSuite.php:369 { …}
+    /app/vendor/phpunit/phpunit/src/Framework/TestSuite.php:369 { …}
+    /app/vendor/phpunit/phpunit/src/Framework/TestSuite.php:369 { …}
+    /app/vendor/phpunit/phpunit/src/TextUI/TestRunner.php:64 { …}
+    /app/vendor/phpunit/phpunit/src/TextUI/Application.php:211 { …}
+    /app/vendor/phpunit/phpunit/phpunit:104 { …}
+    /app/vendor/bin/phpunit:122 { …}
+  }
+}
+
+/app/vendor/symfony/framework-bundle/Test/BrowserKitAssertionsTrait.php:191
+/app/vendor/symfony/framework-bundle/Test/BrowserKitAssertionsTrait.php:43
+/app/tests/Controller/BlogTagFilterTest.php:26
+
+FAILURES!
+Tests: 1, Assertions: 3, Failures: 1.

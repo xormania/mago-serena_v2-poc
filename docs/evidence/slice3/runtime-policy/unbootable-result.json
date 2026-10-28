@@ -1,0 +1,68 @@
+{
+  "status": "pass",
+  "run_id": "s3-policy-20261028a",
+  "historical_token": "278543",
+  "checks": {
+    "compile": {
+      "exit": 1,
+      "argv": [
+        "/home/scientdb/worktrees/mago-serena_v2-poc/slice3-runtime-20261028a/bin/poc",
+        "exec",
+        "--run",
+        "s3-policy-20261028a",
+        "--",
+        "env",
+        "APP_ENV=dev",
+        "APP_DEBUG=1",
+        "php",
+        "bin/console",
+        "cache:clear",
+        "--env=dev",
+        "--no-interaction"
+      ]
+    },
+    "profile": {
+      "exit": 0,
+      "argv": [
+        "/home/scientdb/worktrees/mago-serena_v2-poc/slice3-runtime-20261028a/bin/mate",
+        "--run",
+        "s3-policy-20261028a",
+        "--",
+        "tools:call",
+        "symfony-profiler-get",
+        "--token=278543",
+        "--format=json"
+      ]
+    },
+    "logs": {
+      "exit": 0,
+      "argv": [
+        "/home/scientdb/worktrees/mago-serena_v2-poc/slice3-runtime-20261028a/bin/mate",
+        "--run",
+        "s3-policy-20261028a",
+        "--",
+        "tools:call",
+        "monolog-search",
+        "--term=Matched route",
+        "--environment=dev",
+        "--kernelContext=inspection-dev",
+        "--limit=10",
+        "--format=json"
+      ]
+    },
+    "compiled": {
+      "exit": 3,
+      "argv": [
+        "/home/scientdb/worktrees/mago-serena_v2-poc/slice3-runtime-20261028a/bin/mate",
+        "--run",
+        "s3-policy-20261028a",
+        "--",
+        "tools:call",
+        "symfony-service-detail",
+        "--id=App\\Repository\\TagRepository",
+        "--context=inspection-dev",
+        "--format=json"
+      ]
+    }
+  }
+}
