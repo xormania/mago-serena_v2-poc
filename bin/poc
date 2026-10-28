@@ -213,6 +213,9 @@ def main():
     slice2 = sub.add_parser('slice2', help='Generate and verify the disposable app:tags:count feature')
     slice2.add_argument('--run', help='Owned workspace id; defaults to a fresh isolated run')
     slice2.add_argument('--keep-running', action='store_true')
+    slice3 = sub.add_parser('slice3', help='Diagnose and repair a real failed Symfony HTTP request')
+    slice3.add_argument('--run', help='Owned workspace id; defaults to a fresh isolated run')
+    slice3.add_argument('--keep-running', action='store_true')
     sub.add_parser('agent-task', help='Prepare a fresh real-agent workspace and exact MCP configuration')
     verify = sub.add_parser('verify-agent', help='Independently verify an agent run, its MCP transcript and original tests')
     verify.add_argument('run_id')
@@ -263,7 +266,7 @@ def main():
         result = quality(selected(args.run))
         print(json.dumps(result, indent=2))
         return max(row['exit'] if row['exit'] >= 0 else 128-row['exit'] for row in result['commands'])
-    elif args.command in ('slice1', 'slice2'):
+    elif args.command in ('slice1', 'slice2', 'slice3'):
         # Semantic replay is host-side and needs the same locked MCP packages as
         # fast tests. Other orchestration commands deliberately use stdlib only.
         if Path(sys.prefix).resolve() != (ROOT/'.venv').resolve():
@@ -273,8 +276,10 @@ def main():
             os.execv(str(python), [str(python), str(ROOT/'bin/poc'), *sys.argv[1:]])
         if args.command == 'slice1':
             from slice1lib import run_slice
-        else:
+        elif args.command == 'slice2':
             from slice2lib import run_slice
+        else:
+            from slice3lib import run_slice
         return run_slice(args.run, keep_running=args.keep_running, capture_identity=capture_identity)
     elif args.command == 'report':
         return report(args.run_id)
