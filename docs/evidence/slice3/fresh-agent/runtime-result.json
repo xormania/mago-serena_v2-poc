@@ -1,0 +1,39 @@
+{
+  "observations": {
+    "healthy": {
+      "status": 200,
+      "token": "702a12",
+      "marker": "s3-agent-20261028a-healthy",
+      "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_marker=s3-agent-20261028a-healthy",
+      "provenance": "X-Debug-Token header from this exact HTTP response"
+    },
+    "defective": {
+      "status": 500,
+      "token": "f50b98",
+      "marker": "s3-agent-20261028a-defective-current",
+      "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_marker=s3-agent-20261028a-defective-current",
+      "provenance": "X-Debug-Token header from this exact HTTP response"
+    },
+    "repaired": {
+      "status": 200,
+      "token": "7bf144",
+      "marker": "s3-agent-20261028a-repaired",
+      "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_marker=s3-agent-20261028a-repaired",
+      "provenance": "X-Debug-Token header from this exact HTTP response"
+    }
+  },
+  "boot_control": {
+    "compile_exit": 1,
+    "http_status": 500,
+    "new_profile_token": null,
+    "historical_profile_token": "f50b98",
+    "historical_profile_exit": 0,
+    "historical_logs_exit": 0,
+    "compiled_alias_exit": 3
+  },
+  "notes": [
+    "Initial post-injection HTTP200 retained before source visibility; selected defective request f50b98 returned500.",
+    "Earlier failed d61d3f archived during explicit bootstrap preparation and removed by cacheclear; its failed reads retained accurately.",
+    "Failed ORM field yields0SQL; fresh repaired request records4queries."
+  ]
+}

@@ -1,0 +1,10 @@
+
+                                            
+  Command "resources:list" is not defined.  
+                                            
+  Did you mean one of these?                
+      resources:read                        
+      skills:list                           
+      tools:list                            
+                                            
+

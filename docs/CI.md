@@ -1,19 +1,46 @@
 # Hosted CI performance and evidence
 
-The Mago-first workflow has captured `slice1` and `slice2` steps after original
+The Mago-first workflow has captured `slice1`, `slice2` and `slice3` steps after original
 acceptance, using the same built image and separate fresh owned workspaces.
 Slice 1 exercises native PHP calibration, real host MCP semantics, compiled
 Mate/wiring-extension controls and the original PHPUnit identities. Slice 2
 uses installed Maker, replays the declared tag-count task, checks its real
 command and behavior tests, refreshes metadata, and invokes the public enriched
-Mago path. Its scripted replay is separate from the retained adaptive agent
-exercise described in [SLICE-2.md](SLICE-2.md). Native whole-application findings
+Mago path. Slice 3 correlates real HTTP responses with their profiler records,
+replays the declared tag-filter repair, verifies historical profiler/log access
+during a separate boot failure, and checks fresh recovery and regression tests.
+Scripted slice replay is separate from the retained adaptive agent exercises
+described in [SLICE-2.md](SLICE-2.md) and [SLICE-3.md](SLICE-3.md). Native whole-application findings
 remain recorded rather than suppressed; this is a capability gate, not a claim
 that every Demo diagnostic has been repaired. The original default container
 check keeps Composer/Symfony validation; PHPStan/PHP-CS-Fixer require the explicit
 `--legacy-comparison` option. Cache scope, event/concurrency policy and the
 trusted default-branch Jev consumer are unchanged. No new calibration or local
 provider key is involved.
+
+The runtime stage uses the same candidate image as the earlier gates, in its own
+application/database/state workspace. It runs once through `capture_step.py`;
+native exits and nested `<stage>-error.txt` causes retain their original
+run/attempt/source context. The collector accepts the declared `slice3` layout
+under the same source, size and path checks as slices 1 and 2. Mocked tests cover
+the runtime cause reaching the provider payload, foreign attempt rejection and
+zero provider requests when all three slice results pass. The producer receives
+no TypeSafe key; the trusted advisory consumer remains unchanged.
+
+Local parallel work can set `POC_IMAGE=mago-serena-poc:<session-tag>`. Compose,
+launchers and the CI build helper honor that selection; unset or empty selection
+keeps `mago-serena-poc:local`. Build and acceptance must use the same selection.
+The selected run records the resolved configuration and actual image identity;
+sharing the immutable image still leaves application/database/state directories
+independent.
+
+Local original acceptance on the slice-3 candidate image
+`sha256:ff82c2ee2de6eedba1d5e93a6d62652a788998de0a22afec3bce802102eb40ec`
+passed all **31 required checks** and **165 fast tests**. Both independent
+application workspaces passed the exact original **53 tests / 120 assertions**.
+The existing external-span reproduction remains labelled **EXPECTED NEGATIVE**;
+its passing control does not claim that upstream behavior is fixed. Slice-specific
+and hosted outcomes are reported separately in [SLICE-3.md](SLICE-3.md).
 
 The slice-2 integration starts from merged PR #3 at
 `8f154f798d7cf9ae7cf3cb33b0b99352de99dec4`. Slice failures and earlier attempts

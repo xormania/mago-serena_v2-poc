@@ -1,0 +1,23 @@
+{
+  "name": "healthy-http",
+  "argv": [
+    "./bin/poc",
+    "exec",
+    "--run",
+    "s3-agent-20261028a",
+    "--",
+    "curl",
+    "--silent",
+    "--show-error",
+    "--dump-header",
+    "/evidence/fresh/healthy.headers",
+    "--output",
+    "/evidence/fresh/healthy.html",
+    "--write-out",
+    "%{http_code}",
+    "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_marker=s3-agent-20261028a-healthy"
+  ],
+  "exit": 0,
+  "time_unix": 1793227143.1179128,
+  "elapsed_s": 0.206
+}

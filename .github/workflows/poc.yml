@@ -46,6 +46,9 @@ jobs:
       - name: Generated Symfony tag-count command and behavioral acceptance
         id: slice2
         run: python3 tools/ci/capture_step.py run --step slice2 -- ./bin/poc slice2
+      - name: Failed HTTP request diagnosis, semantic repair and runtime recovery
+        id: slice3
+        run: python3 tools/ci/capture_step.py run --step slice3 -- ./bin/poc slice3
       - name: Collect bounded advisory diagnosis data
         if: always()
         id: collect

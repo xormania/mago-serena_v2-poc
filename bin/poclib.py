@@ -65,7 +65,8 @@ def prepare(run_id, port=0):
     data = {'schema': 1, 'run_id': run_id, 'repository': str(ROOT),
             'project': f'mago-poc-{digest}-{run_id}', 'app': str(app),
             'state': str(workspace / 'state'), 'trusted': str(workspace / 'trusted'),
-            'evidence': str(ROOT / 'artifacts' / run_id), 'port': port}
+            'evidence': str(ROOT / 'artifacts' / run_id), 'port': port,
+            'image': os.environ.get('POC_IMAGE') or 'mago-serena-poc:local'}
     (workspace / 'run.json').write_text(json.dumps(data, indent=2) + '\n')
     return data
 
@@ -75,7 +76,11 @@ def compose(data, *args):
 
 
 def environment(data):
+    image = data.get('image') or os.environ.get('POC_IMAGE') or 'mago-serena-poc:local'
+    if (os.environ.get('POC_IMAGE') or image) != image:
+        raise ValueError('POC_IMAGE differs from the selected run image: '+image)
     return {**os.environ, 'POC_APP': data['app'], 'POC_STATE': data['state'],
+            'POC_IMAGE': image,
             'POC_TRUSTED': data.get('trusted', str(ROOT/'workspaces'/data['run_id']/'trusted')),
             'POC_EVIDENCE_DIR': data['evidence'], 'POC_PORT': str(data['port']),
             'POC_RUN_ID': data['run_id'], 'POC_ATTEMPT_ID': '1',
@@ -98,6 +103,16 @@ def start(data, build=False, validate_image=None):
     if build:
         run(compose(data, 'build'), env=env, log=Path(data['evidence']) / 'build.log')
     run(compose(data, 'up', '-d', '--no-build'), env=env)
+    resolved = json.loads(subprocess.check_output(compose(data, 'config', '--format', 'json'), env=env, text=True))
+    selected_image = resolved['services']['php']['image']
+    container = subprocess.check_output(compose(data, 'ps', '-q', 'php'), env=env, text=True).strip()
+    actual_image = subprocess.check_output([docker(), 'inspect', '--format', '{{.Image}}', container], text=True).strip()
+    expected_image = subprocess.check_output([docker(), 'image', 'inspect', '--format', '{{.Id}}', selected_image], text=True).strip()
+    if actual_image != expected_image:
+        raise RuntimeError('Selected Compose image differs from running container image')
+    (Path(data['evidence'])/'compose-image.json').write_text(json.dumps({
+        'selected_image': selected_image, 'image_id': actual_image, 'container_id': container,
+        'resolved_service_image': selected_image}, indent=2)+'\n')
     if validate_image:
         validate_image(data)
     execute(data, '/opt/poc/docker/setup', log=Path(data['evidence']) / 'setup.log')

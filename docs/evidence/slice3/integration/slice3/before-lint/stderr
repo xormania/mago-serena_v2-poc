@@ -1,0 +1,52 @@
+DEBUG Sourcing configuration from /app/mago-php.toml.
+ INFO Overriding PHP version with 8.5.0.
+ INFO Overriding workspace directory with /app.
+DEBUG Configuration specifies 4 threads.
+DEBUG Configuration specifies a stack size of 12582912 bytes.
+TRACE Process startup (dyld and runtime init) took 5.847µs.
+TRACE CLI arguments parsed in 323.732µs.
+TRACE Logger initialized in 8.866µs.
+TRACE Configuration loaded in 261.07µs.
+TRACE Rayon thread pool built in 976.981µs.
+TRACE Ready to dispatch command after 1.596096ms.
+TRACE Discovered 46 host files in 1.117µs.
+TRACE Processed 46 files in parallel in 3.790299ms (average 82.4 µs per file).
+TRACE Reduced results in 13.527µs.
+TRACE Pipeline finished in 3.877075ms.
+TRACE Slowest 20 of 46 files during the 🧹 Linting phase:
+TRACE    1. src/Command/DeleteUserCommand.php took 1.803025ms.
+TRACE    2. tests/object-manager.php took 1.797451ms.
+TRACE    3. src/EventSubscriber/CheckRequirementsSubscriber.php took 1.539754ms.
+TRACE    4. src/Entity/Post.php took 1.538228ms.
+TRACE    5. src/Controller/Admin/BlogController.php took 588.273µs.
+TRACE    6. src/Command/AddUserCommand.php took 508.682µs.
+TRACE    7. src/Twig/SourceCodeExtension.php took 479.854µs.
+TRACE    8. src/Controller/BlogController.php took 417.465µs.
+TRACE    9. src/DataFixtures/AppFixtures.php took 410.734µs.
+TRACE   10. src/Repository/PostRepository.php took 408.271µs.
+TRACE   11. tests/Controller/Admin/BlogControllerTest.php took 365.018µs.
+TRACE   12. tests/Controller/UserControllerTest.php took 276.619µs.
+TRACE   13. src/Form/Type/DateTimePickerType.php took 254.404µs.
+TRACE   14. src/Entity/User.php took 231.02µs.
+TRACE   15. src/Form/Type/TagsInputType.php took 195.423µs.
+TRACE   16. src/Twig/AppExtension.php took 158.545µs.
+TRACE   17. src/Command/ListUsersCommand.php took 135.471µs.
+TRACE   18. src/Form/ChangePasswordType.php took 126.192µs.
+TRACE   19. tests/Controller/BlogControllerTest.php took 102.135µs.
+TRACE   20. src/EventSubscriber/RedirectToPreferredLocaleSubscriber.php took 101.118µs.
+TRACE Linted 46 files in the parallel phase.
+TRACE Parsing accounted for 3.179 ms of lint worker CPU time (average 69.10 µs per file).
+TRACE Name resolution accounted for 0.829 ms of lint worker CPU time (average 18.03 µs per file).
+TRACE Semantics checking accounted for 0.519 ms of lint worker CPU time (average 11.28 µs per file).
+TRACE Built-in and external lint rules accounted for 8.392 ms of worker CPU time (average 182.44 µs per file).
+TRACE Total lint worker CPU time across all sub-phases was 12.928 ms (average 281.05 µs per file).
+TRACE Orchestrator initialized in 19.268µs.
+TRACE Database loaded in 808.546µs.
+TRACE Lint service ran in 4.118431ms.
+TRACE Issues filtered and reported in 413.155µs.
+TRACE Database dropped in 90.795µs.
+TRACE Orchestrator dropped in 5.817µs.
+TRACE Lint command finished in 5.485501ms.
+TRACE Command finished in 5.498456ms.
+TRACE Total time spent inside main so far: 7.096437ms.
+TRACE total process time: 7.097158ms

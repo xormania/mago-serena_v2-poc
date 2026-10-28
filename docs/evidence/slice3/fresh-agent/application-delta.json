@@ -1,0 +1,52 @@
+{
+  "initial_sha256": "73db1aeef610520b4ed801b7c17b755787bb2d9072fad504a6f2195cec4522ee",
+  "final_sha256": "92c44554a301478b44d591e4d7fe82f61954c4ffd19d0fea0f6adc807a7f6d73",
+  "changed_entries": {
+    "composer.lock": {
+      "before": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "52c9bdee29fc38c29b69d33416419f2ff087283e1ef88f84f27e5f7fb8c0334d",
+        "size": 455985
+      },
+      "after": {
+        "mode": 420,
+        "kind": "file",
+        "size": 455885,
+        "sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+      }
+    },
+    "tests/Controller/BlogTagFilterTest.php": {
+      "before": null,
+      "after": {
+        "mode": 420,
+        "kind": "file",
+        "size": 1226,
+        "sha256": "750d70d0c0df3d845e6320af8a4539cf28202380229ad6c4f52b6c157f64faa5"
+      }
+    },
+    "AGENTS.md": {
+      "before": {
+        "kind": "file",
+        "mode": 420,
+        "sha256": "6046c2f3477c31fcec61638c09b6aa3e583972fb38d3d7dad3ade3074dcef6b0",
+        "size": 1402
+      },
+      "after": {
+        "mode": 420,
+        "kind": "file",
+        "size": 5152,
+        "sha256": "3ff23c65e2598b9effc86e60667570a1543b35ffd78abcf3cea9a260a3a05fed"
+      }
+    }
+  },
+  "setup_reconciliation": {
+    "AGENTS.md": "New owner-preserving managed runtime instructions installed by explicit runtime-policy bootstrap preparation.",
+    "composer.lock": "Final overlay JSON normalization, exact same dependency records/content hash; explicit cp retained in actions.",
+    ".mago/container-reference.dev.json": "Fresh explicit framework export after final task repair."
+  },
+  "task_delta": [
+    "tests/Controller/BlogTagFilterTest.php"
+  ],
+  "controller_restored_exactly": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "description": "Diagnose and restore the existing BlogController tag lookup after an invalid ORM field defect.",
+  "request": "/en/blog/?tag=lorem",
+  "healthy_status": 200,
+  "defective_status": 500,
+  "controller": "src/Controller/BlogController.php",
+  "defect": {
+    "before": "$tags->findOneBy(['name' => $request->query->get('tag')])",
+    "after": "$tags->findOneBy(['label' => $request->query->get('tag')])"
+  },
+  "final_controller_sha256": "b6bd951cc08c7915c93446257662c486ec3be27ff2e4c854a53604f0ae25c86f",
+  "files": {
+    "tests/Controller/BlogTagFilterTest.php": {
+      "asset": "BlogTagFilterTest.php",
+      "sha256": "750d70d0c0df3d845e6320af8a4539cf28202380229ad6c4f52b6c157f64faa5"
+    }
+  },
+  "origin": "Fresh adaptive agent restores the existing controller through Serena REPL -> Mago semantic edit. The only final application delta is the declared regression test; replay is separately identified."
+}

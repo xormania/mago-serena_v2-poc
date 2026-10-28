@@ -5,7 +5,8 @@ Mago is the default PHP analysis/lint/fix/format path. The existing
 queries, calibrated native checks and compiled Symfony wiring consumed by the
 existing wiring extension. The application fixture and original semantic rename
 remain unchanged. The subsequent command-generation task is described in
-[slice 2](SLICE-2.md); slice 3 remains later work.
+[slice 2](SLICE-2.md); request diagnosis and repair are tracked in
+[slice 3](SLICE-3.md).
 
 The CLI framework bridge **passes**. External-worker propagation through the
 pinned LSP remains **blocked**, with a positive CLI control and a reproduction.

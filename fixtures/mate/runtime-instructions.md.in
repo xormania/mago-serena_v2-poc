@@ -1,0 +1,40 @@
+Runtime diagnosis uses the selected disposable container, `dev`, and context
+`inspection-dev`. Source/dependency edits invalidate compiled service facts and
+Symfony-enriched Mago; explicitly refresh with `./bin/poc mate-prepare --run RUN`
+only after retaining the failed request's evidence. Refresh archives bounded
+existing profiler/log files before `cache:clear`; a read never refreshes them.
+
+Use these public host commands (the wrapper supplies the container invocation):
+
+```sh
+__POC_INVOCATION__ tools:list --format=json
+__POC_INVOCATION__ tools:inspect symfony-profiler-list --format=json
+__POC_INVOCATION__ tools:call symfony-profiler-list --context=inspection-dev --limit=20 --url=UNIQUE_REQUEST_MARKER --format=json
+__POC_INVOCATION__ tools:call symfony-profiler-get --token=HEX6 --format=json
+__POC_INVOCATION__ resources:read symfony-profiler://profile/HEX6/exception --format=json
+__POC_INVOCATION__ tools:call monolog-search --term=UNIQUE_REQUEST_MARKER --environment=dev --kernelContext=inspection-dev --limit=20 --format=json
+__POC_INVOCATION__ tools:call monolog-context-search --key=exception --value=EXCEPTION_TEXT --environment=dev --kernelContext=inspection-dev --limit=20 --format=json
+__POC_INVOCATION__ tools:call symfony-service-detail --id='App\Repository\TagRepository' --context=inspection-dev --format=json
+__POC_INVOCATION__ tools:call server-info --format=json
+```
+
+Use the exact failed response's `X-Debug-Token`, URL marker and request time;
+health checks create other profiles. A list/detail is recorded request metadata;
+`exception`, `request`, `db`, `logger` and other discovered collector URIs answer
+what happened during that request. Monolog returns timestamp, channel, level,
+structured context, source file/line and kernel context. Correlate exact marker,
+exception and time; a matching count alone does not identify a request. Missing
+profiler data during a pre-boot failure is expected: use available logs and keep
+previous observations explicitly historical. `server-info` describes Mate's CLI
+PHP process, not the HTTP application's environment. Service tools describe the
+prepared compiled container and require fresh metadata. Serena REPL → Mago
+provides source definitions, references and semantic edits; Mago CLI owns PHP
+analysis/lint/safe fixes/formatting; Symfony validators and PHPUnit check framework
+and behavior. Installed/discovered tools are not evidence that they were used.
+
+Runtime calls require exact command/tool names and explicit contexts; limits are
+1–100. Long options and `--json` are supported, with explicit options overriding
+JSON. Known global flags may precede commands. Abbreviated/unknown commands
+conservatively retain compiled freshness checks. Retain wrapper invocation JSON
+alongside result bytes: it labels runtime observations historical and records
+request/token/time provenance independently of current compiled source state.

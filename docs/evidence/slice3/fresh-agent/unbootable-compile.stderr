@@ -1,0 +1,7 @@
+
+In DefinitionErrorExceptionPass.php line 48:
+                                                                               
+  Invalid service "s3.invalid_service": class "App\Slice3MissingService" does  
+   not exist.                                                                  
+                                                                               
+

@@ -1,0 +1,52 @@
+DEBUG Sourcing configuration from /app/mago-php.toml.
+ INFO Overriding PHP version with 8.5.0.
+ INFO Overriding workspace directory with /app.
+DEBUG Configuration specifies 4 threads.
+DEBUG Configuration specifies a stack size of 12582912 bytes.
+TRACE Process startup (dyld and runtime init) took 5.343µs.
+TRACE CLI arguments parsed in 295.192µs.
+TRACE Logger initialized in 8.307µs.
+TRACE Configuration loaded in 169.039µs.
+TRACE Rayon thread pool built in 414.944µs.
+TRACE Ready to dispatch command after 909.449µs.
+TRACE Discovered 46 host files in 945ns.
+TRACE Processed 46 files in parallel in 3.983481ms (average 86.6 µs per file).
+TRACE Reduced results in 7.987µs.
+TRACE Pipeline finished in 4.026021ms.
+TRACE Slowest 20 of 46 files during the 🧹 Linting phase:
+TRACE    1. src/Command/AddUserCommand.php took 1.726427ms.
+TRACE    2. tests/Command/AbstractCommandTestCase.php took 1.419754ms.
+TRACE    3. src/EventSubscriber/CheckRequirementsSubscriber.php took 1.390346ms.
+TRACE    4. src/Command/DeleteUserCommand.php took 1.246581ms.
+TRACE    5. tests/object-manager.php took 1.215462ms.
+TRACE    6. tests/Controller/Admin/BlogControllerTest.php took 726.491µs.
+TRACE    7. src/DataFixtures/AppFixtures.php took 388.099µs.
+TRACE    8. src/Controller/Admin/BlogController.php took 284.539µs.
+TRACE    9. tests/Controller/UserControllerTest.php took 256.148µs.
+TRACE   10. src/Pagination/Paginator.php took 243.419µs.
+TRACE   11. src/Repository/PostRepository.php took 239.026µs.
+TRACE   12. src/Controller/BlogController.php took 227.457µs.
+TRACE   13. src/Entity/Post.php took 219.071µs.
+TRACE   14. src/Repository/TagRepository.php took 192.96µs.
+TRACE   15. src/Twig/SourceCodeExtension.php took 180.948µs.
+TRACE   16. tests/Form/DataTransformer/TagArrayToStringTransformerTest.php took 176.96µs.
+TRACE   17. src/Form/ChangePasswordType.php took 117.841µs.
+TRACE   18. src/Entity/User.php took 98.081µs.
+TRACE   19. tests/Controller/BlogControllerTest.php took 95.694µs.
+TRACE   20. src/EventSubscriber/CommentNotificationSubscriber.php took 95.449µs.
+TRACE Linted 46 files in the parallel phase.
+TRACE Parsing accounted for 3.428 ms of lint worker CPU time (average 74.52 µs per file).
+TRACE Name resolution accounted for 0.608 ms of lint worker CPU time (average 13.22 µs per file).
+TRACE Semantics checking accounted for 0.442 ms of lint worker CPU time (average 9.62 µs per file).
+TRACE Built-in and external lint rules accounted for 7.316 ms of worker CPU time (average 159.04 µs per file).
+TRACE Total lint worker CPU time across all sub-phases was 11.802 ms (average 256.57 µs per file).
+TRACE Orchestrator initialized in 16.071µs.
+TRACE Database loaded in 558.288µs.
+TRACE Lint service ran in 4.197006ms.
+TRACE Issues filtered and reported in 587.135µs.
+TRACE Database dropped in 95.158µs.
+TRACE Orchestrator dropped in 5.44µs.
+TRACE Lint command finished in 5.485024ms.
+TRACE Command finished in 5.501329ms.
+TRACE Total time spent inside main so far: 6.412038ms.
+TRACE total process time: 6.41293ms

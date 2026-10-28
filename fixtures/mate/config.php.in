@@ -8,5 +8,7 @@ return static function (ContainerConfigurator $container): void {
         ->set('mate.php_version', '8.5')
         // No fallback to the test/prod container when inspecting this dev run.
         ->set('ai_mate_symfony.cache_dir', ['inspection-dev' => '%mate.root_dir%/var/cache/dev'])
+        ->set('ai_mate_symfony.profiler_dir', ['inspection-dev' => '%mate.root_dir%/var/cache/dev/profiler'])
+        ->set('ai_mate_monolog.log_dir', ['inspection-dev' => '%mate.root_dir%/var/log'])
     ;
 };

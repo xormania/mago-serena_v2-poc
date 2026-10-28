@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/app/phpunit.dist.xml" tests="54" assertions="131" errors="0" failures="0" skipped="0" time="0.891210">
+    <testsuite name="Project Test Suite" tests="54" assertions="131" errors="0" failures="0" skipped="0" time="0.891210">
+      <testsuite name="App\Tests\Command\AddUserCommandTest" file="/app/tests/Command/AddUserCommandTest.php" tests="4" assertions="20" errors="0" failures="0" skipped="0" time="0.396848">
+        <testsuite name="App\Tests\Command\AddUserCommandTest::testCreateUserNonInteractive" tests="2" assertions="10" errors="0" failures="0" skipped="0" time="0.372611">
+          <testcase name="testCreateUserNonInteractive with data set #0" file="/app/tests/Command/AddUserCommandTest.php" line="42" class="App\Tests\Command\AddUserCommandTest" classname="App.Tests.Command.AddUserCommandTest" assertions="5" time="0.362691"/>
+          <testcase name="testCreateUserNonInteractive with data set #1" file="/app/tests/Command/AddUserCommandTest.php" line="42" class="App\Tests\Command\AddUserCommandTest" classname="App.Tests.Command.AddUserCommandTest" assertions="5" time="0.009920"/>
+        </testsuite>
+        <testsuite name="App\Tests\Command\AddUserCommandTest::testCreateUserInteractive" tests="2" assertions="10" errors="0" failures="0" skipped="0" time="0.024237">
+          <testcase name="testCreateUserInteractive with data set #0" file="/app/tests/Command/AddUserCommandTest.php" line="61" class="App\Tests\Command\AddUserCommandTest" classname="App.Tests.Command.AddUserCommandTest" assertions="5" time="0.012054"/>
+          <testcase name="testCreateUserInteractive with data set #1" file="/app/tests/Command/AddUserCommandTest.php" line="61" class="App\Tests\Command\AddUserCommandTest" classname="App.Tests.Command.AddUserCommandTest" assertions="5" time="0.012183"/>
+        </testsuite>
+      </testsuite>
+      <testsuite name="App\Tests\Command\ListUsersCommandTest" file="/app/tests/Command/ListUsersCommandTest.php" tests="4" assertions="4" errors="0" failures="0" skipped="0" time="0.012201">
+        <testsuite name="App\Tests\Command\ListUsersCommandTest::testListUsers" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.005843">
+          <testcase name="testListUsers with data set #0" file="/app/tests/Command/ListUsersCommandTest.php" line="22" class="App\Tests\Command\ListUsersCommandTest" classname="App.Tests.Command.ListUsersCommandTest" assertions="1" time="0.004222"/>
+          <testcase name="testListUsers with data set #1" file="/app/tests/Command/ListUsersCommandTest.php" line="22" class="App\Tests\Command\ListUsersCommandTest" classname="App.Tests.Command.ListUsersCommandTest" assertions="1" time="0.001621"/>
+        </testsuite>
+        <testcase name="testItSendsNoEmailByDefault" file="/app/tests/Command/ListUsersCommandTest.php" line="38" class="App\Tests\Command\ListUsersCommandTest" classname="App.Tests.Command.ListUsersCommandTest" assertions="1" time="0.001529"/>
+        <testcase name="testItSendsAnEmailIfOptionProvided" file="/app/tests/Command/ListUsersCommandTest.php" line="45" class="App\Tests\Command\ListUsersCommandTest" classname="App.Tests.Command.ListUsersCommandTest" assertions="1" time="0.004828"/>
+      </testsuite>
+      <testsuite name="App\Tests\Controller\Admin\BlogControllerTest" file="/app/tests/Controller/Admin/BlogControllerTest.php" tests="10" assertions="24" errors="0" failures="0" skipped="0" time="0.208988">
+        <testsuite name="App\Tests\Controller\Admin\BlogControllerTest::testAccessDeniedForRegularUsers" tests="4" assertions="4" errors="0" failures="0" skipped="0" time="0.036687">
+          <testcase name="testAccessDeniedForRegularUsers with data set #0" file="/app/tests/Controller/Admin/BlogControllerTest.php" line="54" class="App\Tests\Controller\Admin\BlogControllerTest" classname="App.Tests.Controller.Admin.BlogControllerTest" assertions="1" time="0.018251"/>
+          <testcase name="testAccessDeniedForRegularUsers with data set #1" file="/app/tests/Controller/Admin/BlogControllerTest.php" line="54" class="App\Tests\Controller\Admin\BlogControllerTest" classname="App.Tests.Controller.Admin.BlogControllerTest" assertions="1" time="0.007992"/>
+          <testcase name="testAccessDeniedForRegularUsers with data set #2" file="/app/tests/Controller/Admin/BlogControllerTest.php" line="54" class="App\Tests\Controller\Admin\BlogControllerTest" classname="App.Tests.Controller.Admin.BlogControllerTest" assertions="1" time="0.005634"/>
+          <testcase name="testAccessDeniedForRegularUsers with data set #3" file="/app/tests/Controller/Admin/BlogControllerTest.php" line="54" class="App\Tests\Controller\Admin\BlogControllerTest" classname="App.Tests.Controller.Admin.BlogControllerTest" assertions="1" time="0.004811"/>
+        </testsuite>
+        <testcase name="testAdminBackendHomePage" file="/app/tests/Controller/Admin/BlogControllerTest.php" line="77" class="App\Tests\Controller\Admin\BlogControllerTest" classname="App.Tests.Controller.Admin.BlogControllerTest" assertions="2" time="0.025076"/>
+        <testcase name="testAdminNewPost" file="/app/tests/Controller/Admin/BlogControllerTest.php" line="94" class="App\Tests\Controller\Admin\BlogControllerTest" classname="App.Tests.Controller.Admin.BlogControllerTest" assertions="6" time="0.035341"/>
+        <testcase name="testAdminNewDuplicatedPost" file="/app/tests/Controller/Admin/BlogControllerTest.php" line="119" class="App\Tests\Controller\Admin\BlogControllerTest" classname="App.Tests.Controller.Admin.BlogControllerTest" assertions="3" time="0.043023"/>
+        <testcase name="testAdminShowPost" file="/app/tests/Controller/Admin/BlogControllerTest.php" line="143" class="App\Tests\Controller\Admin\BlogControllerTest" classname="App.Tests.Controller.Admin.BlogControllerTest" assertions="1" time="0.022187"/>
+        <testcase name="testAdminEditPost" file="/app/tests/Controller/Admin/BlogControllerTest.php" line="156" class="App\Tests\Controller\Admin\BlogControllerTest" classname="App.Tests.Controller.Admin.BlogControllerTest" assertions="4" time="0.026109"/>
+        <testcase name="testAdminDeletePost" file="/app/tests/Controller/Admin/BlogControllerTest.php" line="182" class="App\Tests\Controller\Admin\BlogControllerTest" classname="App.Tests.Controller.Admin.BlogControllerTest" assertions="4" time="0.020566"/>
+      </testsuite>
+      <testsuite name="App\Tests\Controller\BlogControllerTest" file="/app/tests/Controller/BlogControllerTest.php" tests="4" assertions="8" errors="0" failures="0" skipped="0" time="0.123140">
+        <testcase name="testIndex" file="/app/tests/Controller/BlogControllerTest.php" line="31" class="App\Tests\Controller\BlogControllerTest" classname="App.Tests.Controller.BlogControllerTest" assertions="2" time="0.022698"/>
+        <testcase name="testRss" file="/app/tests/Controller/BlogControllerTest.php" line="45" class="App\Tests\Controller\BlogControllerTest" classname="App.Tests.Controller.BlogControllerTest" assertions="2" time="0.004677"/>
+        <testcase name="testNewComment" file="/app/tests/Controller/BlogControllerTest.php" line="65" class="App\Tests\Controller\BlogControllerTest" classname="App.Tests.Controller.BlogControllerTest" assertions="1" time="0.077983"/>
+        <testcase name="testAjaxSearch" file="/app/tests/Controller/BlogControllerTest.php" line="93" class="App\Tests\Controller\BlogControllerTest" classname="App.Tests.Controller.BlogControllerTest" assertions="3" time="0.017782"/>
+      </testsuite>
+      <testsuite name="App\Tests\Controller\BlogTagFilterTest" file="/app/tests/Controller/BlogTagFilterTest.php" tests="1" assertions="11" errors="0" failures="0" skipped="0" time="0.016228">
+        <testcase name="testKnownTagFilter" file="/app/tests/Controller/BlogTagFilterTest.php" line="17" class="App\Tests\Controller\BlogTagFilterTest" classname="App.Tests.Controller.BlogTagFilterTest" assertions="11" time="0.016228"/>
+      </testsuite>
+      <testsuite name="App\Tests\Controller\DefaultControllerTest" file="/app/tests/Controller/DefaultControllerTest.php" tests="8" assertions="16" errors="0" failures="0" skipped="0" time="0.072174">
+        <testsuite name="App\Tests\Controller\DefaultControllerTest::testPublicUrls" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="0.041672">
+          <testcase name="testPublicUrls with data set #0" file="/app/tests/Controller/DefaultControllerTest.php" line="38" class="App\Tests\Controller\DefaultControllerTest" classname="App.Tests.Controller.DefaultControllerTest" assertions="1" time="0.011573"/>
+          <testcase name="testPublicUrls with data set #1" file="/app/tests/Controller/DefaultControllerTest.php" line="38" class="App\Tests\Controller\DefaultControllerTest" classname="App.Tests.Controller.DefaultControllerTest" assertions="1" time="0.016130"/>
+          <testcase name="testPublicUrls with data set #2" file="/app/tests/Controller/DefaultControllerTest.php" line="38" class="App\Tests\Controller\DefaultControllerTest" classname="App.Tests.Controller.DefaultControllerTest" assertions="1" time="0.013968"/>
+        </testsuite>
+        <testcase name="testPublicBlogPost" file="/app/tests/Controller/DefaultControllerTest.php" line="56" class="App\Tests\Controller\DefaultControllerTest" classname="App.Tests.Controller.DefaultControllerTest" assertions="1" time="0.015813"/>
+        <testsuite name="App\Tests\Controller\DefaultControllerTest::testSecureUrls" tests="4" assertions="12" errors="0" failures="0" skipped="0" time="0.014690">
+          <testcase name="testSecureUrls with data set #0" file="/app/tests/Controller/DefaultControllerTest.php" line="77" class="App\Tests\Controller\DefaultControllerTest" classname="App.Tests.Controller.DefaultControllerTest" assertions="3" time="0.004784"/>
+          <testcase name="testSecureUrls with data set #1" file="/app/tests/Controller/DefaultControllerTest.php" line="77" class="App\Tests\Controller\DefaultControllerTest" classname="App.Tests.Controller.DefaultControllerTest" assertions="3" time="0.002131"/>
+          <testcase name="testSecureUrls with data set #2" file="/app/tests/Controller/DefaultControllerTest.php" line="77" class="App\Tests\Controller\DefaultControllerTest" classname="App.Tests.Controller.DefaultControllerTest" assertions="3" time="0.004141"/>
+          <testcase name="testSecureUrls with data set #3" file="/app/tests/Controller/DefaultControllerTest.php" line="77" class="App\Tests\Controller\DefaultControllerTest" classname="App.Tests.Controller.DefaultControllerTest" assertions="3" time="0.003633"/>
+        </testsuite>
+      </testsuite>
+      <testsuite name="App\Tests\Controller\UserControllerTest" file="/app/tests/Controller/UserControllerTest.php" tests="4" assertions="15" errors="0" failures="0" skipped="0" time="0.056479">
+        <testsuite name="App\Tests\Controller\UserControllerTest::testAccessDeniedForAnonymousUsers" tests="2" assertions="6" errors="0" failures="0" skipped="0" time="0.004963">
+          <testcase name="testAccessDeniedForAnonymousUsers with data set #0" file="/app/tests/Controller/UserControllerTest.php" line="38" class="App\Tests\Controller\UserControllerTest" classname="App.Tests.Controller.UserControllerTest" assertions="3" time="0.002583"/>
+          <testcase name="testAccessDeniedForAnonymousUsers with data set #1" file="/app/tests/Controller/UserControllerTest.php" line="38" class="App\Tests\Controller\UserControllerTest" classname="App.Tests.Controller.UserControllerTest" assertions="3" time="0.002380"/>
+        </testsuite>
+        <testcase name="testEditUser" file="/app/tests/Controller/UserControllerTest.php" line="56" class="App\Tests\Controller\UserControllerTest" classname="App.Tests.Controller.UserControllerTest" assertions="5" time="0.021305"/>
+        <testcase name="testChangePassword" file="/app/tests/Controller/UserControllerTest.php" line="83" class="App\Tests\Controller\UserControllerTest" classname="App.Tests.Controller.UserControllerTest" assertions="4" time="0.030211"/>
+      </testsuite>
+      <testsuite name="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest" file="/app/tests/Form/DataTransformer/TagArrayToStringTransformerTest.php" tests="6" assertions="10" errors="0" failures="0" skipped="0" time="0.003365">
+        <testcase name="testCreateTheRightAmountOfTags" file="/app/tests/Form/DataTransformer/TagArrayToStringTransformerTest.php" line="29" class="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest" classname="App.Tests.Form.DataTransformer.TagArrayToStringTransformerTest" assertions="2" time="0.002908"/>
+        <testcase name="testCreateTheRightAmountOfTagsWithTooManyCommas" file="/app/tests/Form/DataTransformer/TagArrayToStringTransformerTest.php" line="41" class="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest" classname="App.Tests.Form.DataTransformer.TagArrayToStringTransformerTest" assertions="2" time="0.000136"/>
+        <testcase name="testTrimNames" file="/app/tests/Form/DataTransformer/TagArrayToStringTransformerTest.php" line="52" class="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest" classname="App.Tests.Form.DataTransformer.TagArrayToStringTransformerTest" assertions="1" time="0.000075"/>
+        <testcase name="testDuplicateNames" file="/app/tests/Form/DataTransformer/TagArrayToStringTransformerTest.php" line="62" class="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest" classname="App.Tests.Form.DataTransformer.TagArrayToStringTransformerTest" assertions="1" time="0.000089"/>
+        <testcase name="testUsesAlreadyDefinedTags" file="/app/tests/Form/DataTransformer/TagArrayToStringTransformerTest.php" line="72" class="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest" classname="App.Tests.Form.DataTransformer.TagArrayToStringTransformerTest" assertions="3" time="0.000093"/>
+        <testcase name="testTransform" file="/app/tests/Form/DataTransformer/TagArrayToStringTransformerTest.php" line="89" class="App\Tests\Form\DataTransformer\TagArrayToStringTransformerTest" classname="App.Tests.Form.DataTransformer.TagArrayToStringTransformerTest" assertions="1" time="0.000063"/>
+      </testsuite>
+      <testsuite name="App\Tests\Twig\AppExtensionTest" file="/app/tests/Twig/AppExtensionTest.php" tests="2" assertions="5" errors="0" failures="0" skipped="0" time="0.000588">
+        <testcase name="testGetLocales" file="/app/tests/Twig/AppExtensionTest.php" line="19" class="App\Tests\Twig\AppExtensionTest" classname="App.Tests.Twig.AppExtensionTest" assertions="1" time="0.000491"/>
+        <testcase name="testIsRtl" file="/app/tests/Twig/AppExtensionTest.php" line="30" class="App\Tests\Twig\AppExtensionTest" classname="App.Tests.Twig.AppExtensionTest" assertions="4" time="0.000097"/>
+      </testsuite>
+      <testsuite name="App\Tests\Utils\ValidatorTest" file="/app/tests/Utils/ValidatorTest.php" tests="11" assertions="18" errors="0" failures="0" skipped="0" time="0.001200">
+        <testcase name="testValidateUsername" file="/app/tests/Utils/ValidatorTest.php" line="26" class="App\Tests\Utils\ValidatorTest" classname="App.Tests.Utils.ValidatorTest" assertions="1" time="0.000069"/>
+        <testcase name="testValidateUsernameEmpty" file="/app/tests/Utils/ValidatorTest.php" line="33" class="App\Tests\Utils\ValidatorTest" classname="App.Tests.Utils.ValidatorTest" assertions="2" time="0.000238"/>
+        <testcase name="testValidateUsernameInvalid" file="/app/tests/Utils/ValidatorTest.php" line="40" class="App\Tests\Utils\ValidatorTest" classname="App.Tests.Utils.ValidatorTest" assertions="2" time="0.000077"/>
+        <testcase name="testValidatePassword" file="/app/tests/Utils/ValidatorTest.php" line="47" class="App\Tests\Utils\ValidatorTest" classname="App.Tests.Utils.ValidatorTest" assertions="1" time="0.000179"/>
+        <testcase name="testValidatePasswordEmpty" file="/app/tests/Utils/ValidatorTest.php" line="54" class="App\Tests\Utils\ValidatorTest" classname="App.Tests.Utils.ValidatorTest" assertions="2" time="0.000076"/>
+        <testcase name="testValidatePasswordInvalid" file="/app/tests/Utils/ValidatorTest.php" line="61" class="App\Tests\Utils\ValidatorTest" classname="App.Tests.Utils.ValidatorTest" assertions="2" time="0.000086"/>
+        <testcase name="testValidateEmail" file="/app/tests/Utils/ValidatorTest.php" line="68" class="App\Tests\Utils\ValidatorTest" classname="App.Tests.Utils.ValidatorTest" assertions="1" time="0.000124"/>
+        <testcase name="testValidateEmailEmpty" file="/app/tests/Utils/ValidatorTest.php" line="75" class="App\Tests\Utils\ValidatorTest" classname="App.Tests.Utils.ValidatorTest" assertions="2" time="0.000105"/>
+        <testcase name="testValidateEmailInvalid" file="/app/tests/Utils/ValidatorTest.php" line="82" class="App\Tests\Utils\ValidatorTest" classname="App.Tests.Utils.ValidatorTest" assertions="2" time="0.000073"/>
+        <testcase name="testValidateFullName" file="/app/tests/Utils/ValidatorTest.php" line="89" class="App\Tests\Utils\ValidatorTest" classname="App.Tests.Utils.ValidatorTest" assertions="1" time="0.000102"/>
+        <testcase name="testValidateFullNameEmpty" file="/app/tests/Utils/ValidatorTest.php" line="96" class="App\Tests\Utils\ValidatorTest" classname="App.Tests.Utils.ValidatorTest" assertions="2" time="0.000071"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

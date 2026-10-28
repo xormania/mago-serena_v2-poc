@@ -1,0 +1,17 @@
+{
+  "status": 500,
+  "token": null,
+  "marker": "s3-unbootable-e2ec447f40ba42b3",
+  "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_request=s3-unbootable-e2ec447f40ba42b3",
+  "profile_created": false,
+  "interpretation": "No profiler record is required when container compilation fails before profiling.",
+  "observed_unix": 1793227788.3443785,
+  "body_sha256": "73cc36d00b8e9d8f10b4192c3bc7189ee520fd2a742f27d4dba30c1478160a45",
+  "response_attempt": 1,
+  "log_window": {
+    "path": "/home/scientdb/worktrees/mago-serena_v2-poc/slice3-runtime-20261028a/artifacts/s3-replay-20261028b/slice3/attempt-855820828f394f3a8a69cd2084677574/unbootable-log-window.txt",
+    "start": 501594,
+    "end": 501594,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
