@@ -1,0 +1,2 @@
+mago-enriched: Application/dependencies changed; run mate-prepare explicitly; refresh with ./bin/poc mate-prepare --run integrated-slice2-20261028
+Enriched evidence: /home/scientdb/tmp/symf-poc/worktree-final/artifacts/integrated-slice2-20261028/mago/enriched/39b9db99b8c1475bb1c21412e74e76f5

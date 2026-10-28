@@ -1,0 +1,133 @@
+DEBUG Sourcing configuration from /app/.mago/wiring.toml.
+ INFO Overriding PHP version with 8.5.0.
+ INFO Overriding thread count with 1.
+ INFO Overriding workspace directory with /app.
+DEBUG Configuration specifies 1 threads.
+DEBUG Configuration specifies a stack size of 12582912 bytes.
+TRACE Process startup (dyld and runtime init) took 6.042µs.
+TRACE CLI arguments parsed in 628.25µs.
+TRACE Logger initialized in 7.505µs.
+TRACE Configuration loaded in 148.588µs.
+TRACE Rayon thread pool built in 148.586µs.
+TRACE Ready to dispatch command after 958.654µs.
+TRACE Starting concurrent external analyzer initialization. enabled_hosts=1
+TRACE Created pending external analyzer handle.
+TRACE External analyzer initialization thread started.
+TRACE Initializing external analyzer hosts. configured_hosts=1 enabled_hosts=1 mago_threads=1 php_version=8.5.0 explicitly_enabled_plugins=0 disable_defaults=false
+TRACE Starting external analyzer host. host=php command=WorkerCommand { program: "env", argument_count: 8, current_directory: Some("/app/.mago/.."), environment_keys: [], clear_environment: false } workers=1 adaptive=true
+TRACE Starting extension worker pool. program="env" configured_workers=1 initial_workers=1 adaptive=false maximum_payload_bytes=67108864 request_timeout_ms=30000 shutdown_timeout_ms=250 stderr_tail_bytes=65536
+TRACE Spawning extension worker process. worker=0 program="env" arguments=8 working_directory=Some("/app/.mago/..")
+TRACE Extension worker process spawned. worker=0 process_id=1372
+TRACE Extension worker stdout reader started. worker=0
+TRACE Extension worker I/O threads started. worker=0 elapsed=251.112µs
+TRACE Extension worker pool started. program="env" active_workers=1 worker_capacity=1 elapsed=260.319µs
+TRACE External analyzer host started. host=php active_workers=1 elapsed=271.417µs
+TRACE Initializing external analyzer registrations. php_version=8.5.0 explicitly_enabled_plugins=0 disable_defaults=false
+TRACE Describing external analyzer backend. backend=0 request_bytes=4191
+TRACE Extension worker stderr reader started. worker=0
+TRACE Extension broadcast completed. group=None workers=1 requests=1 request_bytes=4191 response_bytes=525 elapsed=14.456872ms
+TRACE External analyzer backend registered. backend=0 workers=1 response_bytes=525 extensions=2 plugins=2 initialization_plugins=0 enabled_plugins=2 function_providers=0 disabled_function_providers=0 method_providers=0 disabled_method_providers=0 function_assertion_providers=0 disabled_function_assertion_providers=0 method_assertion_providers=0 disabled_method_assertion_providers=0 property_providers=0 disabled_property_providers=0 property_initialization_providers=0 disabled_property_initialization_providers=0 class_initializer_providers=0 disabled_class_initializer_providers=0 entry_points=0 disabled_entry_points=0 attributed_entry_points=0 disabled_attributed_entry_points=0 issue_filter_hooks=0 disabled_issue_filter_hooks=0 node_analysis_hooks=0 disabled_node_analysis_hooks=0 method_call_analysis_hooks=0 disabled_method_call_analysis_hooks=0 class_like_analysis_hooks=0 disabled_class_like_analysis_hooks=0 codebase_scan_hooks=0 disabled_codebase_scan_hooks=0 before_analysis_plugins=0 after_file_analysis_plugins=1 after_analysis_plugins=2 elapsed=14.524067ms
+TRACE External analyzer initialized. backends=1 extensions=2 plugins=2 function_providers=0 method_providers=0 property_providers=0 property_initialization_providers=0 class_initializer_providers=0 entry_points=0 attributed_entry_points=0 issue_filter_hooks=0 node_analysis_hooks=0 method_call_analysis_hooks=0 class_like_analysis_hooks=0 before_analysis_plugins=0 after_file_analysis_plugins=1 after_analysis_plugins=2 elapsed=15.106466ms
+TRACE External analyzer hosts initialized. extensions=2 plugins=2 elapsed=15.974684ms
+TRACE External analyzer initialization thread finished. elapsed=15.990569ms success=true
+TRACE Waiting for external analyzer initialization thread.
+TRACE External analyzer initialization thread joined. elapsed=37.609µs success=true
+TRACE Compiled external codebase-scan selectors. backends=0 hooks=0 targets=0
+TRACE Codebase population phase completed. phase="hierarchy" elapsed=35.332119ms
+TRACE Codebase population phase completed. phase="function_signatures" elapsed=33.448842ms
+TRACE Codebase population phase completed. phase="class_types" elapsed=7.295194ms
+TRACE Codebase population phase completed. phase="constants" elapsed=156.723µs
+TRACE Codebase population phase completed. phase="descendants" elapsed=2.441187ms
+TRACE Codebase population phase completed. phase="docblocks" elapsed=9.370479ms
+TRACE External before-analysis hooks completed. issues=0 elapsed=1.783µs
+TRACE Loop convergence skips file=src/DataFixtures/AppFixtures.php offset=1161 converged_passes=0
+TRACE Loop convergence skips file=src/DataFixtures/AppFixtures.php offset=1736 converged_passes=0
+TRACE Loop convergence skips file=src/DataFixtures/AppFixtures.php offset=2450 converged_passes=0
+TRACE Loop convergence skips file=src/DataFixtures/AppFixtures.php offset=2450 converged_passes=0
+TRACE Loop convergence skips file=src/DataFixtures/AppFixtures.php offset=2450 converged_passes=0
+TRACE Loop convergence skips file=src/DataFixtures/AppFixtures.php offset=2024 converged_passes=0
+TRACE Loop convergence skips file=src/DataFixtures/AppFixtures.php offset=6697 converged_passes=0
+TRACE Loop convergence skips file=src/Twig/SourceCodeExtension.php offset=3374 converged_passes=0
+TRACE Loop convergence skips file=src/Entity/Post.php offset=4419 converged_passes=0
+TRACE Loop convergence skips file=src/Repository/PostRepository.php offset=2118 converged_passes=0
+TRACE Slow extension worker-pool request completed. request_bytes=2650 response_bytes=2763 elapsed=29.987702ms reserve=692ns exchange=29.986692ms recovery=161ns nested_handler=true failed=false
+TRACE Slow external analyzer lifecycle request completed. phase="after-file-analysis" plugins=1 file="<project>" response_bytes=2763 issues=0 elapsed=30.235623ms
+TRACE Slow external analyzer lifecycle request completed. phase="after-file-analysis" plugins=1 file="<project>" response_bytes=873 issues=0 elapsed=8.404871ms
+TRACE External after-file hook batches completed. files=46 batches=2 issues=0 elapsed=52.76228ms
+TRACE Slow extension worker-pool request completed. request_bytes=3899 response_bytes=323 elapsed=32.951544ms reserve=1.101µs exchange=32.950202ms recovery=41ns nested_handler=true failed=false
+TRACE Slow external analyzer lifecycle request completed. phase="after-analysis" plugins=2 file="<project>" response_bytes=323 issues=1 elapsed=33.211521ms
+TRACE Discovered 9910 source files in 18.339811ms.
+TRACE Compiled 9910 source files in parallel in 619.846462ms (average 62.5 µs per file).
+TRACE Merged partial codebases in 17.078705ms.
+TRACE Populated codebase metadata in 88.195718ms.
+TRACE Discovered 46 host files in 86.657µs.
+TRACE Analyzed 46 host files in parallel in 10.382128ms (average 225.7 µs per file).
+TRACE Reduced analysis results in 88.351936ms.
+TRACE Pipeline finished in 842.658084ms.
+TRACE Slowest 20 of 46 files during the analysis phase:
+TRACE    1. src/Twig/SourceCodeExtension.php took 909.381µs.
+TRACE    2. src/Command/AddUserCommand.php took 890.189µs.
+TRACE    3. src/DataFixtures/AppFixtures.php took 865.317µs.
+TRACE    4. tests/Controller/Admin/BlogControllerTest.php took 561.187µs.
+TRACE    5. src/Controller/Admin/BlogController.php took 471.385µs.
+TRACE    6. src/Entity/Post.php took 392.991µs.
+TRACE    7. src/Controller/BlogController.php took 352.486µs.
+TRACE    8. src/EventSubscriber/RedirectToPreferredLocaleSubscriber.php took 332.019µs.
+TRACE    9. src/Repository/PostRepository.php took 307.663µs.
+TRACE   10. tests/Command/AddUserCommandTest.php took 285.913µs.
+TRACE   11. src/Command/DeleteUserCommand.php took 282.863µs.
+TRACE   12. tests/Form/DataTransformer/TagArrayToStringTransformerTest.php took 274.214µs.
+TRACE   13. src/Command/ListUsersCommand.php took 273.034µs.
+TRACE   14. src/Pagination/Paginator.php took 265.914µs.
+TRACE   15. src/Entity/User.php took 261.079µs.
+TRACE   16. src/EventSubscriber/CheckRequirementsSubscriber.php took 244.324µs.
+TRACE   17. tests/Controller/BlogControllerTest.php took 241.532µs.
+TRACE   18. src/Form/DataTransformer/TagArrayToStringTransformer.php took 230.765µs.
+TRACE   19. tests/Controller/UserControllerTest.php took 204.634µs.
+TRACE   20. tests/Controller/DefaultControllerTest.php took 191.412µs.
+TRACE Analyzed 46 files in the parallel phase.
+TRACE Parsing accounted for 0.887 ms of worker CPU time (average 19.29 µs per file).
+TRACE Name resolution accounted for 0.158 ms of worker CPU time (average 3.42 µs per file).
+TRACE Analyzer construction accounted for 0.002 ms of worker CPU time (average 0.04 µs per file).
+TRACE Semantics checking accounted for 0.320 ms of worker CPU time (average 6.95 µs per file).
+TRACE Full analysis (Analyzer::analyze) accounted for 7.563 ms of worker CPU time (average 164.41 µs per file).
+TRACE External lifecycle file snapshots were retained. snapshots=46 worker_cpu_ms=1.328602 average_micros=28
+TRACE Total worker CPU time across all sub-phases was 8.937 ms (average 194.28 µs per file).
+TRACE Analyzer setup accounted for 0.126 ms of CPU time (average 2.74 µs per file).
+TRACE Statement analysis accounted for 7.380 ms of CPU time (average 160.45 µs per file).
+TRACE Analyzer finalization accounted for 0.029 ms of CPU time (average 0.63 µs per file).
+TRACE External analyzer handle dropped. initialized=true prepare_calls=3 initialization_wait=37.468µs lifetime=1.003890236s
+TRACE External analyzer matching summary. function_lookups=0 method_lookups=0 property_lookups=0 property_initialization_lookups=0 class_initializer_lookups=0 signature_lookups=0 assertion_lookups=0 backend_checks=0 candidate_providers=0 matched_providers=0 unmatched_lookups=0
+TRACE External analyzer provider summary. requests=0 ipc_requests=0 provider_cache_hits=0 signature_requests=0 assertion_requests=0 provided_types=0 initialized_properties=0 provided_class_initializers=0 provided_signatures=0 provided_assertions=0 declined_requests=0 errors=0 arguments=0 typed_arguments=0 snapshotted_types=0 request_bytes=0 response_bytes=0
+TRACE External analyzer nested-query summary. nested_requests=110 nested_errors=0 nested_request_bytes=6576 nested_response_bytes=1594330 comparison_batches=0 comparisons=0 metadata_queries=16 analysis_queries=92 symbol_reference_queries=2
+TRACE External analyzer lifecycle summary. before_analysis_requests=0 after_file_analysis_requests=2 after_file_analysis_files=46 after_analysis_requests=1 lifecycle_plugins=48 lifecycle_issues=1 lifecycle_errors=0 lifecycle_request_bytes=7796 lifecycle_response_bytes=3959
+TRACE External analyzer issue-filter summary. issue_filter_batches=0 candidates=0 removed=0 errors=0 request_bytes=0 response_bytes=0
+TRACE External analyzer timing summary. matching_ms=0.0 encode_ms=0.0 type_snapshot_ms=0.0 ipc_ms=0.0 comparison_ms=0.0 metadata_query_ms=0.100652 analysis_query_ms=0.365121 symbol_reference_query_ms=6.794615 nested_query_ms=7.260388 decode_ms=0.0 total_worker_cpu_ms=0.0 average_lookup_micros=0 average_request_micros=0 average_comparison_micros=0 average_metadata_query_micros=6 average_analysis_query_micros=3 average_symbol_reference_query_micros=3397 average_nested_query_micros=66 lifetime=1.003003573s
+TRACE External analyzer lifecycle timing summary. lifecycle_encode_ms=0.171046 lifecycle_ipc_ms=71.293315 lifecycle_decode_ms=0.387102 lifecycle_worker_cpu_ms=71.852015 average_lifecycle_request_micros=23950
+TRACE External analyzer issue-filter timing summary. issue_filter_encode_ms=0.0 issue_filter_ipc_ms=0.0 issue_filter_decode_ms=0.0 issue_filter_worker_cpu_ms=0.0 average_issue_filter_batch_micros=0
+TRACE Shutting down extension worker pool. completed_requests=3 active_workers=1 average_request_micros=0
+TRACE Extension worker pool request summary. requests=3 errors=0 request_bytes=7796 response_bytes=3959 total_request_ms=71.238125 average_request_micros=23746
+TRACE Extension worker pool scheduling and IPC summary. reserve_ms=0.002227 exchange_ms=71.23521 recovery_ms=0.000234 contended_reservations=0 peak_in_flight=1
+TRACE Extension worker pool lifecycle summary. broadcasts=1 broadcast_workers=1 broadcast_ms=14.455342 restarts=0 restart_ms=0.0 growths=0 growth_ms=0.0 bootstrap_replays=0 bootstrap_ms=0.0 lifetime=1.003275942s
+TRACE Beginning extension worker shutdown. worker=0 previous_state=0
+TRACE Extension worker stderr reader reached EOF. worker=0
+TRACE Extension worker stdout reader reached EOF. worker=0
+TRACE Joining extension worker I/O threads. worker=0
+TRACE Extension worker shutdown completed. worker=0 graceful=true elapsed=2.871299ms
+TRACE Extension worker request summary. worker=0 requests=4 successful_responses=4 remote_errors=0 timeouts=0 cancellations=0 total_request_ms=84.877229 average_request_micros=21219
+TRACE Extension worker protocol summary. worker=0 frames_sent=114 frames_received=114 bytes_sent=1609965 bytes_received=14708 notifications=0
+TRACE Extension worker lifecycle summary. worker=0 nested_requests=110 nested_handler_ms=7.274852 average_nested_handler_micros=66 failures=0 stderr_bytes=0 forced_shutdowns=0 lifetime=1.006170721s
+TRACE Extension worker pool shut down.
+TRACE Orchestrator initialized in 15.558µs.
+TRACE Prelude decoded in 33.598472ms (concurrent task).
+TRACE Database loaded in 110.674706ms (concurrent task).
+TRACE Prelude and database loaded in 147.262492ms.
+TRACE Analysis service ran in 856.15648ms.
+TRACE Issues filtered and reported in 514.994µs.
+TRACE Database dropped in 49.522µs.
+TRACE Orchestrator dropped in 2.944944ms.
+TRACE Analyze command finished in 1.006950607s.
+TRACE Command finished in 1.006967584s.
+TRACE Total time spent inside main so far: 1.007927821s.
+TRACE total process time: 1.007928489s
+Enriched evidence: /home/scientdb/tmp/symf-poc/worktree-a/artifacts/a-followup-20261028/mago/enriched/8caa1c1a9aa747ff9acc01279f4d24b2

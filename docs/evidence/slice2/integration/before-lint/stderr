@@ -1,0 +1,52 @@
+DEBUG Sourcing configuration from /app/mago-php.toml.
+ INFO Overriding PHP version with 8.5.0.
+ INFO Overriding workspace directory with /app.
+DEBUG Configuration specifies 4 threads.
+DEBUG Configuration specifies a stack size of 12582912 bytes.
+TRACE Process startup (dyld and runtime init) took 4.486µs.
+TRACE CLI arguments parsed in 271.902µs.
+TRACE Logger initialized in 9.924µs.
+TRACE Configuration loaded in 190.035µs.
+TRACE Rayon thread pool built in 380.89µs.
+TRACE Ready to dispatch command after 875.239µs.
+TRACE Discovered 46 host files in 1.359µs.
+TRACE Processed 46 files in parallel in 2.924714ms (average 63.6 µs per file).
+TRACE Reduced results in 126.512µs.
+TRACE Pipeline finished in 3.087913ms.
+TRACE Slowest 20 of 46 files during the 🧹 Linting phase:
+TRACE    1. src/EventSubscriber/CheckRequirementsSubscriber.php took 1.448463ms.
+TRACE    2. src/Command/DeleteUserCommand.php took 1.442879ms.
+TRACE    3. tests/Command/AbstractCommandTestCase.php took 1.431815ms.
+TRACE    4. tests/object-manager.php took 1.411139ms.
+TRACE    5. tests/Controller/Admin/BlogControllerTest.php took 468.832µs.
+TRACE    6. src/Entity/Post.php took 457.278µs.
+TRACE    7. src/DataFixtures/AppFixtures.php took 386.808µs.
+TRACE    8. src/Controller/SecurityController.php took 364.169µs.
+TRACE    9. src/Controller/Admin/BlogController.php took 310.913µs.
+TRACE   10. src/Command/AddUserCommand.php took 306.271µs.
+TRACE   11. tests/Controller/BlogControllerTest.php took 249.853µs.
+TRACE   12. src/Form/ChangePasswordType.php took 198.259µs.
+TRACE   13. src/Twig/SourceCodeExtension.php took 183.505µs.
+TRACE   14. tests/Controller/UserControllerTest.php took 170.241µs.
+TRACE   15. src/Controller/BlogController.php took 129.484µs.
+TRACE   16. src/Entity/User.php took 106.157µs.
+TRACE   17. src/Repository/PostRepository.php took 102.339µs.
+TRACE   18. src/Command/ListUsersCommand.php took 92.924µs.
+TRACE   19. src/Pagination/Paginator.php took 86.332µs.
+TRACE   20. tests/Form/DataTransformer/TagArrayToStringTransformerTest.php took 83.621µs.
+TRACE Linted 46 files in the parallel phase.
+TRACE Parsing accounted for 2.504 ms of lint worker CPU time (average 54.42 µs per file).
+TRACE Name resolution accounted for 0.687 ms of lint worker CPU time (average 14.94 µs per file).
+TRACE Semantics checking accounted for 0.461 ms of lint worker CPU time (average 10.02 µs per file).
+TRACE Built-in and external lint rules accounted for 7.033 ms of worker CPU time (average 152.88 µs per file).
+TRACE Total lint worker CPU time across all sub-phases was 10.692 ms (average 232.44 µs per file).
+TRACE Orchestrator initialized in 15.655µs.
+TRACE Database loaded in 704.462µs.
+TRACE Lint service ran in 3.149855ms.
+TRACE Issues filtered and reported in 253.444µs.
+TRACE Database dropped in 74.332µs.
+TRACE Orchestrator dropped in 5.397µs.
+TRACE Lint command finished in 4.230721ms.
+TRACE Command finished in 4.241152ms.
+TRACE Total time spent inside main so far: 5.117831ms.
+TRACE total process time: 5.118567ms

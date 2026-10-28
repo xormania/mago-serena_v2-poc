@@ -1,0 +1,13 @@
+{
+  "run_id": "b-slice2-20261028",
+  "argv": [
+    "env",
+    "APP_ENV=test",
+    "APP_DEBUG=1",
+    "php",
+    "-r",
+    "require 'vendor/autoload.php';\n(new Symfony\\Component\\Dotenv\\Dotenv())->bootEnv('/app/.env');\n$kernel = new App\\Kernel('test', true); $kernel->boot();\n$manager = $kernel->getContainer()->get('doctrine')->getManager();\n$connection = $manager->getConnection();\n$connection->executeStatement('DELETE FROM symfony_demo_post_tag');\n$connection->executeStatement('DELETE FROM symfony_demo_tag');\nfor ($i = 0; $i < (int) $argv[1]; ++$i) { $manager->persist(new App\\Entity\\Tag('slice2-runtime-'.$i)); }\n$manager->flush(); $kernel->shutdown();",
+    "0"
+  ],
+  "exit": 0
+}

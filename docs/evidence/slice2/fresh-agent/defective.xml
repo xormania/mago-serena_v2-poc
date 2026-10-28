@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="App\Tests\Command\TagsCountCommandTest" file="/app/tests/Command/TagsCountCommandTest.php" tests="2" assertions="4" errors="0" failures="2" skipped="0" time="0.049689">
+    <testcase name="testEmptyDatabase" file="/app/tests/Command/TagsCountCommandTest.php" line="18" class="App\Tests\Command\TagsCountCommandTest" classname="App.Tests.Command.TagsCountCommandTest" assertions="2" time="0.048283">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">App\Tests\Command\TagsCountCommandTest::testEmptyDatabase
+Failed asserting that two strings are identical.
+--- Expected
++++ Actual
+@@ @@
+-'Tag count: 0
++'Tag count: 1
+ '
+
+/app/tests/Command/TagsCountCommandTest.php:51
+/app/tests/Command/TagsCountCommandTest.php:20</failure>
+    </testcase>
+    <testcase name="testPopulatedDatabase" file="/app/tests/Command/TagsCountCommandTest.php" line="23" class="App\Tests\Command\TagsCountCommandTest" classname="App.Tests.Command.TagsCountCommandTest" assertions="2" time="0.001406">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">App\Tests\Command\TagsCountCommandTest::testPopulatedDatabase
+Failed asserting that two strings are identical.
+--- Expected
++++ Actual
+@@ @@
+-'Tag count: 3
++'Tag count: 4
+ '
+
+/app/tests/Command/TagsCountCommandTest.php:51
+/app/tests/Command/TagsCountCommandTest.php:25</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

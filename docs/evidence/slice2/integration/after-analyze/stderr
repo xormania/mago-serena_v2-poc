@@ -1,0 +1,78 @@
+DEBUG Sourcing configuration from /app/mago-php.toml.
+ INFO Overriding PHP version with 8.5.0.
+ INFO Overriding workspace directory with /app.
+DEBUG Configuration specifies 4 threads.
+DEBUG Configuration specifies a stack size of 12582912 bytes.
+TRACE Process startup (dyld and runtime init) took 5.516µs.
+TRACE CLI arguments parsed in 303.472µs.
+TRACE Logger initialized in 378.902µs.
+TRACE Configuration loaded in 177.433µs.
+TRACE Rayon thread pool built in 388.628µs.
+TRACE Ready to dispatch command after 1.273309ms.
+TRACE Skipping external analyzer initialization because no hosts are enabled.
+TRACE Class hierarchy populated. parallel_classes=8414 serial_classes=3
+TRACE Codebase population phase completed. phase="hierarchy" elapsed=20.88629ms
+TRACE Codebase population phase completed. phase="types" elapsed=10.859212ms
+TRACE Codebase population phase completed. phase="references_and_docblocks" elapsed=10.169508ms
+TRACE External before-analysis hooks completed. issues=0 elapsed=6.908µs
+TRACE Loop convergence skips file=src/DataFixtures/AppFixtures.php offset=1161 converged_passes=0
+TRACE Loop convergence skips file=src/DataFixtures/AppFixtures.php offset=1736 converged_passes=0
+TRACE Loop convergence skips file=src/DataFixtures/AppFixtures.php offset=2450 converged_passes=0
+TRACE Loop convergence skips file=src/DataFixtures/AppFixtures.php offset=2450 converged_passes=0
+TRACE Loop convergence skips file=src/DataFixtures/AppFixtures.php offset=2024 converged_passes=1
+TRACE Loop convergence skips file=src/DataFixtures/AppFixtures.php offset=6697 converged_passes=0
+TRACE Loop convergence skips file=src/Twig/SourceCodeExtension.php offset=3374 converged_passes=0
+TRACE Loop convergence skips file=src/Entity/Post.php offset=4419 converged_passes=0
+TRACE Loop convergence skips file=src/Repository/PostRepository.php offset=2118 converged_passes=0
+TRACE Loop convergence skips file=tests/Command/TagsCountCommandTest.php offset=1232 converged_passes=0
+TRACE Discovered 9912 source files in 606.202µs.
+TRACE Compiled 9912 source files in parallel in 103.383748ms (average 10.4 µs per file).
+TRACE Merged partial codebases in 2.08798ms.
+TRACE Populated codebase metadata in 42.08898ms.
+TRACE Discovered 48 host files in 96.969µs.
+TRACE Analyzed 48 host files in parallel in 3.473029ms (average 72.4 µs per file).
+TRACE Reduced analysis results in 921.21µs.
+TRACE Pipeline finished in 153.971206ms.
+TRACE Slowest 20 of 48 files during the analysis phase:
+TRACE    1. src/Command/AddUserCommand.php took 1.675801ms.
+TRACE    2. src/Twig/SourceCodeExtension.php took 1.154932ms.
+TRACE    3. src/DataFixtures/AppFixtures.php took 982.085µs.
+TRACE    4. tests/Controller/Admin/BlogControllerTest.php took 775.245µs.
+TRACE    5. src/Command/DeleteUserCommand.php took 644.256µs.
+TRACE    6. src/Controller/Admin/BlogController.php took 624.213µs.
+TRACE    7. src/EventSubscriber/RedirectToPreferredLocaleSubscriber.php took 509.092µs.
+TRACE    8. tests/Form/DataTransformer/TagArrayToStringTransformerTest.php took 496.922µs.
+TRACE    9. tests/Utils/ValidatorTest.php took 412.881µs.
+TRACE   10. src/Entity/Post.php took 366.614µs.
+TRACE   11. tests/Controller/DefaultControllerTest.php took 313.221µs.
+TRACE   12. src/Controller/BlogController.php took 301.401µs.
+TRACE   13. src/Repository/PostRepository.php took 279.226µs.
+TRACE   14. src/Command/ListUsersCommand.php took 276.864µs.
+TRACE   15. src/Pagination/Paginator.php took 270.805µs.
+TRACE   16. src/EventSubscriber/CheckRequirementsSubscriber.php took 255.765µs.
+TRACE   17. tests/Command/AddUserCommandTest.php took 247.929µs.
+TRACE   18. src/Entity/Comment.php took 236.427µs.
+TRACE   19. tests/Controller/BlogControllerTest.php took 226.799µs.
+TRACE   20. tests/Controller/UserControllerTest.php took 221.913µs.
+TRACE Analyzed 48 files in the parallel phase.
+TRACE Parsing accounted for 1.308 ms of worker CPU time (average 27.24 µs per file).
+TRACE Name resolution accounted for 0.199 ms of worker CPU time (average 4.14 µs per file).
+TRACE Analyzer construction accounted for 0.002 ms of worker CPU time (average 0.05 µs per file).
+TRACE Semantics checking accounted for 0.404 ms of worker CPU time (average 8.43 µs per file).
+TRACE Full analysis (Analyzer::analyze) accounted for 11.036 ms of worker CPU time (average 229.92 µs per file).
+TRACE Total worker CPU time across all sub-phases was 12.961 ms (average 270.02 µs per file).
+TRACE Analyzer setup accounted for 0.458 ms of CPU time (average 9.53 µs per file).
+TRACE Statement analysis accounted for 10.245 ms of CPU time (average 213.44 µs per file).
+TRACE Analyzer finalization accounted for 0.282 ms of CPU time (average 5.87 µs per file).
+TRACE Orchestrator initialized in 15.966µs.
+TRACE Prelude decoded in 31.057529ms (concurrent task).
+TRACE Database loaded in 31.642878ms (concurrent task).
+TRACE Prelude and database loaded in 31.799523ms.
+TRACE Analysis service ran in 155.22849ms.
+TRACE Issues filtered and reported in 527.816µs.
+TRACE Database dropped in 73.848µs.
+TRACE Orchestrator dropped in 7.924µs.
+TRACE Analyze command finished in 187.672994ms.
+TRACE Command finished in 187.683876ms.
+TRACE Total time spent inside main so far: 188.959252ms.
+TRACE total process time: 188.960033ms

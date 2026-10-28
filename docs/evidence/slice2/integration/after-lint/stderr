@@ -1,0 +1,52 @@
+DEBUG Sourcing configuration from /app/mago-php.toml.
+ INFO Overriding PHP version with 8.5.0.
+ INFO Overriding workspace directory with /app.
+DEBUG Configuration specifies 4 threads.
+DEBUG Configuration specifies a stack size of 12582912 bytes.
+TRACE Process startup (dyld and runtime init) took 5.71µs.
+TRACE CLI arguments parsed in 473.935µs.
+TRACE Logger initialized in 9.7µs.
+TRACE Configuration loaded in 193.435µs.
+TRACE Rayon thread pool built in 365.13µs.
+TRACE Ready to dispatch command after 1.066639ms.
+TRACE Discovered 48 host files in 1.054µs.
+TRACE Processed 48 files in parallel in 20.457166ms (average 426.2 µs per file).
+TRACE Reduced results in 18.259µs.
+TRACE Pipeline finished in 20.516565ms.
+TRACE Slowest 20 of 48 files during the 🧹 Linting phase:
+TRACE    1. src/DataFixtures/AppFixtures.php took 10.442008ms.
+TRACE    2. src/Controller/SecurityController.php took 10.084471ms.
+TRACE    3. tests/Controller/BlogControllerTest.php took 9.991439ms.
+TRACE    4. tests/object-manager.php took 9.801934ms.
+TRACE    5. tests/Command/ListUsersCommandTest.php took 8.29528ms.
+TRACE    6. src/Pagination/Paginator.php took 5.361966ms.
+TRACE    7. src/Entity/Post.php took 4.363566ms.
+TRACE    8. src/Controller/BlogController.php took 3.746751ms.
+TRACE    9. tests/Controller/Admin/BlogControllerTest.php took 874.911µs.
+TRACE   10. src/Controller/Admin/BlogController.php took 630.34µs.
+TRACE   11. src/Command/AddUserCommand.php took 522.401µs.
+TRACE   12. src/Entity/User.php took 449.505µs.
+TRACE   13. src/Form/UserType.php took 369.346µs.
+TRACE   14. src/Security/PostVoter.php took 288.214µs.
+TRACE   15. tests/Form/DataTransformer/TagArrayToStringTransformerTest.php took 279.28µs.
+TRACE   16. tests/Controller/UserControllerTest.php took 262.16µs.
+TRACE   17. src/EventSubscriber/CheckRequirementsSubscriber.php took 238.806µs.
+TRACE   18. src/EventSubscriber/CommentNotificationSubscriber.php took 234.993µs.
+TRACE   19. src/Twig/SourceCodeExtension.php took 226.587µs.
+TRACE   20. src/Utils/Validator.php took 192.647µs.
+TRACE Linted 48 files in the parallel phase.
+TRACE Parsing accounted for 30.525 ms of lint worker CPU time (average 635.94 µs per file).
+TRACE Name resolution accounted for 4.833 ms of lint worker CPU time (average 100.68 µs per file).
+TRACE Semantics checking accounted for 0.613 ms of lint worker CPU time (average 12.77 µs per file).
+TRACE Built-in and external lint rules accounted for 33.832 ms of worker CPU time (average 704.84 µs per file).
+TRACE Total lint worker CPU time across all sub-phases was 69.813 ms (average 1454.43 µs per file).
+TRACE Orchestrator initialized in 17.874µs.
+TRACE Database loaded in 17.684222ms.
+TRACE Lint service ran in 20.599913ms.
+TRACE Issues filtered and reported in 273.363µs.
+TRACE Database dropped in 83.593µs.
+TRACE Orchestrator dropped in 6.209µs.
+TRACE Lint command finished in 38.695927ms.
+TRACE Command finished in 38.708963ms.
+TRACE Total time spent inside main so far: 39.777196ms.
+TRACE total process time: 39.778406ms

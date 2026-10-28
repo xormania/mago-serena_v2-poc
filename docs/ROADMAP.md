@@ -1,15 +1,16 @@
 # Mago-first Symfony development
 
-Revision 2, 27 October 2026. This roadmap supersedes the original
+Revision 3, 28 October 2026. This roadmap supersedes the original
 [implementation handoff](IMPLEMENTATION-PLAN.md) for new work. The original
 fixture, semantic rename evidence, CI caching and trusted Jev workflow remain.
-The starting branch is the existing `feat/mate-service-inspection`, based on
-merged PR #2 at `e0a11fdf6e8bbc4c2e0e16840da0c62f5bb6913e`.
+The parallel slice-2 follow-up starts from merged PR #3 at
+`8f154f798d7cf9ae7cf3cb33b0b99352de99dec4`. Its integration/diagnosis and feature
+workstreams use separate Git worktrees and disposable applications/databases.
 
 | Slice | Intended proof | Scope |
 | --- | --- | --- |
 | 1: understand and analyze | Explain `App\Form\Type\TagsInputType` through Mago checks and Serena semantics, enriched with compiled Symfony wiring | Implemented: native PHP/semantics and CLI wiring pass; LSP worker propagation blocked. See [evidence/adoption](SLICE-1.md) |
-| 2: generate and change | Use installed Maker to create one command, semantically edit it, run Mago and verify execution and tests | Planned; no implementation in slice 1 |
+| 2: generate and change | Use installed Maker to create `app:tags:count`, semantically edit it, run Mago and verify execution and tests | Implemented: fresh adaptive agent and exact-image replay pass; CLI wiring demonstrated, existing LSP boundary retained. See [task and evidence](SLICE-2.md) |
 | 3: diagnose and repair | Correlate one failing request with Mate runtime evidence, inspect and repair through Mago, verify a fresh request and regression test | Planned; no implementation in slice 1 |
 
 Mago owns PHP analysis, lint, applicable fixes and formatting. Serena's actual
@@ -25,6 +26,15 @@ exits, formatter stability, and active extension evidence. Installation or a
 zero analysis exit does not establish a framework contribution. A blocked
 bridge leaves the combined result incomplete even when PHP controls pass.
 CLI extension contribution and LSP/Serena propagation are separate claims.
+
+The ordinary public CLI bridge is `./bin/poc mago-enriched --run <run>
+--symbol '<class>' -- analyze --reporting-format json`. It requires explicit
+`mate-prepare` after source/dependency changes and retains native findings and
+exits with extension/graph evidence. The native `mago` command remains available
+for comparison. Slice 2 declares only its new command and test as task changes;
+original fixture integrity, original suite identities and existing semantic
+acceptance remain independent gates. A scripted replay does not establish a
+fresh adaptive agent run.
 
 Keep exact executable/source/SDK/extension identities together. Stable 1.59.0
 uses a different worker protocol from the experimental 1.58.2 pin. Do not update

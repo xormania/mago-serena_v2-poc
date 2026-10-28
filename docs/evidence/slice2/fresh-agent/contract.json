@@ -1,0 +1,15 @@
+{
+  "task": "app:tags:count",
+  "output": "Tag count: N\\n",
+  "success_exit": 0,
+  "count": "Persisted App\\Entity\\Tag rows via existing App\\Repository\\TagRepository",
+  "states": [
+    0,
+    3
+  ],
+  "task_delta": [
+    "src/Command/TagsCountCommand.php",
+    "tests/Command/TagsCountCommandTest.php"
+  ],
+  "kind": "fresh adaptive coding agent"
+}

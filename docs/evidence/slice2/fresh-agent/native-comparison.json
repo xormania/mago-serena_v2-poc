@@ -1,0 +1,18 @@
+{
+  "analyze": {
+    "before": 35,
+    "after": 35,
+    "introduced": [],
+    "removed": [],
+    "task_findings": [],
+    "comparison": "Complete diagnostic bodies as an order-independent multiset"
+  },
+  "lint": {
+    "before": 125,
+    "after": 125,
+    "introduced": [],
+    "removed": [],
+    "task_findings": [],
+    "comparison": "Complete diagnostic bodies as an order-independent multiset"
+  }
+}

@@ -200,11 +200,19 @@ def main():
     mago = sub.add_parser('mago', help='Run Mago with explicit configuration in the selected workspace')
     mago.add_argument('--run', required=True)
     mago.add_argument('argv', nargs=argparse.REMAINDER)
+    enriched = sub.add_parser('mago-enriched', help='Analyze with fresh compiled Symfony wiring through Mago')
+    enriched.add_argument('--run', required=True)
+    enriched.add_argument('--symbol', action='append', default=[], help='Observe this class constructor in Mago (repeatable)')
+    enriched.add_argument('--extension-off', action='store_true', help='Explicit comparison without wiring contribution')
+    enriched.add_argument('argv', nargs=argparse.REMAINDER)
     quality = sub.add_parser('quality', help='Record native Mago analysis, lint and scoped formatting results')
     quality.add_argument('--run', required=True)
     slice1 = sub.add_parser('slice1', help='Run the combined Mago-first service, Symfony wiring and behavior proof')
     slice1.add_argument('--run', help='Owned workspace id; defaults to a fresh isolated run')
     slice1.add_argument('--keep-running', action='store_true')
+    slice2 = sub.add_parser('slice2', help='Generate and verify the disposable app:tags:count feature')
+    slice2.add_argument('--run', help='Owned workspace id; defaults to a fresh isolated run')
+    slice2.add_argument('--keep-running', action='store_true')
     sub.add_parser('agent-task', help='Prepare a fresh real-agent workspace and exact MCP configuration')
     verify = sub.add_parser('verify-agent', help='Independently verify an agent run, its MCP transcript and original tests')
     verify.add_argument('run_id')
@@ -243,20 +251,30 @@ def main():
         if not argv:
             raise ValueError('Supply Mago arguments after --')
         return invoke(selected(args.run), argv)
+    elif args.command == 'mago-enriched':
+        from magolib import invoke_enriched, selected
+        argv = args.argv[1:] if args.argv[:1] == ['--'] else args.argv
+        if not argv:
+            raise ValueError('Supply Mago analyze arguments after --')
+        return invoke_enriched(selected(args.run), argv, symbols=args.symbol,
+                               wiring_enabled=not args.extension_off)
     elif args.command == 'quality':
         from magolib import quality, selected
         result = quality(selected(args.run))
         print(json.dumps(result, indent=2))
         return max(row['exit'] if row['exit'] >= 0 else 128-row['exit'] for row in result['commands'])
-    elif args.command == 'slice1':
+    elif args.command in ('slice1', 'slice2'):
         # Semantic replay is host-side and needs the same locked MCP packages as
         # fast tests. Other orchestration commands deliberately use stdlib only.
         if Path(sys.prefix).resolve() != (ROOT/'.venv').resolve():
             python = ROOT/'.venv/bin/python'
             if not python.is_file():
-                raise RuntimeError('Run uv sync --frozen --python 3.12 before slice1')
+                raise RuntimeError('Run uv sync --frozen --python 3.12 before '+args.command)
             os.execv(str(python), [str(python), str(ROOT/'bin/poc'), *sys.argv[1:]])
-        from slice1lib import run_slice
+        if args.command == 'slice1':
+            from slice1lib import run_slice
+        else:
+            from slice2lib import run_slice
         return run_slice(args.run, keep_running=args.keep_running, capture_identity=capture_identity)
     elif args.command == 'report':
         return report(args.run_id)
@@ -318,4 +336,4 @@ if __name__ == '__main__':
         sys.exit(main())
     except (RuntimeError, ValueError, AssertionError, subprocess.SubprocessError, OSError) as exc:
         print(f'poc: {exc}', file=sys.stderr)
-        sys.exit(1)
+        sys.exit(3 if len(sys.argv) > 1 and sys.argv[1] == 'mago-enriched' else 1)

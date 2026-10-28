@@ -267,6 +267,15 @@ service's direct concrete edge is unchanged because Mago suppresses a redundant
 Body edge when its Signature reference already exists. No runtime call or
 universal Symfony/ORM coverage is inferred. See [slice adoption](SLICE-1.md).
 
+The [slice-2 command task](SLICE-2.md) extends this positive U05 evidence to a
+new Maker-generated service. Compiled Console/Mate facts bind
+`TagsCountCommand::$tags` to the existing `TagRepository`; the public CLI analyzes
+the new command and test and observes its native Signature reference plus the
+repository's extension-supplied concrete Registry Body reference. The retained
+adaptive MCP exercise and scripted acceptance replay are separately attributed.
+This adds feature-workflow evidence under the same pins, without changing U09's
+known LSP worker-start boundary or asserting a new upstream defect.
+
 ## Prioritized handoff
 
 | Priority / category | Candidate | Recommendation and deliverable |

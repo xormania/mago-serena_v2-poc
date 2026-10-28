@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "kind": "symfony_enriched_mago_analysis",
+  "run_id": "integrated-slice2-20261028",
+  "host_workspace": "/home/scientdb/tmp/symf-poc/worktree-final/workspaces/integrated-slice2-20261028/app",
+  "requested_argv": [
+    "analyze",
+    "--reporting-format",
+    "json"
+  ],
+  "symbols": [
+    "App\\Command\\TagsCountCommand",
+    "App\\Repository\\TagRepository"
+  ],
+  "wiring_enabled": true,
+  "exit": 3,
+  "native_exit": null,
+  "status": "stale_preparation",
+  "preparation_id": null,
+  "evidence": "/home/scientdb/tmp/symf-poc/worktree-final/artifacts/integrated-slice2-20261028/mago/enriched/39b9db99b8c1475bb1c21412e74e76f5",
+  "observation": "/home/scientdb/tmp/symf-poc/worktree-final/artifacts/integrated-slice2-20261028/mago/enriched/39b9db99b8c1475bb1c21412e74e76f5/graph.json",
+  "reason": "Application/dependencies changed; run mate-prepare explicitly; refresh with ./bin/poc mate-prepare --run integrated-slice2-20261028",
+  "elapsed_s": 0.971602
+}

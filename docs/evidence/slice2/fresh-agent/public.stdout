@@ -1,0 +1,1580 @@
+{
+  "issues": [
+    {
+      "level": "Help",
+      "code": "redundant-cast",
+      "message": "Redundant cast to `(bool)`: the expression already has this type.",
+      "notes": [
+        "Casting a value to a type it already possesses has no effect."
+      ],
+      "help": "Remove the redundant `(bool)` cast.",
+      "annotations": [
+        {
+          "message": "This expression already has type `bool`.",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "tests/object-manager.php",
+              "path": "/app/tests/object-manager.php",
+              "size": 546,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 441,
+              "line": 18
+            },
+            "end": {
+              "offset": 462,
+              "line": 18
+            }
+          }
+        }
+      ],
+      "edits": [
+        [
+          {
+            "name": "tests/object-manager.php",
+            "path": "/app/tests/object-manager.php",
+            "size": 546,
+            "file_type": "Host"
+          },
+          [
+            {
+              "range": {
+                "start": 434,
+                "end": 440
+              },
+              "new_text": [],
+              "safety": "safe"
+            }
+          ]
+        ]
+      ]
+    },
+    {
+      "level": "Warning",
+      "code": "ambiguous-object-method-access",
+      "message": "Cannot statically verify method call on a generic `object` type.",
+      "help": "Provide a more specific type hint for the object for robust analysis.",
+      "annotations": [
+        {
+          "message": "Cannot verify this method call",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "tests/object-manager.php",
+              "path": "/app/tests/object-manager.php",
+              "size": 546,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 532,
+              "line": 21
+            },
+            "end": {
+              "offset": 542,
+              "line": 21
+            }
+          }
+        },
+        {
+          "message": "This expression has the general type `object`",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "tests/object-manager.php",
+              "path": "/app/tests/object-manager.php",
+              "size": 546,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 490,
+              "line": 21
+            },
+            "end": {
+              "offset": 530,
+              "line": 21
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Error",
+      "code": "invalid-return-statement",
+      "message": "Invalid return type for function `App\\Repository\\PostRepository::extractSearchTerms`: expected `array<array-key, string>`, but found `array<array-key, Symfony\\Component\\String\\UnicodeString&static>`.",
+      "help": "Change the return value to match `array<array-key, string>`, or update the function's return type declaration.",
+      "annotations": [
+        {
+          "message": "This has type `array<array-key, Symfony\\Component\\String\\UnicodeString&static>`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Repository/PostRepository.php",
+              "path": "/app/src/Repository/PostRepository.php",
+              "size": 3000,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 2927,
+              "line": 103
+            },
+            "end": {
+              "offset": 2990,
+              "line": 103
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Error",
+      "code": "possibly-invalid-argument",
+      "message": "Possible argument type mismatch for argument #1 of `Symfony\\Component\\Console\\Tester\\TesterTrait::setInputs`: expected `list<string>`, but possibly received `array<int, mixed>`.",
+      "notes": [
+        "The provided type `array<int, mixed>` overlaps with `list<string>` but is not fully contained."
+      ],
+      "help": "Ensure the argument always has the expected type using checks or assertions.",
+      "annotations": [
+        {
+          "message": "This might not be type `list<string>`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "tests/Command/AbstractCommandTestCase.php",
+              "path": "/app/tests/Command/AbstractCommandTestCase.php",
+              "size": 1468,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 1314,
+              "line": 36
+            },
+            "end": {
+              "offset": 1321,
+              "line": 36
+            }
+          }
+        },
+        {
+          "message": "Arguments to this method are incorrect",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "tests/Command/AbstractCommandTestCase.php",
+              "path": "/app/tests/Command/AbstractCommandTestCase.php",
+              "size": 1468,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 1288,
+              "line": 36
+            },
+            "end": {
+              "offset": 1322,
+              "line": 36
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Error",
+      "code": "possibly-invalid-argument",
+      "message": "Possible argument type mismatch for argument #2 of `str_repeat`: expected `non-negative-int`, but possibly received `int`.",
+      "notes": [
+        "The provided type `int` overlaps with `non-negative-int` but is not fully contained."
+      ],
+      "help": "Ensure the argument always has the expected type using checks or assertions.",
+      "annotations": [
+        {
+          "message": "This might not be type `non-negative-int`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "tests/Controller/Admin/BlogControllerTest.php",
+              "path": "/app/tests/Controller/Admin/BlogControllerTest.php",
+              "size": 7215,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 7151,
+              "line": 198
+            },
+            "end": {
+              "offset": 7190,
+              "line": 198
+            }
+          }
+        },
+        {
+          "message": "Arguments to this function are incorrect",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "tests/Controller/Admin/BlogControllerTest.php",
+              "path": "/app/tests/Controller/Admin/BlogControllerTest.php",
+              "size": 7215,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 7132,
+              "line": 198
+            },
+            "end": {
+              "offset": 7142,
+              "line": 198
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Warning",
+      "code": "incompatible-parameter-name",
+      "message": "Parameter #2 of `App\\Security\\PostVoter::voteonattribute()` is named `$post` but parent `Symfony\\Component\\Security\\Core\\Authorization\\Voter\\Voter::voteonattribute()` names it `$subject`",
+      "notes": [
+        "Parameter name changes can break code using named arguments."
+      ],
+      "help": "Consider renaming the parameter to `$subject` to match the parent method.",
+      "annotations": [
+        {
+          "message": "Parameter named `$post` but parent uses `$subject`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Security/PostVoter.php",
+              "path": "/app/src/Security/PostVoter.php",
+              "size": 2648,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 1452,
+              "line": 46
+            },
+            "end": {
+              "offset": 1467,
+              "line": 46
+            }
+          }
+        },
+        {
+          "message": "Parent method `Symfony\\Component\\Security\\Core\\Authorization\\Voter\\Voter::voteonattribute()` parameter `$subject` defined here",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "vendor/symfony/security-core/Authorization/Voter/Voter.php",
+              "path": "/app/vendor/symfony/security-core/Authorization/Voter/Voter.php",
+              "size": 3574,
+              "file_type": "Vendored"
+            },
+            "start": {
+              "offset": 627,
+              "line": 24
+            },
+            "end": {
+              "offset": 632,
+              "line": 24
+            }
+          }
+        },
+        {
+          "message": "In class `App\\Security\\PostVoter`",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "src/Security/PostVoter.php",
+              "path": "/app/src/Security/PostVoter.php",
+              "size": 2648,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 802,
+              "line": 29
+            },
+            "end": {
+              "offset": 811,
+              "line": 29
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Warning",
+      "code": "mixed-assignment",
+      "message": "Assigning `mixed` type to a variable may lead to unexpected behavior.",
+      "notes": [
+        "Using `mixed` can lead to runtime errors if the variable is used in a way that assumes a specific type."
+      ],
+      "help": "Consider using a more specific type to avoid potential issues.",
+      "annotations": [
+        {
+          "message": "Assigning `mixed` type here.",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Command/DeleteUserCommand.php",
+              "path": "/app/src/Command/DeleteUserCommand.php",
+              "size": 4692,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 3132,
+              "line": 96
+            },
+            "end": {
+              "offset": 3141,
+              "line": 96
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Warning",
+      "code": "redundant-docblock-type",
+      "message": "Redundant docblock type for variable `$user`.",
+      "notes": [
+        "The type defined in this docblock is identical to the inferred type of the variable."
+      ],
+      "help": "You can remove this redundant `@var` docblock tag.",
+      "annotations": [
+        {
+          "message": "This docblock asserts the type should be `App\\Entity\\User|null`, which is identical to the inferred type.",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Command/DeleteUserCommand.php",
+              "path": "/app/src/Command/DeleteUserCommand.php",
+              "size": 4692,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 3469,
+              "line": 104
+            },
+            "end": {
+              "offset": 3478,
+              "line": 104
+            }
+          }
+        },
+        {
+          "message": "The variable `$user` type is known to be `App\\Entity\\User|null` here.",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "src/Command/DeleteUserCommand.php",
+              "path": "/app/src/Command/DeleteUserCommand.php",
+              "size": 4692,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 3496,
+              "line": 105
+            },
+            "end": {
+              "offset": 3501,
+              "line": 105
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Error",
+      "code": "invalid-argument",
+      "message": "Invalid argument type for argument #1 of `App\\Entity\\Post::setSlug`: expected `string`, but found `Symfony\\Component\\String\\AbstractUnicodeString`.",
+      "notes": [
+        "The provided type `Symfony\\Component\\String\\AbstractUnicodeString` is not compatible with the expected type `string`."
+      ],
+      "help": "Change the argument value to match `string`, or update the parameter's type declaration.",
+      "annotations": [
+        {
+          "message": "This has type `Symfony\\Component\\String\\AbstractUnicodeString`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/DataFixtures/AppFixtures.php",
+              "path": "/app/src/DataFixtures/AppFixtures.php",
+              "size": 9638,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 2222,
+              "line": 77
+            },
+            "end": {
+              "offset": 2227,
+              "line": 77
+            }
+          }
+        },
+        {
+          "message": "Arguments to this method are incorrect",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "src/DataFixtures/AppFixtures.php",
+              "path": "/app/src/DataFixtures/AppFixtures.php",
+              "size": 9638,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 2207,
+              "line": 77
+            },
+            "end": {
+              "offset": 2228,
+              "line": 77
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Error",
+      "code": "invalid-return-statement",
+      "message": "Invalid return type for function `App\\DataFixtures\\AppFixtures::getRandomText`: expected `string`, but found `Symfony\\Component\\String\\UnicodeString&static`.",
+      "help": "Change the return value to match `string`, or update the function's return type declaration.",
+      "annotations": [
+        {
+          "message": "This has type `Symfony\\Component\\String\\UnicodeString&static`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/DataFixtures/AppFixtures.php",
+              "path": "/app/src/DataFixtures/AppFixtures.php",
+              "size": 9638,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 6857,
+              "line": 205
+            },
+            "end": {
+              "offset": 6862,
+              "line": 205
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Error",
+      "code": "invalid-return-statement",
+      "message": "Invalid return type for function `App\\Entity\\User::getUserIdentifier`: expected `non-empty-string`, but found `string`.",
+      "help": "Change the return value to match `non-empty-string`, or update the function's return type declaration.",
+      "annotations": [
+        {
+          "message": "This has type `string`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Entity/User.php",
+              "path": "/app/src/Entity/User.php",
+              "size": 4031,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 2275,
+              "line": 82
+            },
+            "end": {
+              "offset": 2299,
+              "line": 82
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Warning",
+      "code": "possibly-null-operand",
+      "message": "Possibly null right operand used in string concatenation (type `int|null`).",
+      "notes": [
+        "If this operand is `null` at runtime, it will be implicitly converted to an empty string `''`."
+      ],
+      "help": "Ensure the operand is non-null before concatenation using checks or assertions, or explicitly cast to string.",
+      "annotations": [
+        {
+          "message": "This might be `null`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/EventSubscriber/CommentNotificationSubscriber.php",
+              "path": "/app/src/EventSubscriber/CommentNotificationSubscriber.php",
+              "size": 2665,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 1805,
+              "line": 61
+            },
+            "end": {
+              "offset": 1822,
+              "line": 61
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Error",
+      "code": "possibly-null-argument",
+      "message": "Argument #1 of method `Symfony\\Component\\String\\Slugger\\SluggerInterface::slug` is possibly `null`, but parameter type `string` does not accept it.",
+      "help": "Add a `null` check before this call to ensure the value is not `null`.",
+      "annotations": [
+        {
+          "message": "This argument of type `null|string` might be `null`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Form/PostType.php",
+              "path": "/app/src/Form/PostType.php",
+              "size": 3332,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 3082,
+              "line": 79
+            },
+            "end": {
+              "offset": 3099,
+              "line": 79
+            }
+          }
+        },
+        {
+          "message": "Arguments to this method are incorrect",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "src/Form/PostType.php",
+              "path": "/app/src/Form/PostType.php",
+              "size": 3332,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 3061,
+              "line": 79
+            },
+            "end": {
+              "offset": 3100,
+              "line": 79
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Error",
+      "code": "invalid-argument",
+      "message": "Invalid argument type for argument #1 of `App\\Entity\\Post::setSlug`: expected `string`, but found `Symfony\\Component\\String\\AbstractUnicodeString&static`.",
+      "notes": [
+        "The provided type `Symfony\\Component\\String\\AbstractUnicodeString&static` is not compatible with the expected type `string`."
+      ],
+      "help": "Change the argument value to match `string`, or update the parameter's type declaration.",
+      "annotations": [
+        {
+          "message": "This has type `Symfony\\Component\\String\\AbstractUnicodeString&static`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Form/PostType.php",
+              "path": "/app/src/Form/PostType.php",
+              "size": 3332,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 3061,
+              "line": 79
+            },
+            "end": {
+              "offset": 3109,
+              "line": 79
+            }
+          }
+        },
+        {
+          "message": "Arguments to this method are incorrect",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "src/Form/PostType.php",
+              "path": "/app/src/Form/PostType.php",
+              "size": 3332,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 3046,
+              "line": 79
+            },
+            "end": {
+              "offset": 3110,
+              "line": 79
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Error",
+      "code": "possible-method-access-on-null",
+      "message": "Attempting to call a method on `null`.",
+      "help": "Use the nullsafe operator (`?->`) if `null` is an expected value.",
+      "annotations": [
+        {
+          "message": "This expression can be `null`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/EventSubscriber/CheckRequirementsSubscriber.php",
+              "path": "/app/src/EventSubscriber/CheckRequirementsSubscriber.php",
+              "size": 4337,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 2569,
+              "line": 62
+            },
+            "end": {
+              "offset": 2589,
+              "line": 62
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Warning",
+      "code": "mixed-assignment",
+      "message": "Assigning `mixed` type to a variable may lead to unexpected behavior.",
+      "notes": [
+        "Using `mixed` can lead to runtime errors if the variable is used in a way that assumes a specific type."
+      ],
+      "help": "Consider using a more specific type to avoid potential issues.",
+      "annotations": [
+        {
+          "message": "Assigning `mixed` type here.",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Command/AddUserCommand.php",
+              "path": "/app/src/Command/AddUserCommand.php",
+              "size": 9960,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 4464,
+              "line": 119
+            },
+            "end": {
+              "offset": 4473,
+              "line": 119
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Warning",
+      "code": "implicit-to-string-cast",
+      "message": "Implicit conversion to `string` for right operand via `Symfony\\Component\\String\\UnicodeString::__toString()`.",
+      "notes": [
+        "Objects implementing `__toString` are automatically converted when used in string context."
+      ],
+      "help": "For clarity, consider explicit casting `(string) $object` or calling the `__toString` method directly.",
+      "annotations": [
+        {
+          "message": "Object implicitly converted using `Symfony\\Component\\String\\UnicodeString::__toString()`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Command/AddUserCommand.php",
+              "path": "/app/src/Command/AddUserCommand.php",
+              "size": 9960,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 4761,
+              "line": 125
+            },
+            "end": {
+              "offset": 4799,
+              "line": 125
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Warning",
+      "code": "mixed-assignment",
+      "message": "Assigning `mixed` type to a variable may lead to unexpected behavior.",
+      "notes": [
+        "Using `mixed` can lead to runtime errors if the variable is used in a way that assumes a specific type."
+      ],
+      "help": "Consider using a more specific type to avoid potential issues.",
+      "annotations": [
+        {
+          "message": "Assigning `mixed` type here.",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Command/AddUserCommand.php",
+              "path": "/app/src/Command/AddUserCommand.php",
+              "size": 9960,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 4831,
+              "line": 127
+            },
+            "end": {
+              "offset": 4840,
+              "line": 127
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Warning",
+      "code": "mixed-assignment",
+      "message": "Assigning `mixed` type to a variable may lead to unexpected behavior.",
+      "notes": [
+        "Using `mixed` can lead to runtime errors if the variable is used in a way that assumes a specific type."
+      ],
+      "help": "Consider using a more specific type to avoid potential issues.",
+      "annotations": [
+        {
+          "message": "Assigning `mixed` type here.",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Command/AddUserCommand.php",
+              "path": "/app/src/Command/AddUserCommand.php",
+              "size": 9960,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 5184,
+              "line": 135
+            },
+            "end": {
+              "offset": 5190,
+              "line": 135
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Warning",
+      "code": "mixed-assignment",
+      "message": "Assigning `mixed` type to a variable may lead to unexpected behavior.",
+      "notes": [
+        "Using `mixed` can lead to runtime errors if the variable is used in a way that assumes a specific type."
+      ],
+      "help": "Consider using a more specific type to avoid potential issues.",
+      "annotations": [
+        {
+          "message": "Assigning `mixed` type here.",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Command/AddUserCommand.php",
+              "path": "/app/src/Command/AddUserCommand.php",
+              "size": 9960,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 5509,
+              "line": 143
+            },
+            "end": {
+              "offset": 5518,
+              "line": 143
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Help",
+      "code": "redundant-cast",
+      "message": "Redundant cast to `(string)`: the expression already has this type.",
+      "notes": [
+        "Casting a value to a type it already possesses has no effect."
+      ],
+      "help": "Remove the redundant `(string)` cast.",
+      "annotations": [
+        {
+          "message": "This expression already has type `string`.",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Controller/BlogController.php",
+              "path": "/app/src/Controller/BlogController.php",
+              "size": 7061,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 7020,
+              "line": 163
+            },
+            "end": {
+              "offset": 7049,
+              "line": 163
+            }
+          }
+        }
+      ],
+      "edits": [
+        [
+          {
+            "name": "src/Controller/BlogController.php",
+            "path": "/app/src/Controller/BlogController.php",
+            "size": 7061,
+            "file_type": "Host"
+          },
+          [
+            {
+              "range": {
+                "start": 7011,
+                "end": 7019
+              },
+              "new_text": [],
+              "safety": "safe"
+            }
+          ]
+        ]
+      ]
+    },
+    {
+      "level": "Error",
+      "code": "less-specific-argument",
+      "message": "Argument type mismatch for argument #1 of `App\\Tests\\Command\\AbstractCommandTestCase::executeCommand`: expected `array<string, int|string>`, but provided type `array<array-key, int(1)|string>` is less specific.",
+      "notes": [
+        "The provided type `array<array-key, int(1)|string>` can be assigned to `array<string, int|string>`, but is wider (less specific)."
+      ],
+      "help": "Provide a value that more precisely matches `array<string, int|string>` or adjust the parameter type.",
+      "annotations": [
+        {
+          "message": "Provided type `array<array-key, int(1)|string>` is too general.",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "tests/Command/AddUserCommandTest.php",
+              "path": "/app/tests/Command/AddUserCommandTest.php",
+              "size": 3525,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 1315,
+              "line": 47
+            },
+            "end": {
+              "offset": 1321,
+              "line": 47
+            }
+          }
+        },
+        {
+          "message": "Arguments to this method are incorrect",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "tests/Command/AddUserCommandTest.php",
+              "path": "/app/tests/Command/AddUserCommandTest.php",
+              "size": 3525,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 1293,
+              "line": 47
+            },
+            "end": {
+              "offset": 1322,
+              "line": 47
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Warning",
+      "code": "incompatible-parameter-name",
+      "message": "Parameter #1 of `App\\Form\\DataTransformer\\TagArrayToStringTransformer::reversetransform()` is named `$string` but parent `Symfony\\Component\\Form\\DataTransformerInterface::reversetransform()` names it `$value`",
+      "notes": [
+        "Parameter name changes can break code using named arguments."
+      ],
+      "help": "Consider renaming the parameter to `$value` to match the parent method.",
+      "annotations": [
+        {
+          "message": "Parameter named `$string` but parent uses `$value`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Form/DataTransformer/TagArrayToStringTransformer.php",
+              "path": "/app/src/Form/DataTransformer/TagArrayToStringTransformer.php",
+              "size": 2758,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 1520,
+              "line": 51
+            },
+            "end": {
+              "offset": 1536,
+              "line": 51
+            }
+          }
+        },
+        {
+          "message": "Parent method `Symfony\\Component\\Form\\DataTransformerInterface::reversetransform()` parameter `$value` defined here",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "vendor/symfony/form/DataTransformerInterface.php",
+              "path": "/app/vendor/symfony/form/DataTransformerInterface.php",
+              "size": 3926,
+              "file_type": "Vendored"
+            },
+            "start": {
+              "offset": 525,
+              "line": 23
+            },
+            "end": {
+              "offset": 549,
+              "line": 23
+            }
+          }
+        },
+        {
+          "message": "In class `App\\Form\\DataTransformer\\TagArrayToStringTransformer`",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "src/Form/DataTransformer/TagArrayToStringTransformer.php",
+              "path": "/app/src/Form/DataTransformer/TagArrayToStringTransformer.php",
+              "size": 2758,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 877,
+              "line": 30
+            },
+            "end": {
+              "offset": 904,
+              "line": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Warning",
+      "code": "incompatible-parameter-name",
+      "message": "Parameter #1 of `App\\Form\\DataTransformer\\TagArrayToStringTransformer::transform()` is named `$tags` but parent `Symfony\\Component\\Form\\DataTransformerInterface::transform()` names it `$value`",
+      "notes": [
+        "Parameter name changes can break code using named arguments."
+      ],
+      "help": "Consider renaming the parameter to `$value` to match the parent method.",
+      "annotations": [
+        {
+          "message": "Parameter named `$tags` but parent uses `$value`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Form/DataTransformer/TagArrayToStringTransformer.php",
+              "path": "/app/src/Form/DataTransformer/TagArrayToStringTransformer.php",
+              "size": 2758,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 1048,
+              "line": 37
+            },
+            "end": {
+              "offset": 1057,
+              "line": 37
+            }
+          }
+        },
+        {
+          "message": "Parent method `Symfony\\Component\\Form\\DataTransformerInterface::transform()` parameter `$value` defined here",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "vendor/symfony/form/DataTransformerInterface.php",
+              "path": "/app/vendor/symfony/form/DataTransformerInterface.php",
+              "size": 3926,
+              "file_type": "Vendored"
+            },
+            "start": {
+              "offset": 525,
+              "line": 23
+            },
+            "end": {
+              "offset": 549,
+              "line": 23
+            }
+          }
+        },
+        {
+          "message": "In class `App\\Form\\DataTransformer\\TagArrayToStringTransformer`",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "src/Form/DataTransformer/TagArrayToStringTransformer.php",
+              "path": "/app/src/Form/DataTransformer/TagArrayToStringTransformer.php",
+              "size": 2758,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 877,
+              "line": 30
+            },
+            "end": {
+              "offset": 904,
+              "line": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Error",
+      "code": "invalid-argument",
+      "message": "Invalid argument type for argument #1 of `App\\Form\\DataTransformer\\TagArrayToStringTransformer::trim`: expected `array<array-key, string>`, but found `array<array-key, Symfony\\Component\\String\\UnicodeString&static>`.",
+      "notes": [
+        "The provided type `array<array-key, Symfony\\Component\\String\\UnicodeString&static>` is not compatible with the expected type `array<array-key, string>`."
+      ],
+      "help": "Change the argument value to match `array<array-key, string>`, or update the parameter's type declaration.",
+      "annotations": [
+        {
+          "message": "This has type `array<array-key, Symfony\\Component\\String\\UnicodeString&static>`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Form/DataTransformer/TagArrayToStringTransformer.php",
+              "path": "/app/src/Form/DataTransformer/TagArrayToStringTransformer.php",
+              "size": 2758,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 1705,
+              "line": 57
+            },
+            "end": {
+              "offset": 1727,
+              "line": 57
+            }
+          }
+        },
+        {
+          "message": "Arguments to this method are incorrect",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "src/Form/DataTransformer/TagArrayToStringTransformer.php",
+              "path": "/app/src/Form/DataTransformer/TagArrayToStringTransformer.php",
+              "size": 2758,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 1693,
+              "line": 57
+            },
+            "end": {
+              "offset": 1728,
+              "line": 57
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Error",
+      "code": "possibly-invalid-argument",
+      "message": "Possible argument type mismatch for argument #1 of `App\\Entity\\Tag::__construct`: expected `string`, but possibly received `App\\Entity\\Tag|truthy-string`.",
+      "notes": [
+        "The provided type `App\\Entity\\Tag|truthy-string` overlaps with `string` but is not fully contained."
+      ],
+      "help": "Ensure the argument always has the expected type using checks or assertions.",
+      "annotations": [
+        {
+          "message": "This might not be type `string`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Form/DataTransformer/TagArrayToStringTransformer.php",
+              "path": "/app/src/Form/DataTransformer/TagArrayToStringTransformer.php",
+              "size": 2758,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 2041,
+              "line": 68
+            },
+            "end": {
+              "offset": 2046,
+              "line": 68
+            }
+          }
+        },
+        {
+          "message": "Arguments to this method are incorrect",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "src/Form/DataTransformer/TagArrayToStringTransformer.php",
+              "path": "/app/src/Form/DataTransformer/TagArrayToStringTransformer.php",
+              "size": 2758,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 2033,
+              "line": 68
+            },
+            "end": {
+              "offset": 2047,
+              "line": 68
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Error",
+      "code": "less-specific-return-statement",
+      "message": "Returned type `array<array-key, App\\Entity\\Tag>|non-empty-list<App\\Entity\\Tag>` is less specific than the declared return type `array<int, App\\Entity\\Tag>` for function `App\\Form\\DataTransformer\\TagArrayToStringTransformer::reverseTransform`.",
+      "notes": [
+        "The inferred type `array<array-key, App\\Entity\\Tag>|non-empty-list<App\\Entity\\Tag>` could be assigned to the declared type `array<int, App\\Entity\\Tag>`, but is wider (less specific)."
+      ],
+      "help": "Consider returning a value that more precisely matches the declared `array<int, App\\Entity\\Tag>` type, or adjust the function's return type declaration if the broader type is intended.",
+      "annotations": [
+        {
+          "message": "Returned type is too general.",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Form/DataTransformer/TagArrayToStringTransformer.php",
+              "path": "/app/src/Form/DataTransformer/TagArrayToStringTransformer.php",
+              "size": 2758,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 2465,
+              "line": 76
+            },
+            "end": {
+              "offset": 2470,
+              "line": 76
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Warning",
+      "code": "possibly-false-operand",
+      "message": "Left operand in arithmetic operation might be `false` (type `false|int`).",
+      "notes": [
+        "Performing arithmetic operations on `false` typically results in `0`."
+      ],
+      "help": "Ensure the left operand is non-falsy before the operation, or explicitly cast if coercion is intended.",
+      "annotations": [
+        {
+          "message": "This might be `false`.",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Twig/SourceCodeExtension.php",
+              "path": "/app/src/Twig/SourceCodeExtension.php",
+              "size": 5980,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 3294,
+              "line": 101
+            },
+            "end": {
+              "offset": 3317,
+              "line": 101
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Warning",
+      "code": "possibly-false-operand",
+      "message": "Left operand in arithmetic operation might be `false` (type `false|int`).",
+      "notes": [
+        "Performing arithmetic operations on `false` typically results in `0`."
+      ],
+      "help": "Ensure the left operand is non-falsy before the operation, or explicitly cast if coercion is intended.",
+      "annotations": [
+        {
+          "message": "This might be `false`.",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Twig/SourceCodeExtension.php",
+              "path": "/app/src/Twig/SourceCodeExtension.php",
+              "size": 5980,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 3662,
+              "line": 114
+            },
+            "end": {
+              "offset": 3670,
+              "line": 114
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Help",
+      "code": "redundant-logical-operation",
+      "message": "Redundant `&&` operation: left operand is evaluated and right operand is always truthy.",
+      "notes": [
+        "The `&&` operator will always return the boolean value of the left-hand side in this case."
+      ],
+      "help": "Consider simplifying this expression to just the left operand.",
+      "annotations": [
+        {
+          "message": "Left operand is evaluated",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Twig/SourceCodeExtension.php",
+              "path": "/app/src/Twig/SourceCodeExtension.php",
+              "size": 5980,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 4279,
+              "line": 134
+            },
+            "end": {
+              "offset": 4300,
+              "line": 134
+            }
+          }
+        },
+        {
+          "message": "Right operand is always truthy",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "src/Twig/SourceCodeExtension.php",
+              "path": "/app/src/Twig/SourceCodeExtension.php",
+              "size": 5980,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 4304,
+              "line": 134
+            },
+            "end": {
+              "offset": 4334,
+              "line": 134
+            }
+          }
+        }
+      ],
+      "edits": [
+        [
+          {
+            "name": "src/Twig/SourceCodeExtension.php",
+            "path": "/app/src/Twig/SourceCodeExtension.php",
+            "size": 5980,
+            "file_type": "Host"
+          },
+          [
+            {
+              "range": {
+                "start": 4301,
+                "end": 4334
+              },
+              "new_text": [],
+              "safety": "potentiallyunsafe"
+            }
+          ]
+        ]
+      ]
+    },
+    {
+      "level": "Error",
+      "code": "possibly-invalid-argument",
+      "message": "Possible argument type mismatch for argument #1 of `ReflectionFunction::__construct`: expected `(closure(...mixed=): mixed)|string`, but possibly received `(callable(...mixed=): mixed)|Closure`.",
+      "notes": [
+        "The provided type `(callable(...mixed=): mixed)|Closure` overlaps with `(closure(...mixed=): mixed)|string` but is not fully contained."
+      ],
+      "help": "Ensure the argument always has the expected type using checks or assertions.",
+      "annotations": [
+        {
+          "message": "This might not be type `(closure(...mixed=): mixed)|string`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Twig/SourceCodeExtension.php",
+              "path": "/app/src/Twig/SourceCodeExtension.php",
+              "size": 5980,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 4486,
+              "line": 140
+            },
+            "end": {
+              "offset": 4495,
+              "line": 140
+            }
+          }
+        },
+        {
+          "message": "Arguments to this method are incorrect",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "src/Twig/SourceCodeExtension.php",
+              "path": "/app/src/Twig/SourceCodeExtension.php",
+              "size": 5980,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 4462,
+              "line": 140
+            },
+            "end": {
+              "offset": 4496,
+              "line": 140
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Error",
+      "code": "invalid-argument",
+      "message": "Invalid argument type for argument #1 of `Symfony\\Component\\String\\u`: expected `null|string`, but found `Symfony\\Component\\String\\UnicodeString&static`.",
+      "notes": [
+        "The provided type `Symfony\\Component\\String\\UnicodeString&static` is not compatible with the expected type `null|string`."
+      ],
+      "help": "Change the argument value to match `null|string`, or update the parameter's type declaration.",
+      "annotations": [
+        {
+          "message": "This has type `Symfony\\Component\\String\\UnicodeString&static`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Twig/SourceCodeExtension.php",
+              "path": "/app/src/Twig/SourceCodeExtension.php",
+              "size": 5980,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 5585,
+              "line": 169
+            },
+            "end": {
+              "offset": 5596,
+              "line": 169
+            }
+          }
+        },
+        {
+          "message": "Arguments to this function are incorrect",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "src/Twig/SourceCodeExtension.php",
+              "path": "/app/src/Twig/SourceCodeExtension.php",
+              "size": 5980,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 5583,
+              "line": 169
+            },
+            "end": {
+              "offset": 5584,
+              "line": 169
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Error",
+      "code": "invalid-argument",
+      "message": "Invalid argument type for argument #1 of `Symfony\\Component\\String\\u`: expected `null|string`, but found `Symfony\\Component\\String\\UnicodeString&static`.",
+      "notes": [
+        "The provided type `Symfony\\Component\\String\\UnicodeString&static` is not compatible with the expected type `null|string`."
+      ],
+      "help": "Change the argument value to match `null|string`, or update the parameter's type declaration.",
+      "annotations": [
+        {
+          "message": "This has type `Symfony\\Component\\String\\UnicodeString&static`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Twig/SourceCodeExtension.php",
+              "path": "/app/src/Twig/SourceCodeExtension.php",
+              "size": 5980,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 5614,
+              "line": 169
+            },
+            "end": {
+              "offset": 5625,
+              "line": 169
+            }
+          }
+        },
+        {
+          "message": "Arguments to this function are incorrect",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "src/Twig/SourceCodeExtension.php",
+              "path": "/app/src/Twig/SourceCodeExtension.php",
+              "size": 5980,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 5612,
+              "line": 169
+            },
+            "end": {
+              "offset": 5613,
+              "line": 169
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Error",
+      "code": "invalid-argument",
+      "message": "Invalid argument type for argument #1 of `Symfony\\Component\\String\\u`: expected `null|string`, but found `Symfony\\Component\\String\\UnicodeString&static`.",
+      "notes": [
+        "The provided type `Symfony\\Component\\String\\UnicodeString&static` is not compatible with the expected type `null|string`."
+      ],
+      "help": "Change the argument value to match `null|string`, or update the parameter's type declaration.",
+      "annotations": [
+        {
+          "message": "This has type `Symfony\\Component\\String\\UnicodeString&static`",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Twig/SourceCodeExtension.php",
+              "path": "/app/src/Twig/SourceCodeExtension.php",
+              "size": 5980,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 5832,
+              "line": 174
+            },
+            "end": {
+              "offset": 5843,
+              "line": 174
+            }
+          }
+        },
+        {
+          "message": "Arguments to this function are incorrect",
+          "kind": "Secondary",
+          "span": {
+            "file_id": {
+              "name": "src/Twig/SourceCodeExtension.php",
+              "path": "/app/src/Twig/SourceCodeExtension.php",
+              "size": 5980,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 5830,
+              "line": 174
+            },
+            "end": {
+              "offset": 5831,
+              "line": 174
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Error",
+      "code": "less-specific-return-statement",
+      "message": "Returned type `Traversable<array-key, object>` is less specific than the declared return type `Traversable<int, object>` for function `App\\Pagination\\Paginator::getResults`.",
+      "notes": [
+        "The inferred type `Traversable<array-key, object>` could be assigned to the declared type `Traversable<int, object>`, but is wider (less specific)."
+      ],
+      "help": "Consider returning a value that more precisely matches the declared `Traversable<int, object>` type, or adjust the function's return type declaration if the broader type is intended.",
+      "annotations": [
+        {
+          "message": "Returned type is too general.",
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "src/Pagination/Paginator.php",
+              "path": "/app/src/Pagination/Paginator.php",
+              "size": 3299,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 3275,
+              "line": 126
+            },
+            "end": {
+              "offset": 3289,
+              "line": 126
+            }
+          }
+        }
+      ]
+    },
+    {
+      "level": "Note",
+      "code": "byte-kitsune/symfony-wiring/analysis-attestation",
+      "message": "Symfony service wiring analysis completed.",
+      "notes": [
+        "extension-attestation: {\"schema_version\":\"1\",\"extension\":\"byte-kitsune/symfony-wiring\",\"version\":\"1.3.0-RC1\",\"capability\":\"service_wiring\",\"complete\":true,\"source_files\":48}"
+      ],
+      "annotations": [
+        {
+          "kind": "Primary",
+          "span": {
+            "file_id": {
+              "name": "tests/object-manager.php",
+              "path": "/app/tests/object-manager.php",
+              "size": 546,
+              "file_type": "Host"
+            },
+            "start": {
+              "offset": 0,
+              "line": 0
+            },
+            "end": {
+              "offset": 1,
+              "line": 0
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "run_id": "a-followup-20261028",
+  "status": "pass",
+  "evidence": "/home/scientdb/tmp/symf-poc/worktree-a/artifacts/a-followup-20261028/public-enriched/f56d808f740e4c4787b791f0281de414",
+  "framework": {
+    "status": "pass",
+    "run_id": "a-followup-20261028",
+    "service": "App\\Form\\Type\\TagsInputType",
+    "preparation_id": "prepare-9ecc727379b84521a01feab74a1778f3",
+    "evidence": "/home/scientdb/tmp/symf-poc/worktree-a/artifacts/a-followup-20261028/framework/4b29f99a07c047449828524f2ea364fa",
+    "controls": {
+      "missing-service": "pass",
+      "unknown-run": "pass",
+      "wrong-project": "pass",
+      "wrong-workspace": "pass",
+      "stale-source": "pass",
+      "stale-source-abbreviated-command": "pass",
+      "absent-compiled-metadata": "pass",
+      "stale-compiled-metadata": "pass",
+      "absent-wiring-reference": "pass",
+      "owner-instruction-preservation": "pass",
+      "extension-off-on": "pass",
+      "invalid-binding-removed-and-restored": "pass"
+    },
+    "compiled_wiring": {
+      "status": "pass",
+      "service_id": "App\\Form\\Type\\TagsInputType",
+      "class": "App\\Form\\Type\\TagsInputType",
+      "constructor_parameter": "tags",
+      "dependency_id": "App\\Repository\\TagRepository",
+      "dependency_class": "App\\Repository\\TagRepository",
+      "context": "inspection-dev",
+      "normalization": "Direct reference at constructor position 0; no alias or inlining in this fixture."
+    },
+    "extension": {
+      "status": "pass",
+      "backend": "php",
+      "mago_source": "46df50c96d93d0ac3655c116c375574277cf0b30",
+      "extension_source": "28c3f54065b71fe046a7474ced401aeadc941b0f",
+      "contribution": "TagRepository::__construct -> Doctrine\\Bundle\\DoctrineBundle\\Registry Body edge",
+      "direct_service_boundary": "TagsInputType -> TagRepository already has a native Signature edge; Mago suppresses duplicate Body edges.",
+      "native_issue_counts": {
+        "off": 35,
+        "on": 35
+      },
+      "clean_application_claim": false
+    }
+  },
+  "intentional_change_refresh": {
+    "status": "pass",
+    "preparation_id": "prepare-ffcd6b75b77141049f035ca582ca68c4",
+    "native_exit": 1
+  }
+}

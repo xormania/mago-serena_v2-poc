@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "kind": "synthetic_nested_failure_correlation",
+  "status": "pass",
+  "real_collector": true,
+  "live_provider_calls": 0,
+  "mock_provider_calls": 1,
+  "failed_checks": 1,
+  "excerpts": 2,
+  "cause_in_provider_payload": true,
+  "nested_provenance": {
+    "run_id": "owned-run",
+    "attempt_id": "attempt-first",
+    "context_sha256": "727d0e93fb10779c2dd506a8195bdd7b9b4630ba91835f7307e980a27061ae7e",
+    "source_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "step_attempt": 1,
+    "stage": "symfony_wiring",
+    "source": "slice1/attempt-first/results.json"
+  },
+  "collector_sha256": "7e3810f12cf3bda331cb5aef2e83e67a980cf0d10d5273a9bcc461a0fbb4bda0",
+  "interpretation": "Outer failure and nested cause share one failed check; latest result mirror is not another observation. Synthetic fixture, mocked provider only."
+}

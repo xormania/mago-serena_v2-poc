@@ -72,12 +72,58 @@ exposure.
 ```sh
 ./bin/poc up --run slice1-dev --no-build
 ./bin/poc mate-prepare --run slice1-dev
+./bin/poc mago-enriched --run slice1-dev \
+  --symbol='App\Repository\TagRepository' -- analyze --reporting-format json
+# Equivalent public Mago profile; default profile remains native:
+./bin/mago --run slice1-dev --profile symfony \
+  --symbol='App\Repository\TagRepository' -- analyze --reporting-format json
+# Same application/preparation, explicitly disable the wiring contribution:
+./bin/poc mago-enriched --run slice1-dev --extension-off -- analyze --reporting-format json
 ./bin/mate --run slice1-dev -- tools:list --format=json
 ./bin/mate --run slice1-dev -- tools:inspect symfony-service-detail --format=json
 ./bin/mate --run slice1-dev -- tools:call symfony-service-detail \
   --id='App\Form\Type\TagsInputType' --context=inspection-dev --format=json
 ./bin/poc slice1
+# Also proves a source change is rejected, then analyzed after explicit refresh:
+.venv/bin/python tests/integration/enriched_analysis.py --run slice1-dev
 ```
+
+`mago-enriched` is the ordinary run-bound CLI analysis path, independent of the
+acceptance harness and caller's current directory. It analyzes all `src/` and
+`tests/`, with `vendor/` declarations, using the matched executable/SDK and the
+installed wiring worker. Repeat `--symbol=Fully\Qualified\Class` to observe up
+to eight selected constructor reference sets through Mago's own Codebase and
+SymbolReferences APIs. Missing declarations are represented as `null`; the
+observer does not parse PHP or add edges. The original slice-1 observer fields
+remain available so its separate controls still run unchanged.
+
+Preparation installs both native and enriched configurations before sealing the
+complete application/dependency state. Source edits, dependency changes, missing
+or changed compiled XML/reference, another workspace/container, a mismatched SDK
+source, or changed extension configuration prevent an enriched read. Run
+`./bin/poc mate-prepare --run RUN` explicitly after an intentional source change.
+An absent/stale preparation returns **3** with that refresh instruction and no
+native diagnostics; a completed native analysis retains its real exit and
+diagnostic bytes. Existing application findings still return **1**. If the
+native process exits 0/1 but its required graph/attestation is absent, malformed
+or incomplete, the wrapper returns **3**, reports the reason on stderr and keeps
+the unmodified `native_exit` in evidence. Other native failure exits remain
+unchanged. Native
+analysis remains `./bin/poc mago --run RUN -- analyze --reporting-format json`.
+
+Each enriched invocation retains `stdout`, `stderr`, `graph.json` and
+`invocation.json` under `artifacts/RUN/mago/enriched/UUID/`. The JSON identifies
+`run_id`, `host_workspace`, `preparation_id`, preparation/source/config/dependency
+hashes, `native_exit`, public `exit`, `status` (`clean`, `findings`,
+`stale_preparation`, or `tool_failure`), exact argv, selected symbols and evidence
+paths. `graph.json` contains the final native source/test inventory and
+`symbols[FQCN]` declaration/constructor references. The on/off controls now invoke
+this public command from `/tmp`; changed/absent facts are also rejected through
+it. The invalid-binding graph remains a labelled direct package probe because
+the public freshness guard correctly refuses fabricated compiled facts.
+
+This interface enriches CLI analysis only. It does not change the known pinned
+LSP external-worker startup boundary or claim framework-enriched Serena results.
 
 `mate-prepare` installs the declared lock without plugins/scripts, preserves
 existing owner `AGENTS.md`/`CLAUDE.md` text outside Mate's managed blocks,

@@ -1,0 +1,14 @@
+{
+  "run_id": "b-slice2-20261028",
+  "argv": [
+    "env",
+    "APP_ENV=test",
+    "APP_DEBUG=1",
+    "php",
+    "bin/console",
+    "app:tags:count",
+    "--no-interaction",
+    "--no-ansi"
+  ],
+  "exit": 0
+}

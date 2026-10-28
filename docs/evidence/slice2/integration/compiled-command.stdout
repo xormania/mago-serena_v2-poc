@@ -1,0 +1,47 @@
+{
+    "class": "App\\Command\\TagsCountCommand",
+    "public": false,
+    "synthetic": false,
+    "lazy": false,
+    "shared": true,
+    "abstract": false,
+    "autowire": true,
+    "autoconfigure": true,
+    "deprecated": false,
+    "arguments": [
+        {
+            "type": "service",
+            "id": "App\\Repository\\TagRepository"
+        }
+    ],
+    "file": null,
+    "calls": [
+        "setName",
+        "setDescription"
+    ],
+    "tags": [
+        {
+            "name": "console.command",
+            "parameters": {
+                "command": "app:tags:count",
+                "description": "Count persisted tags.",
+                "help": null
+            }
+        },
+        {
+            "name": "console.command",
+            "parameters": []
+        },
+        {
+            "name": "console.command.service_arguments",
+            "parameters": []
+        },
+        {
+            "name": "container.no_preload",
+            "parameters": []
+        }
+    ],
+    "usages": [
+        ".App\\Command\\TagsCountCommand.lazy"
+    ]
+}

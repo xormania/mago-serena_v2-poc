@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "kind": "local_slice_collector_contract",
+  "fixture_kind": "synthetic_nested_failure",
+  "real_collector": true,
+  "transport": "mock",
+  "live_provider_calls": 0,
+  "mock_provider_calls": 1,
+  "fixture_source_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "before_collector_revision": "8f154f798d7cf9ae7cf3cb33b0b99352de99dec4",
+  "before_collector_sha256": "a725f2a87f323ea0ae79b150dde48e3845af3e5c1291ac45e54a79ca6aa6fb39",
+  "after_collector_sha256": "27eb032835ef069afde980237d9c24f1b07e04284dc3c30337a21be5fdc92732",
+  "cause": "Missing concrete compiled-binding contribution",
+  "cause_in_before_packet": false,
+  "cause_in_after_packet": true,
+  "cause_in_mock_provider_payload": true,
+  "nested_failure_observations": 1,
+  "provider_result": "diagnosed",
+  "interpretation": "Synthetic producer-layout reproduction using actual old/new collectors and mocked provider boundary. No framework defect was injected or live provider invoked. The mock response demonstrates transport preservation, not diagnosis accuracy.",
+  "test_command": "python3 -m unittest discover -s tests/fast -p 'test_jev*.py' -v",
+  "focused_tests": {
+    "run": 56,
+    "failures": 0,
+    "errors": 0
+  }
+}

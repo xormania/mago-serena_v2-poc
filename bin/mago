@@ -3,17 +3,25 @@
 import argparse
 import sys
 
-from magolib import invoke, selected
+from magolib import invoke, invoke_enriched, selected
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run', required=True)
+    parser.add_argument('--profile', choices=('native', 'symfony'), default='native')
+    parser.add_argument('--symbol', action='append', default=[])
+    parser.add_argument('--extension-off', action='store_true')
     parser.add_argument('argv', nargs=argparse.REMAINDER)
     args = parser.parse_args()
     argv = args.argv[1:] if args.argv[:1] == ['--'] else args.argv
     if not argv:
         parser.error('Supply Mago arguments after --, for example analyze --reporting-format json')
+    if args.profile == 'symfony':
+        return invoke_enriched(selected(args.run), argv, symbols=args.symbol,
+                               wiring_enabled=not args.extension_off)
+    if args.symbol or args.extension_off:
+        parser.error('--symbol and --extension-off require --profile symfony')
     return invoke(selected(args.run), argv)
 
 

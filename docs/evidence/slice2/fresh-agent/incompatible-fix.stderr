@@ -1,0 +1,5 @@
+error: the argument '--fix' cannot be used with '--reporting-format <REPORTING_FORMAT>'
+
+Usage: mago lint --fix <PATH>...
+
+For more information, try '--help'.

@@ -1,15 +1,37 @@
 # Hosted CI performance and evidence
 
-The Mago-first slice adds one captured `slice1` step after original acceptance,
-using the same built image and a fresh owned workspace. It exercises native
-PHP calibration, real host MCP semantics, compiled Mate/wiring-extension
-controls and the original PHPUnit identities. Native whole-application findings
+The Mago-first workflow has captured `slice1` and `slice2` steps after original
+acceptance, using the same built image and separate fresh owned workspaces.
+Slice 1 exercises native PHP calibration, real host MCP semantics, compiled
+Mate/wiring-extension controls and the original PHPUnit identities. Slice 2
+uses installed Maker, replays the declared tag-count task, checks its real
+command and behavior tests, refreshes metadata, and invokes the public enriched
+Mago path. Its scripted replay is separate from the retained adaptive agent
+exercise described in [SLICE-2.md](SLICE-2.md). Native whole-application findings
 remain recorded rather than suppressed; this is a capability gate, not a claim
 that every Demo diagnostic has been repaired. The original default container
 check keeps Composer/Symfony validation; PHPStan/PHP-CS-Fixer require the explicit
 `--legacy-comparison` option. Cache scope, event/concurrency policy and the
 trusted default-branch Jev consumer are unchanged. No new calibration or local
 provider key is involved.
+
+The slice-2 integration starts from merged PR #3 at
+`8f154f798d7cf9ae7cf3cb33b0b99352de99dec4`. Slice failures and earlier attempts
+are collected from their nested result/error files, bound to the producing
+source and run. [Jev's collector contract](JEV.md) explains the bounded,
+credential-free failure path; the trusted consumer and native CI verdict retain
+their existing roles. Measurements below describe the earlier cache follow-up;
+the slice-2 run is recorded separately with its final validation evidence.
+
+The [local exact-image validation](evidence/slice2/integration/validation.json)
+at `9e74151804e5e30f7b55d4e66cf09dd9ff0f7389` passed 148 fast tests, all 31
+original acceptance checks, nine slice-1 stages and 12 slice-2 stages. One cached
+build produced the shared verified image; separate disposable runs executed
+concurrently in 68.203s, 92.429s and 57.889s respectively. These are local gate
+durations, not hosted CI measurements. The actual default-relative-root collector
+then produced a healthy packet and the mocked provider boundary observed zero
+calls. The integrated PR records its hosted workflow duration and artifact links
+after the required run completes.
 
 The CI follow-up starts from merged default-branch commit
 `262e06d00024ab4ff2c025ce2b52a2ff49f65715`, on a new
