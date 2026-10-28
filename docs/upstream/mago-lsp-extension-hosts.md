@@ -86,12 +86,12 @@ recover after supported edits/reloads. Disable/re-enable, shutdown before exit,
 restart and independent folder isolation pass.
 
 The [real adaptive host MCP investigation](../evidence/lsp-extensions/agent/result.json)
-uses 15 agent-selected Serena REPL calls. Healthy on, extension-off removal,
+uses 14 agent-selected REPL cells (15 MCP tool calls). Healthy on, extension-off removal,
 real exported changed binding and exact restoration all pass; the original
 53 test identities and 120 assertions subsequently pass. This evidence is
 separate from deterministic acceptance replay. Broad semantic acceptance and
-slices 1/2 pass on their recorded image; final gate-strengthening results are
-linked by the dedicated document.
+slices 1/2 and the strengthened native-plus-MCP gate pass on the
+[final image](../evidence/lsp-extensions/acceptance/summary.json).
 
 Compiled references are worker-startup state. Refreshing an export requires a
 full workspace reload through configured `restart-on` watched paths, or explicit

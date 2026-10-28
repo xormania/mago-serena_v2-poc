@@ -1,0 +1,16 @@
+{
+  "selection": "Complete ERROR-level lines selected from direct server stderr; ordinary TRACE diagnostic frames omitted here and retained in full protocol JSONL.",
+  "source": "artifacts/lspext-20261028b-candidate/lsp-extensions/direct/direct-lsp.stderr",
+  "source_sha256": "34e94332e9b8bf15335908c6f5499aab86ef177ada7b9a8cb3f13a20eb484ff6",
+  "source_bytes": 297711,
+  "lines": [
+    {
+      "line": 259,
+      "text": "ERROR incremental analysis failed error=/app: Analysis error: Plugin Error: External plugin error: external analyzer worker failed: extension worker 0 rejected request 2: Analyzer lifecycle hook in `byte-kitsune/symfony-wiring` failed: Syntax error"
+    },
+    {
+      "line": 573,
+      "text": "ERROR workspace restart failed root=/app error=initialize external analyzer: External plugin error: external analyzer worker failed: failed to start extension worker /lspext/no-such-worker: No such file or directory (os error 2)"
+    }
+  ]
+}

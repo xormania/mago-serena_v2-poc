@@ -3,9 +3,8 @@
 The candidate hosts configured external analyzer workers in Mago's native LSP
 analysis and exposes their semantic dependency contributions through Serena.
 The matched baseline, 19 direct controls, four focused Rust tests and a real
-adaptive host MCP investigation pass. Original semantic acceptance and slices
-1/2 also pass on their recorded image; the final gate-strengthening rerun is
-recorded separately.
+adaptive host MCP investigation pass. Original semantic acceptance, slices 1/2 and the strengthened
+native-plus-Serena gate all pass on the [final recorded image](evidence/lsp-extensions/acceptance/summary.json).
 
 Nothing has been published upstream. The native patch is based on experimental
 Mago `46df50c96d93d0ac3655c116c375574277cf0b30`. The graph interface described
@@ -18,7 +17,7 @@ already available upstream API.
 | --- | --- |
 | Workers start and complete | Real PHP worker startup, supported hooks and final CLI/LSP observer output |
 | Contributions enter current server analysis | Native `mago/symbolReferences` responses change under off/on, unsaved-source and real exported binding controls |
-| Serena exposes a contribution | Fifteen agent-selected host MCP calls through Serena's REPL return the candidate's graph and verify off/on, changed and restored bindings |
+| Serena exposes a contribution | Fourteen agent-selected REPL cells (15 MCP tool calls) through Serena's REPL return the candidate's graph and verify off/on, changed and restored bindings |
 
 A startup marker or completion attestation alone proves only the first claim.
 The CLI observer reads Mago's final graph; LSP protocol responses establish the
@@ -51,6 +50,16 @@ Composer SDK and MANA protocol files are unchanged. Rust is
 The candidate build defaults to two jobs. `/usr/local/bin/mago-baseline` retains
 the unmodified executable alongside `/usr/local/bin/mago`; build argument
 `MAGO_LSP_EXTENSIONS=0` selects the unpatched executable as the primary binary.
+
+Build the reproducible candidate and its focused native regression tests with
+separate task-owned tags:
+
+```sh
+export POC_IMAGE=mago-serena-poc:lsp-workers-example
+docker build --build-arg MAGO_BUILD_JOBS=2 -t "$POC_IMAGE" .
+docker build --target mago-candidate-tests --build-arg MAGO_BUILD_JOBS=2 -t "${POC_IMAGE}-rust-tests" .
+docker run --rm "${POC_IMAGE}-rust-tests" cat /mago-native-tests.log
+```
 
 Stable Mago `1.59.0` / MANA `2.2` is a different compatibility matrix. A version
 string alone cannot distinguish the tested baseline from the candidate. Live
@@ -208,7 +217,9 @@ POC_IMAGE=mago-serena-poc:lsp-workers-20261028b \
 This selects one prepared owned run and executes `lsp_extensions_probe.py`.
 CI uses `--fresh` instead of `--run`: it verifies resolved Compose image and
 actual image ID through the existing installed-source/runtime identity contract,
-then purges its owned environment even on failure. Bounded evidence remains in
+and verifies real host MCP on/off graph forwarding with the native signature
+preserved. This deterministic CI replay is separate from the adaptive session.
+It then purges its owned environment even on failure. Bounded evidence remains in
 `artifacts/`. The standalone upstream fixture needs only the real SDK autoloader,
 PHP and the repository's stdlib LSP helper.
 
@@ -222,9 +233,9 @@ PHP and the repository's stdlib LSP helper.
 | Analysis failure / recovery | `-32803` analysis error; valid metadata and a later buffer edit recover |
 | Worker-command failure / recovery | Attributed `-32803` reload error; valid configuration reload recovers |
 | Disable/re-enable, shutdown/restart, folder isolation | Contributions removed/restored; all owned workers exit before `exit`; independent folder stays separate |
-| Adaptive host MCP → Serena → candidate Mago | Fifteen real calls; all four binding/extension outcome flags true |
-| Focused native Rust tests | Four pass, including unsaved graph, disabled/unowned URI and failed-reload recovery |
-| Original semantic acceptance and slices 1/2 | Original 31/31 checks; slice 1 9/9; slice 2 12/12, including original 53/120 and combined 55/124 PHPUnit results; final strengthened CI rerun retained separately |
+| Adaptive host MCP → Serena → candidate Mago | Fourteen selected REPL cells (15 MCP calls); all four binding/extension outcome flags true |
+| Focused native Rust tests | Four pass, including unsaved graph, disabled analysis and failed-reload recovery |
+| Original semantic acceptance and slices 1/2 | Original 31/31 checks; slice 1 9/9; slice 2 12/12, including original 53/120 and combined 55/124 PHPUnit results; final native-plus-MCP gate passes and purges its run |
 
 The [broad acceptance summary](evidence/lsp-extensions/acceptance/summary.json)
 records each actual run image. The [native result and index](evidence/lsp-extensions/native/index.json) retain
@@ -256,3 +267,12 @@ Direct/adaptive results above use image `3cc2d1c9…`; the final broad suite's e
 image/revision and any effective-config harness correction are recorded in its
 acceptance evidence. Combined-branch validation remains unproven unless both
 workstreams are merged and checked on their actual integrated revision.
+
+Full sealed original acceptance artifacts are retained at
+`/home/scientdb/worktrees/mago-serena_v2-poc/lspext-20261028b-evidence/`
+so the existing independent artifact verifier can recheck both runs after
+disposable application cleanup. The committed evidence index bounds and hashes
+the review snapshots. No application, vendor tree or Rust target directory is
+retained in that location. Session A is not merged at the final default-branch
+check (`88abf50d747f0e2f02905bb23d3701c18d00b2c5`), so combined validation remains
+a separate follow-up.

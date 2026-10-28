@@ -1,0 +1,10 @@
+extends = ".mago/wiring.toml"
+[language-server]
+restart-on = [".mago/container-reference.dev.json", ".mago/extensions.php"]
+[extension-hosts.php]
+working-directory = "."
+workers = 1
+request-timeout-ms = 10000
+shutdown-timeout-ms = 2000
+enabled = true
+command = ["env", "MAGO_EXTENSION_BACKEND=php", "MAGO_SYMFONY_WIRING_ATTESTATION=1", "POC_WIRING=1", "POC_WIRING_OBSERVATION=/evidence/lsp-extensions/serena-observer.json", "php", "-d", "display_errors=stderr", "-d", "memory_limit=1G", ".mago/extensions.php"]

@@ -363,9 +363,18 @@
       "source_sha256": "c2026be431e42980ad7b751283992fd44cda4f6162fab334dc0818a2150c67ab",
       "source_bytes": 2198,
       "truncated": false
+    },
+    "native/worker-errors.selected.json": {
+      "source": "artifacts/lspext-20261028b-candidate/lsp-extensions/direct/direct-lsp.stderr",
+      "sha256": "cd4fdce90f9a794382a7efa7f39f18c72f3763d8ec2ffd7f7d1e38bd77a55c6b",
+      "bytes": 963,
+      "source_sha256": "34e94332e9b8bf15335908c6f5499aab86ef177ada7b9a8cb3f13a20eb484ff6",
+      "source_bytes": 297711,
+      "truncated": true,
+      "selection": "All complete ERROR-level stderr lines with original line numbers; selected JSON wrapper"
     }
   },
-  "total_artifact_bytes": 709430,
+  "total_artifact_bytes": 710393,
   "bounds": {
     "max_artifact_bytes": 1048576,
     "stderr_tail_bytes": 65536,
@@ -373,6 +382,7 @@
       "native/direct/direct-lsp.stderr.tail",
       "native/restart/direct-lsp.stderr.tail"
     ],
-    "omitted": "Duplicate probe.stdout/result payload and disposable isolation-workspace; runtime app/vendor/database omitted."
+    "omitted": "Duplicate probe.stdout/result payload and disposable isolation-workspace; runtime app/vendor/database omitted.",
+    "selected_error_lines": "native/worker-errors.selected.json"
   }
 }

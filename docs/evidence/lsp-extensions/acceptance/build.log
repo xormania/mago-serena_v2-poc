@@ -1,0 +1,168 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 DONE 0.0s
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 5.86kB done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1.7
+#2 DONE 0.3s
+
+#3 docker-image://docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/php:8.5.12-cli-bookworm@sha256:d4f6e10eb393de7e3a7a88e8b88e139072dd3ae297f6a5dada8257e6fe32c585
+#4 DONE 0.0s
+
+#5 [internal] load metadata for ghcr.io/astral-sh/uv:0.12.8@sha256:d1cbaeadc234fe19c0d93daabcf5e98738cd93c6d1dd4918ef6aa30735feb23a
+#5 DONE 0.0s
+
+#6 [internal] load metadata for docker.io/library/python:3.12.12-slim-bookworm@sha256:593bd06efe90efa80dc4eee3948be7c0fde4134606dd40d8dd8dbcade98e669c
+#6 DONE 0.0s
+
+#7 [internal] load metadata for docker.io/library/rust:1.99.0-bookworm@sha256:114c7a4425406451c2866b6aafe69fe29b1b298832db1277d411ac73c82d04d6
+#7 DONE 0.0s
+
+#8 [internal] load metadata for docker.io/library/composer:2.9.1@sha256:7384cf9fa70b710af02c9f40bec6e44472e07138efa5ab3428a058087c0d2724
+#8 DONE 0.0s
+
+#9 [internal] load .dockerignore
+#9 transferring context: 103B done
+#9 DONE 0.0s
+
+#10 [mago 1/4] FROM docker.io/library/rust:1.99.0-bookworm@sha256:114c7a4425406451c2866b6aafe69fe29b1b298832db1277d411ac73c82d04d6
+#10 DONE 0.0s
+
+#11 [stage-6  1/31] FROM docker.io/library/php:8.5.12-cli-bookworm@sha256:d4f6e10eb393de7e3a7a88e8b88e139072dd3ae297f6a5dada8257e6fe32c585
+#11 DONE 0.0s
+
+#12 [python 1/1] FROM docker.io/library/python:3.12.12-slim-bookworm@sha256:593bd06efe90efa80dc4eee3948be7c0fde4134606dd40d8dd8dbcade98e669c
+#12 DONE 0.0s
+
+#13 [composer 1/1] FROM docker.io/library/composer:2.9.1@sha256:7384cf9fa70b710af02c9f40bec6e44472e07138efa5ab3428a058087c0d2724
+#13 DONE 0.0s
+
+#14 [uv 1/1] FROM ghcr.io/astral-sh/uv:0.12.8@sha256:d1cbaeadc234fe19c0d93daabcf5e98738cd93c6d1dd4918ef6aa30735feb23a
+#14 DONE 0.0s
+
+#15 [internal] load build context
+#15 transferring context: 995.42kB done
+#15 DONE 0.0s
+
+#16 [stage-6 12/31] COPY --from=mago /src/crates/prelude/assets/extensions/rdkafka.NOTICE /opt/licenses/mago/rdkafka.NOTICE
+#16 CACHED
+
+#17 [stage-6 13/31] COPY --from=mago /src/Cargo.lock /opt/licenses/mago/Cargo.lock
+#17 CACHED
+
+#18 [stage-6 18/31] RUN mkdir -p /opt/licenses/php /opt/licenses/python-runtime &&     tar -xOf /usr/src/php.tar.xz php-8.5.12/LICENSE > /opt/licenses/php/LICENSE &&     cp /usr/local/lib/python3.12/LICENSE.txt /opt/licenses/python-runtime/LICENSE.txt
+#18 CACHED
+
+#19 [stage-6 14/31] COPY --from=mago /cargo-licenses /opt/licenses/cargo/
+#19 CACHED
+
+#20 [mago 2/4] WORKDIR /src
+#20 CACHED
+
+#21 [mago-candidate 1/3] COPY patches/mago-lsp-extensions.patch /candidate.patch
+#21 CACHED
+
+#22 [stage-6 24/31] RUN /opt/venv/bin/python /opt/poc/patches/apply_serena.py
+#22 CACHED
+
+#23 [stage-6  3/31] COPY --from=python /usr/local /usr/local
+#23 CACHED
+
+#24 [stage-6  7/31] COPY --from=mago-candidate /mago /usr/local/bin/mago
+#24 CACHED
+
+#25 [stage-6 11/31] COPY --from=mago /src/LICENSE-MIT /src/LICENSE-APACHE /opt/licenses/mago/
+#25 CACHED
+
+#26 [stage-6  2/31] RUN apt-get update && apt-get install -y --no-install-recommends     git curl unzip libicu-dev libonig-dev libzip-dev libsqlite3-dev libexpat1 libffi8 libgdbm6 libreadline8     && docker-php-ext-install -j4 intl mbstring pdo_sqlite zip     && rm -rf /var/lib/apt/lists/*
+#26 CACHED
+
+#27 [stage-6  8/31] COPY --from=mago-candidate /mago-baseline /usr/local/bin/mago-baseline
+#27 CACHED
+
+#28 [stage-6 21/31] COPY adapter ./adapter
+#28 CACHED
+
+#29 [stage-6 23/31] RUN --mount=type=secret,id=proxy_ca     if [ -s /run/secrets/proxy_ca ]; then export SSL_CERT_FILE=/run/secrets/proxy_ca GIT_SSL_CAINFO=/run/secrets/proxy_ca; fi;     uv sync --frozen --no-dev --python /usr/local/bin/python3
+#29 CACHED
+
+#30 [stage-6 22/31] COPY patches ./patches
+#30 CACHED
+
+#31 [stage-6 20/31] COPY pyproject.toml uv.lock .python-version ./
+#31 CACHED
+
+#32 [stage-6  6/31] COPY --from=composer /usr/bin/composer /usr/local/bin/composer
+#32 CACHED
+
+#33 [stage-6  5/31] COPY --from=uv /uv /usr/local/bin/uv
+#33 CACHED
+
+#34 [stage-6 10/31] COPY --from=mago /mago-cargo-lock.sha256 /opt/mago-cargo-lock.sha256
+#34 CACHED
+
+#35 [stage-6  4/31] RUN ldconfig
+#35 CACHED
+
+#36 [mago-candidate 3/3] RUN if [ "$(cat /mago-candidate-enabled)" = 1 ]; then git apply --reverse --check /candidate.patch; fi &&     git diff --exit-code -- Cargo.lock composer crates/extension/src/protocol.rs
+#36 CACHED
+
+#37 [stage-6 19/31] WORKDIR /opt/poc
+#37 CACHED
+
+#38 [mago 3/4] RUN --mount=type=secret,id=proxy_ca     if [ -s /run/secrets/proxy_ca ]; then export GIT_SSL_CAINFO=/run/secrets/proxy_ca; fi;     git init . && git remote add origin https://github.com/carthage-software/mago.git &&     git fetch --depth 1 origin "46df50c96d93d0ac3655c116c375574277cf0b30" && git checkout --detach FETCH_HEAD &&     test "$(git rev-parse HEAD)" = "46df50c96d93d0ac3655c116c375574277cf0b30"
+#38 CACHED
+
+#39 [stage-6  9/31] COPY --from=mago-candidate /mago-patch.sha256 /mago-candidate-enabled /opt/
+#39 CACHED
+
+#40 [mago 4/4] RUN --mount=type=cache,target=/usr/local/cargo/registry     --mount=type=cache,target=/src/target     --mount=type=secret,id=proxy_ca     if [ -s /run/secrets/proxy_ca ]; then export CARGO_HTTP_CAINFO=/run/secrets/proxy_ca; fi;     cargo build --locked --release -j 6 && cp target/release/mago /mago && sha256sum Cargo.lock > /mago-cargo-lock.sha256 &&     git rev-parse HEAD > /mago-source.sha && rustc --version > /mago-rust-version.txt &&     mkdir -p /cargo-licenses &&     find /usr/local/cargo/registry/src -type f ( -iname 'LICENSE*' -o -iname 'NOTICE*' -o -iname 'COPYING*' )     -exec cp --parents '{}' /cargo-licenses/ ;
+#40 CACHED
+
+#41 [stage-6 16/31] COPY licenses /opt/licenses/tools/
+#41 CACHED
+
+#42 [mago-candidate 2/3] RUN --mount=type=cache,target=/usr/local/cargo/registry     --mount=type=cache,target=/src/target     --mount=type=secret,id=proxy_ca     cp /mago /mago-baseline &&     if [ "1" = 1 ]; then       git apply --check /candidate.patch && git apply /candidate.patch &&       if [ -s /run/secrets/proxy_ca ]; then export CARGO_HTTP_CAINFO=/run/secrets/proxy_ca; fi;       cargo build --locked --release -j "2" && cp target/release/mago /mago;     elif [ "1" != 0 ]; then exit 2; fi &&     sha256sum /candidate.patch > /mago-patch.sha256 &&     printf '%s\n' "1" > /mago-candidate-enabled
+#42 CACHED
+
+#43 [stage-6 15/31] COPY --from=mago /mago-source.sha /mago-rust-version.txt /opt/
+#43 CACHED
+
+#44 [stage-6 25/31] COPY config ./config
+#44 CACHED
+
+#45 [stage-6 17/31] COPY LICENSE /opt/licenses/poc/LICENSE
+#45 CACHED
+
+#46 [stage-6 26/31] COPY fixtures ./fixtures
+#46 CACHED
+
+#47 [stage-6 27/31] COPY tests ./tests
+#47 DONE 0.0s
+
+#48 [stage-6 28/31] COPY toolchain.lock.json ./toolchain.lock.json
+#48 DONE 0.0s
+
+#49 [stage-6 29/31] COPY docker ./docker
+#49 DONE 0.0s
+
+#50 [stage-6 30/31] RUN python3 /opt/poc/docker/identity.py > /opt/toolchain-runtime.json     && /opt/venv/bin/python /opt/poc/docker/collect-licenses     && dpkg-query -W > /opt/os-packages.txt     && groupadd -g 1000 poc && useradd -m -u 1000 -g poc poc     && mkdir -p /state /evidence && chown poc:poc /state /evidence
+#50 0.217 PHP version 8.5.12 (/usr/local/bin/php)
+#50 0.217 Run the "diagnose" command to get more detailed diagnostics output.
+#50 DONE 0.5s
+
+#51 [stage-6 31/31] WORKDIR /app
+#51 DONE 0.0s
+
+#52 exporting to image
+#52 exporting layers 0.0s done
+#52 writing image sha256:1224283fdf5c0c4ec697f651791f8544ff8f13ba52f16a68f80b453bc76e3819 done
+#52 naming to docker.io/library/mago-serena-poc:lsp-workers-20261028b done
+#52 DONE 0.1s

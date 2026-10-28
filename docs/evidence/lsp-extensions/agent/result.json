@@ -43,5 +43,7 @@
     "architecture": "amd64",
     "installed_files_checked": 72
   },
-  "limits": "Graph edges have no source spans or per-edge provider provenance. On/off controls establish this effect. No autonomous coding benchmark claimed."
+  "limits": "Graph edges have no source spans or per-edge provider provenance. On/off controls establish this effect. No autonomous coding benchmark claimed.",
+  "agent_selected_repl_cells": 14,
+  "tool_call_count_note": "14 agent-selected REPL cells plus the transport runner initial_instructions call = 15 MCP tool calls."
 }

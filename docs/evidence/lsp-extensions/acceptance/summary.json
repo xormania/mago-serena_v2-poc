@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "tested_poc_revision": "f6f3c4ef6b71c872dda97838088bcd844d6cf257",
+  "final_image_id": "sha256:1224283fdf5c0c4ec697f651791f8544ff8f13ba52f16a68f80b453bc76e3819",
+  "same_candidate_binary_as_detailed_native_and_adaptive_proof": true,
+  "mago_binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+  "fast": {
+    "schema": 1,
+    "kind": "deterministic_fast_tests",
+    "tests": 161,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "elapsed_s": 1.542,
+    "pass": true
+  },
+  "native_rust": {
+    "passed": 4,
+    "failed": 0
+  },
+  "original_acceptance": {
+    "run_id": "lspext-handoff-20261028-225923-ba2643",
+    "checks": 31,
+    "passed": 31,
+    "source_context_sha256": "3f69d71f28a8bc774d797787b7cf3b98a87af659f3ac3e21f4ecc1669fc45441"
+  },
+  "slices": {
+    "slice1": {
+      "status": "pass",
+      "checks": 9,
+      "run_id": "lspext-20261028b-handoff-slice1",
+      "source_context_sha256": "3dfd4c9166bf9efa9cea82d6bb4a61e019491f1cd451a780104bddcbb5b1e1d6",
+      "image_id": "sha256:1224283fdf5c0c4ec697f651791f8544ff8f13ba52f16a68f80b453bc76e3819",
+      "behavior": {
+        "tests": 53,
+        "assertions": 120,
+        "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+      }
+    },
+    "slice2": {
+      "status": "pass",
+      "checks": 12,
+      "run_id": "lspext-20261028b-handoff-slice2",
+      "source_context_sha256": "539e14c57d7e48a18c650f513b1eb614a6640bd6c4f45769070393e09ba80e13",
+      "image_id": "sha256:1224283fdf5c0c4ec697f651791f8544ff8f13ba52f16a68f80b453bc76e3819",
+      "behavior": {
+        "status": "pass",
+        "original": {
+          "tests": 53,
+          "assertions": 120,
+          "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+        },
+        "combined": {
+          "tests": 55,
+          "assertions": 124,
+          "identities_sha256": "eb7019b23af06ef3e679f13db6b3a520b7f1c8485980f8faddcd9a4267c37ca4"
+        },
+        "feature": {
+          "tests": 2,
+          "identities": [
+            "App\\Tests\\Command\\TagsCountCommandTest::testEmptyDatabase",
+            "App\\Tests\\Command\\TagsCountCommandTest::testPopulatedDatabase"
+          ],
+          "assertions": 4
+        },
+        "original_projection": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/artifacts/lspext-20261028b-handoff-slice2/slice2/attempt-89a89f6b0cda43feaa05c16646fa4d4d/original-after.xml",
+        "real_console_states": [
+          {
+            "persisted_tags": 0,
+            "stdout": "Tag count: 0\n",
+            "exit": 0
+          },
+          {
+            "persisted_tags": 3,
+            "stdout": "Tag count: 3\n",
+            "exit": 0
+          }
+        ],
+        "database_restored": true
+      }
+    }
+  },
+  "focused_gate": {
+    "run_id": "lspext-ci-20261028-225923-93eaf2",
+    "native_controls": 19,
+    "host_mcp_on_off": "pass",
+    "cleanup": "pass"
+  },
+  "adaptive": {
+    "selected_repl_cells": 14,
+    "mcp_tool_calls": 15,
+    "status": "pass"
+  },
+  "known_external_span_control": "Expected negative still reproduced; no claimed fix",
+  "native_diagnostics": "Complete 35-Issue native sets identical; on adds existing attestation only",
+  "external_sealed_acceptance": "/home/scientdb/worktrees/mago-serena_v2-poc/lspext-20261028b-evidence",
+  "combined_session_a_validation": {
+    "status": "not_exercised",
+    "reason": "Current origin/master remains 88abf50d747f0e2f02905bb23d3701c18d00b2c5; Session A is not merged. Independent candidate proof only."
+  }
+}

@@ -262,12 +262,12 @@ written outside them.
   contents without duplicate startup, real compiled changed/restored bindings,
   analysis and worker-command failure/recovery, host disable/re-enable,
   shutdown/restart and independent folder isolation. The [adaptive host MCP
-  investigation](evidence/lsp-extensions/agent/result.json) has 15 agent-selected
+  investigation](evidence/lsp-extensions/agent/result.json) has 14 agent-selected REPL cells (15 MCP tool calls)
   calls and four true off/on/change/restoration flags; the original 53 tests and
   120 assertions pass with source/test identities. The [minimal real-SDK
   regression](upstream/lsp-extensions-repro/README.md) independently compares the
-  two executables. Broad semantic acceptance and slices 1/2 pass on their recorded
-  image; a final gate-strengthening rerun is recorded separately.
+  two executables. Broad semantic acceptance (31 checks), slices 1/2 (9/12 checks), and the
+  strengthened native-plus-Serena gate pass on the [final image](evidence/lsp-extensions/acceptance/summary.json).
 - **Identities / freshness:** base and SDK/protocol are unchanged. Mago patch
   SHA-256 `ca955e0db6023a997fe708d46d3bd0b92e6dd91237aee7c206f13768effdea11`,
   executable SHA-256 `5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46`.
