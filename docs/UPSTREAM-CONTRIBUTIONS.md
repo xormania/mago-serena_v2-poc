@@ -232,7 +232,7 @@ written outside them.
   edits, fresh cross-file oracles and restart. Promising documentation contribution;
   finalize after U01/2115 boundary decisions. No submission prepared as an API promise.
 
-## U09 — Configured analyzer workers do not start in this Mago LSP pin
+## U09 — Native LSP external analyzer candidate and baseline omission
 
 - **Observed / attribution:** experimental Mago source
   `46df50c96d93d0ac3655c116c375574277cf0b30`, matched-source PHP SDK/MANA 2.1,
@@ -251,12 +251,24 @@ written outside them.
   [the framework graph controls](SYMFONY-WIRING.md) retain exact identities and
   input/output evidence. The probe refuses to report the old blocker if startup
   behavior changes.
-- **Workaround / contribution:** use the matched CLI for framework-enriched
+- **Baseline workaround:** use the matched CLI for framework-enriched
   checks and Serena for demonstrated native semantics. This costs a separate
   CLI analysis and does not enrich editor references. A server change must
   initialize/configure external analyzer workers and handle their lifecycle;
-  an adapter wrapper cannot establish that native server behavior. Draft only;
-  no Rust/server source update or upstream message is included.
+  an adapter wrapper cannot establish that native server behavior. The original
+  slice reproduction made no Rust/server source update.
+- **Candidate correction / validation pending:** the new unpublished patch on
+  the same Mago base attaches native external analyzer state to each workspace
+  registry and uses the existing incremental pipeline. It adds a separate
+  `mago/symbolReferences` read-only native graph request because the demonstrated
+  Symfony Body edge has no source span. The adapter forwards server data and an
+  additive patch to pinned Serena exposes it to the REPL. Workspace replacement
+  and shutdown release workers; failed analysis/reload refuses stale semantic
+  results. Metadata freshness requires a full reload through configured
+  `restart-on` watched paths or explicit restart. SDK `1.58.2`/MANA `2.1` remain
+  unchanged. Candidate hashes, actual lifecycle/graph/agent controls and
+  acceptance results are pending in [the focused document](MAGO-LSP-EXTENSIONS.md).
+  No upstream publication or acceptance is claimed.
 
 Slice 1 also extends U05 with a positive compiled-wiring compatibility report:
 Mate confirms `TagsInputType → TagRepository → doctrine/Registry`, while the
@@ -273,8 +285,9 @@ new Maker-generated service. Compiled Console/Mate facts bind
 the new command and test and observes its native Signature reference plus the
 repository's extension-supplied concrete Registry Body reference. The retained
 adaptive MCP exercise and scripted acceptance replay are separately attributed.
-This adds feature-workflow evidence under the same pins, without changing U09's
-known LSP worker-start boundary or asserting a new upstream defect.
+That baseline slice-2 run adds feature-workflow evidence under the same pins
+without changing its LSP worker-start boundary. The later U09 candidate is
+tracked separately and does not retroactively change that result.
 
 ## Prioritized handoff
 
@@ -283,7 +296,7 @@ known LSP worker-start boundary or asserting a new upstream defect.
 | Ready to discuss | U04 | Mago external-span issue with [tiny repro, frames and healthy control](upstream/mago-external-spans.md) |
 | Ready to discuss | U01 | SolidLSP full-sync policy, [current-code live reproduction and draft](upstream/serena-full-sync.md) |
 | Ready to share | U05 | [Positive Symfony compatibility report](upstream/mago-compatibility.md), with U04 and unexercised features attached |
-| Ready to discuss | U09 | Configured CLI/LSP worker-start difference with matched SDK, active CLI control and [unpublished draft](upstream/mago-lsp-extension-hosts.md) |
+| Candidate validation pending | U09 | Native worker lifecycle and faithful dependency-graph exposure on the matched base; [unpublished draft](upstream/mago-lsp-extension-hosts.md) and [focused contract](MAGO-LSP-EXTENSIONS.md) |
 | Existing work to validate | U02 | [Additional Unicode/state properties](upstream/unicode-state-coverage.md) for2115 and xormania6; actual PR-branch A/B still pending |
 | Promising, more evidence/design | U06, U08 | Native lifecycle/collision tests and backend-author docs; cancellation/new API promises remain unproven |
 | Confined to our PoC | U03, U07 | Fixed adapter cache, whole-app verifier and report integrity; share tests without misattributing ownership |

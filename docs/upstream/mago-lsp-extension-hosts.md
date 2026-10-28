@@ -1,6 +1,11 @@
-# Draft: configured external analyzer hosts are not initialized by the LSP
+# Draft: native LSP external analyzer lifecycle and dependency graph
 
 Prepared locally only; nothing posted upstream.
+
+The omission below is the retained unpatched-base reproduction. A native
+candidate correction is now being prepared; its design and pending validation
+are recorded separately in [Mago LSP extensions](../MAGO-LSP-EXTENSIONS.md).
+Historical evidence is not a candidate result.
 
 ## Tested identities
 
@@ -49,11 +54,43 @@ slice. Adding external lifecycle support to the server also needs incremental
 reanalysis and failure-handling tests, so it was not replaced with an adapter
 that fabricates enriched answers.
 
-The CLI framework bridge works and remains the current workaround. Its cost
+At that baseline, the CLI framework bridge is the workaround. Its cost
 is separate CLI inspection for enriched graph information; that information
 cannot be assumed available in semantic editor queries. Existing full-sync
 and stale-external-span findings remain separately attributed to their
 original reproductions.
+
+## Candidate correction (validation pending)
+
+The candidate attaches Mago's existing `ExternalAnalyzerHandle` to the
+workspace's `PluginRegistry` before initial analysis. The native incremental
+analysis service then executes supported external hooks against its in-memory
+database and consumes real contributions. Worker pools belong to one workspace
+generation and are released on replacement/removal and shutdown. No enriched
+CLI runs behind the server interface.
+
+The concrete Symfony `body` dependency has no source span, so it cannot become
+a faithful ordinary LSP reference location. The candidate adds a read-only
+`mago/symbolReferences` request returning current native dependency edges and
+their kinds, with no fabricated positions, runtime calls or edge provenance.
+Serena exposes that supported response through a Mago backend method and an
+additive patch to its pinned REPL API.
+
+Compiled wiring references are worker-startup state. A valid refreshed export
+requires a full workspace reload or server restart; the PoC uses existing
+`restart-on` watched paths for the metadata/configuration. Clients must send the
+relevant watched-file event or explicitly restart. A failed semantic analysis
+or failed reload refuses graph queries instead of presenting old enriched
+results as current. Initial workspace load failure retains the existing narrower
+recovery contract: process restart or remove/re-add the workspace.
+
+The exact upstream base remains `46df50c96d93d0ac3655c116c375574277cf0b30`,
+executable/SDK `1.58.2`, MANA `2.1`; the patch does not change SDK/protocol files.
+Candidate patch/build hashes, focused Rust results, direct worker controls,
+adaptive host MCP/Serena result and original semantic/slice acceptance are
+**pending**. See the dedicated document for the three separate claims and
+required controls. Nothing in this section claims an upstream fix was accepted
+or repairs the separate historical external-span defect.
 
 ## Retained evidence
 

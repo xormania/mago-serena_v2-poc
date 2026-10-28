@@ -17,6 +17,34 @@ RUN --mount=type=cache,target=/usr/local/cargo/registry \
     find /usr/local/cargo/registry/src -type f \( -iname 'LICENSE*' -o -iname 'NOTICE*' -o -iname 'COPYING*' \) \
     -exec cp --parents '{}' /cargo-licenses/ \;
 
+# Keep the unmodified experimental executable as a runnable matched control.
+FROM mago AS mago-candidate
+ARG MAGO_LSP_EXTENSIONS=1
+ARG MAGO_BUILD_JOBS=2
+COPY patches/mago-lsp-extensions.patch /candidate.patch
+RUN --mount=type=cache,target=/usr/local/cargo/registry \
+    --mount=type=cache,target=/src/target \
+    --mount=type=secret,id=proxy_ca \
+    cp /mago /mago-baseline && \
+    if [ "$MAGO_LSP_EXTENSIONS" = 1 ]; then \
+      git apply --check /candidate.patch && git apply /candidate.patch && \
+      if [ -s /run/secrets/proxy_ca ]; then export CARGO_HTTP_CAINFO=/run/secrets/proxy_ca; fi; \
+      cargo build --locked --release -j "$MAGO_BUILD_JOBS" && cp target/release/mago /mago; \
+    elif [ "$MAGO_LSP_EXTENSIONS" != 0 ]; then exit 2; fi && \
+    sha256sum /candidate.patch > /mago-patch.sha256 && \
+    printf '%s\n' "$MAGO_LSP_EXTENSIONS" > /mago-candidate-enabled
+
+# Independently verify the applied source state before selecting its binary.
+RUN if [ "$(cat /mago-candidate-enabled)" = 1 ]; then git apply --reverse --check /candidate.patch; fi && \
+    git diff --exit-code -- Cargo.lock composer crates/extension/src/protocol.rs
+
+FROM mago-candidate AS mago-candidate-tests
+RUN --mount=type=cache,target=/usr/local/cargo/registry \
+    --mount=type=cache,target=/src/target \
+    --mount=type=secret,id=proxy_ca \
+    if [ -s /run/secrets/proxy_ca ]; then export CARGO_HTTP_CAINFO=/run/secrets/proxy_ca; fi; \
+    cargo test --locked --release -p mago --bin mago language_server::tests::external_analyzers -j 2 -- --nocapture > /mago-native-tests.log 2>&1 || { cat /mago-native-tests.log; exit 1; }
+
 FROM python:3.12.12-slim-bookworm@sha256:593bd06efe90efa80dc4eee3948be7c0fde4134606dd40d8dd8dbcade98e669c AS python
 FROM ghcr.io/astral-sh/uv:0.12.8@sha256:d1cbaeadc234fe19c0d93daabcf5e98738cd93c6d1dd4918ef6aa30735feb23a AS uv
 FROM composer:2.9.1@sha256:7384cf9fa70b710af02c9f40bec6e44472e07138efa5ab3428a058087c0d2724 AS composer
@@ -29,7 +57,9 @@ COPY --from=python /usr/local /usr/local
 RUN ldconfig
 COPY --from=uv /uv /usr/local/bin/uv
 COPY --from=composer /usr/bin/composer /usr/local/bin/composer
-COPY --from=mago /mago /usr/local/bin/mago
+COPY --from=mago-candidate /mago /usr/local/bin/mago
+COPY --from=mago-candidate /mago-baseline /usr/local/bin/mago-baseline
+COPY --from=mago-candidate /mago-patch.sha256 /mago-candidate-enabled /opt/
 COPY --from=mago /mago-cargo-lock.sha256 /opt/mago-cargo-lock.sha256
 COPY --from=mago /src/LICENSE-MIT /src/LICENSE-APACHE /opt/licenses/mago/
 COPY --from=mago /src/crates/prelude/assets/extensions/rdkafka.NOTICE /opt/licenses/mago/rdkafka.NOTICE
@@ -45,9 +75,11 @@ ENV UV_PROJECT_ENVIRONMENT=/opt/venv UV_PYTHON_DOWNLOADS=never
 WORKDIR /opt/poc
 COPY pyproject.toml uv.lock .python-version ./
 COPY adapter ./adapter
+COPY patches ./patches
 RUN --mount=type=secret,id=proxy_ca \
     if [ -s /run/secrets/proxy_ca ]; then export SSL_CERT_FILE=/run/secrets/proxy_ca GIT_SSL_CAINFO=/run/secrets/proxy_ca; fi; \
     uv sync --frozen --no-dev --python /usr/local/bin/python3
+RUN /opt/venv/bin/python /opt/poc/patches/apply_serena.py
 COPY config ./config
 COPY fixtures ./fixtures
 COPY tests ./tests

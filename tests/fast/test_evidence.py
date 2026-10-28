@@ -133,6 +133,15 @@ def runtime_control():
     actual={'runtime':runtime,'live_mago_binary_sha256':runtime['mago_binary_sha256'],
         'serena_direct_url':{'vcs_info':{'commit_id':lock['sources']['serena']}},
         'live_versions':{name:runtime[name] for name in ('php','python','uv','composer')}}
+    if lock.get('candidates'):
+        # Construct a current candidate unit-test fixture from the historical
+        # version strings. This does not relabel retained historical evidence.
+        runtime['lock'] = lock
+        runtime['candidates'] = {name: {**candidate, 'enabled': True}
+                                 for name, candidate in lock['candidates'].items()}
+        runtime['mago_baseline_binary_sha256'] = 'baseline-unit-control'
+        actual['live_mago_baseline_binary_sha256'] = 'baseline-unit-control'
+        actual['live_serena_lsp_api_sha256'] = lock['candidates']['serena_symbol_references']['file_sha256']
     return actual,{'toolchain':lock}
 
 
@@ -149,5 +158,29 @@ class RuntimeIdentityTests(unittest.TestCase):
                 actual['runtime'][fault]='wrong'
             elif fault=='serena': actual['serena_direct_url']['vcs_info']['commit_id']='wrong'
             elif fault=='php': actual['live_versions']['php']='PHP 9.0.0'
+            with self.subTest(fault=fault), self.assertRaises(AssertionError):
+                validate_runtime(actual,metadata)
+
+    def test_candidate_patch_selection_and_live_facade_are_required(self):
+        from evidence import validate_runtime
+        for fault in ('missing', 'disabled', 'patch', 'live_facade', 'baseline'):
+            actual,metadata=runtime_control()
+            if not metadata['toolchain'].get('candidates'):
+                # Also exercise the candidate contract on the old baseline lock.
+                candidates = {'mago_lsp_extensions': {'base': 'mago', 'patch_sha256': 'mago-patch'},
+                              'serena_symbol_references': {'base': 'serena', 'patch_sha256': 'serena-patch',
+                                                           'file_sha256': 'facade'}}
+                metadata['toolchain'] = {**metadata['toolchain'], 'candidates': candidates}
+                actual['runtime']['lock'] = metadata['toolchain']
+                actual['runtime']['candidates'] = {name: {**candidate, 'enabled': True} for name,candidate in candidates.items()}
+                actual['runtime']['mago_baseline_binary_sha256'] = 'baseline'
+                actual['live_mago_baseline_binary_sha256'] = 'baseline'
+                actual['live_serena_lsp_api_sha256'] = 'facade'
+            validate_runtime(actual,metadata)
+            if fault == 'missing': actual['runtime'].pop('candidates')
+            elif fault == 'disabled': actual['runtime']['candidates']['mago_lsp_extensions']['enabled'] = False
+            elif fault == 'patch': actual['runtime']['candidates']['mago_lsp_extensions']['patch_sha256'] = 'wrong'
+            elif fault == 'live_facade': actual['live_serena_lsp_api_sha256'] = 'wrong'
+            elif fault == 'baseline': actual['live_mago_baseline_binary_sha256'] = 'wrong'
             with self.subTest(fault=fault), self.assertRaises(AssertionError):
                 validate_runtime(actual,metadata)

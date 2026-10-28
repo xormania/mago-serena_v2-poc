@@ -284,6 +284,25 @@ class MagoServer(SolidLanguageServer):
     def is_ignored_dirname(self, dirname):
         return super().is_ignored_dirname(dirname) or dirname in {"var", ".serena", ".phpunit.cache"}
 
+    def request_symbol_references(self, relative_file_path, symbol, member=""):
+        """Forward Mago's dependency graph, whose edges have no source positions.
+
+        This is separate from textDocument/references and call hierarchy. The
+        native server owns analysis generations and error attribution; no graph
+        answers or fallback CLI analysis are constructed by the adapter.
+        """
+        if not isinstance(symbol, str) or not symbol or not isinstance(member, str):
+            raise ValueError("Expected a symbol name and an optional member name")
+        with self._open_file_context(relative_file_path) as file_buffer:
+            if not (self.capabilities.get("experimental") or {}).get("symbolReferencesProvider"):
+                raise RuntimeError("Selected Mago server does not support dependency graph queries")
+            result = self.server.send_request("mago/symbolReferences", {
+                "textDocument": {"uri": file_buffer.uri}, "symbol": symbol, "member": member,
+            })
+        if not isinstance(result, dict) or not isinstance(result.get("references"), list):
+            raise RuntimeError("Malformed Mago dependency graph response")
+        return result
+
     def request_rename_symbol_edit(self, relative_file_path, line, column, new_name):
         # Keep the request document open until validation is complete. The base
         # request closes its own context before returning the WorkspaceEdit.

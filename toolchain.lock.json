@@ -30,5 +30,16 @@
   "adapter": {
     "version": "0.1.0",
     "source": "adapter/; run metadata records file hashes and repository revision"
+  },
+  "candidates": {
+    "mago_lsp_extensions": {
+      "base": "46df50c96d93d0ac3655c116c375574277cf0b30",
+      "patch_sha256": "ca955e0db6023a997fe708d46d3bd0b92e6dd91237aee7c206f13768effdea11"
+    },
+    "serena_symbol_references": {
+      "base": "9e1cced0c34ed48d668e179f7c56c77b4d14a3e3",
+      "patch_sha256": "57385a9e49d8a490e696f49b3c62d16e8685703d9531899372a3c41a28270051",
+      "file_sha256": "438e52fc79044efa5264e84638190a68a5d5be4ed18f9e2f698f7a49e10d184e"
+    }
   }
 }
