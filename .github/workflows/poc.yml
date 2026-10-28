@@ -43,6 +43,9 @@ jobs:
       - name: Mago-first service analysis and compiled Symfony wiring
         id: slice1
         run: python3 tools/ci/capture_step.py run --step slice1 -- ./bin/poc slice1
+      - name: Generated Symfony tag-count command and behavioral acceptance
+        id: slice2
+        run: python3 tools/ci/capture_step.py run --step slice2 -- ./bin/poc slice2
       - name: Collect bounded advisory diagnosis data
         if: always()
         id: collect

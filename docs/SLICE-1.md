@@ -4,7 +4,8 @@ Mago is the default PHP analysis/lint/fix/format path. The existing
 `App\Form\Type\TagsInputType` is explained through real Serena REPL/Mago
 queries, calibrated native checks and compiled Symfony wiring consumed by the
 existing wiring extension. The application fixture and original semantic rename
-remain unchanged. Slices 2 and 3 remain planned.
+remain unchanged. The subsequent command-generation task is described in
+[slice 2](SLICE-2.md); slice 3 remains later work.
 
 The CLI framework bridge **passes**. External-worker propagation through the
 pinned LSP remains **blocked**, with a positive CLI control and a reproduction.

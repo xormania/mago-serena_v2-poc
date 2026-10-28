@@ -129,7 +129,12 @@ has no TypeSafe credential.
 The collector also understands the declared slice layouts:
 `artifacts/<run>/slice{1,2}/attempt-*/results.json`, each attempt's `source.json`
 and named `<stage>-error.txt`. The root `slice{1,2}-result.json` is a latest-attempt
-mirror and never creates another observation. Earlier failed attempts survive a
+mirror and never creates another observation. When one captured slice wrapper
+failed, its nested stage excerpts augment that same failed check; the wrapper
+and its cause are not counted as independent failures. A recovered wrapper still
+retains earlier nested failures as failed observations. Multiple failed wrapper
+attempts retain stage provenance without guessing a parent from unrelated
+counters. Earlier failed attempts survive a
 later successful attempt. Slice observations identify the owned run, attempt
 directory, source revision/context digest and failing stage; their numeric
 attempt is the stage's `step_attempt` (one unless the producer records otherwise).
@@ -146,6 +151,9 @@ resolves to the producer's absolute evidence paths. The
 [local contract proof](evidence/jev-slice-contract/result.json) records the
 pre-fix omission and repaired real-collector payload with a mocked provider;
 it contains no live request or new calibration.
+The [integration correlation proof](evidence/jev-slice-contract/final-correlation/result.json)
+retains the final one-check/two-excerpt packet and mocked provider payload after
+the wrapper/stage correlation adjustment.
 
 `.github/workflows/jev.yml` consumes completed runs on a fresh runner. It checks
 out diagnosis code from the repository's default branch, records the **actual

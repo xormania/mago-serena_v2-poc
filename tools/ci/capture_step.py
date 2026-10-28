@@ -257,8 +257,18 @@ def collect(root, output, *, run_id, attempt, source_sha, workflow_head_sha=None
         eid = 'internal.'+hashlib.sha256(canonical(provenance)).hexdigest()[:16]
         excerpts.append({'id': eid, 'step': slice_name, 'attempt': provenance['step_attempt'],
                          'text': text, 'truncated': truncated, 'provenance': provenance})
-        checks.append({'id': eid, 'step': slice_name, 'attempt': provenance['step_attempt'],
-                       'status': status, 'excerpt_ids': [eid]})
+        wrappers = [row for row in checks if row['step'] == slice_name and row['status'] == 'fail'
+                    and row['id'] == f"{slice_name}.attempt{row['attempt']}"]
+        if len(wrappers) == 1:
+            # A wrapper failure and its stage reason are one failed invocation.
+            # Retain each nested attempt's provenance without counting it twice.
+            wrappers[0]['excerpt_ids'].append(eid)
+        else:
+            # A recovered wrapper still needs its earlier internal failure. With
+            # multiple failed wrappers, their counters cannot identify a stage
+            # attempt: retain the observation rather than guess a parent.
+            checks.append({'id': eid, 'step': slice_name, 'attempt': provenance['step_attempt'],
+                           'status': status, 'excerpt_ids': [eid]})
         slice_kept += 1
     packet = {'schema':1,'mode':'observed_ci','ci':{'run_id':str(run_id),'attempt':int(attempt),'source_sha':source_sha,'workflow_head_sha':workflow_head_sha or source_sha},
               'checks':checks,'excerpts':excerpts,'allowed_probes':PROBES,

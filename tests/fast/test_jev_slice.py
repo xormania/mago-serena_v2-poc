@@ -78,6 +78,8 @@ class SliceCollectorTests(unittest.TestCase):
         nested = [row for row in packet['excerpts'] if 'provenance' in row]
         self.assertNotIn(CAUSE, outer['text'])
         self.assertEqual(len(nested), 1)  # latest summary does not duplicate it
+        self.assertEqual(len(packet['checks']), 1)  # wrapper and cause are one failure
+        self.assertEqual(packet['checks'][0]['excerpt_ids'], [outer['id'], nested[0]['id']])
         self.assertIn(CAUSE, nested[0]['text'])
         self.assertIn('assert concrete_binding', nested[0]['text'])
         self.assertIn('AssertionError', nested[0]['text'])
@@ -122,6 +124,17 @@ class SliceCollectorTests(unittest.TestCase):
         self.assertEqual(row['provenance']['attempt_id'], 'attempt-earlier')
         self.assertEqual(row['provenance']['source'], 'slice2/attempt-earlier/results.json')
         self.assertEqual(packet['checks'][0]['status'], 'fail')
+
+    def test_recovered_outer_step_keeps_its_nested_failed_attempt(self):
+        write_attempt(self.root, attempt='attempt-earlier')
+        write_attempt(self.root, attempt='attempt-latest', status='pass', reason='healthy')
+        self.outer(status='pass')
+        packet = self.packet()
+        self.assertEqual([row['status'] for row in packet['checks']], ['pass', 'fail'])
+        failed = packet['checks'][1]
+        excerpt = next(row for row in packet['excerpts'] if row['id'] in failed['excerpt_ids'])
+        self.assertIn(CAUSE, excerpt['text'])
+        self.assertEqual(excerpt['provenance']['attempt_id'], 'attempt-earlier')
 
     def test_healthy_run_ignores_unrelated_artifacts_and_makes_no_provider_call(self):
         write_attempt(self.root, status='pass', reason='healthy')

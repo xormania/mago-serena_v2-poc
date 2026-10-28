@@ -3,8 +3,9 @@
 New Symfony work follows the [Mago-first roadmap](docs/ROADMAP.md): Mago owns
 PHP analysis, lint, safe fixes and scoped formatting; Serena supplies semantic
 navigation and Mate supplies compiled-container facts. Slice 1 investigates the
-existing [`TagsInputType` service](docs/SERVICE-SEMANTICS.md). The original
-rename/application acceptance below remains independently runnable.
+existing [`TagsInputType` service](docs/SERVICE-SEMANTICS.md). [Slice 2](docs/SLICE-2.md)
+generates and verifies `app:tags:count` in a disposable task workspace. The
+original rename/application acceptance below remains independently runnable.
 
 ```sh
 ./bin/poc slice1                         # Fresh combined service proof, then cleanup
@@ -12,9 +13,11 @@ rename/application acceptance below remains independently runnable.
 ./bin/poc mago --run inspect -- analyze --reporting-format json
 ./bin/poc quality --run inspect          # Native exits/findings retained; may be nonclean
 ./bin/poc mate-prepare --run inspect     # Locked overlay + explicit dev metadata refresh
+./bin/poc mago-enriched --run inspect --symbol 'App\Form\Type\TagsInputType' -- analyze --reporting-format json
 ./bin/mate --run inspect -- tools:list --format=json
 ./bin/serena-mcp --run inspect            # MCP stdio for this exact workspace
 ./bin/poc down --run inspect
+./bin/poc slice2                        # Fresh Maker/task replay and behavior/wiring proof
 ```
 
 Run the initial `./bin/poc up` below to build the image before `slice1`.
@@ -25,6 +28,14 @@ the Demo's existing native findings clean. Raw reports and failing attempts are
 retained under `artifacts/<run-id>/`. The legacy formatter/analyzer remain an
 explicit historical comparison via `poc exec --run <id> --
 /opt/poc/docker/check --legacy-comparison`, outside the default workflow.
+
+Enriched CLI analysis requires current prepared Symfony metadata. After editing
+source, run `mate-prepare` explicitly before analyzing again. Native diagnostics
+and exits remain visible: existing application findings return 1; rejected
+preparation returns 3 with a refresh instruction. The CLI extension's graph and
+execution evidence are separate from Serena/LSP results. See the exact
+[public analysis contract](docs/SYMFONY-WIRING.md) and the
+[feature task and adaptive agent evidence](docs/SLICE-2.md).
 
 A pinned Symfony Demo fixture, Docker development service, external SolidLSP
 adapter, and acceptance harness proving **MCP → Serena REPL → Mago → PHP source**.
