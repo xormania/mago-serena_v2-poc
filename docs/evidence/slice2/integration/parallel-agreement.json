@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-28T21:17:15.031445+00:00",
+  "base_revision": "8f154f798d7cf9ae7cf3cb33b0b99352de99dec4",
+  "interface": {
+    "preparation": "./bin/poc mate-prepare --run RUN",
+    "analysis": "./bin/poc mago-enriched --run RUN --symbol 'App\\Command\\TagsCountCommand' -- analyze --reporting-format json",
+    "freshness_exit": 3,
+    "native_findings_exit": 1,
+    "lsp_enrichment_claim": false
+  },
+  "ownership": {
+    "A": "Jev collector, public enriched CLI, bin/poc dispatch",
+    "B": "Maker feature, adaptive MCP agent exercise, task/replay verification",
+    "root": "integration, independent review, shared README/roadmap/CI, final validation and PR"
+  },
+  "concurrent_containers": [
+    {
+      "name": "/mago-poc-6926b37b-a-followup-20261028-php-1",
+      "id": "541c7751da4f25d7643839edc1aa799ac56044cc28ecf0afa0cebac97633bff9",
+      "image_id": "sha256:d92df778ef58127a7d79e92069834a7d7ecc486931346ee24645a0bc0add2d26",
+      "started_at": "2026-10-28T21:14:34.752822653Z",
+      "running": true,
+      "binds": [
+        {
+          "source": "/home/scientdb/tmp/symf-poc/worktree-a/workspaces/a-followup-20261028/trusted",
+          "destination": "/trusted",
+          "writable": false
+        },
+        {
+          "source": "/home/scientdb/tmp/symf-poc/worktree-a/workspaces/a-followup-20261028/app",
+          "destination": "/app",
+          "writable": true
+        },
+        {
+          "source": "/home/scientdb/tmp/symf-poc/worktree-a/workspaces/a-followup-20261028/state",
+          "destination": "/state",
+          "writable": true
+        },
+        {
+          "source": "/home/scientdb/tmp/symf-poc/worktree-a/artifacts/a-followup-20261028",
+          "destination": "/evidence",
+          "writable": true
+        }
+      ]
+    },
+    {
+      "name": "/mago-poc-62e75c50-b-slice2-20261028-php-1",
+      "id": "1bc572b5ee59b494e11b7a5a53891d12ae87f9664c0054662f789e8c1eab4743",
+      "image_id": "sha256:d92df778ef58127a7d79e92069834a7d7ecc486931346ee24645a0bc0add2d26",
+      "started_at": "2026-10-28T21:14:47.376420378Z",
+      "running": true,
+      "binds": [
+        {
+          "source": "/home/scientdb/tmp/symf-poc/worktree-b/workspaces/b-slice2-20261028/state",
+          "destination": "/state",
+          "writable": true
+        },
+        {
+          "source": "/home/scientdb/tmp/symf-poc/worktree-b/artifacts/b-slice2-20261028",
+          "destination": "/evidence",
+          "writable": true
+        },
+        {
+          "source": "/home/scientdb/tmp/symf-poc/worktree-b/workspaces/b-slice2-20261028/trusted",
+          "destination": "/trusted",
+          "writable": false
+        },
+        {
+          "source": "/home/scientdb/tmp/symf-poc/worktree-b/workspaces/b-slice2-20261028/app",
+          "destination": "/app",
+          "writable": true
+        }
+      ]
+    }
+  ]
+}

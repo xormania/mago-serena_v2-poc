@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="App\Tests\Command\TagsCountCommandTest" file="/app/tests/Command/TagsCountCommandTest.php" tests="2" assertions="4" errors="0" failures="0" skipped="0" time="0.163307">
+    <testcase name="testEmptyDatabase" file="/app/tests/Command/TagsCountCommandTest.php" line="18" class="App\Tests\Command\TagsCountCommandTest" classname="App.Tests.Command.TagsCountCommandTest" assertions="2" time="0.153842"/>
+    <testcase name="testPopulatedDatabase" file="/app/tests/Command/TagsCountCommandTest.php" line="23" class="App\Tests\Command\TagsCountCommandTest" classname="App.Tests.Command.TagsCountCommandTest" assertions="2" time="0.009464"/>
+  </testsuite>
+</testsuites>

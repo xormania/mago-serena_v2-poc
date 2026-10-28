@@ -1,0 +1,22 @@
+DEBUG Sourcing configuration from /app/mago-php.toml.
+ INFO Overriding PHP version with 8.5.0.
+ INFO Overriding workspace directory with /app.
+DEBUG Configuration specifies 4 threads.
+DEBUG Configuration specifies a stack size of 12582912 bytes.
+TRACE Process startup (dyld and runtime init) took 4.791µs.
+TRACE CLI arguments parsed in 252.427µs.
+TRACE Logger initialized in 8.657µs.
+TRACE Configuration loaded in 188.425µs.
+TRACE Rayon thread pool built in 256.807µs.
+TRACE Ready to dispatch command after 728.157µs.
+TRACE Discovered 2 host files in 109ns.
+TRACE Processed 2 files in parallel in 524.764µs (average 262.0 µs per file).
+TRACE Reduced results in 432ns.
+TRACE Pipeline finished in 551.583µs.
+TRACE Slowest 2 of 2 files during the ✨ Formatting phase:
+TRACE    1. tests/Command/TagsCountCommandTest.php took 439.361µs.
+TRACE    2. src/Command/TagsCountCommand.php took 429.821µs.
+ INFO All files are already formatted.
+TRACE Command finished in 1.162578ms.
+TRACE Total time spent inside main so far: 1.892204ms.
+TRACE total process time: 1.892921ms

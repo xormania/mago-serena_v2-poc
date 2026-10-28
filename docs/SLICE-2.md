@@ -10,6 +10,13 @@ unchanged. The command and two focused tests live in the declared
 task workspace.
 
 The [fresh adaptive exercise](evidence/slice2/fresh-agent/result.json) passes.
+The separate [exact-image integrated validation](evidence/slice2/integration/validation.json)
+also passes at `9e74151804e5e30f7b55d4e66cf09dd9ff0f7389`: 148 fast tests,
+31 original acceptance checks, nine slice-1 stages and all 12 slice-2 stages.
+Its [retained artifact manifest](evidence/slice2/integration/manifest.json)
+binds the raw reports, image/source identities, public graph, PHPUnit results
+and reviewed final task diff. Hosted CI duration and artifacts are reported in
+the integrated PR's verification record.
 The actual coding agent inspected installed Maker help, generated the command,
 queried the generated class, `TagRepository`, Doctrine's inherited `count`, and
 the installed command-test facilities through the real **host MCP → Serena REPL

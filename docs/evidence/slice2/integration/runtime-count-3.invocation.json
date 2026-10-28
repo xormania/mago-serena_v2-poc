@@ -1,0 +1,19 @@
+{
+  "run_id": "integrated-slice2-20261028",
+  "workspace": "/home/scientdb/tmp/symf-poc/worktree-final/workspaces/integrated-slice2-20261028/app",
+  "attempt_id": "attempt-81d0eda0b73842deb457c0410dc50ab8",
+  "source_context_sha256": "6a4e2e2c17a2caf86583d99b2622eb7eb8adedadbec532850da9c84733a474c3",
+  "command": "app:tags:count",
+  "argv": [
+    "env",
+    "APP_ENV=test",
+    "APP_DEBUG=1",
+    "php",
+    "bin/console",
+    "app:tags:count",
+    "--no-interaction",
+    "--no-ansi"
+  ],
+  "exit": 0,
+  "cwd": "/app"
+}

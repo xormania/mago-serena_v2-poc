@@ -1,0 +1,298 @@
+{
+  "schema": 1,
+  "configuration": "phpunit.dist.xml",
+  "source_sha256": {
+    "tests/Command/AbstractCommandTestCase.php": "5aece96bb1a0c30386ddd93fee33a440a4d0a2612b8ea7536850333496c9afa9",
+    "tests/Command/AddUserCommandTest.php": "602b8f2f664c10ca7a459b7f5b2743415ca4d0c5284a08a057990b3b483797b7",
+    "tests/Command/ListUsersCommandTest.php": "69c343e5ea36a71f7b8111ade289b2fdfc558cfc96756f5537689d174151dfd3",
+    "tests/Command/TagsCountCommandTest.php": "0ed82aa63e910f80a4d0a9d21e7b04296e0fe3e8d9062ed8de69d81bc2db5c99",
+    "tests/Controller/Admin/BlogControllerTest.php": "047581f012b51b6713846d48fe567e99aa4ebffdd9c56b29d875d27c7bdd937a",
+    "tests/Controller/BlogControllerTest.php": "2113d8ba37f2b019f5fc54dcc683f3d7ad989f86b69d3e0a6941f12914cd0984",
+    "tests/Controller/DefaultControllerTest.php": "0bfc8bf7aedf976941c571cffc7ac15b14cb44a339cd8b849a05a84cd82c4b2c",
+    "tests/Controller/UserControllerTest.php": "29e213a33e23199facb1f10271acf9f94eac78e6cb6c54487545f672109f6f3e",
+    "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php": "e6f44077e983c92af0f69e23b5b0339ede96ef757375e2e44eeaf3b06c7233a0",
+    "tests/Twig/AppExtensionTest.php": "418d0a8a4e0d5b29644525847451bc08c30b99873c554c03d5c8979140623718",
+    "tests/Utils/ValidatorTest.php": "0262f8750ddcda6a0a44927511d3860fbe20ae07016bd572aea9fee2093de71c",
+    "tests/bootstrap.php": "4b58b0af3c87b9faa16766e09fffc917942bc43d16cf6d850ebc5f1796a1e426",
+    "tests/object-manager.php": "adf75da53f4be1a4ef840f104f390aa3e6eb4b1af89c17afa6d94a8248ddeeb3",
+    "phpunit.dist.xml": "05f1cca53af9af1dd35a5c41b37aab3bf33729e1def5cb32f88e37a37a34472a"
+  },
+  "list_xml_sha256": "1be4e4fb69821c61835b5dc40f044440a740443e1b564afc1e30a7a892254f72",
+  "cases": [
+    {
+      "id": "App\\Tests\\Command\\AddUserCommandTest::testCreateUserInteractive#0",
+      "file": "tests/Command/AddUserCommandTest.php",
+      "line": 61
+    },
+    {
+      "id": "App\\Tests\\Command\\AddUserCommandTest::testCreateUserInteractive#1",
+      "file": "tests/Command/AddUserCommandTest.php",
+      "line": 61
+    },
+    {
+      "id": "App\\Tests\\Command\\AddUserCommandTest::testCreateUserNonInteractive#0",
+      "file": "tests/Command/AddUserCommandTest.php",
+      "line": 42
+    },
+    {
+      "id": "App\\Tests\\Command\\AddUserCommandTest::testCreateUserNonInteractive#1",
+      "file": "tests/Command/AddUserCommandTest.php",
+      "line": 42
+    },
+    {
+      "id": "App\\Tests\\Command\\ListUsersCommandTest::testItSendsAnEmailIfOptionProvided",
+      "file": "tests/Command/ListUsersCommandTest.php",
+      "line": 45
+    },
+    {
+      "id": "App\\Tests\\Command\\ListUsersCommandTest::testItSendsNoEmailByDefault",
+      "file": "tests/Command/ListUsersCommandTest.php",
+      "line": 38
+    },
+    {
+      "id": "App\\Tests\\Command\\ListUsersCommandTest::testListUsers#0",
+      "file": "tests/Command/ListUsersCommandTest.php",
+      "line": 22
+    },
+    {
+      "id": "App\\Tests\\Command\\ListUsersCommandTest::testListUsers#1",
+      "file": "tests/Command/ListUsersCommandTest.php",
+      "line": 22
+    },
+    {
+      "id": "App\\Tests\\Command\\TagsCountCommandTest::testEmptyDatabase",
+      "file": "tests/Command/TagsCountCommandTest.php",
+      "line": 18
+    },
+    {
+      "id": "App\\Tests\\Command\\TagsCountCommandTest::testPopulatedDatabase",
+      "file": "tests/Command/TagsCountCommandTest.php",
+      "line": 23
+    },
+    {
+      "id": "App\\Tests\\Controller\\Admin\\BlogControllerTest::testAccessDeniedForRegularUsers#0",
+      "file": "tests/Controller/Admin/BlogControllerTest.php",
+      "line": 54
+    },
+    {
+      "id": "App\\Tests\\Controller\\Admin\\BlogControllerTest::testAccessDeniedForRegularUsers#1",
+      "file": "tests/Controller/Admin/BlogControllerTest.php",
+      "line": 54
+    },
+    {
+      "id": "App\\Tests\\Controller\\Admin\\BlogControllerTest::testAccessDeniedForRegularUsers#2",
+      "file": "tests/Controller/Admin/BlogControllerTest.php",
+      "line": 54
+    },
+    {
+      "id": "App\\Tests\\Controller\\Admin\\BlogControllerTest::testAccessDeniedForRegularUsers#3",
+      "file": "tests/Controller/Admin/BlogControllerTest.php",
+      "line": 54
+    },
+    {
+      "id": "App\\Tests\\Controller\\Admin\\BlogControllerTest::testAdminBackendHomePage",
+      "file": "tests/Controller/Admin/BlogControllerTest.php",
+      "line": 77
+    },
+    {
+      "id": "App\\Tests\\Controller\\Admin\\BlogControllerTest::testAdminDeletePost",
+      "file": "tests/Controller/Admin/BlogControllerTest.php",
+      "line": 182
+    },
+    {
+      "id": "App\\Tests\\Controller\\Admin\\BlogControllerTest::testAdminEditPost",
+      "file": "tests/Controller/Admin/BlogControllerTest.php",
+      "line": 156
+    },
+    {
+      "id": "App\\Tests\\Controller\\Admin\\BlogControllerTest::testAdminNewDuplicatedPost",
+      "file": "tests/Controller/Admin/BlogControllerTest.php",
+      "line": 119
+    },
+    {
+      "id": "App\\Tests\\Controller\\Admin\\BlogControllerTest::testAdminNewPost",
+      "file": "tests/Controller/Admin/BlogControllerTest.php",
+      "line": 94
+    },
+    {
+      "id": "App\\Tests\\Controller\\Admin\\BlogControllerTest::testAdminShowPost",
+      "file": "tests/Controller/Admin/BlogControllerTest.php",
+      "line": 143
+    },
+    {
+      "id": "App\\Tests\\Controller\\BlogControllerTest::testAjaxSearch",
+      "file": "tests/Controller/BlogControllerTest.php",
+      "line": 93
+    },
+    {
+      "id": "App\\Tests\\Controller\\BlogControllerTest::testIndex",
+      "file": "tests/Controller/BlogControllerTest.php",
+      "line": 31
+    },
+    {
+      "id": "App\\Tests\\Controller\\BlogControllerTest::testNewComment",
+      "file": "tests/Controller/BlogControllerTest.php",
+      "line": 65
+    },
+    {
+      "id": "App\\Tests\\Controller\\BlogControllerTest::testRss",
+      "file": "tests/Controller/BlogControllerTest.php",
+      "line": 45
+    },
+    {
+      "id": "App\\Tests\\Controller\\DefaultControllerTest::testPublicBlogPost",
+      "file": "tests/Controller/DefaultControllerTest.php",
+      "line": 56
+    },
+    {
+      "id": "App\\Tests\\Controller\\DefaultControllerTest::testPublicUrls#0",
+      "file": "tests/Controller/DefaultControllerTest.php",
+      "line": 38
+    },
+    {
+      "id": "App\\Tests\\Controller\\DefaultControllerTest::testPublicUrls#1",
+      "file": "tests/Controller/DefaultControllerTest.php",
+      "line": 38
+    },
+    {
+      "id": "App\\Tests\\Controller\\DefaultControllerTest::testPublicUrls#2",
+      "file": "tests/Controller/DefaultControllerTest.php",
+      "line": 38
+    },
+    {
+      "id": "App\\Tests\\Controller\\DefaultControllerTest::testSecureUrls#0",
+      "file": "tests/Controller/DefaultControllerTest.php",
+      "line": 77
+    },
+    {
+      "id": "App\\Tests\\Controller\\DefaultControllerTest::testSecureUrls#1",
+      "file": "tests/Controller/DefaultControllerTest.php",
+      "line": 77
+    },
+    {
+      "id": "App\\Tests\\Controller\\DefaultControllerTest::testSecureUrls#2",
+      "file": "tests/Controller/DefaultControllerTest.php",
+      "line": 77
+    },
+    {
+      "id": "App\\Tests\\Controller\\DefaultControllerTest::testSecureUrls#3",
+      "file": "tests/Controller/DefaultControllerTest.php",
+      "line": 77
+    },
+    {
+      "id": "App\\Tests\\Controller\\UserControllerTest::testAccessDeniedForAnonymousUsers#0",
+      "file": "tests/Controller/UserControllerTest.php",
+      "line": 38
+    },
+    {
+      "id": "App\\Tests\\Controller\\UserControllerTest::testAccessDeniedForAnonymousUsers#1",
+      "file": "tests/Controller/UserControllerTest.php",
+      "line": 38
+    },
+    {
+      "id": "App\\Tests\\Controller\\UserControllerTest::testChangePassword",
+      "file": "tests/Controller/UserControllerTest.php",
+      "line": 83
+    },
+    {
+      "id": "App\\Tests\\Controller\\UserControllerTest::testEditUser",
+      "file": "tests/Controller/UserControllerTest.php",
+      "line": 56
+    },
+    {
+      "id": "App\\Tests\\Form\\DataTransformer\\TagArrayToStringTransformerTest::testCreateTheRightAmountOfTags",
+      "file": "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php",
+      "line": 29
+    },
+    {
+      "id": "App\\Tests\\Form\\DataTransformer\\TagArrayToStringTransformerTest::testCreateTheRightAmountOfTagsWithTooManyCommas",
+      "file": "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php",
+      "line": 41
+    },
+    {
+      "id": "App\\Tests\\Form\\DataTransformer\\TagArrayToStringTransformerTest::testDuplicateNames",
+      "file": "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php",
+      "line": 62
+    },
+    {
+      "id": "App\\Tests\\Form\\DataTransformer\\TagArrayToStringTransformerTest::testTransform",
+      "file": "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php",
+      "line": 89
+    },
+    {
+      "id": "App\\Tests\\Form\\DataTransformer\\TagArrayToStringTransformerTest::testTrimNames",
+      "file": "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php",
+      "line": 52
+    },
+    {
+      "id": "App\\Tests\\Form\\DataTransformer\\TagArrayToStringTransformerTest::testUsesAlreadyDefinedTags",
+      "file": "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php",
+      "line": 72
+    },
+    {
+      "id": "App\\Tests\\Twig\\AppExtensionTest::testGetLocales",
+      "file": "tests/Twig/AppExtensionTest.php",
+      "line": 19
+    },
+    {
+      "id": "App\\Tests\\Twig\\AppExtensionTest::testIsRtl",
+      "file": "tests/Twig/AppExtensionTest.php",
+      "line": 30
+    },
+    {
+      "id": "App\\Tests\\Utils\\ValidatorTest::testValidateEmail",
+      "file": "tests/Utils/ValidatorTest.php",
+      "line": 68
+    },
+    {
+      "id": "App\\Tests\\Utils\\ValidatorTest::testValidateEmailEmpty",
+      "file": "tests/Utils/ValidatorTest.php",
+      "line": 75
+    },
+    {
+      "id": "App\\Tests\\Utils\\ValidatorTest::testValidateEmailInvalid",
+      "file": "tests/Utils/ValidatorTest.php",
+      "line": 82
+    },
+    {
+      "id": "App\\Tests\\Utils\\ValidatorTest::testValidateFullName",
+      "file": "tests/Utils/ValidatorTest.php",
+      "line": 89
+    },
+    {
+      "id": "App\\Tests\\Utils\\ValidatorTest::testValidateFullNameEmpty",
+      "file": "tests/Utils/ValidatorTest.php",
+      "line": 96
+    },
+    {
+      "id": "App\\Tests\\Utils\\ValidatorTest::testValidatePassword",
+      "file": "tests/Utils/ValidatorTest.php",
+      "line": 47
+    },
+    {
+      "id": "App\\Tests\\Utils\\ValidatorTest::testValidatePasswordEmpty",
+      "file": "tests/Utils/ValidatorTest.php",
+      "line": 54
+    },
+    {
+      "id": "App\\Tests\\Utils\\ValidatorTest::testValidatePasswordInvalid",
+      "file": "tests/Utils/ValidatorTest.php",
+      "line": 61
+    },
+    {
+      "id": "App\\Tests\\Utils\\ValidatorTest::testValidateUsername",
+      "file": "tests/Utils/ValidatorTest.php",
+      "line": 26
+    },
+    {
+      "id": "App\\Tests\\Utils\\ValidatorTest::testValidateUsernameEmpty",
+      "file": "tests/Utils/ValidatorTest.php",
+      "line": 33
+    },
+    {
+      "id": "App\\Tests\\Utils\\ValidatorTest::testValidateUsernameInvalid",
+      "file": "tests/Utils/ValidatorTest.php",
+      "line": 40
+    }
+  ]
+}

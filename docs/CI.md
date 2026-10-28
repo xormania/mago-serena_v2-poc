@@ -23,6 +23,16 @@ credential-free failure path; the trusted consumer and native CI verdict retain
 their existing roles. Measurements below describe the earlier cache follow-up;
 the slice-2 run is recorded separately with its final validation evidence.
 
+The [local exact-image validation](evidence/slice2/integration/validation.json)
+at `9e74151804e5e30f7b55d4e66cf09dd9ff0f7389` passed 148 fast tests, all 31
+original acceptance checks, nine slice-1 stages and 12 slice-2 stages. One cached
+build produced the shared verified image; separate disposable runs executed
+concurrently in 68.203s, 92.429s and 57.889s respectively. These are local gate
+durations, not hosted CI measurements. The actual default-relative-root collector
+then produced a healthy packet and the mocked provider boundary observed zero
+calls. The integrated PR records its hosted workflow duration and artifact links
+after the required run completes.
+
 The CI follow-up starts from merged default-branch commit
 `262e06d00024ab4ff2c025ce2b52a2ff49f65715`, on a new
 `ci/cache-and-live-jev` branch. PR1's branch is not the baseline. Application,

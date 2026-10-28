@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "scope": "Root review plus independent A review of B; source files, task evidence and final exact-image reports inspected.",
+  "resolved_findings": [
+    "Relative collector root mismatched absolute producer paths; root resolution regression added.",
+    "Missing/malformed worker graph could preserve shell success; wrapper exit3 now keeps native_exit independently.",
+    "Fresh-agent outputs needed binding to replay; bounded81-artifact manifest, complete application delta and public source hashes verified.",
+    "Wrapper and nested stage could duplicate a failure; one outer failed check now owns both context and causal excerpts."
+  ],
+  "remaining_boundaries": [
+    "Pinned LSP external-analyzer workers do not start; CLI enrichment remains separately attributed.",
+    "Expected-negative external-span control remains paired with fresh-process recovery.",
+    "Scripted Maker/task replay is not another fresh agent run."
+  ],
+  "live_provider_calls": 0
+}

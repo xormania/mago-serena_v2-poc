@@ -10,7 +10,7 @@ workstreams use separate Git worktrees and disposable applications/databases.
 | Slice | Intended proof | Scope |
 | --- | --- | --- |
 | 1: understand and analyze | Explain `App\Form\Type\TagsInputType` through Mago checks and Serena semantics, enriched with compiled Symfony wiring | Implemented: native PHP/semantics and CLI wiring pass; LSP worker propagation blocked. See [evidence/adoption](SLICE-1.md) |
-| 2: generate and change | Use installed Maker to create `app:tags:count`, semantically edit it, run Mago and verify execution and tests | See [task, adaptive agent exercise and acceptance](SLICE-2.md) |
+| 2: generate and change | Use installed Maker to create `app:tags:count`, semantically edit it, run Mago and verify execution and tests | Implemented: fresh adaptive agent and exact-image replay pass; CLI wiring demonstrated, existing LSP boundary retained. See [task and evidence](SLICE-2.md) |
 | 3: diagnose and repair | Correlate one failing request with Mate runtime evidence, inspect and repair through Mago, verify a fresh request and regression test | Planned; no implementation in slice 1 |
 
 Mago owns PHP analysis, lint, applicable fixes and formatting. Serena's actual
