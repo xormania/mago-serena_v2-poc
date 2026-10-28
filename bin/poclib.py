@@ -66,7 +66,7 @@ def prepare(run_id, port=0):
             'project': f'mago-poc-{digest}-{run_id}', 'app': str(app),
             'state': str(workspace / 'state'), 'trusted': str(workspace / 'trusted'),
             'evidence': str(ROOT / 'artifacts' / run_id), 'port': port,
-            'image': os.environ.get('POC_IMAGE', 'mago-serena-poc:local')}
+            'image': os.environ.get('POC_IMAGE') or 'mago-serena-poc:local'}
     (workspace / 'run.json').write_text(json.dumps(data, indent=2) + '\n')
     return data
 
@@ -76,8 +76,8 @@ def compose(data, *args):
 
 
 def environment(data):
-    image = data.get('image', os.environ.get('POC_IMAGE', 'mago-serena-poc:local'))
-    if os.environ.get('POC_IMAGE', image) != image:
+    image = data.get('image') or os.environ.get('POC_IMAGE') or 'mago-serena-poc:local'
+    if (os.environ.get('POC_IMAGE') or image) != image:
         raise ValueError('POC_IMAGE differs from the selected run image: '+image)
     return {**os.environ, 'POC_APP': data['app'], 'POC_STATE': data['state'],
             'POC_IMAGE': image,
