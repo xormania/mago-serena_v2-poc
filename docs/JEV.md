@@ -127,8 +127,8 @@ harness evidence is uploaded separately on success and failure. Producer code
 has no TypeSafe credential.
 
 The collector also understands the declared slice layouts:
-`artifacts/<run>/slice{1,2}/attempt-*/results.json`, each attempt's `source.json`
-and named `<stage>-error.txt`. The root `slice{1,2}-result.json` is a latest-attempt
+`artifacts/<run>/slice{1,2,3}/attempt-*/results.json`, each attempt's `source.json`
+and named `<stage>-error.txt`. The root `slice{1,2,3}-result.json` is a latest-attempt
 mirror and never creates another observation. When one captured slice wrapper
 failed, its nested stage excerpts augment that same failed check; the wrapper
 and its cause are not counted as independent failures. A recovered wrapper still
@@ -154,6 +154,11 @@ it contains no live request or new calibration.
 The [integration correlation proof](evidence/jev-slice-contract/final-correlation/result.json)
 retains the final one-check/two-excerpt packet and mocked provider payload after
 the wrapper/stage correlation adjustment.
+Slice 3 extends that same collector contract to runtime diagnosis stages. Its
+mocked regressions retain a failed request's stage reason and original context
+in the provider payload, reject a foreign attempt, and observe zero provider
+requests for healthy slices. No live calibration or consumer trust change is
+part of this extension.
 
 `.github/workflows/jev.yml` consumes completed runs on a fresh runner. It checks
 out diagnosis code from the repository's default branch, records the **actual

@@ -23,25 +23,25 @@ def context_digest(source):
     return hashlib.sha256(json.dumps(source, sort_keys=True, separators=(',', ':'), allow_nan=False).encode()).hexdigest()
 
 
-def write_attempt(root, *, slice_name='slice1', attempt='attempt-first', status='fail', reason=CAUSE, step_attempt=1, latest=True):
+def write_attempt(root, *, slice_name='slice1', attempt='attempt-first', status='fail', reason=CAUSE, step_attempt=1, latest=True, stage='symfony_wiring'):
     run = root/'owned-run'
     directory = run/slice_name/attempt
     directory.mkdir(parents=True, exist_ok=True)
     source = {'revision': SOURCE_SHA, 'run': {'run_id': run.name, 'app': '/owned/app'},
               'source_manifest': {'host.py': {'sha256': 'f'*64}}}
     context = {'run_id': run.name, 'workspace': '/owned/app', 'source_context_sha256': context_digest(source)}
-    checks = [{**context, 'name': 'symfony_wiring', 'status': status, 'reason': reason, 'step_attempt': step_attempt}]
+    checks = [{**context, 'name': stage, 'status': status, 'reason': reason, 'step_attempt': step_attempt}]
     value = {**context, 'schema': 1, 'kind': 'mago_first_'+slice_name,
              'status': 'pass' if status == 'pass' else 'incomplete',
-             'inventory': ['symfony_wiring'], 'checks': checks, 'evidence': str(directory)}
+             'inventory': [stage], 'checks': checks, 'evidence': str(directory)}
     # Slice 1 predates an explicit attempt_id; the folder remains its identity.
-    if slice_name == 'slice2':
+    if slice_name != 'slice1':
         value['attempt_id'] = attempt
         checks[0]['attempt_id'] = attempt
     (directory/'source.json').write_text(json.dumps(source))
     (directory/'results.json').write_text(json.dumps(value))
     if status == 'fail':
-        (directory/'symfony_wiring-error.txt').write_text(
+        (directory/(stage+'-error.txt')).write_text(
             'Traceback (most recent call last):\n'+('  earlier frame\n'*2000)+
             '  File "framework_checks.py", line 172, in run\n    assert concrete_binding\nAssertionError: '+reason+'\n')
     if latest:
@@ -60,14 +60,14 @@ class SliceCollectorTests(unittest.TestCase):
         return collect(self.root, self.root/'packet.json', run_id='123', attempt=2,
                        source_sha=SOURCE_SHA, **kwargs)
 
-    def outer(self, status='fail'):
+    def outer(self, status='fail', slice_name='slice1'):
         ci = self.root/'ci'
         ci.mkdir(exist_ok=True)
         (ci/'step-attempts.jsonl').write_text(json.dumps(
-            {'step': 'slice1', 'attempt': 1, 'status': status,
-             'log': 'slice1-attempt-1.log', 'log_truncated': False})+'\n')
+            {'step': slice_name, 'attempt': 1, 'status': status,
+             'log': slice_name+'-attempt-1.log', 'log_truncated': False})+'\n')
         # The actual stage reason is far beyond the console-selected window.
-        (ci/'slice1-attempt-1.log').write_text(
+        (ci/(slice_name+'-attempt-1.log')).write_text(
             'fail: symfony_wiring\nContainer stopped\n'+('ordinary output\n'*2000)+CAUSE+'\n')
 
     def test_nested_failure_supplies_actual_cause_and_traceback_tail_once(self):
@@ -112,6 +112,56 @@ class SliceCollectorTests(unittest.TestCase):
         self.assertIn(CAUSE, sent['excerpts'][0]['text'])
         self.assertEqual(sent['excerpts'][0]['provenance']['stage'], 'symfony_wiring')
         self.assertFalse(result['probe_executed'])
+
+    def test_slice3_runtime_cause_reaches_mock_provider_with_original_context(self):
+        cause = 'Failed request marker s3-test has no matching profiler token'
+        directory, _, _ = write_attempt(self.root, slice_name='slice3',
+                                       reason=cause, stage='failed_request')
+        (directory/'failed_request-error.txt').write_text(
+            'Traceback (most recent call last):\nAssertionError: '+cause+'\n')
+        self.outer(slice_name='slice3')
+        packet = self.packet()
+        self.assertEqual(len(packet['checks']), 1)
+        self.assertEqual(packet['checks'][0]['step'], 'slice3')
+        excerpt = next(row for row in packet['excerpts'] if 'provenance' in row)
+        self.assertEqual(excerpt['provenance']['stage'], 'failed_request')
+        self.assertEqual(excerpt['provenance']['source'], 'slice3/attempt-first/results.json')
+        self.assertIn(cause, excerpt['text'])
+        reply = {'model': MODEL, 'answers': {name: {'type': 'choice', 'choice': choice}
+                 for name, choice in {'layer': 'setup_environment', 'probe': 'inspect_setup_log',
+                                      'support_1': excerpt['id'], 'support_2': 'none'}.items()}}
+        response = mock.MagicMock(status=200)
+        response.__enter__.return_value = response
+        response.read.return_value = canonical(reply)
+        provider = mock.Mock()
+        provider.open.return_value = response
+        result = diagnose(packet, self.root/'slice3-mock-provider', key='synthetic-key', opener=provider)
+        self.assertEqual(result['transport'], 'mock')
+        self.assertEqual(result['status'], 'diagnosed')
+        self.assertEqual(provider.open.call_count, 1)
+        sent = json.loads(provider.open.call_args.args[0].data)['state']
+        observed = next(row for row in sent['excerpts'] if 'provenance' in row)
+        self.assertIn(cause, observed['text'])
+        self.assertEqual(observed['provenance'], excerpt['provenance'])
+        self.assertFalse(result['probe_executed'])
+
+    def test_all_healthy_slices_make_zero_provider_requests(self):
+        for slice_name in ('slice1', 'slice2', 'slice3'):
+            write_attempt(self.root, slice_name=slice_name, status='pass', reason='healthy')
+        packet = self.packet()
+        provider = mock.Mock()
+        result = diagnose(packet, self.root/'all-healthy-provider', key='synthetic-key', opener=provider)
+        self.assertEqual(result['status'], 'nothing_to_diagnose')
+        self.assertEqual(packet['checks'], [])
+        provider.open.assert_not_called()
+
+    def test_slice3_context_mismatch_is_rejected(self):
+        directory, value, _ = write_attempt(self.root, slice_name='slice3', stage='runtime_reads')
+        value['checks'][0]['attempt_id'] = 'attempt-foreign'
+        (directory/'results.json').write_text(json.dumps(value))
+        (directory.parent.parent/'slice3-result.json').write_text(json.dumps(value))
+        with self.assertRaisesRegex(ValueError, 'stage identity'):
+            self.packet()
 
     def test_earlier_failed_retry_retained_when_latest_attempt_passes(self):
         write_attempt(self.root, slice_name='slice2', attempt='attempt-earlier', step_attempt=3)

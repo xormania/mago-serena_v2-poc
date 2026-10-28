@@ -91,6 +91,19 @@ class AcceptanceSchedulingTests(unittest.TestCase):
         self.assertIn('github.event_name',group)
         self.assertIn('github.run_id',group)
 
+    def test_runtime_slice_runs_once_after_existing_gates_with_captured_exit(self):
+        steps = self.workflow()['jobs']['acceptance']['steps']
+        ids = [step.get('id') for step in steps]
+        self.assertEqual(ids.count('slice3'), 1)
+        self.assertLess(ids.index('acceptance'), ids.index('slice1'))
+        self.assertLess(ids.index('slice1'), ids.index('slice2'))
+        self.assertLess(ids.index('slice2'), ids.index('slice3'))
+        self.assertLess(ids.index('slice3'), ids.index('collect'))
+        runtime = steps[ids.index('slice3')]
+        self.assertEqual(runtime['run'],
+                         'python3 tools/ci/capture_step.py run --step slice3 -- ./bin/poc slice3')
+        self.assertNotIn('continue-on-error', runtime)
+
 
 class CacheRuntimeActionTests(unittest.TestCase):
     def test_exports_cache_allowlist_without_provider_credentials_or_value_logs(self):
