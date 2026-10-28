@@ -21,8 +21,8 @@ $observer = new class implements Plugin, AfterAnalysisHook {
     {
         return new PluginDefinition(
             'poc/wiring-observer',
-            'Slice 1 graph observer',
-            'Records the selected constructor reference from the final native graph.',
+            'Compiled wiring graph observer',
+            'Records selected constructor references from the final native graph.',
         );
     }
 
@@ -33,6 +33,35 @@ $observer = new class implements Plugin, AfterAnalysisHook {
 
     public function afterAnalysis(AfterAnalysisContext $context): void
     {
+        $requested = getenv('POC_WIRING_SYMBOLS');
+        $owners = $requested === false
+            ? ['App\\Form\\Type\\TagsInputType', 'App\\Repository\\TagRepository']
+            : json_decode($requested, true, flags: JSON_THROW_ON_ERROR);
+        if (!is_array($owners) || count($owners) > 8 || $owners === []) {
+            throw new RuntimeException('Expected one to eight selected class names.');
+        }
+        $symbols = [];
+        foreach ($owners as $selected) {
+            if (!is_string($selected) || strlen($selected) > 200) {
+                throw new RuntimeException('Invalid selected class name.');
+            }
+            $declaration = $context->codebase->getClassLike($selected);
+            $symbols[$selected] = [
+                'owner' => $selected,
+                'member' => '__construct',
+                'declaration' => $declaration === null ? null : [
+                    'name' => $declaration->originalName,
+                    'location' => $declaration->location,
+                    'parent' => $declaration->directParentClass,
+                ],
+                'references' => array_map(static fn($reference): array => [
+                    'source' => $reference->source,
+                    'target' => $reference->target,
+                    'kind' => $reference->kind->name,
+                ], $context->analysis->references->getReferencesFrom(new MemberIdentifier($selected, '__construct'))),
+            ];
+        }
+        // Retain the original slice-1 fields for its independently runnable proof.
         $owner = 'App\\Form\\Type\\TagsInputType';
         $references = [];
         foreach ($context
@@ -56,6 +85,7 @@ $observer = new class implements Plugin, AfterAnalysisHook {
             'owner' => $owner,
             'member' => '__construct',
             'files' => $files,
+            'symbols' => $symbols,
             'source_sha256' => $file === null ? null : hash('sha256', $file->getSourceFile()->contents),
             'references' => $references,
             'dependency_declarations' => array_map(static fn($declaration): ?array => (

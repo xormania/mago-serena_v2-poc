@@ -2,7 +2,7 @@ version = "1"
 php-version = "8.5"
 
 [source]
-paths = ["src"]
+paths = ["src", "tests"]
 includes = ["vendor"]
 excludes = ["var"]
 

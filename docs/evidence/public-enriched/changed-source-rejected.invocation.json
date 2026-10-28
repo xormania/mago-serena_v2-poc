@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/home/scientdb/tmp/symf-poc/worktree-a/bin/poc",
+    "mago-enriched",
+    "--run",
+    "a-followup-20261028",
+    "--",
+    "analyze",
+    "--reporting-format",
+    "json"
+  ],
+  "cwd": "/tmp",
+  "exit": 3
+}

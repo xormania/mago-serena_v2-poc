@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "/home/scientdb/tmp/symf-poc/worktree-a/bin/poc",
+    "mate-prepare",
+    "--run",
+    "a-followup-20261028"
+  ],
+  "cwd": "/tmp",
+  "exit": 0
+}

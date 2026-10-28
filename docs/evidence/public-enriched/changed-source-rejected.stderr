@@ -1,0 +1,2 @@
+mago-enriched: Application/dependencies changed; run mate-prepare explicitly; refresh with ./bin/poc mate-prepare --run a-followup-20261028
+Enriched evidence: /home/scientdb/tmp/symf-poc/worktree-a/artifacts/a-followup-20261028/mago/enriched/cf47bd93e68741c3a772a51cc075b4e1

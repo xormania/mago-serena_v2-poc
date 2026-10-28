@@ -161,6 +161,10 @@ def prepare_mate(data):
             assert destination.read_bytes() == source.read_bytes(), 'Existing .mago/'+name+' preserved; reconcile it explicitly'
         else:
             shutil.copy2(source, destination)
+    # The prepared application seals both native and enriched configurations.
+    # A later read must never create a config and invalidate its own preparation.
+    from magolib import prepare_mago
+    prepare_mago(data)
     reference = compiled_reference(data, evidence)
     state = application_state(app)
     xml = metadata_hashes(app)

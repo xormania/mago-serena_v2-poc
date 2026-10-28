@@ -1,0 +1,406 @@
+{
+    "observer": "poc\/wiring-observer",
+    "wiring_enabled": true,
+    "owner": "App\\Form\\Type\\TagsInputType",
+    "member": "__construct",
+    "files": [
+        {
+            "path": "tests\/object-manager.php",
+            "size": 546
+        },
+        {
+            "path": "src\/Repository\/TagRepository.php",
+            "size": 1030
+        },
+        {
+            "path": "src\/Form\/Type\/DateTimePickerType.php",
+            "size": 1650
+        },
+        {
+            "path": "src\/Form\/ChangePasswordType.php",
+            "size": 2185
+        },
+        {
+            "path": "src\/Repository\/PostRepository.php",
+            "size": 3000
+        },
+        {
+            "path": "tests\/Command\/AbstractCommandTestCase.php",
+            "size": 1468
+        },
+        {
+            "path": "src\/Controller\/SecurityController.php",
+            "size": 2244
+        },
+        {
+            "path": "src\/Form\/UserType.php",
+            "size": 1877
+        },
+        {
+            "path": "tests\/Controller\/Admin\/BlogControllerTest.php",
+            "size": 7215
+        },
+        {
+            "path": "src\/Security\/PostVoter.php",
+            "size": 2648
+        },
+        {
+            "path": "tests\/Twig\/AppExtensionTest.php",
+            "size": 1042
+        },
+        {
+            "path": "src\/Command\/DeleteUserCommand.php",
+            "size": 4692
+        },
+        {
+            "path": "src\/DataFixtures\/AppFixtures.php",
+            "size": 9638
+        },
+        {
+            "path": "src\/Kernel.php",
+            "size": 736
+        },
+        {
+            "path": "src\/Entity\/User.php",
+            "size": 4031
+        },
+        {
+            "path": "src\/Form\/CommentType.php",
+            "size": 1732
+        },
+        {
+            "path": "src\/Utils\/Validator.php",
+            "size": 2110
+        },
+        {
+            "path": "src\/Entity\/Post.php",
+            "size": 4801
+        },
+        {
+            "path": "src\/EventSubscriber\/CommentNotificationSubscriber.php",
+            "size": 2665
+        },
+        {
+            "path": "src\/Form\/Type\/TagsInputType.php",
+            "size": 1934
+        },
+        {
+            "path": "src\/EventSubscriber\/RedirectToPreferredLocaleSubscriber.php",
+            "size": 3193
+        },
+        {
+            "path": "src\/Form\/PostType.php",
+            "size": 3332
+        },
+        {
+            "path": "src\/Controller\/UserController.php",
+            "size": 2810
+        },
+        {
+            "path": "src\/EventSubscriber\/CheckRequirementsSubscriber.php",
+            "size": 4337
+        },
+        {
+            "path": "tests\/Controller\/BlogControllerTest.php",
+            "size": 3213
+        },
+        {
+            "path": "tests\/Utils\/ValidatorTest.php",
+            "size": 2881
+        },
+        {
+            "path": "src\/Repository\/UserRepository.php",
+            "size": 1196
+        },
+        {
+            "path": "tests\/Controller\/UserControllerTest.php",
+            "size": 3429
+        },
+        {
+            "path": "tests\/bootstrap.php",
+            "size": 478
+        },
+        {
+            "path": "src\/Controller\/Admin\/BlogController.php",
+            "size": 7124
+        },
+        {
+            "path": "src\/Command\/AddUserCommand.php",
+            "size": 9960
+        },
+        {
+            "path": "src\/Twig\/AppExtension.php",
+            "size": 2027
+        },
+        {
+            "path": "src\/Entity\/Tag.php",
+            "size": 1536
+        },
+        {
+            "path": "src\/Entity\/Comment.php",
+            "size": 2632
+        },
+        {
+            "path": "src\/Event\/CommentCreatedEvent.php",
+            "size": 549
+        },
+        {
+            "path": "src\/Twig\/Components\/BlogSearchComponent.php",
+            "size": 1577
+        },
+        {
+            "path": "tests\/Form\/DataTransformer\/TagArrayToStringTransformerTest.php",
+            "size": 3584
+        },
+        {
+            "path": "src\/Controller\/BlogController.php",
+            "size": 7061
+        },
+        {
+            "path": "tests\/Command\/AddUserCommandTest.php",
+            "size": 3525
+        },
+        {
+            "path": "src\/Form\/DataTransformer\/TagArrayToStringTransformer.php",
+            "size": 2758
+        },
+        {
+            "path": "src\/EventSubscriber\/ControllerSubscriber.php",
+            "size": 1488
+        },
+        {
+            "path": "tests\/Command\/ListUsersCommandTest.php",
+            "size": 1380
+        },
+        {
+            "path": "src\/Command\/ListUsersCommand.php",
+            "size": 4927
+        },
+        {
+            "path": "src\/Twig\/SourceCodeExtension.php",
+            "size": 5980
+        },
+        {
+            "path": "tests\/Controller\/DefaultControllerTest.php",
+            "size": 3481
+        },
+        {
+            "path": "src\/Pagination\/Paginator.php",
+            "size": 3299
+        }
+    ],
+    "symbols": {
+        "App\\Form\\Type\\TagsInputType": {
+            "owner": "App\\Form\\Type\\TagsInputType",
+            "member": "__construct",
+            "declaration": {
+                "name": "App\\Form\\Type\\TagsInputType",
+                "location": {
+                    "file": "src\/Form\/Type\/TagsInputType.php",
+                    "span": {
+                        "start": 916,
+                        "end": 1933
+                    }
+                },
+                "parent": "symfony\\component\\form\\abstracttype"
+            },
+            "references": [
+                {
+                    "source": {
+                        "symbol": {
+                            "class": "app\\form\\type\\tagsinputtype",
+                            "member": "__construct"
+                        },
+                        "file": null
+                    },
+                    "target": "app\\repository\\tagrepository",
+                    "kind": "Signature"
+                }
+            ]
+        },
+        "App\\Repository\\TagRepository": {
+            "owner": "App\\Repository\\TagRepository",
+            "member": "__construct",
+            "declaration": {
+                "name": "App\\Repository\\TagRepository",
+                "location": {
+                    "file": "src\/Repository\/TagRepository.php",
+                    "span": {
+                        "start": 851,
+                        "end": 1029
+                    }
+                },
+                "parent": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository"
+            },
+            "references": [
+                {
+                    "source": {
+                        "symbol": {
+                            "class": "app\\repository\\tagrepository",
+                            "member": "__construct"
+                        },
+                        "file": null
+                    },
+                    "target": "app\\entity\\tag",
+                    "kind": "Body"
+                },
+                {
+                    "source": {
+                        "symbol": {
+                            "class": "app\\repository\\tagrepository",
+                            "member": "__construct"
+                        },
+                        "file": null
+                    },
+                    "target": "doctrine\\bundle\\doctrinebundle\\registry",
+                    "kind": "Body"
+                },
+                {
+                    "source": {
+                        "symbol": {
+                            "class": "app\\repository\\tagrepository",
+                            "member": "__construct"
+                        },
+                        "file": null
+                    },
+                    "target": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+                    "kind": "Body"
+                },
+                {
+                    "source": {
+                        "symbol": {
+                            "class": "app\\repository\\tagrepository",
+                            "member": "__construct"
+                        },
+                        "file": null
+                    },
+                    "target": {
+                        "class": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+                        "member": "__construct"
+                    },
+                    "kind": "Body"
+                },
+                {
+                    "source": {
+                        "symbol": {
+                            "class": "app\\repository\\tagrepository",
+                            "member": "__construct"
+                        },
+                        "file": null
+                    },
+                    "target": "doctrine\\persistence\\managerregistry",
+                    "kind": "Signature"
+                }
+            ]
+        }
+    },
+    "source_sha256": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+    "references": [
+        {
+            "source": {
+                "symbol": {
+                    "class": "app\\form\\type\\tagsinputtype",
+                    "member": "__construct"
+                },
+                "file": null
+            },
+            "target": "app\\repository\\tagrepository",
+            "kind": "Signature"
+        }
+    ],
+    "dependency_declarations": [
+        {
+            "name": "App\\Repository\\TagRepository",
+            "location": {
+                "file": "src\/Repository\/TagRepository.php",
+                "span": {
+                    "start": 851,
+                    "end": 1029
+                }
+            },
+            "parent": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository"
+        },
+        {
+            "name": "Doctrine\\Persistence\\ManagerRegistry",
+            "location": {
+                "file": "vendor\/doctrine\/persistence\/src\/ManagerRegistry.php",
+                "span": {
+                    "start": 180,
+                    "end": 2741
+                }
+            },
+            "parent": null
+        },
+        {
+            "name": "Doctrine\\Bundle\\DoctrineBundle\\Registry",
+            "location": {
+                "file": "vendor\/doctrine\/doctrine-bundle\/src\/Registry.php",
+                "span": {
+                    "start": 509,
+                    "end": 2294
+                }
+            },
+            "parent": "symfony\\bridge\\doctrine\\managerregistry"
+        }
+    ],
+    "dependency_references": [
+        {
+            "source": {
+                "symbol": {
+                    "class": "app\\repository\\tagrepository",
+                    "member": "__construct"
+                },
+                "file": null
+            },
+            "target": "app\\entity\\tag",
+            "kind": "Body"
+        },
+        {
+            "source": {
+                "symbol": {
+                    "class": "app\\repository\\tagrepository",
+                    "member": "__construct"
+                },
+                "file": null
+            },
+            "target": "doctrine\\bundle\\doctrinebundle\\registry",
+            "kind": "Body"
+        },
+        {
+            "source": {
+                "symbol": {
+                    "class": "app\\repository\\tagrepository",
+                    "member": "__construct"
+                },
+                "file": null
+            },
+            "target": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "kind": "Body"
+        },
+        {
+            "source": {
+                "symbol": {
+                    "class": "app\\repository\\tagrepository",
+                    "member": "__construct"
+                },
+                "file": null
+            },
+            "target": {
+                "class": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+                "member": "__construct"
+            },
+            "kind": "Body"
+        },
+        {
+            "source": {
+                "symbol": {
+                    "class": "app\\repository\\tagrepository",
+                    "member": "__construct"
+                },
+                "file": null
+            },
+            "target": "doctrine\\persistence\\managerregistry",
+            "kind": "Signature"
+        }
+    ]
+}

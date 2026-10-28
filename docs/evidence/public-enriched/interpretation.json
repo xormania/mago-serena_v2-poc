@@ -1,0 +1,10 @@
+{
+  "kind": "development_public_interface_controls",
+  "base_revision": "8f154f798d7cf9ae7cf3cb33b0b99352de99dec4",
+  "dirty_implementation": true,
+  "native_existing_findings": 35,
+  "public_path_on_off_restored": true,
+  "invalid_binding": "Explicit direct package probe; public freshness path rejects fabricated facts.",
+  "lsp_enrichment_claim": false,
+  "live_provider_calls": 0
+}

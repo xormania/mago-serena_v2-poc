@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "/home/scientdb/tmp/symf-poc/worktree-a/bin/poc",
+    "mago-enriched",
+    "--run",
+    "a-followup-20261028",
+    "--extension-off",
+    "--",
+    "analyze",
+    "--reporting-format",
+    "json"
+  ],
+  "exit": 1,
+  "controlled_reference": false,
+  "source_sha256": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+  "reference_sha256": "5b7ea5b93fa495b3984e4b75083844cf9be918b0ece5180ce5b9f41ebae408a8",
+  "preparation_id": "prepare-9ecc727379b84521a01feab74a1778f3"
+}

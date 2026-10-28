@@ -43,6 +43,9 @@ def run(data):
                                    '--context='+CONTEXT, '--format=json'], expected=3)
             assert needle in response.stderr.decode(), name+': wrong rejection'
             assert response.stdout == b'', name+': rejected request emitted data'
+            enriched = host(name+'-enriched', [str(ROOT/'bin/poc'), 'mago-enriched',
+                            '--run', data['run_id'], '--', 'analyze', '--reporting-format', 'json'], expected=3)
+            assert enriched.stdout == b'', name+': rejected enriched request emitted data'
         finally:
             restoration()
         fresh(data)
@@ -120,11 +123,29 @@ def run(data):
         if not controlled_reference:
             fresh(data)
         observation = evidence/(name+'-graph.json')
-        argv = ['env', 'POC_WIRING='+('1' if enabled else '0'),
-                'POC_WIRING_OBSERVATION=/evidence/'+str(observation.relative_to(Path(data['evidence']))),
-                'mago', '--workspace', '/app', '--config', '/app/.mago/wiring.toml', '--threads', '1',
-                'analyze', '--reporting-format', 'json']
-        response = retained(name, execute(data, *argv, capture_output=True, check=False))
+        if controlled_reference:
+            # Deliberately invalid compiled facts cannot pass the ordinary guard.
+            # Retain this explicit package-only negative probe separately.
+            argv = ['env', 'POC_WIRING='+('1' if enabled else '0'),
+                    'POC_WIRING_OBSERVATION=/evidence/'+str(observation.relative_to(Path(data['evidence']))),
+                    'mago', '--workspace', '/app', '--config', '/app/.mago/wiring.toml', '--threads', '1',
+                    'analyze', '--reporting-format', 'json']
+            response = retained(name, execute(data, *argv, capture_output=True, check=False))
+        else:
+            invocations = Path(data['evidence'])/'mago/enriched'
+            before = set(invocations.glob('*/invocation.json'))
+            argv = [str(ROOT/'bin/poc'), 'mago-enriched', '--run', data['run_id']]
+            if not enabled:
+                argv.append('--extension-off')
+            argv += ['--', 'analyze', '--reporting-format', 'json']
+            response = retained(name, subprocess.run(argv, cwd='/tmp', capture_output=True, timeout=180))
+            added = set(invocations.glob('*/invocation.json'))-before
+            assert len(added) == 1, 'Public enriched command did not retain exactly one invocation'
+            invocation = next(iter(added))
+            recorded = json.loads(invocation.read_text())
+            assert recorded['status'] in ('clean', 'findings'), 'Public enriched analysis failed: '+str(recorded)
+            assert recorded['native_exit'] == response.returncode, 'Native enriched exit changed'
+            observation.write_bytes(invocation.with_name('graph.json').read_bytes())
         write_json(evidence/(name+'.invocation.json'), {'argv': argv, 'exit': response.returncode,
                    'controlled_reference': controlled_reference, 'source_sha256': sha(source),
                    'reference_sha256': sha(reference), 'preparation_id': prepared['preparation_id']})

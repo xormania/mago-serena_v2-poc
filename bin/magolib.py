@@ -2,6 +2,7 @@
 import hashlib
 import json
 from pathlib import Path
+import re
 import shutil
 import subprocess
 import sys
@@ -148,6 +149,151 @@ def run_native(data, argv, *, directory=None, echo=False):
 
 def invoke(data, argv):
     return run_native(data, argv, echo=True)['exit']
+
+
+def selected_symbols(symbols):
+    symbols = list(symbols) if symbols else [r'App\Form\Type\TagsInputType', r'App\Repository\TagRepository']
+    if (not 1 <= len(symbols) <= 8 or len(set(symbols)) != len(symbols)
+            or any(not isinstance(name, str) or len(name) > 200
+                   or not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*(?:\\[A-Za-z_][A-Za-z0-9_]*)*', name)
+                   for name in symbols)):
+        raise ValueError('Supply one to eight distinct fully qualified class names with --symbol')
+    return symbols
+
+
+def enriched_identity(data):
+    """Require the executable, installed SDK, extension and configs to agree."""
+    app = Path(data['app'])
+    for name in ('extensions.php', 'wiring.toml'):
+        target = app/'.mago'/name
+        assert target.is_file() and not target.is_symlink() and sha(target) == sha(ROOT/'fixtures/mago'/name), \
+            'Enriched configuration differs from the declared fixture: '+name
+    assert (app/CONFIG).is_file(), 'Native Mago configuration unprepared'
+    identity = prepare_mago(data)
+    installed = json.loads((app/'vendor/composer/installed.json').read_text())
+    packages = {p['name']: p for p in installed['packages']}
+    expected = {'carthage-software/mago': MAGO_REV,
+                'byte-kitsune/mago-symfony-wiring': '28c3f54065b71fe046a7474ced401aeadc941b0f'}
+    for name, revision in expected.items():
+        package = packages.get(name, {})
+        assert package.get('source', {}).get('reference') == revision, 'Installed '+name+' source does not match the pinned toolchain'
+    return {**identity, 'config': '/app/.mago/wiring.toml',
+            'config_sha256': sha(app/'.mago/wiring.toml'),
+            'extension_config_sha256': sha(app/'.mago/extensions.php'),
+            'sdk_source': expected['carthage-software/mago'],
+            'extension_source': expected['byte-kitsune/mago-symfony-wiring'],
+            'backend': 'php'}
+
+
+def run_enriched(data, argv, *, symbols=(), directory=None, echo=False, wiring_enabled=True):
+    """Run the real Mago extension host against explicitly prepared Symfony facts.
+
+    JSON evidence distinguishes application findings from preparation/tool failure;
+    stdout and stderr retain the native bytes and a completed process keeps its
+    native exit. A preflight rejection never masquerades as a clean analysis.
+    """
+    from matelib import fresh
+    from evidence import digest
+
+    if not argv or argv[0] != 'analyze':
+        raise ValueError('The Symfony profile accepts analyze; use the native profile for other commands')
+    forbidden = {'--workspace', '--config', '--php-version'}
+    if any(arg.split('=', 1)[0] in forbidden for arg in argv):
+        raise ValueError('Workspace/config/PHP target are selected by the run')
+    validate_write_scope(data, argv)
+    symbols = selected_symbols(symbols)
+    directory = Path(directory) if directory else Path(data['evidence'])/'mago/enriched'/uuid.uuid4().hex
+    directory.mkdir(parents=True, exist_ok=False)
+    row = {'schema': 1, 'kind': 'symfony_enriched_mago_analysis', 'run_id': data['run_id'],
+           'host_workspace': data['app'], 'requested_argv': argv, 'symbols': symbols,
+           'wiring_enabled': wiring_enabled, 'exit': 3, 'native_exit': None,
+           'status': 'stale_preparation', 'preparation_id': None,
+           'evidence': str(directory), 'observation': str(directory/'graph.json')}
+    stdout, stderr = b'', b''
+    started = time.monotonic()
+    try:
+        try:
+            prepared = fresh(data)
+            identity = enriched_identity(data)
+        except (AssertionError, OSError, ValueError, KeyError) as exc:
+            row['reason'] = str(exc)+'; refresh with ./bin/poc mate-prepare --run '+data['run_id']
+            stderr = ('mago-enriched: '+row['reason']+'\n').encode()
+            return row
+        row.update(preparation_id=prepared['preparation_id'],
+                   preparation_sha256=sha(Path(data['trusted'])/'mate-preparation.json'),
+                   application_sha256=prepared['application_sha256'],
+                   source_context_sha256=digest({'preparation': prepared, 'tool': identity}),
+                   compiled_metadata=prepared['metadata'],
+                   wiring_reference_sha256=prepared['wiring_reference_sha256'], tool=identity,
+                   source_sha256={str(p.relative_to(Path(data['app']))): sha(p)
+                                  for base in ('src', 'tests') for p in sorted((Path(data['app'])/base).rglob('*.php'))})
+        observation = '/evidence/'+str((directory/'graph.json').relative_to(Path(data['evidence'])))
+        command = compose(data, 'exec', '-T', '-w', '/app', 'php', 'env', 'MAGO_LOG=trace',
+                          'POC_WIRING='+('1' if wiring_enabled else '0'),
+                          'POC_WIRING_SYMBOLS='+json.dumps(symbols),
+                          'POC_WIRING_OBSERVATION='+observation,
+                          'mago', '--workspace', '/app', '--config', identity['config'],
+                          '--php-version', '8.5', '--threads', '1', '--colors', 'never', *argv)
+        row['argv'] = command
+        process = subprocess.run(command, env=environment(data), capture_output=True)
+        stdout, stderr = process.stdout, process.stderr
+        row.update(exit=process.returncode, native_exit=process.returncode, status='tool_failure')
+        # The observer is an after-analysis hook. Its graph demonstrates worker
+        # execution even for native text/SARIF reports; JSON attestation is also
+        # retained when requested. Do not reinterpret a worker crash as findings.
+        path = directory/'graph.json'
+        if process.returncode in (0, 1) and path.is_file() and not path.is_symlink():
+            graph = json.loads(path.read_text())
+            assert graph['observer'] == 'poc/wiring-observer' and graph['wiring_enabled'] is wiring_enabled
+            assert set(graph['symbols']) == set(symbols), 'Observer returned different selected symbols'
+            actual = {f['path'] for f in graph['files']}
+            assert actual == set(row['source_sha256']), 'Enriched source/test coverage differs from the application'
+            # The default JSON interface also exposes the wiring package's own
+            # completion attestation, separate from this graph-only observer.
+            if '--reporting-format=json' in argv or any(
+                    arg == '--reporting-format' and argv[index+1:index+2] == ['json']
+                    for index, arg in enumerate(argv)):
+                report = json.loads(stdout)
+                attestations = [issue for issue in report['issues']
+                                if issue['code'] == 'byte-kitsune/symfony-wiring/analysis-attestation']
+                assert len(attestations) == int(wiring_enabled), 'Wiring completion attestation differs'
+                if wiring_enabled:
+                    note = next((note for note in attestations[0]['notes']
+                                 if note.startswith('extension-attestation: ')), '')
+                    attestation = json.loads(note.removeprefix('extension-attestation: '))
+                    assert attestation['complete'] is True and attestation['source_files'] == len(actual)
+                    row['extension_attestation'] = attestation
+            row['status'] = 'findings' if process.returncode else 'clean'
+            row['analyzed_files'] = len(actual)
+        else:
+            row['reason'] = 'Mago did not complete its after-analysis observer; inspect native stderr'
+        return row
+    except (AssertionError, OSError, ValueError, KeyError) as exc:
+        row.update(status='tool_failure', reason=str(exc))
+        if row['native_exit'] is None:
+            stderr += ('mago-enriched: '+str(exc)+'\n').encode()
+        return row
+    finally:
+        if row['status'] == 'tool_failure':
+            # Preserve the raw native status separately. A successful native
+            # process without its required extension evidence is a wrapper
+            # failure, never shell success or an ordinary findings result.
+            if row['exit'] in (0, 1):
+                row['exit'] = 3
+            stderr += ('mago-enriched: '+row.get('reason', 'Enriched analysis failed')
+                       +' (native exit '+str(row['native_exit'])+')\n').encode()
+        (directory/'stdout').write_bytes(stdout)
+        (directory/'stderr').write_bytes(stderr)
+        row['elapsed_s'] = round(time.monotonic()-started, 6)
+        write_json(directory/'invocation.json', row)
+        if echo:
+            sys.stdout.buffer.write(stdout)
+            sys.stderr.buffer.write(stderr)
+            print('Enriched evidence: '+str(directory), file=sys.stderr)
+
+
+def invoke_enriched(data, argv, **kwargs):
+    return run_enriched(data, argv, echo=True, **kwargs)['exit']
 
 
 def quality(data):

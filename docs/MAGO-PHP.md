@@ -12,6 +12,10 @@ PHPStan baseline or legacy formatter configuration was rewritten.
 ./bin/poc up --run understand --no-build
 ./bin/poc quality --run understand
 ./bin/poc mago --run understand -- analyze --reporting-format json
+# Explicitly refresh Symfony facts before the optional enriched profile:
+./bin/poc mate-prepare --run understand
+./bin/poc mago-enriched --run understand \
+  --symbol='App\Repository\TagRepository' -- analyze --reporting-format json
 ./bin/poc mago --run understand -- lint --reporting-format json
 ./bin/poc mago --run understand -- format --check src/Form/Type/TagsInputType.php
 ./bin/poc mago --run understand -- format src/Form/Type/TagsInputType.php
@@ -24,6 +28,9 @@ PHPStan baseline or legacy formatter configuration was rewritten.
 findings and therefore returns **1**. This is distinct from passing calibration
 controls. Raw JSON/stdout, stderr, exact invocation, binary/config/Composer/source
 hashes, duration and native exit survive under `artifacts/<run>/mago/`.
+The [public enriched profile](SYMFONY-WIRING.md#commands-and-freshness) uses the
+same source/test/dependency scope with fresh compiled Symfony facts, retained
+native graph observations and separately classified preparation/tool failures.
 The launcher accepts an explicit run, works from another directory, and refuses
 workspace/config/PHP-target overrides. Formatting and analyzer/linter `--fix`
 require explicit existing workspace-relative PHP files. Mixed directory targets,
