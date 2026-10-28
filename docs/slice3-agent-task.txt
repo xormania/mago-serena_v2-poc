@@ -6,17 +6,17 @@ application file is the declared BlogTagFilterTest.php regression.
 
 Select a unique image in every invocation, build it once, and verify the resolved
 Compose image plus actual image ID before acceptance:
-  export POC_IMAGE=mago-serena-poc:s3-runtime-YOUR-ID
+  export POC_IMAGE=mago-serena-poc:s3-runtime-your-id
   docker buildx build --load -t "$POC_IMAGE" .
   uv sync --frozen --python 3.12.12
-  ./bin/poc up --run s3-YOUR-ID --no-build
-  ./bin/poc mate-prepare --run s3-YOUR-ID
+  ./bin/poc up --run s3-your-id --no-build
+  ./bin/poc mate-prepare --run s3-your-id
 
 Retain complete application/source/test inventories and full candidate-overlay
 Mago analyze/lint bodies before fault injection. Record a healthy request for
 /en/blog/?tag=lorem with its own unique s3_marker query. Use the real public
 container interface:
-  ./bin/poc exec --run s3-YOUR-ID -- curl -sS -D /evidence/control.headers \
+  ./bin/poc exec --run s3-your-id -- curl -sS -D /evidence/control.headers \
     -o /evidence/control.html 'http://127.0.0.1:8000/en/blog/?tag=lorem&s3_marker=UNIQUE'
 
 Inject only the declared name->label lookup defect in the owned controller.
@@ -26,21 +26,21 @@ latest profile. Preserve the failed profile/logs before explicit cache refresh.
 Read installed tool schemas and discovery instructions before choosing options.
 Runtime reads use recorded observations; they do not establish current compiled
 facts. Use the wrapper from any caller directory:
-  ./bin/mate --run s3-YOUR-ID -- tools:list --format=json
-  ./bin/mate --run s3-YOUR-ID -- tools:call symfony-profiler-list \
+  ./bin/mate --run s3-your-id -- tools:list --format=json
+  ./bin/mate --run s3-your-id -- tools:call symfony-profiler-list \
     --context=inspection-dev --url=UNIQUE --limit=5 --format=json
-  ./bin/mate --run s3-YOUR-ID -- tools:call symfony-profiler-get --token=TOKEN --format=json
-  ./bin/mate --run s3-YOUR-ID -- resources:read \
+  ./bin/mate --run s3-your-id -- tools:call symfony-profiler-get --token=TOKEN --format=json
+  ./bin/mate --run s3-your-id -- resources:read \
     symfony-profiler://profile/TOKEN/exception --format=json
-  ./bin/mate --run s3-YOUR-ID -- tools:call monolog-search --term=UNIQUE \
+  ./bin/mate --run s3-your-id -- tools:call monolog-search --term=UNIQUE \
     --environment=dev --kernelContext=inspection-dev --limit=20 --format=json
-  ./bin/mate --run s3-YOUR-ID -- tools:call monolog-search --term='Unrecognized field' \
+  ./bin/mate --run s3-your-id -- tools:call monolog-search --term='Unrecognized field' \
     --environment=dev --kernelContext=inspection-dev --limit=20 --format=json
 
 Explicitly prepare compiled metadata only after archiving failed observations.
 Inspect relevant service binding with symfony-service-detail --context=inspection-dev.
 Use server-info to distinguish the Mate process from the application runtime.
-Connect the actual agent's host MCP client to bin/serena-mcp --run s3-YOUR-ID.
+Connect the actual agent's host MCP client to bin/serena-mcp --run s3-your-id.
 Use the real Serena REPL -> Mago route to inspect BlogController/index,
 TagRepository, Doctrine findOneBy and Tag field declarations. Retrieve the symbol
 body before editing; use s.edit.replace_symbol_body for the source repair.

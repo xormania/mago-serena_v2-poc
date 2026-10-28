@@ -281,7 +281,7 @@ def compiled_reference(data, evidence):
 def install_runtime_instructions(owner, instructions):
     """Replace only our managed block; owner-written text remains byte-for-byte."""
     owner = Path(owner)
-    existing = owner.read_text() if owner.exists() else ''
+    existing = owner.read_bytes().decode('utf-8') if owner.exists() else ''
     begin, end = '<!-- POC RUNTIME BEGIN -->', '<!-- POC RUNTIME END -->'
     block = begin+'\n'+instructions.rstrip('\n')+'\n'+end
     if begin in existing:
@@ -293,7 +293,7 @@ def install_runtime_instructions(owner, instructions):
         assert end not in existing, 'Incomplete owner runtime instruction block preserved'
         separator = '' if not existing else '\n' if existing.endswith('\n') else '\n\n'
         content = existing+separator+block+'\n'
-    owner.write_text(content)
+    owner.write_bytes(content.encode('utf-8'))
 
 
 def prepare_mate(data):

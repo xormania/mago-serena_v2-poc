@@ -135,20 +135,20 @@ profile and logs were preserved before any intentional refresh.
 ## Reproduction and replay
 
 ```sh
-export POC_IMAGE=mago-serena-poc:s3-runtime-YOUR-ID
+export POC_IMAGE=mago-serena-poc:s3-runtime-your-id
 uv sync --frozen --python 3.12.12
 docker buildx build --load -t "$POC_IMAGE" .
 ./bin/poc fast
 ./bin/poc test
-./bin/poc slice1 --run s3-service-YOUR-ID
-./bin/poc slice2 --run s3-command-YOUR-ID
-./bin/poc slice3 --run s3-request-YOUR-ID --keep-running
+./bin/poc slice1 --run s3-service-your-id
+./bin/poc slice2 --run s3-command-your-id
+./bin/poc slice3 --run s3-request-your-id --keep-running
 # Explicit source-dependent refresh, only after preserving failed observations:
-./bin/poc mate-prepare --run s3-request-YOUR-ID
-./bin/poc mago-enriched --run s3-request-YOUR-ID \
+./bin/poc mate-prepare --run s3-request-your-id
+./bin/poc mago-enriched --run s3-request-your-id \
   --symbol 'App\Repository\TagRepository' -- analyze --reporting-format json
 # Existing findings deliberately retain native exit 1.
-./bin/poc down --run s3-request-YOUR-ID --purge
+./bin/poc down --run s3-request-your-id --purge
 ```
 
 Every new run records the resolved Compose image and verifies the actual image ID
