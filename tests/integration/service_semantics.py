@@ -105,6 +105,12 @@ assert attestation and (out/'cli-observation.json').is_file(), (cli.returncode, 
 assert (out/'cli-worker-starts.txt').is_file(), 'CLI did not launch the instrumented worker'
 os.environ.update({**environment,'POC_WORKER_LAUNCH':str(out/'lsp-worker-starts.txt'),
     'POC_WIRING_OBSERVATION':str(out/'lsp-observation.json')})
+# Per-folder configuration takes precedence over launch options in this server.
+# Select the same instrumented configuration explicitly at the workspace root.
+workspace_config = root/'mago.toml'
+workspace_original = workspace_config.read_bytes()
+workspace_config.write_text('extends = '+json.dumps(str(probe_config))+'\n')
+(out/'workspace-config.toml').write_bytes(workspace_config.read_bytes())
 client = LspClient(['mago','--workspace','/app','--config',str(probe_config),'language-server'],root,out/'lsp')
 try:
     identity = client.initialize()
@@ -120,6 +126,7 @@ try:
                    for r in graph['references']), graph
 finally:
     client.close()
+    workspace_config.write_bytes(workspace_original)
 answer = {'status':'pass' if candidate else 'blocked','classification':'native graph propagation' if candidate else 'server propagation',
     'reason':('Candidate initializes native external hosts and exposes their real graph through mago/symbolReferences.' if candidate else 'Pinned LSP creates the native plugin registry without initializing configured external analyzer hosts.'),
     'config':str(config),'config_sha256':hashlib.sha256(config.read_bytes()).hexdigest(),
