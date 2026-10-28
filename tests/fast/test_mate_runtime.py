@@ -114,6 +114,21 @@ class RuntimeCommandTests(unittest.TestCase):
                 with self.assertRaisesRegex(AssertionError, 'budget'):
                     matelib.runtime_files(data, ['var/log'])
 
+    def test_runtime_instruction_refresh_preserves_owner_text_outside_its_block(self):
+        with tempfile.TemporaryDirectory() as directory:
+            owner = Path(directory)/'AGENTS.md'
+            original = 'Owner instructions with significant trailing spaces  \n\tIndented instruction.\n\n'
+            owner.write_text(original)
+            matelib.install_runtime_instructions(owner, 'First managed instructions')
+            first = owner.read_text()
+            self.assertTrue(first.startswith(original))
+            owner.write_text(first+'\nAfter-block owner instructions  \n')
+            before, rest = owner.read_text().split('<!-- POC RUNTIME BEGIN -->', 1)
+            _, after = rest.split('<!-- POC RUNTIME END -->', 1)
+            matelib.install_runtime_instructions(owner, 'Refreshed managed instructions')
+            expected = before+'<!-- POC RUNTIME BEGIN -->\nRefreshed managed instructions\n<!-- POC RUNTIME END -->'+after
+            self.assertEqual(owner.read_text(), expected)
+
     def test_explicit_refresh_archives_original_observation_bytes(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

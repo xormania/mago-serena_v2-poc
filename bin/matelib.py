@@ -278,6 +278,24 @@ def compiled_reference(data, evidence):
     return target
 
 
+def install_runtime_instructions(owner, instructions):
+    """Replace only our managed block; owner-written text remains byte-for-byte."""
+    owner = Path(owner)
+    existing = owner.read_text() if owner.exists() else ''
+    begin, end = '<!-- POC RUNTIME BEGIN -->', '<!-- POC RUNTIME END -->'
+    block = begin+'\n'+instructions.rstrip('\n')+'\n'+end
+    if begin in existing:
+        before, rest = existing.split(begin, 1)
+        assert end in rest, 'Incomplete owner runtime instruction block preserved'
+        _, after = rest.split(end, 1)
+        content = before+block+after
+    else:
+        assert end not in existing, 'Incomplete owner runtime instruction block preserved'
+        separator = '' if not existing else '\n' if existing.endswith('\n') else '\n\n'
+        content = existing+separator+block+'\n'
+    owner.write_text(content)
+
+
 def prepare_mate(data):
     data = selected(data['run_id'])
     app = Path(data['app'])
@@ -307,15 +325,7 @@ def prepare_mate(data):
     else:
         assert config.read_text() == content, 'Existing mate/config.php needs the declared invocation/context; it was preserved'
     instructions = (overlay/'runtime-instructions.md.in').read_text().replace('__POC_INVOCATION__', invocation(data))
-    owner = app/'AGENTS.md'
-    existing = owner.read_text() if owner.exists() else ''
-    begin, end = '<!-- POC RUNTIME BEGIN -->', '<!-- POC RUNTIME END -->'
-    if begin in existing:
-        before, rest = existing.split(begin, 1)
-        assert end in rest, 'Incomplete owner runtime instruction block preserved'
-        _, after = rest.split(end, 1)
-        existing = before.rstrip()+'\n'+after.lstrip()
-    owner.write_text(existing.rstrip()+'\n\n'+begin+'\n'+instructions+'\n'+end+'\n')
+    install_runtime_instructions(app/'AGENTS.md', instructions)
     preserve_runtime(data, evidence)
     container = subprocess.check_output(compose(data, 'ps', '-q', 'php'), env=environment(data), text=True).strip()
     write_json(Path(data['trusted'])/'mate-runtime.json', {'run_id': data['run_id'], 'workspace': data['app'],
