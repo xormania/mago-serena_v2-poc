@@ -17,17 +17,19 @@ final class BlogTagFilterTest extends WebTestCase
     public function testKnownTagFilter(): void
     {
         $client = static::createClient();
-        $post = static::getContainer()->get(PostRepository::class)->findOneBy([]);
-        self::assertInstanceOf(Post::class, $post);
+        $repository = static::getContainer()->get(PostRepository::class);
+        static::assertInstanceOf(PostRepository::class, $repository);
+        $post = $repository->findOneBy([]);
+        static::assertInstanceOf(Post::class, $post);
         $tag = $post->getTags()->first();
-        self::assertInstanceOf(Tag::class, $tag);
+        static::assertInstanceOf(Tag::class, $tag);
 
         $crawler = $client->request('GET', '/en/blog/', ['tag' => $tag->getName()]);
-        self::assertResponseIsSuccessful();
+        static::assertResponseIsSuccessful();
         $articles = $crawler->filter('article.post');
-        self::assertGreaterThan(0, $articles->count());
+        static::assertGreaterThan(0, $articles->count());
         $articles->each(static function (Crawler $article) use ($tag): void {
-            self::assertSame($tag->getName(), $article->filter('.post-tags .badge-success')->text());
+            static::assertSame($tag->getName(), $article->filter('.post-tags .badge-success')->text());
         });
     }
 }

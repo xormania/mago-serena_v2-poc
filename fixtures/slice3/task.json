@@ -13,7 +13,7 @@
   "files": {
     "tests/Controller/BlogTagFilterTest.php": {
       "asset": "BlogTagFilterTest.php",
-      "sha256": "01abae02950b3557cbd42f42dc4e40c1b95d19621b553618580c0f825b28765a"
+      "sha256": "750d70d0c0df3d845e6320af8a4539cf28202380229ad6c4f52b6c157f64faa5"
     }
   },
   "origin": "Fresh adaptive agent restores the existing controller through Serena REPL -> Mago semantic edit. The only final application delta is the declared regression test; replay is separately identified."
