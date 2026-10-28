@@ -1,0 +1,9 @@
+HTTP/1.1 500 Internal Server Error
+Host: 127.0.0.1:8000
+Date: Wed, 28 Oct 2026 22:49:48 GMT
+Connection: close
+X-Powered-By: PHP/8.5.12
+Content-Type: text/html; charset=UTF-8
+X-Debug-Exception: Invalid%20service%20%22s3.invalid_service%22%3A%20class%20%22App%5CSlice3MissingService%22%20does%20not%20exist.
+X-Debug-Exception-File: %2Fapp%2Fvendor%2Fsymfony%2Fdependency-injection%2FCompiler%2FDefinitionErrorExceptionPass.php:48
+

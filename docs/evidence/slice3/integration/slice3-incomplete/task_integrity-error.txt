@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/scientdb/worktrees/mago-serena_v2-poc/slice3-runtime-20261028a/bin/slice3lib.py", line 64, in record
+    detail = function()
+             ^^^^^^^^^^
+  File "/home/scientdb/worktrees/mago-serena_v2-poc/slice3-runtime-20261028a/bin/slice3lib.py", line 381, in integrity
+    agent = validate_agent_evidence(ROOT, task)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scientdb/worktrees/mago-serena_v2-poc/slice3-runtime-20261028a/tests/integration/slice3_contract.py", line 116, in validate_agent_evidence
+    assert index_path.is_file() and not index_path.is_symlink() and index_path.stat().st_size <= 100_000, 'Fresh-agent evidence index absent or unbounded'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Fresh-agent evidence index absent or unbounded

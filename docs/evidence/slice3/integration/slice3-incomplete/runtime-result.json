@@ -1,0 +1,52 @@
+{
+  "observations": {
+    "healthy": {
+      "status": 200,
+      "token": "cedaf7",
+      "marker": "s3-healthy-deb34bd8b3a6494b",
+      "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_request=s3-healthy-deb34bd8b3a6494b",
+      "provenance": "X-Debug-Token header from this exact HTTP response",
+      "observed_unix": 1793227665.689624,
+      "body_sha256": "30af8da3bd3fe54a12d05281b9383c99e842b5b51169a5578810fa86ba5ee461",
+      "response_attempt": 1,
+      "log_window": {
+        "path": "/home/scientdb/worktrees/mago-serena_v2-poc/slice3-runtime-20261028a/artifacts/s3-replay-20261028a/slice3/attempt-7095d170474544feac934b6fb2d52ffb/healthy-log-window.txt",
+        "start": 484789,
+        "end": 491814,
+        "sha256": "97d1ca9ea36b73fa6aeb403723b882c341d343c2849534401304c867e7d0e4f5"
+      }
+    },
+    "defective": {
+      "status": 500,
+      "token": "ae9002",
+      "marker": "s3-defective-7afd396fb0af4061",
+      "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_request=s3-defective-7afd396fb0af4061",
+      "provenance": "X-Debug-Token header from this exact HTTP response",
+      "observed_unix": 1793227668.1946414,
+      "body_sha256": "51c2057cc84db966519b7aa529142346017e9085be015ca7193e008662ce4a97",
+      "response_attempt": 2,
+      "log_window": {
+        "path": "/home/scientdb/worktrees/mago-serena_v2-poc/slice3-runtime-20261028a/artifacts/s3-replay-20261028a/slice3/attempt-7095d170474544feac934b6fb2d52ffb/defective-log-window.txt",
+        "start": 504621,
+        "end": 506408,
+        "sha256": "a8d03bfeab2797c42a24f93a9d3d4effc7ad8090b1ece070a9265dce060d5e50"
+      }
+    },
+    "repaired": {
+      "status": 200,
+      "token": "c4dc7c",
+      "marker": "s3-repaired-c052608bef364da8",
+      "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_request=s3-repaired-c052608bef364da8",
+      "provenance": "X-Debug-Token header from this exact HTTP response",
+      "observed_unix": 1793227700.2324939,
+      "body_sha256": "2dd70d48a4fb178f2f3b7e5a95715ed66b0c34687e81dc188450c88e41264b54",
+      "response_attempt": 1,
+      "log_window": {
+        "path": "/home/scientdb/worktrees/mago-serena_v2-poc/slice3-runtime-20261028a/artifacts/s3-replay-20261028a/slice3/attempt-7095d170474544feac934b6fb2d52ffb/repaired-log-window.txt",
+        "start": 555714,
+        "end": 562740,
+        "sha256": "cd1a5062bf1583e013b0457f9409ac6d7d50c8636e0b6cf41b47241f33157230"
+      }
+    }
+  }
+}

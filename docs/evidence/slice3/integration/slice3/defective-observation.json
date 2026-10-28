@@ -1,0 +1,16 @@
+{
+  "status": 500,
+  "token": "590e6e",
+  "marker": "s3-defective-59eb0d7487744aa1",
+  "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_request=s3-defective-59eb0d7487744aa1",
+  "provenance": "X-Debug-Token header from this exact HTTP response",
+  "observed_unix": 1793227779.3654594,
+  "body_sha256": "1ddcdcb369a767b2591b33d4bc37a00edae863c7bd4b01f1323e831f245769d6",
+  "response_attempt": 2,
+  "log_window": {
+    "path": "/home/scientdb/worktrees/mago-serena_v2-poc/slice3-runtime-20261028a/artifacts/s3-replay-20261028b/slice3/attempt-855820828f394f3a8a69cd2084677574/defective-log-window.txt",
+    "start": 488247,
+    "end": 490034,
+    "sha256": "edfe41e031e4e8af4be0d42a19ba8ab0d75cec10ebbd52336f6913aba1f4bfc4"
+  }
+}

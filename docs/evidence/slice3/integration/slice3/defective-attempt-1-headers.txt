@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Host: 127.0.0.1:8000
+Connection: close
+X-Powered-By: PHP/8.5.12
+Cache-Control: max-age=0, must-revalidate, private, s-maxage=10
+Date: Wed, 28 Oct 2026 22:49:38 GMT
+Content-Type: text/html; charset=UTF-8
+X-Robots-Tag: noindex
+Expires: Wed, 28 Oct 2026 22:49:38 GMT
+X-Debug-Token: a4888c
+X-Debug-Token-Link: http://127.0.0.1:8000/_profiler/a4888c
+Set-Cookie: main_deauth_profile_token=a4888c; path=/; httponly; samesite=lax
+Set-Cookie: main_auth_profile_token=deleted; expires=Tue, 28 Oct 2025 22:49:37 GMT; Max-Age=0; path=/; httponly
+

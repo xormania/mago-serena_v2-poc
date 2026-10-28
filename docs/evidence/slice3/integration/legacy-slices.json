@@ -1,0 +1,46 @@
+{
+  "status": "pass",
+  "results": [
+    {
+      "slice": "slice1",
+      "status": "pass",
+      "source_context_sha256": "80641b6b3d8729f56d459b2b6c8499ad2948d215de1b61625802618d36b01526",
+      "result": "artifacts/s3-slice1-20261028a/slice1-result.json",
+      "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/slice3-runtime-20261028a/artifacts/s3-slice1-20261028a/slice1/attempt-47d34108e2504f3098654ce9469fe26f",
+      "stages": {
+        "fixture_integrity": "pass",
+        "executed_identity": "pass",
+        "mago_configuration": "pass",
+        "framework_preparation": "pass",
+        "mago_php": "pass",
+        "service_semantics": "pass",
+        "symfony_wiring": "pass",
+        "behavior": "pass",
+        "cleanup": "pass"
+      },
+      "workspace_removed": true
+    },
+    {
+      "slice": "slice2",
+      "status": "pass",
+      "source_context_sha256": "38530cb5ba0e1fee944bd3a0d51b2d11dee843b5506559932140fb938e679aef",
+      "result": "artifacts/s3-slice2-20261028a/slice2-result.json",
+      "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/slice3-runtime-20261028a/artifacts/s3-slice2-20261028a/slice2/attempt-ad92e3eb3d664e40a21978d1e7326913",
+      "stages": {
+        "fixture_integrity": "pass",
+        "executed_identity": "pass",
+        "prepared_baseline": "pass",
+        "maker_generation": "pass",
+        "declared_task": "pass",
+        "native_mago": "pass",
+        "semantic_replay": "pass",
+        "enriched_framework": "pass",
+        "behavior": "pass",
+        "defective_restored_control": "pass",
+        "task_integrity": "pass",
+        "cleanup": "pass"
+      },
+      "workspace_removed": true
+    }
+  ]
+}

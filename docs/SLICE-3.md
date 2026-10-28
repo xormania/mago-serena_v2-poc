@@ -6,6 +6,16 @@ Mago still require explicit, fresh preparation. The actual coding session used
 those runtime observations and Serena REPL → Mago source queries to repair one
 real Symfony Demo request; deterministic acceptance is a separate replay.
 
+The [local exact-image validation](evidence/slice3/integration/validation.json)
+passes: **165 fast tests**, **31 original acceptance checks**, **9 slice-1**,
+**12 slice-2** and **14 slice-3 stages**. The
+[artifact manifest](evidence/slice3/integration/manifest.json) retains selected
+reports, identities and complete task manifests. Slice 3's final task delta is
+exactly its new regression test. Its replay suite discovers 54 tests / 135
+assertions, including the unchanged original 53 / 120 and new 1 / 15. The first
+13/14 attempt is also retained: its only failure was the then-absent adaptive
+evidence index; a fresh run after the index was ready passed all stages.
+
 The declared [task contract](../fixtures/slice3/task.json) changes the tag lookup
 in `BlogController::index` from the mapped `name` field to invalid `label` in an
 owned disposable app. `/en/blog/?tag=lorem` then fails with a real Doctrine
@@ -82,6 +92,8 @@ records preserve its full image ID. Independent acceptance uses rebuilt final
 candidate image `ff82c2…`. Initial/final manifests explicitly record the narrow
 setup reconciliation of managed runtime instructions and lock JSON normalization
 separately from the new test. Neither CLI result claims enriched LSP propagation.
+The candidate has 9,871 vendor PHP files: baseline native analysis compiled 9,917
+source files for 46 hosts; the new test raises those totals to 9,918 and 47.
 
 ## Runtime policy and dependency
 

@@ -1,0 +1,10 @@
+[
+  {
+    "attempt": 1,
+    "status": 200,
+    "marker": "s3-repaired-8aba156e82414a1a",
+    "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_request=s3-repaired-8aba156e82414a1a",
+    "headers": "repaired-attempt-1-headers.txt",
+    "body": "repaired-attempt-1-body.html"
+  }
+]

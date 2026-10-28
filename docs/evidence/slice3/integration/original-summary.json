@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "kind": "original_acceptance_exact_session_image",
+  "status": "pass",
+  "exit": 0,
+  "run_id": "test-20261028-224713-1f8f77",
+  "checks_passed": 31,
+  "checks_total": 31,
+  "image": {
+    "container_id": "9b939a5caba8e7dcbe066f81e864b8619a1df566670528ffca8eb5ccdd82ebfd",
+    "image_id": "sha256:ff82c2ee2de6eedba1d5e93a6d62652a788998de0a22afec3bce802102eb40ec",
+    "repo_digests": [],
+    "created": "2026-10-28T22:46:22.371173371Z",
+    "architecture": "amd64",
+    "installed_files_checked": 70
+  },
+  "source_revision": "d4a8782e0ab5b5f0306ffa35a178ab60e64faa20",
+  "source_dirty": true,
+  "fast": {
+    "schema": 1,
+    "kind": "deterministic_fast_tests",
+    "tests": 165,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "elapsed_s": 1.727,
+    "pass": true
+  },
+  "original_suites": {
+    "phpunit_a": {
+      "tests": 53,
+      "assertions": 120,
+      "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+    },
+    "phpunit_b": {
+      "tests": 53,
+      "assertions": 120,
+      "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+    }
+  },
+  "expected_negative": {
+    "run_id": "test-20261028-224713-1f8f77",
+    "attempt_id": "1",
+    "context_sha256": "408f0ef5472bbd4a701abbd601cc0b70484a097b1ab8886dcc327210e96bd5af",
+    "name": "mago_external_span_control",
+    "status": "pass",
+    "assertion": "EXPECTED NEGATIVE: pinned Mago returns stale external-edit declaration span and refuses rename; fresh-process healthy control returns correct span and rename",
+    "elapsed_s": 0.126,
+    "evidence": "/evidence"
+  },
+  "results_sha256": "b9666ed1dcca8363b10b6d9d78457872fb5459b16a3ded2381046eda4a24631e",
+  "results": "/home/scientdb/worktrees/mago-serena_v2-poc/slice3-runtime-20261028a/artifacts/test-20261028-224713-1f8f77/results.json",
+  "evidence_manifest_sha256": "7e664bc6010810e875a467e1b8a1f59d78443a853c3eb6b76e0e138eb8df4894",
+  "cleanup": {
+    "run_id": "test-20261028-224713-1f8f77",
+    "attempt_id": "1",
+    "context_sha256": "408f0ef5472bbd4a701abbd601cc0b70484a097b1ab8886dcc327210e96bd5af",
+    "name": "cleanup",
+    "status": "pass",
+    "assertion": "Both owned Compose projects stopped; evidence and trusted baselines retained",
+    "elapsed_s": 0.893
+  },
+  "disposable_workspaces_removed": {
+    "test-20261028-224713-1f8f77": true,
+    "test-20261028-224713-1f8f77-b": true
+  }
+}

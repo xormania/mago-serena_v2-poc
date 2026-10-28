@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "kind": "deterministic_fast_tests",
+  "tests": 165,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "elapsed_s": 1.43,
+  "pass": true
+}
