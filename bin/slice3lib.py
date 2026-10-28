@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import re
 import shutil
+import sqlite3
 import subprocess
 import time
 import traceback
@@ -96,7 +97,7 @@ def run_slice(run_id=None, *, keep_running=False, capture_identity):
         assert row['exit'] in exits, name+': native tool failure '+str(row['exit'])
         return row
 
-    def request(name, expected, *, profiled=True):
+    def request(name, expected, *, profiled=True, body_needle=None):
         # PHP/Symfony may retain a just-changed source timestamp briefly. Keep
         # every real response, then select only an observed expected response.
         attempts = []
@@ -114,7 +115,7 @@ def run_slice(run_id=None, *, keep_running=False, capture_identity):
             attempts.append({'attempt': number, 'status': status, 'marker': marker, 'url': url,
                              'headers': prefix+'-headers.txt', 'body': prefix+'-body.html'})
             write_json(directory/(name+'-http-attempts.json'), attempts)
-            if status != expected:
+            if status != expected or (body_needle and body_needle not in (directory/(prefix+'-body.html')).read_bytes()):
                 time.sleep(1)
                 continue
             if profiled:
@@ -185,6 +186,12 @@ def run_slice(run_id=None, *, keep_running=False, capture_identity):
         state['before_analysis'] = issues(native('before-analyze', ['analyze', '--reporting-format', 'json']))
         state['before_lint'] = issues(native('before-lint', ['lint', '--reporting-format', 'json']))
         state['controller'] = (app/CONTROLLER).read_bytes()
+        # Fixture tag associations are randomized. Independently count matching
+        # persisted rows, allowing the legitimate empty filtered-page case.
+        with sqlite3.connect('file:'+str(app/'data/database.sqlite')+'?mode=ro', uri=True) as connection:
+            state['expected_posts'] = min(10, connection.execute(
+                "SELECT COUNT(DISTINCT p.id) FROM symfony_demo_post p JOIN symfony_demo_post_tag pt ON p.id=pt.post_id "
+                "JOIN symfony_demo_tag t ON t.id=pt.tag_id WHERE t.name='lorem' AND p.published_at <= datetime('now')").fetchone()[0])
         schemas = mate('mate-tools', ['tools:list', '--format=json'])
         names = json.loads(schemas.stdout)['tools']
         assert {'symfony-profiler-list', 'symfony-profiler-get', 'symfony-service-detail', 'monolog-search'} <= names.keys(), 'Runtime tools were not discovered'
@@ -196,7 +203,7 @@ def run_slice(run_id=None, *, keep_running=False, capture_identity):
     def healthy():
         row = request('healthy', 200)
         value = profile('healthy', row)
-        assert b'<article class="post">' in (directory/'healthy-body.html').read_bytes(), 'Healthy filter has no real posts'
+        assert (directory/'healthy-body.html').read_bytes().count(b'<article class="post">') == state['expected_posts'], 'Healthy page disagrees with persisted tag associations'
         return {'status': 'pass', 'observation': row, 'profile_time': value['time'], 'preserved': archive('healthy', row)}
 
     def defect():
@@ -257,7 +264,7 @@ def run_slice(run_id=None, *, keep_running=False, capture_identity):
             compile_result = retained('unbootable-compile', ['env', 'APP_ENV=dev', 'APP_DEBUG=1', 'php', 'bin/console',
                                       'cache:warmup', '--env=dev', '--no-interaction'], exits=(1, 255))
             assert b'Slice3MissingService' in compile_result.stdout+compile_result.stderr, 'Compilation did not fail for declared defect'
-            failed = request('unbootable', 500, profiled=False)
+            failed = request('unbootable', 500, profiled=False, body_needle=b'Slice3MissingService')
             previous = profile('historical-during-boot-failure', state['observations']['defective'])
             historical = mate('historical-exception-during-boot-failure', ['resources:read', 'symfony-profiler://profile/'+previous['token']+'/exception', '--format=json'])
             assert b'Unrecognized field' in historical.stdout and b'BlogController' in historical.stdout, 'Historical collector unavailable during boot failure'
@@ -348,7 +355,7 @@ def run_slice(run_id=None, *, keep_running=False, capture_identity):
     def recovered():
         row = request('repaired', 200)
         value = profile('repaired', row)
-        assert b'<article class="post">' in (directory/'repaired-body.html').read_bytes(), 'Repaired response has no filtered posts'
+        assert (directory/'repaired-body.html').read_bytes().count(b'<article class="post">') == state['expected_posts'], 'Repaired page disagrees with persisted tag associations'
         result = {'observations': {key: state['observations'][key] for key in ('healthy', 'defective', 'repaired')}}
         verify_runtime_result(result)
         write_json(directory/'runtime-result.json', result)
