@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "command": "app:tags:count",
+  "description": "Count persisted App\\Entity\\Tag rows through the existing App\\Repository\\TagRepository.",
+  "stdout": "Tag count: N\n",
+  "success_exit": 0,
+  "states": [
+    0,
+    3
+  ],
+  "files": {
+    "src/Command/TagsCountCommand.php": {
+      "asset": "TagsCountCommand.php",
+      "sha256": "ad0d72131653d1da5faef59262f73cf90478d6ea5a1ce4317eeb251796128039"
+    },
+    "tests/Command/TagsCountCommandTest.php": {
+      "asset": "TagsCountCommandTest.php",
+      "sha256": "0ed82aa63e910f80a4d0a9d21e7b04296e0fe3e8d9062ed8de69d81bc2db5c99"
+    }
+  },
+  "origin": "Fresh adaptive agent session b-slice2-20261028; retained MCP tool requests/results and Maker skeleton under docs/evidence/slice2/fresh-agent. CI applies these declared outputs as scripted replay."
+}

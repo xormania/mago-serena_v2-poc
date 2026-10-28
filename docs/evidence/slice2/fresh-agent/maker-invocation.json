@@ -1,0 +1,12 @@
+{
+  "run_id": "b-slice2-20261028",
+  "workspace": "/home/scientdb/tmp/symf-poc/worktree-b/workspaces/b-slice2-20261028/app",
+  "argv": [
+    "php",
+    "bin/console",
+    "make:command",
+    "app:tags:count",
+    "--no-interaction"
+  ],
+  "exit": 0
+}

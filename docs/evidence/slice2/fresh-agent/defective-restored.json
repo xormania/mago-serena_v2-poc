@@ -1,0 +1,7 @@
+{
+  "kind": "expected-negative feature control",
+  "mutation": "Persisted count plus one",
+  "defective_exit": 1,
+  "restored_exit": 0,
+  "source_restored_sha256": "ad0d72131653d1da5faef59262f73cf90478d6ea5a1ce4317eeb251796128039"
+}

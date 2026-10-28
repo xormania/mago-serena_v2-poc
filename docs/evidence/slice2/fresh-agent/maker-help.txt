@@ -1,0 +1,28 @@
+Description:
+  Create a new console command class
+
+Usage:
+  make:command [<name>]
+
+Arguments:
+  name                  Choose a command name (e.g. app:delicious-chef)
+
+Options:
+  -h, --help            Display help for the given command. When no command is given display help for the list command
+      --silent          Do not output any message
+  -q, --quiet           Only errors are displayed. All other output is suppressed
+  -V, --version         Display this application version
+      --ansi|--no-ansi  Force (or disable --no-ansi) ANSI output
+  -n, --no-interaction  Do not ask any interactive question
+  -e, --env=ENV         The Environment name. [default: "dev"]
+      --no-debug        Switch off debug mode.
+      --profile         Enables profiling (requires debug).
+  -v|vv|vvv, --verbose  Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+
+Help:
+  The make:command command generates a new command:
+  
+  php bin/console make:command app:do-something
+  
+  If the argument is missing, the command will ask for the command name interactively.
+  

@@ -1,0 +1,6 @@
+{
+  "container_id": "1bc572b5ee59b494e11b7a5a53891d12ae87f9664c0054662f789e8c1eab4743",
+  "image_id": "sha256:d92df778ef58127a7d79e92069834a7d7ecc486931346ee24645a0bc0add2d26",
+  "run_id": "b-slice2-20261028",
+  "purpose": "Fresh adaptive source-development exercise reused verified base image; integrated exact-source image acceptance is separately retained."
+}

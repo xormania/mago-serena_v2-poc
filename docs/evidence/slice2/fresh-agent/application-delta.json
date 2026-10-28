@@ -1,0 +1,67 @@
+{
+  "initial_sha256": "85831e6ef71a41b7b718123c82e5bab195016adb833af401fc29b17086fe020a",
+  "final_sha256": "02fd474a78a492a38169a9b07c961e6b0868901ffa9ea34612ea85648e6a691c",
+  "changed_entries": {
+    "src/Command/TagsCountCommand.php": {
+      "before": null,
+      "after": {
+        "mode": 438,
+        "kind": "file",
+        "size": 983,
+        "sha256": "ad0d72131653d1da5faef59262f73cf90478d6ea5a1ce4317eeb251796128039"
+      }
+    },
+    ".mago/extensions.php": {
+      "before": {
+        "mode": 420,
+        "kind": "file",
+        "size": 3723,
+        "sha256": "5d07c167602e5897af19fbea510f92638d7f9045e20ec48ff600f3c9013654d2"
+      },
+      "after": {
+        "mode": 420,
+        "kind": "file",
+        "size": 5319,
+        "sha256": "286efdf27fce68f255af61d186748e97b15f3b3f14239cbe2a1983c8ab4f9d65"
+      }
+    },
+    ".mago/container-reference.dev.json": {
+      "before": {
+        "mode": 420,
+        "kind": "file",
+        "size": 147403,
+        "sha256": "5b7ea5b93fa495b3984e4b75083844cf9be918b0ece5180ce5b9f41ebae408a8"
+      },
+      "after": {
+        "mode": 420,
+        "kind": "file",
+        "size": 147526,
+        "sha256": "172c6eb91beafab0a70e2342f69b487688d8db30f49b05afbe8485ce392d07f4"
+      }
+    },
+    "tests/Command/TagsCountCommandTest.php": {
+      "before": null,
+      "after": {
+        "mode": 420,
+        "kind": "file",
+        "size": 1656,
+        "sha256": "0ed82aa63e910f80a4d0a9d21e7b04296e0fe3e8d9062ed8de69d81bc2db5c99"
+      }
+    },
+    ".mago/wiring.toml": {
+      "before": {
+        "mode": 420,
+        "kind": "file",
+        "size": 321,
+        "sha256": "d8958200a8494c5ab3758ed74e2c1bab9356e20f7c40e6736970d9d02a6f47e9"
+      },
+      "after": {
+        "mode": 420,
+        "kind": "file",
+        "size": 330,
+        "sha256": "e4e7946632cae6ea0269fcd2a58016b5cefb4d9d46c767e03446ab7d73d0ee68"
+      }
+    }
+  },
+  "explanation": "Command/test are the task delta; .mago files are explicitly reconciled from A public-interface commit before refreshing metadata. Installed dependency bytes match the initial manifest."
+}

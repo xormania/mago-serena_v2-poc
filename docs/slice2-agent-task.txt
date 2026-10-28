@@ -1,0 +1,49 @@
+Implement app:tags:count in a fresh disposable Symfony Demo task workspace.
+
+Contract: count all persisted App\Entity\Tag rows through the existing
+App\Repository\TagRepository, print exactly "Tag count: N" followed by one
+newline, and exit successfully. Add no application options or unrelated feature.
+Add focused PHPUnit behavior coverage for empty and populated persisted states.
+Preserve every original Demo source/test/configuration file and dependency pin.
+
+Prepare a unique run (replace slice2-agent with your unique owned ID):
+  ./bin/poc up --run slice2-agent --no-build
+  ./bin/poc mate-prepare --run slice2-agent
+
+Record the starting complete application/test inventories, exact source,
+dependencies/tool identities, and full native Mago analyze/lint reports before
+generation. Inspect the installed Maker help before choosing generation flags:
+  ./bin/poc exec --run slice2-agent -- php bin/console make:command --help
+  ./bin/poc exec --run slice2-agent -- php bin/console make:command app:tags:count --no-interaction
+
+Retain the actual generated skeleton and invocation. Connect the coding agent's
+real host MCP client to this absolute checkout's launcher:
+  <absolute-checkout>/bin/serena-mcp --run slice2-agent
+Use its actual Serena REPL interface and Mago backend to inspect the generated
+command, existing repository and relevant inherited count declaration. Discover
+the installed facade with s.info, retrieve a symbol body before replacing it,
+then use supported semantic edits where applicable. Retain every real request,
+result and adaptive decision, including any ordinary-edit fallback and why.
+
+After the feature/test edits, use native Mago analysis, lint, scoped safe fixes
+and formatting, inspect fix diffs, and verify formatter stability. In this pin,
+lint --fix must not be combined with --reporting-format. Retain full before/after
+native reports and assess complete diagnostic deltas, not only issue counts.
+
+Refresh metadata explicitly, then consume the actual public enriched interface:
+  ./bin/poc mate-prepare --run slice2-agent
+  ./bin/poc mago-enriched --run slice2-agent --symbol 'App\Command\TagsCountCommand' --symbol 'App\Repository\TagRepository' -- analyze --reporting-format json
+Retain native diagnostics/exits and compiled Symfony command registration plus
+constructor binding evidence. Native application findings are not tool failure
+or a clean report. CLI framework enrichment does not reach the pinned LSP.
+
+Execute the real command in controlled empty/populated persisted states, run the
+focused tests and the complete installed PHPUnit suite, and verify original
+test identities/outcomes separately from the new ones. Retain a bounded
+defective/restored feature behavior control and final exact diff. Keep all
+evidence in artifacts/<run>/ with source/workspace/attempt identity; restore any
+controlled database/source variant. Never edit the checked-in app fixture.
+
+The committed slice2 command is a deterministic replay/acceptance harness.
+Replaying its final task files is not a fresh adaptive agent exercise. A fresh
+exercise must retain the actual agent's observations, choices and source edits.

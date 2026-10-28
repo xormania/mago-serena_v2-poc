@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "original": {
+    "tests": 53,
+    "assertions": 120,
+    "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+  },
+  "combined": {
+    "tests": 55,
+    "assertions": 124,
+    "identities_sha256": "eb7019b23af06ef3e679f13db6b3a520b7f1c8485980f8faddcd9a4267c37ca4"
+  },
+  "feature": {
+    "tests": 2,
+    "identities": [
+      "App\\Tests\\Command\\TagsCountCommandTest::testEmptyDatabase",
+      "App\\Tests\\Command\\TagsCountCommandTest::testPopulatedDatabase"
+    ],
+    "assertions": 4
+  },
+  "original_projection": "artifacts/b-slice2-20261028/fresh-agent/original-after.xml"
+}

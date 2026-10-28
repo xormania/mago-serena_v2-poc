@@ -1,0 +1,82 @@
+{
+  "behavior": {
+    "combined": {
+      "assertions": 124,
+      "identities_sha256": "eb7019b23af06ef3e679f13db6b3a520b7f1c8485980f8faddcd9a4267c37ca4",
+      "tests": 55
+    },
+    "feature": {
+      "assertions": 4,
+      "identities": [
+        "App\\Tests\\Command\\TagsCountCommandTest::testEmptyDatabase",
+        "App\\Tests\\Command\\TagsCountCommandTest::testPopulatedDatabase"
+      ],
+      "tests": 2
+    },
+    "original": {
+      "assertions": 120,
+      "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa",
+      "tests": 53
+    },
+    "original_projection": "artifacts/b-slice2-20261028/fresh-agent/original-after.xml",
+    "status": "pass"
+  },
+  "formatter_process_exits": {
+    "format-after": 0,
+    "format-before": 1,
+    "format-write": 0
+  },
+  "incompatible_first_fix_exit": 2,
+  "initial_revision": "8f154f798d7cf9ae7cf3cb33b0b99352de99dec4",
+  "kind": "fresh_adaptive_agent",
+  "lsp_worker_propagation": "known pinned server blocker; CLI enrichment is not attributed to LSP",
+  "maker_invocation": [
+    "php",
+    "bin/console",
+    "make:command",
+    "app:tags:count",
+    "--no-interaction"
+  ],
+  "native_process_exits": {
+    "after-analyze": 1,
+    "after-lint": 1,
+    "before-analyze": 1,
+    "before-lint": 1
+  },
+  "ordinary_edit_fallbacks": [
+    "import cleanup after regex error",
+    "strict_types file header following Mago warning",
+    "new test file creation"
+  ],
+  "public_enriched": {
+    "command_dependency": "TagRepository Signature edge",
+    "extension_contribution": "TagRepository::__construct -> concrete DoctrineBundle Registry Body edge",
+    "files": 48,
+    "native_exit": 1,
+    "status": "findings"
+  },
+  "route": "host MCP -> Serena REPL -> Mago",
+  "run_id": "b-slice2-20261028",
+  "runtime": {
+    "database_restored": true,
+    "states": [
+      {
+        "exit": 0,
+        "stdout": "Tag count: 0\n",
+        "tags": 0
+      },
+      {
+        "exit": 0,
+        "stdout": "Tag count: 3\n",
+        "tags": 3
+      }
+    ],
+    "status": "pass"
+  },
+  "safe_fix_exit": 0,
+  "schema": 1,
+  "scripted_replay": "Separate ./bin/poc slice2 gate applies declared final output; it is not fresh agent success.",
+  "semantic_edit": "Observed class body retrieval followed by edit.replace_symbol_body; raw MCP requests/results retained.",
+  "status": "pass",
+  "workspace": "/home/scientdb/tmp/symf-poc/worktree-b/workspaces/b-slice2-20261028/app"
+}

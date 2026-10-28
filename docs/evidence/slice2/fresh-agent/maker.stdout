@@ -1,0 +1,11 @@
+
+ [WARNING] "make:command" is not meant to be run in non-interactive mode.       
+
+ created: ]8;;file:///app/src/Command/TagsCountCommand.php#L1\src/Command/TagsCountCommand.php]8;;\
+
+           
+  Success! 
+           
+
+ Next: open your new command class and customize it!
+ Find the documentation at https://symfony.com/doc/current/console.html

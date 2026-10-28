@@ -1,0 +1,37 @@
+PHPUnit 11.5.55 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.5.12
+Configuration: /app/phpunit.dist.xml
+
+FF                                                                  2 / 2 (100%)
+
+Time: 00:00.051, Memory: 24.00 MB
+
+There were 2 failures:
+
+1) App\Tests\Command\TagsCountCommandTest::testEmptyDatabase
+Failed asserting that two strings are identical.
+--- Expected
++++ Actual
+@@ @@
+-'Tag count: 0
++'Tag count: 1
+ '
+
+/app/tests/Command/TagsCountCommandTest.php:51
+/app/tests/Command/TagsCountCommandTest.php:20
+
+2) App\Tests\Command\TagsCountCommandTest::testPopulatedDatabase
+Failed asserting that two strings are identical.
+--- Expected
++++ Actual
+@@ @@
+-'Tag count: 3
++'Tag count: 4
+ '
+
+/app/tests/Command/TagsCountCommandTest.php:51
+/app/tests/Command/TagsCountCommandTest.php:25
+
+FAILURES!
+Tests: 2, Assertions: 4, Failures: 2.

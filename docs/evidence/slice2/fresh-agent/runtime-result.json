@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "states": [
+    {
+      "tags": 0,
+      "stdout": "Tag count: 0\n",
+      "exit": 0
+    },
+    {
+      "tags": 3,
+      "stdout": "Tag count: 3\n",
+      "exit": 0
+    }
+  ],
+  "database_restored": true
+}
