@@ -1,5 +1,6 @@
 """Independent request, task delta, native report and suite checks for slice 3."""
 from collections import Counter
+from datetime import datetime
 import hashlib
 import json
 from pathlib import Path
@@ -142,7 +143,21 @@ def validate_agent_evidence(root, task):
     edits = [n for n, row in enumerate(calls) if 's.edit.replace_symbol_body(' in row.get('arguments', {}).get('code', '')
              and any(block.get('text') == 'OK' for block in row.get('result', {}).get('content', []))]
     assert reads and edits and min(reads) < min(edits), 'No fresh semantic retrieval followed by successful edit'
-    runtime = verify_runtime_result(json.loads((directory/'runtime-result.json').read_text()))
+    runtime_value = json.loads((directory/'runtime-result.json').read_text())
+    runtime = verify_runtime_result(runtime_value)
+    http_artifacts = index.get('http_artifacts', {})
+    assert set(http_artifacts) == {'healthy', 'defective', 'repaired'}, 'Missing raw HTTP lifecycle bindings'
+    for name, refs in http_artifacts.items():
+        assert set(refs) == {'headers', 'invocation'} and all(path in artifacts for path in refs.values()), 'Unbound raw HTTP observation'
+        observation = runtime_value['observations'][name]
+        headers = (directory/refs['headers']).read_text()
+        statuses = re.findall(r'^HTTP/\S+\s+(\d{3})', headers, re.M)
+        assert statuses and int(statuses[-1]) == observation['status'], 'HTTP response status differs from observation'
+        parsed = response_record(headers, status=observation['status'], marker=observation['marker'], url=observation['url'])
+        assert parsed['token'] == observation['token'], 'HTTP response token differs from observation'
+        invocation = json.loads((directory/refs['invocation']).read_text())
+        assert invocation['exit'] == 0 and index['run_id'] in invocation['argv'], 'HTTP invocation belongs to another run'
+        assert any(isinstance(arg, str) and arg.startswith('http://127.0.0.1:8000/en/blog/?') and observation['marker'] in arg and 'tag=lorem' in arg for arg in invocation['argv']), 'HTTP invocation does not identify observed request'
     runtime_artifacts = index.get('runtime_artifacts', {})
     assert set(runtime_artifacts) == {'profile', 'exception', 'marker_logs', 'exception_logs'}, 'Missing exercised runtime artifact bindings'
     assert all(name in artifacts for name in runtime_artifacts.values()), 'Unbound exercised runtime artifact'
@@ -158,7 +173,14 @@ def validate_agent_evidence(root, task):
     marker_logs = json.loads((directory/runtime_artifacts['marker_logs']).read_text())['untrusted_data']['entries']
     exception_logs = json.loads((directory/runtime_artifacts['exception_logs']).read_text())['untrusted_data']['entries']
     assert any(observed['marker'] in row.get('context', {}).get('request_uri', '') and row.get('kernel_context') == 'inspection-dev' for row in marker_logs), 'Logs do not identify exact request marker'
-    assert any('Unrecognized field' in row.get('message', '') and '$label' in row.get('message', '') and row.get('kernel_context') == 'inspection-dev' for row in exception_logs), 'Structured exception log missing'
+    failures = [row for row in exception_logs if 'Unrecognized field' in row.get('message', '') and '$label' in row.get('message', '') and row.get('kernel_context') == 'inspection-dev']
+    assert failures, 'Structured exception log missing'
+    routes = [row for row in marker_logs if observed['marker'] in row.get('context', {}).get('request_uri', '')]
+    assert any(route['source_file'] == failure['source_file'] and 0 < failure['line_number']-route['line_number'] <= 100
+               and profile['time'] <= datetime.fromisoformat(route['datetime']).timestamp() <= datetime.fromisoformat(failure['datetime']).timestamp() <= profile['time']+60
+               for route in routes for failure in failures), 'Log exception is not adjacent to the exact request in source file/time'
+    suites = json.loads((directory/'suite-verification.json').read_text())
+    assert suites.get('status') == 'pass' and suites['combined']['tests'] == suites['original']['tests']+1, 'Fresh original/new suite verification incomplete'
     public = json.loads((directory/'public-invocation.json').read_text())
     assert public['run_id'] == index['run_id'] and public['status'] in ('findings', 'clean') and public['exit'] == public['native_exit'] in (0, 1), 'Fresh public analysis incomplete'
     assert public['source_sha256'][CONTROLLER] == task['final_controller_sha256'] and public['source_sha256'][TEST] == task['files'][TEST]['sha256'], 'Public analysis used different task source'
