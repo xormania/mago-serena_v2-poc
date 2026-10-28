@@ -188,7 +188,7 @@ def run_slice(run_id=None, *, keep_running=False, capture_identity):
         schemas = mate('mate-tools', ['tools:list', '--format=json'])
         names = json.loads(schemas.stdout)['tools']
         assert {'symfony-profiler-list', 'symfony-profiler-get', 'symfony-service-detail', 'monolog-search'} <= names.keys(), 'Runtime tools were not discovered'
-        mate('mate-resources', ['resources:templates:list', '--format=json'])
+        mate('mate-capabilities', ['debug:capabilities', '--format=json'])
         return {'status': 'pass', 'original': original, 'tool': state['native_tool'],
                 'analyzer_findings': len(state['before_analysis']), 'lint_findings': len(state['before_lint']),
                 'dependency_lock_sha256': sha(app/'composer.lock')}
@@ -226,6 +226,8 @@ def run_slice(run_id=None, *, keep_running=False, capture_identity):
         collector = mate('defective-exception', ['resources:read', 'symfony-profiler://profile/'+row['token']+'/exception', '--format=json'])
         assert b'Unrecognized field' in collector.stdout and b'label' in collector.stdout and b'BlogController' in collector.stdout, 'Profiler exception does not locate defect'
         sql = mate('defective-doctrine', ['resources:read', 'symfony-profiler://profile/'+row['token']+'/db', '--format=json'])
+        sql_data = json.loads(sql.stdout)
+        assert isinstance(sql_data, list) and len(sql_data) == 1 and sql_data[0]['text']['untrusted_data']['name'] == 'db', 'SQL collector returned an error instead of data'
         marker_logs = payload(mate('defective-marker-logs', ['tools:call', 'monolog-search', '--term='+row['marker'],
                               '--environment=dev', '--kernelContext=inspection-dev', '--limit=20', '--format=json']).stdout)
         failure_logs = payload(mate('defective-exception-logs', ['tools:call', 'monolog-search', '--term=Unrecognized field',
