@@ -1,0 +1,6 @@
+{
+  "selected_image": "mago-serena-poc:s3-runtime-20261028a",
+  "image_id": "sha256:5192ec634881121d80499932a078480b2e109c0c8467474a307e8f127676c48b",
+  "container_id": "77a15a56e7d89d4e458db978ab73a24f32f55296111009647fbf35922e672bca",
+  "resolved_service_image": "mago-serena-poc:s3-runtime-20261028a"
+}

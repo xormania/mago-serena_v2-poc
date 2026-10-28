@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/app/phpunit.dist.xml" tests="1" assertions="3" errors="0" failures="1" skipped="0" time="0.305443">
+    <testsuite name="Project Test Suite" tests="1" assertions="3" errors="0" failures="1" skipped="0" time="0.305443">
+      <testsuite name="App\Tests\Controller\BlogTagFilterTest" file="/app/tests/Controller/BlogTagFilterTest.php" tests="1" assertions="3" errors="0" failures="1" skipped="0" time="0.305443">
+        <testcase name="testKnownTagFilter" file="/app/tests/Controller/BlogTagFilterTest.php" line="17" class="App\Tests\Controller\BlogTagFilterTest" classname="App.Tests.Controller.BlogTagFilterTest" assertions="3" time="0.305443">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">App\Tests\Controller\BlogTagFilterTest::testKnownTagFilter
+Failed asserting that the Response is successful.
+HTTP/1.1 500 Internal Server Error&#13;
+Cache-Control: no-cache, private&#13;
+Content-Type:  text/html; charset=UTF-8&#13;
+Date:          Wed, 28 Oct 2026 22:40:26 GMT&#13;
+X-Robots-Tag:  noindex&#13;
+&#13;
+Doctrine\ORM\Persisters\Exception\UnrecognizedField {#10598
+  #message: "Unrecognized field: App\Entity\Tag::$label"
+  #code: 0
+  #file: "/app/vendor/doctrine/orm/src/Persisters/Exception/UnrecognizedField.php"
+  #line: 22
+  trace: {
+    /app/vendor/doctrine/orm/src/Persisters/Exception/UnrecognizedField.php:22 { …}
+    /app/vendor/doctrine/orm/src/Persisters/Entity/BasicEntityPersister.php:1771 { …}
+    /app/vendor/doctrine/orm/src/Persisters/Entity/BasicEntityPersister.php:1635 { …}
+    /app/vendor/doctrine/orm/src/Persisters/Entity/BasicEntityPersister.php:1788 { …}
+    /app/vendor/doctrine/orm/src/Persisters/Entity/BasicEntityPersister.php:1136 { …}
+    /app/vendor/doctrine/orm/src/Persisters/Entity/BasicEntityPersister.php:736 { …}
+    /app/vendor/doctrine/orm/src/EntityRepository.php:125 { …}
+    /app/vendor/doctrine/doctrine-bundle/src/Repository/ServiceEntityRepository.php:86 { …}
+    /app/src/Controller/BlogController.php:57 {
+      App\Controller\BlogController-&gt;index(Request $request, int $page, string $_format, PostRepository $posts, TagRepository $tags): Response
+      › if ($request-&gt;query-&gt;has('tag')) {
+      ›     $tag = $tags-&gt;findOneBy(['label' =&gt; $request-&gt;query-&gt;get('tag')]);
+      › }
+      arguments: {
+        $criteria: array:1 [ …1]
+      }
+    }
+    /app/vendor/symfony/http-kernel/HttpKernel.php:188 { …}
+    /app/vendor/symfony/http-kernel/HttpKernel.php:79 { …}
+    /app/vendor/symfony/http-kernel/Kernel.php:143 { …}
+    /app/vendor/symfony/http-kernel/HttpKernelBrowser.php:62 { …}
+    /app/vendor/symfony/framework-bundle/KernelBrowser.php:188 { …}
+    /app/vendor/symfony/browser-kit/AbstractBrowser.php:377 { …}
+    /app/tests/Controller/BlogTagFilterTest.php:25 { …}
+    /app/vendor/phpunit/phpunit/src/Framework/TestCase.php:1667 { …}
+    /app/vendor/phpunit/phpunit/src/Framework/TestCase.php:519 { …}
+    /app/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php:87 { …}
+    /app/vendor/phpunit/phpunit/src/Framework/TestCase.php:365 { …}
+    /app/vendor/phpunit/phpunit/src/Framework/TestSuite.php:369 { …}
+    /app/vendor/phpunit/phpunit/src/Framework/TestSuite.php:369 { …}
+    /app/vendor/phpunit/phpunit/src/Framework/TestSuite.php:369 { …}
+    /app/vendor/phpunit/phpunit/src/TextUI/TestRunner.php:64 { …}
+    /app/vendor/phpunit/phpunit/src/TextUI/Application.php:211 { …}
+    /app/vendor/phpunit/phpunit/phpunit:104 { …}
+    /app/vendor/bin/phpunit:122 { …}
+  }
+}
+
+/app/vendor/symfony/framework-bundle/Test/BrowserKitAssertionsTrait.php:191
+/app/vendor/symfony/framework-bundle/Test/BrowserKitAssertionsTrait.php:43
+/app/tests/Controller/BlogTagFilterTest.php:26</failure>
+        </testcase>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

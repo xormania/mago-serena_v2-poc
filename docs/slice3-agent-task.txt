@@ -1,0 +1,65 @@
+Diagnose and repair a real failed Symfony Demo tag-filter request in a new owned
+s3- workspace. Read fixtures/slice3/task.json before changing task source. Keep
+the original checked-in app fixture and all original test identities unchanged.
+The expected final controller equals the original fixture exactly; the sole new
+application file is the declared BlogTagFilterTest.php regression.
+
+Select a unique image in every invocation, build it once, and verify the resolved
+Compose image plus actual image ID before acceptance:
+  export POC_IMAGE=mago-serena-poc:s3-runtime-YOUR-ID
+  docker buildx build --load -t "$POC_IMAGE" .
+  uv sync --frozen --python 3.12.12
+  ./bin/poc up --run s3-YOUR-ID --no-build
+  ./bin/poc mate-prepare --run s3-YOUR-ID
+
+Retain complete application/source/test inventories and full candidate-overlay
+Mago analyze/lint bodies before fault injection. Record a healthy request for
+/en/blog/?tag=lorem with its own unique s3_marker query. Use the real public
+container interface:
+  ./bin/poc exec --run s3-YOUR-ID -- curl -sS -D /evidence/control.headers \
+    -o /evidence/control.html 'http://127.0.0.1:8000/en/blog/?tag=lorem&s3_marker=UNIQUE'
+
+Inject only the declared name->label lookup defect in the owned controller.
+Make a real request, retain each response (source caches can delay visibility),
+and take the exact failed request's X-Debug-Token. Do not select an unrelated
+latest profile. Preserve the failed profile/logs before explicit cache refresh.
+Read installed tool schemas and discovery instructions before choosing options.
+Runtime reads use recorded observations; they do not establish current compiled
+facts. Use the wrapper from any caller directory:
+  ./bin/mate --run s3-YOUR-ID -- tools:list --format=json
+  ./bin/mate --run s3-YOUR-ID -- tools:call symfony-profiler-list \
+    --context=inspection-dev --url=UNIQUE --limit=5 --format=json
+  ./bin/mate --run s3-YOUR-ID -- tools:call symfony-profiler-get --token=TOKEN --format=json
+  ./bin/mate --run s3-YOUR-ID -- resources:read \
+    symfony-profiler://profile/TOKEN/exception --format=json
+  ./bin/mate --run s3-YOUR-ID -- tools:call monolog-search --term=UNIQUE \
+    --environment=dev --kernelContext=inspection-dev --limit=20 --format=json
+  ./bin/mate --run s3-YOUR-ID -- tools:call monolog-search --term='Unrecognized field' \
+    --environment=dev --kernelContext=inspection-dev --limit=20 --format=json
+
+Explicitly prepare compiled metadata only after archiving failed observations.
+Inspect relevant service binding with symfony-service-detail --context=inspection-dev.
+Use server-info to distinguish the Mate process from the application runtime.
+Connect the actual agent's host MCP client to bin/serena-mcp --run s3-YOUR-ID.
+Use the real Serena REPL -> Mago route to inspect BlogController/index,
+TagRepository, Doctrine findOneBy and Tag field declarations. Retrieve the symbol
+body before editing; use s.edit.replace_symbol_body for the source repair.
+Ordinary editing is appropriate for a new test file without an existing symbol.
+Retain actual requests/results and decisions separately from deterministic replay.
+
+Run the grouped regression on defective source and require failure, then on the
+repair and require success. Run the full suite, discovering its total; verify
+original identities separately. Run Mago analyze/lint, explicit scoped safe fixes,
+and formatter stability on the NEW test only. Do not reformat original fixture
+source. Compare complete native diagnostic bodies before/after, preserving native
+findings/exits. Refresh metadata explicitly after task edits, then run the public
+mago-enriched interface and retain final graph/attestation/source coverage.
+
+Make a fresh repaired request with a new unique marker and token; verify expected
+behavior and its own profile. Add a separate cannot-boot control: historical
+profile/logs remain readable while compiled service reads reject stale/missing
+preparation. Accurately report absent new profiler evidence for pre-boot failures.
+Restore control edits and verify the complete final task diff independently.
+
+./bin/poc slice3 is deterministic replay. Applying its final source/test and
+preselected tool calls does not count as another adaptive agent success.

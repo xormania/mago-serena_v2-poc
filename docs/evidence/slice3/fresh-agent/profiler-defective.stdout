@@ -1,0 +1,6 @@
+
+ [ERROR] Error: Profile with token "d61d3f" not found                           
+
+ ! [NOTE] Use "vendor/bin/mate tools:inspect symfony-profiler-get" to see this  
+ !        tool's parameters.                                                    
+

@@ -1,0 +1,356 @@
+Installing dependencies from lock file (including require-dev)
+Verifying lock file contents can be installed on current platform.
+Package operations: 153 installs, 0 updates, 0 removals
+  - Downloading symfony/flex (v2.11.0)
+  - Downloading symfony/runtime (v8.1.0)
+  - Downloading composer/pcre (3.4.0)
+  - Downloading symfony/polyfill-deepclone (v1.40.0)
+  - Downloading symfony/deprecation-contracts (v3.7.1)
+  - Downloading symfony/var-exporter (v8.1.0)
+  - Downloading psr/container (2.0.2)
+  - Downloading symfony/service-contracts (v3.7.0)
+  - Downloading symfony/routing (v8.1.0)
+  - Downloading symfony/polyfill-php85 (v1.38.1)
+  - Downloading symfony/polyfill-mbstring (v1.38.2)
+  - Downloading symfony/http-foundation (v8.1.0)
+  - Downloading psr/event-dispatcher (1.0.0)
+  - Downloading symfony/event-dispatcher-contracts (v3.7.0)
+  - Downloading symfony/event-dispatcher (v8.1.0)
+  - Downloading symfony/var-dumper (v8.1.0)
+  - Downloading psr/log (3.0.2)
+  - Downloading symfony/error-handler (v8.1.0)
+  - Downloading symfony/http-kernel (v8.1.0)
+  - Downloading symfony/finder (v8.1.0)
+  - Downloading symfony/filesystem (v8.1.0)
+  - Downloading symfony/dependency-injection (v8.1.0)
+  - Downloading symfony/config (v8.1.0)
+  - Downloading psr/cache (3.0.0)
+  - Downloading symfony/cache-contracts (v3.7.0)
+  - Downloading symfony/cache (v8.1.0)
+  - Downloading symfony/framework-bundle (v8.1.0)
+  - Downloading doctrine/event-manager (2.1.1)
+  - Downloading doctrine/deprecations (1.1.6)
+  - Downloading doctrine/persistence (4.2.0)
+  - Downloading symfony/doctrine-bridge (v8.1.0)
+  - Downloading symfony/polyfill-intl-normalizer (v1.38.0)
+  - Downloading symfony/polyfill-intl-grapheme (v1.38.1)
+  - Downloading symfony/string (v8.1.0)
+  - Downloading symfony/console (v8.1.0)
+  - Downloading doctrine/sql-formatter (1.5.4)
+  - Downloading doctrine/dbal (4.4.3)
+  - Downloading doctrine/doctrine-bundle (3.2.4)
+  - Downloading dama/doctrine-test-bundle (v8.6.0)
+  - Downloading doctrine/lexer (3.0.1)
+  - Downloading doctrine/instantiator (2.1.0)
+  - Downloading doctrine/inflector (2.1.0)
+  - Downloading doctrine/collections (2.6.0)
+  - Downloading doctrine/orm (3.6.7)
+  - Downloading doctrine/data-fixtures (2.2.1)
+  - Downloading doctrine/doctrine-fixtures-bundle (4.3.1)
+  - Downloading symfony/stopwatch (v8.1.0)
+  - Downloading symfony/process (v8.1.0)
+  - Downloading symfony/options-resolver (v8.1.0)
+  - Downloading sebastian/diff (6.0.2)
+  - Downloading react/event-loop (v1.6.0)
+  - Downloading evenement/evenement (v3.0.2)
+  - Downloading react/stream (v1.4.0)
+  - Downloading react/promise (v3.3.0)
+  - Downloading react/cache (v1.2.0)
+  - Downloading react/dns (v1.14.0)
+  - Downloading react/socket (v1.17.0)
+  - Downloading react/child-process (v0.6.7)
+  - Downloading fidry/cpu-core-counter (1.3.0)
+  - Downloading ergebnis/agent-detector (1.2.0)
+  - Downloading composer/xdebug-handler (3.0.5)
+  - Downloading composer/semver (3.4.4)
+  - Downloading clue/ndjson-react (v1.3.0)
+  - Downloading friendsofphp/php-cs-fixer (v3.95.10)
+  - Downloading nette/utils (v4.1.5)
+  - Downloading nette/schema (v1.3.6)
+  - Downloading dflydev/dot-access-data (v3.0.3)
+  - Downloading league/config (v1.2.0)
+  - Downloading league/commonmark (2.10.0)
+  - Downloading psr/http-message (2.0)
+  - Downloading league/uri-interfaces (7.8.1)
+  - Downloading phpstan/phpstan (2.2.2)
+  - Downloading phpstan/phpstan-doctrine (2.0.27)
+  - Downloading phpstan/phpstan-symfony (2.0.20)
+  - Downloading staabm/side-effects-detector (1.0.5)
+  - Downloading sebastian/version (5.0.2)
+  - Downloading sebastian/type (5.1.3)
+  - Downloading sebastian/recursion-context (6.0.3)
+  - Downloading sebastian/object-reflector (4.0.1)
+  - Downloading sebastian/object-enumerator (6.0.1)
+  - Downloading sebastian/global-state (7.0.2)
+  - Downloading sebastian/exporter (6.3.2)
+  - Downloading sebastian/environment (7.2.1)
+  - Downloading sebastian/comparator (6.3.3)
+  - Downloading sebastian/code-unit (3.0.3)
+  - Downloading sebastian/cli-parser (3.0.2)
+  - Downloading phpunit/php-timer (7.0.1)
+  - Downloading phpunit/php-text-template (4.0.1)
+  - Downloading phpunit/php-invoker (5.0.1)
+  - Downloading phpunit/php-file-iterator (5.1.1)
+  - Downloading theseer/tokenizer (1.3.1)
+  - Downloading nikic/php-parser (v5.7.0)
+  - Downloading sebastian/lines-of-code (3.0.1)
+  - Downloading sebastian/complexity (4.0.1)
+  - Downloading sebastian/code-unit-reverse-lookup (4.0.1)
+  - Downloading phpunit/php-code-coverage (11.0.12)
+  - Downloading phar-io/version (3.2.1)
+  - Downloading phar-io/manifest (2.0.4)
+  - Downloading myclabs/deep-copy (1.13.4)
+  - Downloading phpunit/phpunit (11.5.55)
+  - Downloading psr/clock (1.0.0)
+  - Downloading psr/http-factory (1.1.0)
+  - Downloading symfony/apache-pack (v1.0.1)
+  - Downloading symfony/asset (v8.1.0)
+  - Downloading symfony/dom-crawler (v8.1.0)
+  - Downloading symfony/browser-kit (v8.1.0)
+  - Downloading symfony/css-selector (v8.1.0)
+  - Downloading twig/twig (v3.27.1)
+  - Downloading symfony/translation-contracts (v3.7.0)
+  - Downloading symfony/twig-bridge (v8.1.0)
+  - Downloading symfony/debug-bundle (v8.1.0)
+  - Downloading symfony/dotenv (v8.1.0)
+  - Downloading symfony/expression-language (v8.1.0)
+  - Downloading symfony/type-info (v8.1.0)
+  - Downloading symfony/property-info (v8.1.0)
+  - Downloading symfony/property-access (v8.1.0)
+  - Downloading symfony/polyfill-intl-icu (v1.38.0)
+  - Downloading symfony/form (v8.1.0)
+  - Downloading league/uri (7.8.1)
+  - Downloading symfony/html-sanitizer (v8.1.0)
+  - Downloading symfony/http-client-contracts (v3.7.0)
+  - Downloading symfony/polyfill-intl-idn (v1.38.1)
+  - Downloading symfony/mime (v8.1.0)
+  - Downloading egulias/email-validator (4.0.4)
+  - Downloading symfony/mailer (v8.1.0)
+  - Downloading symfony/maker-bundle (v1.67.0)
+  - Downloading monolog/monolog (3.10.0)
+  - Downloading symfony/monolog-bridge (v8.1.0)
+  - Downloading symfony/monolog-bundle (v4.0.2)
+  - Downloading symfony/polyfill-intl-messageformatter (v1.38.0)
+  - Downloading symfony/password-hasher (v8.1.0)
+  - Downloading symfony/security-core (v8.1.0)
+  - Downloading symfony/security-http (v8.1.0)
+  - Downloading symfony/security-csrf (v8.1.0)
+  - Downloading symfony/clock (v8.1.0)
+  - Downloading symfony/security-bundle (v8.1.0)
+  - Downloading symfony/translation (v8.1.0)
+  - Downloading symfony/twig-bundle (v8.1.0)
+  - Downloading symfony/ux-icons (v2.36.1)
+  - Downloading symfony/ux-twig-component (v3.2.0)
+  - Downloading symfony/stimulus-bundle (v2.36.0)
+  - Downloading symfony/ux-live-component (v2.36.0)
+  - Downloading symfony/validator (v8.1.0)
+  - Downloading symfony/web-profiler-bundle (v8.1.0)
+  - Downloading symfony/yaml (v8.1.0)
+  - Downloading symfony/http-client (v8.1.0)
+  - Downloading symfony/asset-mapper (v8.1.0)
+  - Downloading symfonycasts/sass-bundle (v0.9.0)
+  - Downloading twbs/bootstrap (v5.3.8)
+  - Downloading twig/extra-bundle (v3.24.0)
+  - Downloading symfony/intl (v8.1.0)
+  - Downloading twig/intl-extra (v3.26.0)
+  - Downloading twig/markdown-extra (v3.26.0)
+  - Installing symfony/flex (v2.11.0): Extracting archive
+  - Installing symfony/runtime (v8.1.0): Extracting archive
+  - Installing composer/pcre (3.4.0): Extracting archive
+  - Installing symfony/polyfill-deepclone (v1.40.0): Extracting archive
+  - Installing symfony/deprecation-contracts (v3.7.1): Extracting archive
+  - Installing symfony/var-exporter (v8.1.0): Extracting archive
+  - Installing psr/container (2.0.2): Extracting archive
+  - Installing symfony/service-contracts (v3.7.0): Extracting archive
+  - Installing symfony/routing (v8.1.0): Extracting archive
+  - Installing symfony/polyfill-php85 (v1.38.1): Extracting archive
+  - Installing symfony/polyfill-mbstring (v1.38.2): Extracting archive
+  - Installing symfony/http-foundation (v8.1.0): Extracting archive
+  - Installing psr/event-dispatcher (1.0.0): Extracting archive
+  - Installing symfony/event-dispatcher-contracts (v3.7.0): Extracting archive
+  - Installing symfony/event-dispatcher (v8.1.0): Extracting archive
+  - Installing symfony/var-dumper (v8.1.0): Extracting archive
+  - Installing psr/log (3.0.2): Extracting archive
+  - Installing symfony/error-handler (v8.1.0): Extracting archive
+  - Installing symfony/http-kernel (v8.1.0): Extracting archive
+  - Installing symfony/finder (v8.1.0): Extracting archive
+  - Installing symfony/filesystem (v8.1.0): Extracting archive
+  - Installing symfony/dependency-injection (v8.1.0): Extracting archive
+  - Installing symfony/config (v8.1.0): Extracting archive
+  - Installing psr/cache (3.0.0): Extracting archive
+  - Installing symfony/cache-contracts (v3.7.0): Extracting archive
+  - Installing symfony/cache (v8.1.0): Extracting archive
+  - Installing symfony/framework-bundle (v8.1.0): Extracting archive
+  - Installing doctrine/event-manager (2.1.1): Extracting archive
+  - Installing doctrine/deprecations (1.1.6): Extracting archive
+  - Installing doctrine/persistence (4.2.0): Extracting archive
+  - Installing symfony/doctrine-bridge (v8.1.0): Extracting archive
+  - Installing symfony/polyfill-intl-normalizer (v1.38.0): Extracting archive
+  - Installing symfony/polyfill-intl-grapheme (v1.38.1): Extracting archive
+  - Installing symfony/string (v8.1.0): Extracting archive
+  - Installing symfony/console (v8.1.0): Extracting archive
+  - Installing doctrine/sql-formatter (1.5.4): Extracting archive
+  - Installing doctrine/dbal (4.4.3): Extracting archive
+  - Installing doctrine/doctrine-bundle (3.2.4): Extracting archive
+  - Installing dama/doctrine-test-bundle (v8.6.0): Extracting archive
+  - Installing doctrine/lexer (3.0.1): Extracting archive
+  - Installing doctrine/instantiator (2.1.0): Extracting archive
+  - Installing doctrine/inflector (2.1.0): Extracting archive
+  - Installing doctrine/collections (2.6.0): Extracting archive
+  - Installing doctrine/orm (3.6.7): Extracting archive
+  - Installing doctrine/data-fixtures (2.2.1): Extracting archive
+  - Installing doctrine/doctrine-fixtures-bundle (4.3.1): Extracting archive
+  - Installing symfony/stopwatch (v8.1.0): Extracting archive
+  - Installing symfony/process (v8.1.0): Extracting archive
+  - Installing symfony/options-resolver (v8.1.0): Extracting archive
+  - Installing sebastian/diff (6.0.2): Extracting archive
+  - Installing react/event-loop (v1.6.0): Extracting archive
+  - Installing evenement/evenement (v3.0.2): Extracting archive
+  - Installing react/stream (v1.4.0): Extracting archive
+  - Installing react/promise (v3.3.0): Extracting archive
+  - Installing react/cache (v1.2.0): Extracting archive
+  - Installing react/dns (v1.14.0): Extracting archive
+  - Installing react/socket (v1.17.0): Extracting archive
+  - Installing react/child-process (v0.6.7): Extracting archive
+  - Installing fidry/cpu-core-counter (1.3.0): Extracting archive
+  - Installing ergebnis/agent-detector (1.2.0): Extracting archive
+  - Installing composer/xdebug-handler (3.0.5): Extracting archive
+  - Installing composer/semver (3.4.4): Extracting archive
+  - Installing clue/ndjson-react (v1.3.0): Extracting archive
+  - Installing friendsofphp/php-cs-fixer (v3.95.10): Extracting archive
+  - Installing nette/utils (v4.1.5): Extracting archive
+  - Installing nette/schema (v1.3.6): Extracting archive
+  - Installing dflydev/dot-access-data (v3.0.3): Extracting archive
+  - Installing league/config (v1.2.0): Extracting archive
+  - Installing league/commonmark (2.10.0): Extracting archive
+  - Installing psr/http-message (2.0): Extracting archive
+  - Installing league/uri-interfaces (7.8.1): Extracting archive
+  - Installing phpstan/phpstan (2.2.2): Extracting archive
+  - Installing phpstan/phpstan-doctrine (2.0.27): Extracting archive
+  - Installing phpstan/phpstan-symfony (2.0.20): Extracting archive
+  - Installing staabm/side-effects-detector (1.0.5): Extracting archive
+  - Installing sebastian/version (5.0.2): Extracting archive
+  - Installing sebastian/type (5.1.3): Extracting archive
+  - Installing sebastian/recursion-context (6.0.3): Extracting archive
+  - Installing sebastian/object-reflector (4.0.1): Extracting archive
+  - Installing sebastian/object-enumerator (6.0.1): Extracting archive
+  - Installing sebastian/global-state (7.0.2): Extracting archive
+  - Installing sebastian/exporter (6.3.2): Extracting archive
+  - Installing sebastian/environment (7.2.1): Extracting archive
+  - Installing sebastian/comparator (6.3.3): Extracting archive
+  - Installing sebastian/code-unit (3.0.3): Extracting archive
+  - Installing sebastian/cli-parser (3.0.2): Extracting archive
+  - Installing phpunit/php-timer (7.0.1): Extracting archive
+  - Installing phpunit/php-text-template (4.0.1): Extracting archive
+  - Installing phpunit/php-invoker (5.0.1): Extracting archive
+  - Installing phpunit/php-file-iterator (5.1.1): Extracting archive
+  - Installing theseer/tokenizer (1.3.1): Extracting archive
+  - Installing nikic/php-parser (v5.7.0): Extracting archive
+  - Installing sebastian/lines-of-code (3.0.1): Extracting archive
+  - Installing sebastian/complexity (4.0.1): Extracting archive
+  - Installing sebastian/code-unit-reverse-lookup (4.0.1): Extracting archive
+  - Installing phpunit/php-code-coverage (11.0.12): Extracting archive
+  - Installing phar-io/version (3.2.1): Extracting archive
+  - Installing phar-io/manifest (2.0.4): Extracting archive
+  - Installing myclabs/deep-copy (1.13.4): Extracting archive
+  - Installing phpunit/phpunit (11.5.55): Extracting archive
+  - Installing psr/clock (1.0.0): Extracting archive
+  - Installing psr/http-factory (1.1.0): Extracting archive
+  - Installing symfony/apache-pack (v1.0.1)
+  - Installing symfony/asset (v8.1.0): Extracting archive
+  - Installing symfony/dom-crawler (v8.1.0): Extracting archive
+  - Installing symfony/browser-kit (v8.1.0): Extracting archive
+  - Installing symfony/css-selector (v8.1.0): Extracting archive
+  - Installing twig/twig (v3.27.1): Extracting archive
+  - Installing symfony/translation-contracts (v3.7.0): Extracting archive
+  - Installing symfony/twig-bridge (v8.1.0): Extracting archive
+  - Installing symfony/debug-bundle (v8.1.0): Extracting archive
+  - Installing symfony/dotenv (v8.1.0): Extracting archive
+  - Installing symfony/expression-language (v8.1.0): Extracting archive
+  - Installing symfony/type-info (v8.1.0): Extracting archive
+  - Installing symfony/property-info (v8.1.0): Extracting archive
+  - Installing symfony/property-access (v8.1.0): Extracting archive
+  - Installing symfony/polyfill-intl-icu (v1.38.0): Extracting archive
+  - Installing symfony/form (v8.1.0): Extracting archive
+  - Installing league/uri (7.8.1): Extracting archive
+  - Installing symfony/html-sanitizer (v8.1.0): Extracting archive
+  - Installing symfony/http-client-contracts (v3.7.0): Extracting archive
+  - Installing symfony/polyfill-intl-idn (v1.38.1): Extracting archive
+  - Installing symfony/mime (v8.1.0): Extracting archive
+  - Installing egulias/email-validator (4.0.4): Extracting archive
+  - Installing symfony/mailer (v8.1.0): Extracting archive
+  - Installing symfony/maker-bundle (v1.67.0): Extracting archive
+  - Installing monolog/monolog (3.10.0): Extracting archive
+  - Installing symfony/monolog-bridge (v8.1.0): Extracting archive
+  - Installing symfony/monolog-bundle (v4.0.2): Extracting archive
+  - Installing symfony/polyfill-intl-messageformatter (v1.38.0): Extracting archive
+  - Installing symfony/password-hasher (v8.1.0): Extracting archive
+  - Installing symfony/security-core (v8.1.0): Extracting archive
+  - Installing symfony/security-http (v8.1.0): Extracting archive
+  - Installing symfony/security-csrf (v8.1.0): Extracting archive
+  - Installing symfony/clock (v8.1.0): Extracting archive
+  - Installing symfony/security-bundle (v8.1.0): Extracting archive
+  - Installing symfony/translation (v8.1.0): Extracting archive
+  - Installing symfony/twig-bundle (v8.1.0): Extracting archive
+  - Installing symfony/ux-icons (v2.36.1): Extracting archive
+  - Installing symfony/ux-twig-component (v3.2.0): Extracting archive
+  - Installing symfony/stimulus-bundle (v2.36.0): Extracting archive
+  - Installing symfony/ux-live-component (v2.36.0): Extracting archive
+  - Installing symfony/validator (v8.1.0): Extracting archive
+  - Installing symfony/web-profiler-bundle (v8.1.0): Extracting archive
+  - Installing symfony/yaml (v8.1.0): Extracting archive
+  - Installing symfony/http-client (v8.1.0): Extracting archive
+  - Installing symfony/asset-mapper (v8.1.0): Extracting archive
+  - Installing symfonycasts/sass-bundle (v0.9.0): Extracting archive
+  - Installing twbs/bootstrap (v5.3.8): Extracting archive
+  - Installing twig/extra-bundle (v3.24.0): Extracting archive
+  - Installing symfony/intl (v8.1.0): Extracting archive
+  - Installing twig/intl-extra (v3.26.0): Extracting archive
+  - Installing twig/markdown-extra (v3.26.0): Extracting archive
+Generating autoload files
+130 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+
+Run composer recipes at any time to see the status of your Symfony recipes.
+
+
+ // Clearing the cache for the dev environment with debug true                  
+
+ [OK] Cache for the "dev" environment (debug=true) was successfully cleared.    
+
+
+ Installing assets as hard copies.
+
+ [OK] No assets were provided by any bundle.                                    
+
+ 0/20 >-------------- https://cdn.jsdelivr.net/npm/@hotwired/stimulus@3.2.2/+esm
+20/20 ============== https://cdn.jsdelivr.net/npm/bootstrap-tagsinput@0.7.1/+esm
+ [OK] Downloaded 20 packages into assets/vendor.                                
+
+
+ ! [NOTE] Downloading Sass binary from https://github.com/sass/dart-sass/releases/download/1.69.7/dart-sass-1.69.7-linux-x64.tar.gz
+
+       0/3758079 [░░░░░░░░░░░░░░░░░░░░░░░░░░░░]   0%
+  753646/3758079 [▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░░░░]  20%
+ 1505482/3758079 [▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░]  40%
+ 3758079/3758079 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%
+ ! [NOTE] Executing Sass (pass -v to see more details).                         
+
+
+ ! [CAUTION] This operation should not be executed in a production environment! 
+
+ Creating database schema...
+
+ [OK] Database schema created successfully!                                     
+
+   > purging database
+   > loading App\DataFixtures\AppFixtures
+
+ ! [CAUTION] This operation should not be executed in a production environment! 
+
+ Creating database schema...
+
+ [OK] Database schema created successfully!                                     
+
+   > purging database
+   > loading App\DataFixtures\AppFixtures
