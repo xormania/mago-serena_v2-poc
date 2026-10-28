@@ -156,7 +156,7 @@ def run(out):
         # Independent Symfony service inspection, separate from extension's exported map.
         for service_id in (OWNER, 'lspext.registry') if alternate.exists() else (OWNER, 'doctrine'):
             response = subprocess.run(['php', 'bin/console', 'debug:container', service_id,
-                                       '--show-arguments', '--env=dev', '--format=json'],
+                                       '--env=dev', '--format=json'],
                                       capture_output=True, timeout=120)
             assert response.returncode == 0, response.stderr.decode()[-3000:]
             (out/(name+'-'+service_id.rsplit('\\', 1)[-1]+'.json')).write_bytes(response.stdout)
