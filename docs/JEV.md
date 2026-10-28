@@ -94,6 +94,8 @@ cost remains unknown. A useful-looking hypothesis is not proof of causal accurac
 ./bin/poc fast
 # Just the provider/collector/security-boundary cases:
 python3 -m unittest discover -s tests/fast -p test_jev.py -v
+# Slice producer/collector regression and mocked provider payload:
+python3 -m unittest discover -s tests/fast -p test_jev_slice.py -v
 ```
 
 These tests require no API key. They cover useful diagnosis, abstention, missing
@@ -123,6 +125,27 @@ The collector retains at most 20 excerpts (1,600 bytes each), 12 outer step rows
 and 20 harness run directories; omitted counts are explicit. The full available
 harness evidence is uploaded separately on success and failure. Producer code
 has no TypeSafe credential.
+
+The collector also understands the declared slice layouts:
+`artifacts/<run>/slice{1,2}/attempt-*/results.json`, each attempt's `source.json`
+and named `<stage>-error.txt`. The root `slice{1,2}-result.json` is a latest-attempt
+mirror and never creates another observation. Earlier failed attempts survive a
+later successful attempt. Slice observations identify the owned run, attempt
+directory, source revision/context digest and failing stage; their numeric
+attempt is the stage's `step_attempt` (one unless the producer records otherwise).
+The producer's actual reason and sanitized traceback tail reach the packet even
+when the console excerpt only contains `fail: symfony_wiring` and cleanup.
+
+Only those declared files are read. Source documents are limited to 16 MiB,
+results to 1 MiB, traces to 1 MiB, and each slice to 20 attempt directories.
+The existing global 20-excerpt/48,000-byte packet bounds still apply. Source
+revision, context hash, run/workspace, optional explicit attempt ID, stage
+inventory/status and mirrored-result mismatches reject collection rather than
+silently attributing evidence to the wrong run. Relative `--root artifacts`
+resolves to the producer's absolute evidence paths. The
+[local contract proof](evidence/jev-slice-contract/result.json) records the
+pre-fix omission and repaired real-collector payload with a mocked provider;
+it contains no live request or new calibration.
 
 `.github/workflows/jev.yml` consumes completed runs on a fresh runner. It checks
 out diagnosis code from the repository's default branch, records the **actual
