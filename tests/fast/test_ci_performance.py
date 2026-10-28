@@ -6,6 +6,7 @@ import shutil
 import subprocess
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import yaml
 
@@ -32,6 +33,23 @@ class BuildCacheTests(unittest.TestCase):
         self.assertNotIn('ignore-error',exported)
         self.assertIn('--progress',command)
         self.assertEqual(command[command.index('--progress')+1],'plain')
+
+    def test_selected_image_reaches_build_plan_and_compose_launcher(self):
+        import sys
+        sys.path.insert(0, str(ROOT/'bin'))
+        from poclib import environment
+        for selected in ('mago-serena-poc:lsp-workers-test', '', None):
+            env=self.environment()
+            if selected is not None:
+                env['POC_IMAGE']=selected
+            with self.subTest(image=selected):
+                command=build_plan(env)['command']
+                self.assertEqual(command[command.index('--tag')+1],
+                                 selected or 'mago-serena-poc:local')
+                with patch.dict(os.environ,env,clear=True):
+                    launched=environment({'app':'/app','state':'/state','trusted':'/trusted',
+                                          'evidence':'/evidence','port':0,'run_id':'image-test'})
+                    self.assertEqual(launched.get('POC_IMAGE'),selected)
 
     def test_plan_has_source_attempt_and_no_cache_or_provider_credentials(self):
         env=self.environment()

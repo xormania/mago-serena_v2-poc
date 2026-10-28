@@ -16,11 +16,13 @@ import subprocess
 CACHE_SCOPE = 'mago-serena-linux-amd64-v1'
 
 
-def build_command():
+def build_command(env=None):
     # Keep this scope independent of adapter/tests/docs changes. Docker's own
     # content-addressed layer keys invalidate changed toolchain inputs correctly.
+    env = os.environ if env is None else env
     cache = f'type=gha,version=2,scope={CACHE_SCOPE},timeout=5m'
-    return ['docker', 'buildx', 'build', '--load', '--tag', 'mago-serena-poc:local',
+    image = env.get('POC_IMAGE') or 'mago-serena-poc:local'
+    return ['docker', 'buildx', 'build', '--load', '--tag', image,
             '--progress', 'plain', '--metadata-file', 'artifacts/ci/build-metadata.json',
             '--iidfile', 'artifacts/ci/image.iid', '--cache-from', cache,
             '--cache-to', cache+',mode=max', '.']
@@ -42,7 +44,7 @@ def build_plan(env):
             'attempt':int(env['GITHUB_RUN_ATTEMPT']), 'event':env.get('GITHUB_EVENT_NAME'),
             'ref':env.get('GITHUB_REF'), 'cache':{'backend':'gha','version':2,'scope':CACHE_SCOPE,
                 'export_mode':'max','timeout':'5m','export_errors_fatal':True,
-                'cache_mounts_persisted':False}, 'command':build_command()}
+                'cache_mounts_persisted':False}, 'command':build_command(env)}
 
 
 def main():
