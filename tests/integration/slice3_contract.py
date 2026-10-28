@@ -143,8 +143,30 @@ def validate_agent_evidence(root, task):
              and any(block.get('text') == 'OK' for block in row.get('result', {}).get('content', []))]
     assert reads and edits and min(reads) < min(edits), 'No fresh semantic retrieval followed by successful edit'
     runtime = verify_runtime_result(json.loads((directory/'runtime-result.json').read_text()))
+    runtime_artifacts = index.get('runtime_artifacts', {})
+    assert set(runtime_artifacts) == {'profile', 'exception', 'marker_logs', 'exception_logs'}, 'Missing exercised runtime artifact bindings'
+    assert all(name in artifacts for name in runtime_artifacts.values()), 'Unbound exercised runtime artifact'
+    observed = json.loads((directory/'runtime-result.json').read_text()).get('observations', {})['defective']
+    profile = json.loads((directory/runtime_artifacts['profile']).read_text())['untrusted_data']
+    assert profile['token'] == observed['token'] and profile['status_code'] == 500 and observed['marker'] in profile['url'], 'Profiler belongs to another failed request'
+    assert profile['time'] and profile['context'] == 'inspection-dev', 'Profiler request time/context missing'
+    exception = json.loads((directory/runtime_artifacts['exception']).read_text())
+    assert len(exception) == 1 and exception[0]['uri'] == 'symfony-profiler://profile/'+observed['token']+'/exception', 'Exception belongs to another profile'
+    detail = exception[0]['text']['untrusted_data']['data']
+    assert detail['has_exception'] and 'Unrecognized field' in detail['message'] and '$label' in detail['message'], 'Expected ORM exception missing'
+    assert any(frame.get('file') == '/app/'+CONTROLLER for frame in detail['trace']), 'Exception omits application frame'
+    marker_logs = json.loads((directory/runtime_artifacts['marker_logs']).read_text())['untrusted_data']['entries']
+    exception_logs = json.loads((directory/runtime_artifacts['exception_logs']).read_text())['untrusted_data']['entries']
+    assert any(observed['marker'] in row.get('context', {}).get('request_uri', '') and row.get('kernel_context') == 'inspection-dev' for row in marker_logs), 'Logs do not identify exact request marker'
+    assert any('Unrecognized field' in row.get('message', '') and '$label' in row.get('message', '') and row.get('kernel_context') == 'inspection-dev' for row in exception_logs), 'Structured exception log missing'
     public = json.loads((directory/'public-invocation.json').read_text())
     assert public['run_id'] == index['run_id'] and public['status'] in ('findings', 'clean') and public['exit'] == public['native_exit'] in (0, 1), 'Fresh public analysis incomplete'
+    assert public['source_sha256'][CONTROLLER] == task['final_controller_sha256'] and public['source_sha256'][TEST] == task['files'][TEST]['sha256'], 'Public analysis used different task source'
+    assert public['tool']['revision'] == public['tool']['sdk_source'] == '46df50c96d93d0ac3655c116c375574277cf0b30', 'Public executable and SDK identity differ'
+    graph = json.loads((directory/'public-graph.json').read_text())
+    assert graph['symbols'][SYMBOL]['declaration']['location']['file'] == CONTROLLER, 'Public graph omits repaired controller'
+    assert any(ref['target'] == r'doctrine\bundle\doctrinebundle\registry' and ref['kind'] == 'Body' for ref in graph['symbols'][REPOSITORY]['references']), 'Public graph lacks compiled dependency contribution'
+    assert {CONTROLLER, TEST} <= {row['path'] for row in graph['files']}, 'Public graph omits repaired source or regression'
     comparisons = {name: compare_native(json.loads((directory/('before-'+name+'.stdout')).read_text())['issues'],
                                        json.loads((directory/('after-'+name+'.stdout')).read_text())['issues']) for name in ('analyze', 'lint')}
     result = json.loads((directory/'result.json').read_text())

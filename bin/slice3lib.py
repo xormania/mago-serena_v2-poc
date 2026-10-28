@@ -259,6 +259,8 @@ def run_slice(run_id=None, *, keep_running=False, capture_identity):
             assert b'Slice3MissingService' in compile_result.stdout+compile_result.stderr, 'Compilation did not fail for declared defect'
             failed = request('unbootable', 500, profiled=False)
             previous = profile('historical-during-boot-failure', state['observations']['defective'])
+            historical = mate('historical-exception-during-boot-failure', ['resources:read', 'symfony-profiler://profile/'+previous['token']+'/exception', '--format=json'])
+            assert b'Unrecognized field' in historical.stdout and b'BlogController' in historical.stdout, 'Historical collector unavailable during boot failure'
             logs = payload(mate('logs-during-boot-failure', ['tools:call', 'monolog-search', '--term=Unrecognized field',
                            '--environment=dev', '--kernelContext=inspection-dev', '--limit=20', '--format=json']).stdout)
             assert logs['entries'], 'Historical logs became unavailable during boot failure'
