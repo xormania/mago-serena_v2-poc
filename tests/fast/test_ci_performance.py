@@ -57,6 +57,16 @@ class BuildCacheTests(unittest.TestCase):
         self.assertEqual(build_plan(env)['cache'],original)
         self.assertFalse(original['cache_mounts_persisted'])
 
+    def test_build_selection_matches_compose_default_and_selected_session_tag(self):
+        for selection, expected in ((None, 'mago-serena-poc:local'), ('', 'mago-serena-poc:local'),
+                                    ('mago-serena-poc:s3-session', 'mago-serena-poc:s3-session')):
+            env = self.environment()
+            if selection is not None:
+                env['POC_IMAGE'] = selection
+            with self.subTest(selection=selection):
+                command = build_plan(env)['command']
+                self.assertEqual(command[command.index('--tag')+1], expected)
+
 
 class AcceptanceSchedulingTests(unittest.TestCase):
     def workflow(self):

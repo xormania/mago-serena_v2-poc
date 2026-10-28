@@ -1,6 +1,6 @@
 services:
   php:
-    image: mago-serena-poc:local
+    image: ${POC_IMAGE:-mago-serena-poc:local}
     build:
       context: .
     user: "${POC_UID:-1000}:${POC_GID:-1000}"
