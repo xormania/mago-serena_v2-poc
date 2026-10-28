@@ -6,6 +6,14 @@ retained [slice-1](SLICE-1.md), [slice-2](SLICE-2.md) and
 and independent checks. A scripted acceptance run is replay evidence; the fresh
 agent's transcript establishes which tools the agent actually used.
 
+The fresh slice-3 exercise preserves all 53 original tests / 120 assertions and
+reports a combined 54 tests / 134 assertions, including its one new regression
+test / 14 assertions. Its real request lifecycle is HTTP 200 → 500 → 200 with
+distinct response tokens and markers. A separate invalid-service control fails
+compilation and returns HTTP 500 without a profiler token; the earlier failed
+request's profile and logs remain readable. Exact commands and observations are
+retained in [slice 3](SLICE-3.md).
+
 | Workflow | Installed | Agent-accessible path | Exercised evidence | Remaining / blocked coverage |
 | --- | --- | --- | --- | --- |
 | PHP/source work | Pinned Mago executable/SDK and Serena adapter | Mago CLI; host MCP → Serena REPL → Mago for bodies, definitions, references, hover and semantic edits | Slices 1–2 inspect application/vendor declarations, rename/edit source, analyze/lint/fix and check formatting stability; slice 3 restores the controller method | Existing native findings remain visible. Completion, signature help and broad framework analysis parity are unproven. |
@@ -13,7 +21,7 @@ agent's transcript establishes which tools the agent actually used.
 | Container/services | Mate Symfony extension and wiring worker | Mate `symfony-services`, `symfony-service-detail`; native `debug:container`; public Symfony-enriched Mago CLI | Compiled selected-service bindings and the wiring package's concrete Registry edge, with stale/absent/invalid/restored controls | Compiled dependency facts do not establish measured calls. The pinned LSP external-worker propagation gap remains separately attributed. |
 | Routing | Symfony Routing/Console | Symfony Console and real HTTP requests through the selected container | Existing Demo routes and slice-3 tag-filter request execute | No dedicated Mate route inspector is installed at this pin. Creating/debugging new routes is follow-on work. |
 | Profiler/exceptions | Symfony profiler and Mate Symfony extension | Mate `symfony-profiler-list`, `symfony-profiler-get`; profile and collector resources | Slice 3 records failed and recovered responses with exact profile tokens, exception source and request metadata | A failure before profiling starts may have no profile. Reading a historical record never establishes current application health. |
-| SQL/Doctrine | Doctrine ORM/Bundle and profiler collector | ORM repositories, Console commands and profile resources | Existing fixture databases and repository behavior; slice 3 reads the `db` collector with zero SQL for the invalid field failure, which occurs before query execution | No new migration, schema change, query tuning or broad SQL-collector interpretation task is proved. |
+| SQL/Doctrine | Doctrine ORM/Bundle and profiler collector | ORM repositories, Console commands and profile resources | Slice 3 reads the `db` collector: zero queries for the invalid field failure before execution, four queries for the recovered request | No new migration, schema change, query tuning or broad SQL-collector interpretation task is proved. |
 | Logs | Official Monolog Mate extension | `monolog-search`, `monolog-context-search`, tail/file/channel tools | Slice 3 searches the selected dev logs and correlates exception/request evidence | Discovery of other log tools is availability evidence only unless the transcript records their use. Rotation, production aggregation and arbitrary log formats remain unproven. |
 | Environment configuration | Mate core and Symfony Dotenv | Mate `server-info`, `symfony-dotenv-check`; selected-run dev environment and explicit context/directory maps | Runtime setup distinguishes the Mate CLI process from the application's HTTP evidence | `server-info` describes its own PHP process. No new secret/configuration repair or deployment-environment task is proved. |
 | Framework resources | Symfony validators and Doctrine | Symfony `lint:yaml`, `lint:twig`, `lint:xliff`, `lint:translations`, `lint:container`; Doctrine schema validation | Original acceptance runs these native framework checks | No task mutates resource files or demonstrates agent repair of a resource-validation failure. |

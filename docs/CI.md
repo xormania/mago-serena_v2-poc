@@ -34,6 +34,14 @@ The selected run records the resolved configuration and actual image identity;
 sharing the immutable image still leaves application/database/state directories
 independent.
 
+Local original acceptance on the slice-3 candidate image
+`sha256:ff82c2ee2de6eedba1d5e93a6d62652a788998de0a22afec3bce802102eb40ec`
+passed all **31 required checks** and **165 fast tests**. Both independent
+application workspaces passed the exact original **53 tests / 120 assertions**.
+The existing external-span reproduction remains labelled **EXPECTED NEGATIVE**;
+its passing control does not claim that upstream behavior is fixed. Slice-specific
+and hosted outcomes are reported separately in [SLICE-3.md](SLICE-3.md).
+
 The slice-2 integration starts from merged PR #3 at
 `8f154f798d7cf9ae7cf3cb33b0b99352de99dec4`. Slice failures and earlier attempts
 are collected from their nested result/error files, bound to the producing
