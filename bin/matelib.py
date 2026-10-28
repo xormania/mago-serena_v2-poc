@@ -53,15 +53,171 @@ def fresh(data):
     return record
 
 
+# Runtime observations and compiled framework facts have different lifetimes.
+# These names are from the installed 0.15.0 schemas. No prefix match grants access.
+RUNTIME_TOOLS = {
+    'symfony-profiler-list': {'limit', 'method', 'url', 'ip', 'statusCode', 'context', 'from', 'to'},
+    'symfony-profiler-get': {'token'},
+    'monolog-search': {'term', 'regex', 'level', 'channel', 'environment', 'from', 'to', 'limit', 'kernelContext'},
+    'monolog-context-search': {'key', 'value', 'level', 'environment', 'limit', 'kernelContext'},
+    'monolog-tail': {'limit', 'level', 'environment', 'channel', 'kernelContext'},
+    'monolog-list-files': {'environment', 'kernelContext'},
+    'monolog-list-channels': {'kernelContext'},
+    'server-info': set(),
+}
+GLOBAL_FLAGS = {'--silent', '--quiet', '--verbose', '--ansi', '--no-ansi', '--no-interaction',
+                '-q', '-v', '-vv', '-vvv', '-n'}
+INDEPENDENT = {'help', 'list', 'init', 'discover', 'tools:list', 'tools:inspect',
+               'resources:list', 'resources:inspect', 'resources:templates:list',
+               'debug:capabilities', 'debug:extensions', '--help', '-h', '--version', '-V'}
+RUNTIME_MAX_FILES = 4096
+RUNTIME_MAX_BYTES = 128 * 1024 * 1024
+
+
+def command_policy(argv):
+    """Only unambiguous exact commands can bypass compiled freshness.
+
+    Console's abbreviations remain supported through its guarded normal path.
+    Unknown leading global options conservatively require fresh metadata. Runtime
+    calls accept the real long-option/JSON interface but reject ambiguous extra
+    positional arguments and repeated options before dispatch.
+    """
+    index = 0
+    while index < len(argv) and argv[index] in GLOBAL_FLAGS:
+        index += 1
+    if index == len(argv):
+        return {'kind': 'compiled'}
+    name = argv[index]
+    if name in INDEPENDENT:
+        return {'kind': 'discovery', 'command': name}
+    if name == 'resources:read' and index + 1 < len(argv):
+        import re
+        match = re.fullmatch(r'symfony-profiler://profile/([0-9a-f]{6})(?:/([a-zA-Z0-9_.-]+))?', argv[index + 1])
+        if match:
+            for option in argv[index + 2:]:
+                assert option in GLOBAL_FLAGS or option in ('--format=json', '--format=pretty', '--format=toon'), 'Profiler resources accept only an exact URI and --format=VALUE'
+            return {'kind': 'runtime', 'command': name, 'uri': argv[index + 1],
+                    'token': match[1], 'collector': match[2], 'parameters': {}}
+    if name != 'tools:call' or index + 1 >= len(argv) or argv[index + 1] not in RUNTIME_TOOLS:
+        return {'kind': 'compiled', 'command': name}
+    tool = argv[index + 1]
+    params, bag = {}, {}
+    tokens = argv[index + 2:]
+    i = 0
+    while i < len(tokens):
+        token = tokens[i]
+        i += 1
+        if token in GLOBAL_FLAGS:
+            continue
+        assert token.startswith('--') and token != '--', 'Runtime tools require TOOL followed by long options; inspect the installed schema'
+        key, equal, value = token[2:].partition('=')
+        if not equal:
+            if i < len(tokens) and (not tokens[i].startswith('-') or tokens[i][:2] == '-1'):
+                value = tokens[i]
+                i += 1
+            else:
+                value = True
+        assert key not in params, 'Repeated runtime option: '+key
+        params[key] = value
+    if 'json' in params:
+        raw_json = params.pop('json')
+        assert isinstance(raw_json, str), 'Runtime --json requires a JSON object value'
+        bag = json.loads(raw_json)
+        assert isinstance(bag, dict), 'Runtime --json must be an object'
+    if 'format' in params:
+        assert params.pop('format') in ('json', 'pretty', 'toon'), 'Unsupported Mate output format'
+    params = {**bag, **params}
+    assert set(params) <= RUNTIME_TOOLS[tool], 'Unknown runtime tool parameter; inspect '+tool
+    if 'limit' in RUNTIME_TOOLS[tool]:
+        limit = params.get('limit', 20 if tool == 'symfony-profiler-list' else 100)
+        assert not isinstance(limit, bool) and str(limit).isdigit() and 1 <= int(limit) <= 100, 'Runtime limit must be between 1 and 100'
+    if tool == 'symfony-profiler-list':
+        assert params.get('context') == CONTEXT, 'Profiler list requires --context='+CONTEXT
+    if tool.startswith('monolog-'):
+        assert params.get('kernelContext') == CONTEXT, 'Log inspection requires --kernelContext='+CONTEXT
+        if 'environment' in RUNTIME_TOOLS[tool]:
+            assert params.get('environment') == 'dev', 'Log inspection requires --environment=dev'
+    if tool == 'symfony-profiler-get':
+        import re
+        assert isinstance(params.get('token'), str) and re.fullmatch(r'[0-9a-f]{6}', params['token']), 'Expected an exact six-character profiler token'
+    return {'kind': 'runtime', 'command': name, 'tool': tool, 'parameters': params,
+            'token': params.get('token')}
+
+
+def runtime_files(data, names, *, missing_ok=False):
+    """Scope reads and refresh archives to regular selected-dev files, with bounds."""
+    app = Path(data['app'])
+    found, size = [], 0
+    for name in names:
+        target = app/name
+        for parent in [target, *target.parents]:
+            assert not parent.is_symlink(), 'Runtime path must not be a symlink: '+str(parent)
+            if parent == app:
+                break
+        if not target.exists():
+            assert missing_ok, 'Runtime data directory missing: '+name+'; no application warmup was attempted'
+            continue
+        assert target.is_dir(), 'Runtime data path is not a directory: '+name
+        for path in target.rglob('*'):
+            assert not path.is_symlink(), 'Runtime evidence contains a symlink: '+str(path)
+            if path.is_dir():
+                continue
+            assert path.is_file(), 'Runtime evidence must contain regular files'
+            found.append(path)
+            size += path.stat().st_size
+            assert len(found) <= RUNTIME_MAX_FILES and size <= RUNTIME_MAX_BYTES, 'Runtime evidence exceeds bounded read/archive budget (4096 files / 128 MiB); retain and rotate it explicitly'
+    return found
+
+
+def runtime_identity(data, policy):
+    """Validate runtime configuration and ownership, never boot the application."""
+    marker = Path(data['trusted'])/'mate-runtime.json'
+    assert marker.is_file() and not marker.is_symlink(), 'Runtime inspection unconfigured; run mate-prepare once in a healthy workspace'
+    record = json.loads(marker.read_text())
+    assert record.get('run_id') == data['run_id'] and record.get('workspace') == data['app'], 'Runtime configuration belongs to another workspace'
+    assert record.get('environment') == 'dev' and record.get('context') == CONTEXT, 'Wrong runtime environment/context'
+    config = Path(data['app'])/'mate/config.php'
+    assert config.is_file() and not config.is_symlink() and sha(config) == record.get('config_sha256'), 'Runtime directory configuration changed; reconcile it explicitly'
+    container = subprocess.check_output(compose(data, 'ps', '-q', 'php'), env=environment(data), text=True).strip()
+    assert record.get('container_id') == container, 'Runtime container replaced; configure the selected run explicitly'
+    tool = policy.get('tool', '')
+    paths = [] if tool == 'server-info' else ['var/log'] if tool.startswith('monolog-') else ['var/cache/dev/profiler']
+    runtime_files(data, paths)
+    # Index rows supply request/time provenance even for a collector-only response.
+    observations = []
+    if policy.get('token'):
+        import csv
+        index = Path(data['app'])/'var/cache/dev/profiler/index.csv'
+        if index.is_file():
+            with index.open(newline='') as stream:
+                for row in csv.reader(stream):
+                    if len(row) >= 7 and row[0] == policy['token']:
+                        observations.append({'token': row[0], 'method': row[2], 'url': row[3],
+                                             'request_time_unix': int(row[4]), 'status_code': row[6]})
+    return {**record, 'observations': observations, 'read_paths': paths}
+
+
+def preserve_runtime(data, evidence):
+    """Explicit refresh may delete profiles: archive them before cache:clear."""
+    files = runtime_files(data, ['var/cache/dev/profiler', 'var/log'], missing_ok=True)
+    destination = Path(evidence)/'runtime-before-refresh'
+    manifest = {}
+    for path in files:
+        name = str(path.relative_to(data['app']))
+        target = destination/name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(path, target)
+        manifest[name] = {'sha256': sha(target), 'bytes': target.stat().st_size}
+    write_json(Path(evidence)/'runtime-before-refresh.json', {'run_id': data['run_id'],
+               'workspace': data['app'], 'environment': 'dev', 'context': CONTEXT,
+               'historical': True, 'files': manifest})
+    return manifest
+
+
 def call(data, argv):
-    # Console accepts command abbreviations. Only exact metadata-independent
-    # commands bypass preparation; an abbreviated data command must stay guarded.
-    independent = {'help', 'list', 'init', 'discover', 'tools:list', 'tools:inspect',
-                   'resources:list', 'resources:inspect', 'resources:templates:list'}
-    independent |= {'--help', '-h', '--version', '-V'}
-    # Do not infer a command through global options: their values can resemble
-    # command names. Prefixing options therefore conservatively requires freshness.
-    record = None if argv and argv[0] in independent else fresh(data)
+    policy = command_policy(argv)
+    runtime = runtime_identity(data, policy) if policy['kind'] == 'runtime' else None
+    record = fresh(data) if policy['kind'] == 'compiled' else None
     directory = Path(data['evidence'])/'mate/invocations'/uuid.uuid4().hex
     directory.mkdir(parents=True)
     command = compose(data, 'exec', '-T', '-w', '/app', 'php', 'env', 'APP_ENV=dev', 'APP_DEBUG=1',
@@ -71,8 +227,14 @@ def call(data, argv):
     (directory/'stdout').write_bytes(result.stdout)
     (directory/'stderr').write_bytes(result.stderr)
     write_json(directory/'invocation.json', {'run_id': data['run_id'], 'workspace': data['app'],
-               'argv': command, 'environment': 'dev', 'exit': result.returncode,
-               'elapsed_s': round(time.monotonic()-started, 6),
+               'argv': command, 'environment': 'dev', 'context': CONTEXT, 'exit': result.returncode,
+               'elapsed_s': round(time.monotonic()-started, 6), 'policy': policy,
+               'observed_at_unix': time.time(),
+               'runtime': {'historical': policy.get('tool') != 'server-info',
+                           'scope': 'mate_cli_process' if policy.get('tool') == 'server-info' else 'recorded_application_observation',
+                           'current_application_state': False,
+                           'observations': runtime['observations'], 'read_paths': runtime['read_paths'],
+                           'container_id': runtime['container_id']} if runtime else None,
                'preparation_id': record['preparation_id'] if record else None,
                'application_sha256': record['application_sha256'] if record else None})
     return result
@@ -143,7 +305,21 @@ def prepare_mate(data):
     if not config.exists():
         config.write_text(content)
     else:
-        assert literal in config.read_text() and "'inspection-dev' => '%mate.root_dir%/var/cache/dev'" in config.read_text(), 'Existing mate/config.php needs the declared invocation/context; it was preserved'
+        assert config.read_text() == content, 'Existing mate/config.php needs the declared invocation/context; it was preserved'
+    instructions = (overlay/'runtime-instructions.md.in').read_text().replace('__POC_INVOCATION__', invocation(data))
+    owner = app/'AGENTS.md'
+    existing = owner.read_text() if owner.exists() else ''
+    begin, end = '<!-- POC RUNTIME BEGIN -->', '<!-- POC RUNTIME END -->'
+    if begin in existing:
+        before, rest = existing.split(begin, 1)
+        assert end in rest, 'Incomplete owner runtime instruction block preserved'
+        _, after = rest.split(end, 1)
+        existing = before.rstrip()+'\n'+after.lstrip()
+    owner.write_text(existing.rstrip()+'\n\n'+begin+'\n'+instructions+'\n'+end+'\n')
+    preserve_runtime(data, evidence)
+    container = subprocess.check_output(compose(data, 'ps', '-q', 'php'), env=environment(data), text=True).strip()
+    write_json(Path(data['trusted'])/'mate-runtime.json', {'run_id': data['run_id'], 'workspace': data['app'],
+               'environment': 'dev', 'context': CONTEXT, 'container_id': container, 'config_sha256': sha(config)})
     for name, argv in (
         ('init', ('php', 'vendor/bin/mate', 'init', '--no-interaction')),
         ('autoload', ('composer', 'dump-autoload', '--no-plugins', '--no-scripts', '--no-interaction')),
