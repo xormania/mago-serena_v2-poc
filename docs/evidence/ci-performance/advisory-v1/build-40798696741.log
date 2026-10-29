@@ -1,0 +1,12 @@
+#15 importing cache manifest from gha:667543825475386304
+#15 DONE 0.1s
+#37 [mago-candidate 2/3] RUN --mount=type=cache,target=/usr/local/cargo/registry     --mount=type=cache,target=/src/target     --mount=type=secret,id=proxy_ca     cp /mago /mago-baseline &&     if [ "1" = 1 ]; then       git apply --check /candidate.patch && git apply /candidate.patch &&       if [ -s /run/secrets/proxy_ca ]; then export CARGO_HTTP_CAINFO=/run/secrets/proxy_ca; fi;       cargo build --locked --release -j "2" && cp target/release/mago /mago;     elif [ "1" != 0 ]; then exit 2; fi &&     sha256sum /candidate.patch > /mago-patch.sha256 &&     printf '%s\n' "1" > /mago-candidate-enabled
+#37 CACHED
+#38 [mago 4/4] RUN --mount=type=cache,target=/usr/local/cargo/registry     --mount=type=cache,target=/src/target     --mount=type=secret,id=proxy_ca     if [ -s /run/secrets/proxy_ca ]; then export CARGO_HTTP_CAINFO=/run/secrets/proxy_ca; fi;     cargo build --locked --release -j 6 && cp target/release/mago /mago && sha256sum Cargo.lock > /mago-cargo-lock.sha256 &&     git rev-parse HEAD > /mago-source.sha && rustc --version > /mago-rust-version.txt &&     mkdir -p /cargo-licenses &&     find /usr/local/cargo/registry/src -type f ( -iname 'LICENSE*' -o -iname 'NOTICE*' -o -iname 'COPYING*' )     -exec cp --parents '{}' /cargo-licenses/ ;
+#38 CACHED
+#60 exporting to GitHub Actions Cache
+#60 preparing build cache for export
+#60 preparing build cache for export 3.0s done
+#60 sending cache export
+#60 sending cache export 2.5s done
+#60 DONE 5.5s

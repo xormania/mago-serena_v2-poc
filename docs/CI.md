@@ -1,5 +1,105 @@
 # Hosted CI performance and evidence
 
+## Current performance reporting and comparison
+
+The performance advisory change starts from default branch
+`6a4d2ed6234d724c67d3755285fe66c12b89fbbc`. The producer now writes a readable
+Actions job summary and `artifacts/ci/performance.{json,md}` from the existing
+`always()` collection path, before the provider decision. Reports retain partial
+failed runs. Missing, skipped and cancelled measurements remain explicit and
+have no invented zero-duration success. If cancellation prevents collection
+itself, the absent artifact is reported by the trusted consumer; it never creates
+a provider request solely because metrics are absent. Collection/reporting errors
+remain visible under the existing native infrastructure failure policy.
+
+Schema 1 observations include run/attempt/event/ref, tested source and workflow
+head, runner OS/architecture/class/image, platform, gate definitions and counts,
+command timings for dependencies, fast checks, image build, original acceptance,
+slices 1–3 and LSP integration. Elapsed command time uses a monotonic clock;
+wall start times correlate records. Captured wall span and sums of recorded
+command durations are separate. Full job wall, queue, setup and cleanup timings
+are unavailable in the producer's partial view and are represented as unknown;
+the retained historical fixtures additionally record GitHub API job/step times.
+
+BuildKit parsing follows vertex declarations rather than fixed step numbers and
+retains bounded supporting excerpts for baseline/candidate Mago compilation and
+cache manifest import/export. Outcomes are `cached`, `executed`, `failed` or
+`unknown` for compilation, and success/failed/unknown for cache transfer. Cached
+layer extraction `DONE` timings are not compilation. Successful cache manifest
+import does not prove a matching compile layer was restored. Truncated or
+unrecognized output preserves supported observations and otherwise remains
+unknown. BuildKit RUN timing measures compilation plus the RUN's bookkeeping;
+buffered outer log timestamps cannot measure the Cargo process.
+
+The compile fingerprint covers the Docker syntax directive and instructions in
+the `mago` and `mago-candidate` stages, their pinned Rust base and source revision,
+actual patch bytes, effective compile ARG values and target platform. It excludes
+repository SHA, timestamps, documentation and downstream runtime/native-test
+stages, which do not feed those two binaries. Gate compatibility separately hashes
+integration and harness definitions, including the original 31 checks, slices
+at 9/12/14 and 19 LSP controls. Build and acceptance retain the same `POC_IMAGE`
+selection and pinned image identity; all gates still execute.
+
+The producer's classification uses absolute budgets without downloaded history.
+The default-branch consumer independently validates the observation and recomputes
+classification under its own trusted `tools/ci/performance.py` policy. It retrieves
+at most 20 prior successful producer runs from seven days, downloads at most three
+exact-attempt packets without extracting them, prefers the newest compatible
+same-event/ref observation, then default-branch push history. It records the
+selection reason, baseline run/attempt/source, compatibility and lookup errors.
+Missing, expired or legacy artifacts yield comparison unavailable. PR merge-source
+associations must match their workflow head; non-PR tested sources must match the
+run head. Producer artifacts supply observations, never policy or authorization.
+
+Initial advisory thresholds are deliberately conservative:
+
+| Trusted policy setting | Initial value | Rationale |
+| --- | --- | --- |
+| Warm image build budget | 180 s | Almost four times the retained 47.548 s warm build |
+| Cold image build budget | 900 s | Above the retained 651.353 s cold population |
+| Unknown cache-state image build budget | 900 s | Missing cache evidence must not pretend a warm expectation |
+| Each verification phase budget | 300 s | Above twice the slowest retained 134.465 s phase |
+| Comparable verification slowdown | Both ≥1.5× and ≥60 s increase | Requires substantial relative and absolute change |
+| History age | Seven days | Bounds how far one observation can support a comparison |
+| Cache availability observation age | Five minutes | Bounds an unresolved reuse concern, without proving layer presence |
+
+Policy is versioned trusted Python configuration, not a PR artifact field. These
+values are diagnostic thresholds, not required timing checks. An explained cold
+build can still exceed its configured budget. One prior sample is an observation,
+not a statistical performance guarantee.
+
+Classification names are `warm_reuse`, `explained_cold_population`,
+`unexpected_recompilation`, `slow_verification`, `absolute_budget_breach`, and
+`insufficient_evidence`; more than one can apply. Relative deltas require matching
+compile inputs, gate definitions, platform, runner identity/image and cold/warm
+regime. Stale, materially different or missing observations cannot establish a
+regression. A first candidate compilation after changed inputs or an inaccessible
+PR merge-ref cache can be explained cold population. A fingerprint match alone
+cannot establish accessible cache presence. Unexpected recompilation additionally
+requires a matching prior successful export, same-ref evidence and a fresh trusted
+GitHub cache inventory observation; even then it is an investigation signal,
+not a claim about eviction, corruption or another unverified cause.
+
+Warm successful runs and explained cold population inside their budgets need no
+performance provider request. Supported unexpected recompilation, comparable
+slow verification and an absolute budget breach can make a successful run
+eligible for the existing single advisory request. Native failures keep their
+failure evidence and share that request. [Jev's contract](JEV.md) documents both
+eligibility gates, typed answers, bounded payloads and rollout compatibility.
+
+[Retained historical evidence](evidence/ci-performance/advisory-v1/README.md)
+contains actual PR #6 warm and first-master cold logs, exact captured timings,
+timestamps, image/source identities and extraction provenance. The 603.805 s build
+difference explains about 87% of the total slowdown; recurring cache failure is
+not established. The verification difference has no established cause. No newer
+unchanged-master run existed when history was checked, so warm reuse on that
+master SHA remains unverified. Final candidate hosted results are retained
+separately. This reporting change does not itself establish a speed improvement.
+
+The following implementation/measurement sections retain historical context from
+the earlier CI, slice and LSP changes; their dated outcomes are not measurements
+of this advisory implementation.
+
 The Mago-first workflow has captured `slice1`, `slice2` and `slice3` steps after original
 acceptance, using the same built image and separate fresh owned workspaces.
 Slice 1 exercises native PHP calibration, real host MCP semantics, compiled
@@ -15,7 +115,7 @@ remain recorded rather than suppressed; this is a capability gate, not a claim
 that every Demo diagnostic has been repaired. The original default container
 check keeps Composer/Symfony validation; PHPStan/PHP-CS-Fixer require the explicit
 `--legacy-comparison` option. Cache scope, event/concurrency policy and the
-trusted default-branch Jev consumer are unchanged. No new calibration or local
+trusted default-branch Jev execution boundary are preserved. No new calibration or local
 provider key is involved.
 
 The runtime stage uses the same candidate image as the earlier gates, in its own
@@ -25,7 +125,7 @@ run/attempt/source context. The collector accepts the declared `slice3` layout
 under the same source, size and path checks as slices 1 and 2. Mocked tests cover
 the runtime cause reaching the provider payload, foreign attempt rejection and
 zero provider requests when all three slice results pass. The producer receives
-no TypeSafe key; the trusted advisory consumer remains unchanged.
+no TypeSafe key; the trusted advisory consumer preserves the execution boundary described above.
 
 The combined LSP candidate also captures `lsp_extensions` after `slice3`.
 Its fresh owned workspace verifies all 19 native worker controls and actual

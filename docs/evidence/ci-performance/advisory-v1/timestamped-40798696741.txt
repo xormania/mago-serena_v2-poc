@@ -1,0 +1,17 @@
+2026-10-29T01:09:46.0628570Z Image: ubuntu-24.04
+2026-10-29T01:09:46.0629335Z Version: 20261025.353.1
+2026-10-29T01:09:48.7669033Z HEAD is now at 60c578e Merge 8dc3158f654159b23900345fcd07989b48aa62ef into 73d7bb8886b8127d930a45252f4fd5d8c855e47d
+2026-10-29T01:09:48.7725917Z [command]/usr/bin/git log -1 --format=%H
+2026-10-29T01:09:48.7748631Z 60c578e1ab69d80deee263e78a241f857d9befe3
+2026-10-29T01:10:12.2629951Z #15 importing cache manifest from gha:667543825475386304
+2026-10-29T01:10:12.2630197Z #15 DONE 0.1s
+2026-10-29T01:10:12.5988952Z #37 [mago-candidate 2/3] RUN --mount=type=cache,target=/usr/local/cargo/registry     --mount=type=cache,target=/src/target     --mount=type=secret,id=proxy_ca     cp /mago /mago-baseline &&     if [ "1" = 1 ]; then       git apply --check /candidate.patch && git apply /candidate.patch &&       if [ -s /run/secrets/proxy_ca ]; then export CARGO_HTTP_CAINFO=/run/secrets/proxy_ca; fi;       cargo build --locked --release -j "2" && cp target/release/mago /mago;     elif [ "1" != 0 ]; then exit 2; fi &&     sha256sum /candidate.patch > /mago-patch.sha256 &&     printf '%s\n' "1" > /mago-candidate-enabled
+2026-10-29T01:10:12.5990613Z #37 CACHED
+2026-10-29T01:10:12.5992169Z #38 [mago 4/4] RUN --mount=type=cache,target=/usr/local/cargo/registry     --mount=type=cache,target=/src/target     --mount=type=secret,id=proxy_ca     if [ -s /run/secrets/proxy_ca ]; then export CARGO_HTTP_CAINFO=/run/secrets/proxy_ca; fi;     cargo build --locked --release -j 6 && cp target/release/mago /mago && sha256sum Cargo.lock > /mago-cargo-lock.sha256 &&     git rev-parse HEAD > /mago-source.sha && rustc --version > /mago-rust-version.txt &&     mkdir -p /cargo-licenses &&     find /usr/local/cargo/registry/src -type f ( -iname 'LICENSE*' -o -iname 'NOTICE*' -o -iname 'COPYING*' )     -exec cp --parents '{}' /cargo-licenses/ ;
+2026-10-29T01:10:12.5993822Z #38 CACHED
+2026-10-29T01:10:56.6278302Z #60 exporting to GitHub Actions Cache
+2026-10-29T01:10:56.6278612Z #60 preparing build cache for export
+2026-10-29T01:10:56.6278951Z #60 preparing build cache for export 3.0s done
+2026-10-29T01:10:56.6279301Z #60 sending cache export
+2026-10-29T01:10:56.6288691Z #60 sending cache export 2.5s done
+2026-10-29T01:10:56.6288968Z #60 DONE 5.5s

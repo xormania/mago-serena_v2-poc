@@ -1,0 +1,68 @@
+{
+  "all_listed_blobs_equal": true,
+  "deltas_s": {
+    "build": 603.805,
+    "run_wall": 694.0,
+    "verification_sum": 88.403
+  },
+  "identical_blobs": {
+    ".dockerignore": {
+      "60c578e1ab69d80deee263e78a241f857d9befe3": "6b40881b3070d95d1b8fe54dfb71072271dda4b2",
+      "6a4d2ed6234d724c67d3755285fe66c12b89fbbc": "6b40881b3070d95d1b8fe54dfb71072271dda4b2"
+    },
+    ".github/workflows/poc.yml": {
+      "60c578e1ab69d80deee263e78a241f857d9befe3": "e2e03b2ff4d47e11694530700ce34cd740e10b45",
+      "6a4d2ed6234d724c67d3755285fe66c12b89fbbc": "e2e03b2ff4d47e11694530700ce34cd740e10b45"
+    },
+    "Dockerfile": {
+      "60c578e1ab69d80deee263e78a241f857d9befe3": "bf48ec473579f5095ae9990af3b70948040ff67c",
+      "6a4d2ed6234d724c67d3755285fe66c12b89fbbc": "bf48ec473579f5095ae9990af3b70948040ff67c"
+    },
+    "patches/mago-lsp-extensions.patch": {
+      "60c578e1ab69d80deee263e78a241f857d9befe3": "bfeb23ba7159760392dc18b031989f521b533360",
+      "6a4d2ed6234d724c67d3755285fe66c12b89fbbc": "bfeb23ba7159760392dc18b031989f521b533360"
+    },
+    "pyproject.toml": {
+      "60c578e1ab69d80deee263e78a241f857d9befe3": "41f5a793d95dfc492980cb5b8072b0312b71a5d7",
+      "6a4d2ed6234d724c67d3755285fe66c12b89fbbc": "41f5a793d95dfc492980cb5b8072b0312b71a5d7"
+    },
+    "toolchain.lock.json": {
+      "60c578e1ab69d80deee263e78a241f857d9befe3": "cba57f1f952ecc6b5d7834386e616bf981e951e8",
+      "6a4d2ed6234d724c67d3755285fe66c12b89fbbc": "cba57f1f952ecc6b5d7834386e616bf981e951e8"
+    },
+    "tools/ci/build_image.py": {
+      "60c578e1ab69d80deee263e78a241f857d9befe3": "6f87d559852a95671a9546f4783c5fbe85d909e5",
+      "6a4d2ed6234d724c67d3755285fe66c12b89fbbc": "6f87d559852a95671a9546f4783c5fbe85d909e5"
+    },
+    "uv.lock": {
+      "60c578e1ab69d80deee263e78a241f857d9befe3": "8cbeab1772079fa40477efa7cfce99670f4c0a82",
+      "6a4d2ed6234d724c67d3755285fe66c12b89fbbc": "8cbeab1772079fa40477efa7cfce99670f4c0a82"
+    }
+  },
+  "kind": "historical_comparison",
+  "observation": "First master candidate executed after PR-only cache population; baseline cached. Successful export observed. Matching source blobs do not make PR merge-ref cache visible to master. No proof of recurring cache failure. Verification phase differences have no established cause.",
+  "retrieved_at": "2026-10-29T03:05:41.421714Z",
+  "schema": 1,
+  "source_runs": [
+    {
+      "attempt": 1,
+      "run_id": "40798696741",
+      "source_sha": "60c578e1ab69d80deee263e78a241f857d9befe3",
+      "workflow_head_sha": "8dc3158f654159b23900345fcd07989b48aa62ef"
+    },
+    {
+      "attempt": 1,
+      "run_id": "40799634539",
+      "source_sha": "6a4d2ed6234d724c67d3755285fe66c12b89fbbc",
+      "workflow_head_sha": "6a4d2ed6234d724c67d3755285fe66c12b89fbbc"
+    }
+  ],
+  "warm_master_followup": {
+    "checked_at": "2026-10-29T03:05:41.421714Z",
+    "latest_run_id": "40799634539",
+    "latest_sha": "6a4d2ed6234d724c67d3755285fe66c12b89fbbc",
+    "limitation": "Warm-master reuse remains unverified; final PR warm evidence uses a PR cache regime.",
+    "newer_unchanged_master_run_found": false,
+    "query": "gh run list --workflow poc.yml --branch master --limit 30 --json databaseId,headSha,event,conclusion,createdAt"
+  }
+}

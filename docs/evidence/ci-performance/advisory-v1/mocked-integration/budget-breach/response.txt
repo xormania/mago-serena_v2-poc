@@ -1,0 +1,1 @@
+{"answers":{"layer":{"choice":"compilation_cost","type":"choice"},"probe":{"choice":"inspect_compile_profile","type":"choice"},"support_1":{"choice":"performance.metrics","type":"choice"},"support_2":{"choice":"none","type":"choice"}},"model":"jev-1.14.0","usage":{"input_tokens":100,"output_tokens":20}}

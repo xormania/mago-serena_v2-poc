@@ -1,0 +1,48 @@
+2026-10-29T01:18:42.0128141Z Image: ubuntu-24.04
+2026-10-29T01:18:42.0128746Z Version: 20261025.353.1
+2026-10-29T01:18:45.0229316Z 6a4d2ed6234d724c67d3755285fe66c12b89fbbc
+2026-10-29T01:18:45.1323639Z [command]/usr/bin/git log -1 --format=%H
+2026-10-29T01:18:45.1350024Z 6a4d2ed6234d724c67d3755285fe66c12b89fbbc
+2026-10-29T01:19:03.2903932Z #17 importing cache manifest from gha:2427891359249151648
+2026-10-29T01:19:03.2904807Z #17 DONE 0.3s
+2026-10-29T01:19:05.2257411Z #24 [mago 4/4] RUN --mount=type=cache,target=/usr/local/cargo/registry     --mount=type=cache,target=/src/target     --mount=type=secret,id=proxy_ca     if [ -s /run/secrets/proxy_ca ]; then export CARGO_HTTP_CAINFO=/run/secrets/proxy_ca; fi;     cargo build --locked --release -j 6 && cp target/release/mago /mago && sha256sum Cargo.lock > /mago-cargo-lock.sha256 &&     git rev-parse HEAD > /mago-source.sha && rustc --version > /mago-rust-version.txt &&     mkdir -p /cargo-licenses &&     find /usr/local/cargo/registry/src -type f ( -iname 'LICENSE*' -o -iname 'NOTICE*' -o -iname 'COPYING*' )     -exec cp --parents '{}' /cargo-licenses/ ;
+2026-10-29T01:19:05.2261150Z #24 CACHED
+2026-10-29T01:19:05.2264077Z #24 [mago 4/4] RUN --mount=type=cache,target=/usr/local/cargo/registry     --mount=type=cache,target=/src/target     --mount=type=secret,id=proxy_ca     if [ -s /run/secrets/proxy_ca ]; then export CARGO_HTTP_CAINFO=/run/secrets/proxy_ca; fi;     cargo build --locked --release -j 6 && cp target/release/mago /mago && sha256sum Cargo.lock > /mago-cargo-lock.sha256 &&     git rev-parse HEAD > /mago-source.sha && rustc --version > /mago-rust-version.txt &&     mkdir -p /cargo-licenses &&     find /usr/local/cargo/registry/src -type f ( -iname 'LICENSE*' -o -iname 'NOTICE*' -o -iname 'COPYING*' )     -exec cp --parents '{}' /cargo-licenses/ ;
+2026-10-29T01:19:05.2266444Z #24 sha256:2e5591cd3862f01d2c04207505885f20167357ad1dd0dbbaa20dedf97817e610 0B / 13.72MB 0.2s
+2026-10-29T01:19:08.8523210Z #24 extracting sha256:8cb71386cfcfc55b27b559f73c6d5c0cdcb93b83be8281314116e271cc42cea6
+2026-10-29T01:19:08.8529183Z #24 extracting sha256:8cb71386cfcfc55b27b559f73c6d5c0cdcb93b83be8281314116e271cc42cea6 1.1s done
+2026-10-29T01:19:18.8350926Z #24 extracting sha256:a4edf9c328e814bd91b20c8e2211065489ebf15a16c7663d68a880660dfc897d
+2026-10-29T01:19:18.8353092Z #24 extracting sha256:a4edf9c328e814bd91b20c8e2211065489ebf15a16c7663d68a880660dfc897d 0.4s done
+2026-10-29T01:19:18.8353744Z #24 extracting sha256:c6c71fff0869aa9bd48cf80d66e30b83adc9a3fe5e77dd9aaf266282c6ec64ff
+2026-10-29T01:19:18.8359992Z #24 extracting sha256:c6c71fff0869aa9bd48cf80d66e30b83adc9a3fe5e77dd9aaf266282c6ec64ff 1.6s done
+2026-10-29T01:19:18.8363122Z #24 DONE 9.3s
+2026-10-29T01:19:18.8365439Z #24 [mago 4/4] RUN --mount=type=cache,target=/usr/local/cargo/registry     --mount=type=cache,target=/src/target     --mount=type=secret,id=proxy_ca     if [ -s /run/secrets/proxy_ca ]; then export CARGO_HTTP_CAINFO=/run/secrets/proxy_ca; fi;     cargo build --locked --release -j 6 && cp target/release/mago /mago && sha256sum Cargo.lock > /mago-cargo-lock.sha256 &&     git rev-parse HEAD > /mago-source.sha && rustc --version > /mago-rust-version.txt &&     mkdir -p /cargo-licenses &&     find /usr/local/cargo/registry/src -type f ( -iname 'LICENSE*' -o -iname 'NOTICE*' -o -iname 'COPYING*' )     -exec cp --parents '{}' /cargo-licenses/ ;
+2026-10-29T01:19:18.8368574Z #24 extracting sha256:610dc773fbd71198e96c7a8710abfd1661f14d776d7169b4ef525d8eb30e1b03
+2026-10-29T01:19:18.8369718Z #24 extracting sha256:610dc773fbd71198e96c7a8710abfd1661f14d776d7169b4ef525d8eb30e1b03 3.6s done
+2026-10-29T01:19:18.8370783Z #24 DONE 12.8s
+2026-10-29T01:19:18.8374038Z #24 [mago 4/4] RUN --mount=type=cache,target=/usr/local/cargo/registry     --mount=type=cache,target=/src/target     --mount=type=secret,id=proxy_ca     if [ -s /run/secrets/proxy_ca ]; then export CARGO_HTTP_CAINFO=/run/secrets/proxy_ca; fi;     cargo build --locked --release -j 6 && cp target/release/mago /mago && sha256sum Cargo.lock > /mago-cargo-lock.sha256 &&     git rev-parse HEAD > /mago-source.sha && rustc --version > /mago-rust-version.txt &&     mkdir -p /cargo-licenses &&     find /usr/local/cargo/registry/src -type f ( -iname 'LICENSE*' -o -iname 'NOTICE*' -o -iname 'COPYING*' )     -exec cp --parents '{}' /cargo-licenses/ ;
+2026-10-29T01:19:18.8377504Z #24 extracting sha256:1936058e26243a0253bdf59dc7050f07d6644f9f8b862ced4681e67a65d6a971
+2026-10-29T01:19:18.8378815Z #24 extracting sha256:1936058e26243a0253bdf59dc7050f07d6644f9f8b862ced4681e67a65d6a971 2.7s done
+2026-10-29T01:19:18.8379277Z #24 DONE 15.5s
+2026-10-29T01:19:18.8382635Z #24 [mago 4/4] RUN --mount=type=cache,target=/usr/local/cargo/registry     --mount=type=cache,target=/src/target     --mount=type=secret,id=proxy_ca     if [ -s /run/secrets/proxy_ca ]; then export CARGO_HTTP_CAINFO=/run/secrets/proxy_ca; fi;     cargo build --locked --release -j 6 && cp target/release/mago /mago && sha256sum Cargo.lock > /mago-cargo-lock.sha256 &&     git rev-parse HEAD > /mago-source.sha && rustc --version > /mago-rust-version.txt &&     mkdir -p /cargo-licenses &&     find /usr/local/cargo/registry/src -type f ( -iname 'LICENSE*' -o -iname 'NOTICE*' -o -iname 'COPYING*' )     -exec cp --parents '{}' /cargo-licenses/ ;
+2026-10-29T01:19:18.8386126Z #24 extracting sha256:8ac17d5c3ad3e6f35c797b80e0c4c119a4ab68d062c10f183dda0c7357564e54 done
+2026-10-29T01:19:24.9464234Z #24 extracting sha256:001849cfdeae4fcd0c5720b31e8399a3fe823e5e1a4216268fcd1ce8cce07c70
+2026-10-29T01:19:24.9465013Z #24 extracting sha256:001849cfdeae4fcd0c5720b31e8399a3fe823e5e1a4216268fcd1ce8cce07c70 1.3s done
+2026-10-29T01:19:24.9465536Z #24 DONE 16.8s
+2026-10-29T01:19:24.9467872Z #24 [mago 4/4] RUN --mount=type=cache,target=/usr/local/cargo/registry     --mount=type=cache,target=/src/target     --mount=type=secret,id=proxy_ca     if [ -s /run/secrets/proxy_ca ]; then export CARGO_HTTP_CAINFO=/run/secrets/proxy_ca; fi;     cargo build --locked --release -j 6 && cp target/release/mago /mago && sha256sum Cargo.lock > /mago-cargo-lock.sha256 &&     git rev-parse HEAD > /mago-source.sha && rustc --version > /mago-rust-version.txt &&     mkdir -p /cargo-licenses &&     find /usr/local/cargo/registry/src -type f ( -iname 'LICENSE*' -o -iname 'NOTICE*' -o -iname 'COPYING*' )     -exec cp --parents '{}' /cargo-licenses/ ;
+2026-10-29T01:19:24.9470657Z #24 extracting sha256:2e5591cd3862f01d2c04207505885f20167357ad1dd0dbbaa20dedf97817e610
+2026-10-29T01:19:24.9471273Z #24 extracting sha256:2e5591cd3862f01d2c04207505885f20167357ad1dd0dbbaa20dedf97817e610 0.3s done
+2026-10-29T01:19:24.9471720Z #24 DONE 17.1s
+2026-10-29T01:19:24.9476585Z #26 [mago-candidate 2/3] RUN --mount=type=cache,target=/usr/local/cargo/registry     --mount=type=cache,target=/src/target     --mount=type=secret,id=proxy_ca     cp /mago /mago-baseline &&     if [ "1" = 1 ]; then       git apply --check /candidate.patch && git apply /candidate.patch &&       if [ -s /run/secrets/proxy_ca ]; then export CARGO_HTTP_CAINFO=/run/secrets/proxy_ca; fi;       cargo build --locked --release -j "2" && cp target/release/mago /mago;     elif [ "1" != 0 ]; then exit 2; fi &&     sha256sum /candidate.patch > /mago-patch.sha256 &&     printf '%s\n' "1" > /mago-candidate-enabled
+2026-10-29T01:20:01.9816324Z #26 2.330    Compiling proc-macro2 v1.0.107
+2026-10-29T01:20:01.9817070Z #26 2.330    Compiling unicode-ident v1.0.27
+2026-10-29T01:28:55.6936700Z #26 222.5    Compiling colored v3.1.1
+2026-10-29T01:28:55.6937074Z #26 222.8    Compiling termtree v1.0.0
+2026-10-29T01:28:55.6937497Z #26 570.6     Finished `release` profile [optimized] target(s) in 9m 30s
+2026-10-29T01:28:55.6937859Z #26 DONE 570.7s
+2026-10-29T01:29:32.9691425Z #60 exporting to GitHub Actions Cache
+2026-10-29T01:29:32.9691702Z #60 preparing build cache for export
+2026-10-29T01:29:32.9692158Z #60 preparing build cache for export 2.4s done
+2026-10-29T01:29:32.9692456Z #60 sending cache export
+2026-10-29T01:29:52.4346574Z #60 sending cache export 22.8s done
+2026-10-29T01:29:52.4346991Z #60 DONE 25.3s

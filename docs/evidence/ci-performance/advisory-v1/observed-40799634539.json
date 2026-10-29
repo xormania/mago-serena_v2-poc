@@ -1,0 +1,473 @@
+{
+  "ci": {
+    "attempt": 1,
+    "run_id": "40799634539",
+    "source_sha": "6a4d2ed6234d724c67d3755285fe66c12b89fbbc",
+    "workflow_head_sha": "6a4d2ed6234d724c67d3755285fe66c12b89fbbc"
+  },
+  "conclusion": "success",
+  "event": "push",
+  "extraction": {
+    "artifact": {
+      "created_at": "2026-10-29T01:37:46Z",
+      "digest": "sha256:d798592005587b0573556fef3d699d7464dd6b882339bc86adaa695399855944",
+      "expires_at": "2026-11-12T01:37:44Z",
+      "id": 12866381231,
+      "name": "poc-evidence-40799634539-1",
+      "size_in_bytes": 14540036
+    },
+    "commands": [
+      "gh api repos/xormania/mago-serena_v2-poc/actions/runs/40799634539",
+      "gh api repos/xormania/mago-serena_v2-poc/actions/jobs/123204359865",
+      "gh run view 40799634539 --job 123204359865 --log",
+      "gh api repos/xormania/mago-serena_v2-poc/actions/artifacts/12866381231/zip"
+    ],
+    "downloaded_zip_sha256": "d798592005587b0573556fef3d699d7464dd6b882339bc86adaa695399855944",
+    "raw_build_bytes": 65556,
+    "raw_build_line_count": 1168,
+    "raw_build_member": "ci/build-attempt-1.log",
+    "raw_build_sha256": "22ecc2f44a1ce67c08134095520ab63d7349161c5f34e997fdd693ba9748a497",
+    "raw_job_log_bytes": 844692,
+    "raw_job_log_sha256": "1e634a7c9b4f6b1c187168762fc0f0502fdf46c9a1e0ff5b24c259e492e26170",
+    "selected_build_line_numbers_1based": [
+      63,
+      64,
+      92,
+      93,
+      95,
+      96,
+      156,
+      161,
+      162,
+      165,
+      166,
+      174,
+      179,
+      181,
+      182,
+      183,
+      184,
+      186,
+      187,
+      188,
+      189,
+      191,
+      192,
+      193,
+      194,
+      195,
+      197,
+      198,
+      199,
+      200,
+      205,
+      472,
+      473,
+      723,
+      724,
+      725,
+      726,
+      1106,
+      1107,
+      1108,
+      1109,
+      1164,
+      1165
+    ],
+    "selected_timestamped_job_line_numbers_1based": [
+      17,
+      18,
+      109,
+      120,
+      121,
+      814,
+      815,
+      843,
+      844,
+      846,
+      847,
+      907,
+      912,
+      913,
+      916,
+      917,
+      925,
+      930,
+      932,
+      933,
+      934,
+      935,
+      937,
+      938,
+      939,
+      940,
+      942,
+      943,
+      944,
+      945,
+      946,
+      948,
+      949,
+      950,
+      951,
+      956,
+      1223,
+      1224,
+      1474,
+      1475,
+      1476,
+      1477,
+      1857,
+      1858,
+      1859,
+      1860,
+      1915,
+      1916
+    ],
+    "selection": "BuildKit compile/import/export vertex declarations; cached/DONE/ERROR; extraction lines; one transfer; first/last two Compiling lines; Finished release. Original order retained. Selected excerpts deliberately omit most unrelated output.",
+    "steps_member": "ci/step-attempts.jsonl",
+    "steps_sha256": "93345c719e96d6f455895610b5ded6d1808bfd75ac3315f2ec1e408a569e688f"
+  },
+  "gate_inventory": {
+    "acceptance": {
+      "all_pass": true,
+      "artifact_member": "test-20261029-012952-841ae7/results.json",
+      "check_count": 31,
+      "names": [
+        "fast_tests",
+        "source_integrity",
+        "setup_a",
+        "phpunit_a",
+        "setup_b",
+        "phpunit_b",
+        "application_checks",
+        "executed_identity",
+        "trusted_baseline",
+        "workspace_isolation",
+        "baseline_unchanged",
+        "cleanup",
+        "direct_lsp",
+        "demo_symbols",
+        "cross_file_references",
+        "composer_navigation",
+        "demo_rename",
+        "interface_inheritance",
+        "invalid_rename",
+        "semantic_body_edit",
+        "position_accuracy",
+        "document_state",
+        "diagnostics",
+        "external_edit",
+        "repl_persistence",
+        "partial_execution",
+        "restart_and_death",
+        "negative_backend",
+        "negative_verifier",
+        "mago_external_span_control",
+        "application_integrity_final"
+      ]
+    },
+    "lsp_extensions": {
+      "artifact_member": "lspext-ci-20261029-013636-81ef85/lsp-extensions/host-result.json",
+      "control_count": 19,
+      "controls": [
+        "cli-on",
+        "cli-off",
+        "extension-off",
+        "extension-on",
+        "unsaved-source-replaced",
+        "unsaved-source-restored",
+        "analysis-worker-failure",
+        "analysis-worker-recovery",
+        "changed-binding-export",
+        "changed-binding",
+        "restored-binding-export",
+        "restored-binding",
+        "worker-failure",
+        "worker-recovery",
+        "disabled-after-analysis",
+        "reenabled-after-analysis",
+        "workspace-isolation",
+        "shutdown",
+        "restart"
+      ],
+      "status": "pass"
+    },
+    "slice1": {
+      "artifact_member": "slice1-20261029-013138-628c6b/slice1-result.json",
+      "check_count": 9,
+      "names": [
+        "fixture_integrity",
+        "executed_identity",
+        "mago_configuration",
+        "framework_preparation",
+        "mago_php",
+        "service_semantics",
+        "symfony_wiring",
+        "behavior",
+        "cleanup"
+      ],
+      "status": "pass"
+    },
+    "slice2": {
+      "artifact_member": "slice2-20261029-013353-fc9635/slice2-result.json",
+      "check_count": 12,
+      "names": [
+        "fixture_integrity",
+        "executed_identity",
+        "prepared_baseline",
+        "maker_generation",
+        "declared_task",
+        "native_mago",
+        "semantic_replay",
+        "enriched_framework",
+        "behavior",
+        "defective_restored_control",
+        "task_integrity",
+        "cleanup"
+      ],
+      "status": "pass"
+    },
+    "slice3": {
+      "artifact_member": "s3-replay-20261029-013510-22edb4/slice3-result.json",
+      "check_count": 14,
+      "names": [
+        "fixture_integrity",
+        "executed_identity",
+        "prepared_baseline",
+        "healthy_request",
+        "defective_request",
+        "runtime_diagnosis",
+        "boot_failure_control",
+        "semantic_repair",
+        "native_mago",
+        "enriched_framework",
+        "repaired_request",
+        "behavior",
+        "task_integrity",
+        "cleanup"
+      ],
+      "status": "pass"
+    }
+  },
+  "image_id": "sha256:9589b8e7e44c2383e413595f05a417992968840dc5c7f07d29cbf2212422d793",
+  "job": {
+    "completed_at": "2026-10-29T01:37:55Z",
+    "id": 123204359865,
+    "labels": [
+      "ubuntu-latest"
+    ],
+    "name": "acceptance",
+    "runner_group_name": "GitHub Actions",
+    "runner_name": "GitHub Actions 1000022788",
+    "started_at": "2026-10-29T01:18:41Z",
+    "steps": [
+      {
+        "completed_at": "2026-10-29T01:18:43Z",
+        "conclusion": "success",
+        "name": "Set up job",
+        "number": 1,
+        "started_at": "2026-10-29T01:18:42Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:18:45Z",
+        "conclusion": "success",
+        "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "number": 2,
+        "started_at": "2026-10-29T01:18:43Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:18:47Z",
+        "conclusion": "success",
+        "name": "Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
+        "number": 3,
+        "started_at": "2026-10-29T01:18:45Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:18:50Z",
+        "conclusion": "success",
+        "name": "Install locked fast-test environment",
+        "number": 4,
+        "started_at": "2026-10-29T01:18:47Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:18:55Z",
+        "conclusion": "success",
+        "name": "Fast properties, manifest verification and mocked diagnosis",
+        "number": 5,
+        "started_at": "2026-10-29T01:18:50Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:19:00Z",
+        "conclusion": "success",
+        "name": "Run docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069",
+        "number": 6,
+        "started_at": "2026-10-29T01:18:55Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:19:01Z",
+        "conclusion": "success",
+        "name": "Run ./.github/actions/cache-runtime",
+        "number": 7,
+        "started_at": "2026-10-29T01:19:00Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:29:52Z",
+        "conclusion": "success",
+        "name": "Build exact toolchain",
+        "number": 8,
+        "started_at": "2026-10-29T01:19:01Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:31:38Z",
+        "conclusion": "success",
+        "name": "Real Docker, original application tests and MCP acceptance",
+        "number": 9,
+        "started_at": "2026-10-29T01:29:52Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:33:52Z",
+        "conclusion": "success",
+        "name": "Mago-first service analysis and compiled Symfony wiring",
+        "number": 10,
+        "started_at": "2026-10-29T01:31:38Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:35:10Z",
+        "conclusion": "success",
+        "name": "Generated Symfony tag-count command and behavioral acceptance",
+        "number": 11,
+        "started_at": "2026-10-29T01:33:52Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:36:36Z",
+        "conclusion": "success",
+        "name": "Failed HTTP request diagnosis, semantic repair and runtime recovery",
+        "number": 12,
+        "started_at": "2026-10-29T01:35:10Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:37:42Z",
+        "conclusion": "success",
+        "name": "Native LSP external workers and Serena dependency graph",
+        "number": 13,
+        "started_at": "2026-10-29T01:36:36Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:37:42Z",
+        "conclusion": "success",
+        "name": "Collect bounded advisory diagnosis data",
+        "number": 14,
+        "started_at": "2026-10-29T01:37:42Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:37:43Z",
+        "conclusion": "success",
+        "name": "Upload diagnosis data without credentials",
+        "number": 15,
+        "started_at": "2026-10-29T01:37:42Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:37:46Z",
+        "conclusion": "success",
+        "name": "Retain all evidence, including failed scenarios",
+        "number": 16,
+        "started_at": "2026-10-29T01:37:43Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:37:52Z",
+        "conclusion": "success",
+        "name": "Post Run docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069",
+        "number": 30,
+        "started_at": "2026-10-29T01:37:46Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:37:53Z",
+        "conclusion": "success",
+        "name": "Post Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
+        "number": 31,
+        "started_at": "2026-10-29T01:37:52Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:37:53Z",
+        "conclusion": "success",
+        "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "number": 32,
+        "started_at": "2026-10-29T01:37:53Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:37:53Z",
+        "conclusion": "success",
+        "name": "Complete job",
+        "number": 33,
+        "started_at": "2026-10-29T01:37:53Z",
+        "status": "completed"
+      }
+    ],
+    "wall_s": 1154.0
+  },
+  "kind": "historical_observation",
+  "measurements": {
+    "buildkit_candidate_s": 570.7,
+    "cache_export_s": 25.3,
+    "cache_import_s": 0.3,
+    "candidate_cargo_finished": "9m 30s",
+    "candidate_compile_entries": 253,
+    "capture_clock": "Historical capture used time.time(); new capture uses monotonic elapsed time.",
+    "captured_steps_sum_s": 1128.564,
+    "phase_s": {
+      "acceptance": 105.613,
+      "build": 651.353,
+      "dependencies": 2.311,
+      "fast": 5.128,
+      "lsp_extensions": 66.397,
+      "slice1": 134.465,
+      "slice2": 77.314,
+      "slice3": 85.983
+    },
+    "verification_sum_s": 469.772
+  },
+  "observed_cache": {
+    "baseline": "cached",
+    "candidate": "executed",
+    "compile_duration_basis": "BuildKit DONE for executed candidate; cached duration unknown, never extraction DONE",
+    "export": "completed",
+    "import": "completed_manifest_import"
+  },
+  "ref": "refs/heads/master",
+  "retrieved_at": "2026-10-29T03:05:41.421714Z",
+  "run": {
+    "completed_observed_at": "2026-10-29T01:37:56Z",
+    "created_at": "2026-10-29T01:18:38Z",
+    "started_at": "2026-10-29T01:18:38Z",
+    "wall_s": 1158.0
+  },
+  "runner": {
+    "architecture": "X64",
+    "class": "GitHub Actions standard hosted / ubuntu-latest",
+    "image": "ubuntu-24.04",
+    "image_version": "20261025.353.1",
+    "os": "Linux"
+  },
+  "schema": 1,
+  "url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40799634539"
+}
