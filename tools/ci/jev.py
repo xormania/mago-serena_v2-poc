@@ -9,9 +9,14 @@ import os
 from pathlib import Path
 import re
 import socket
+import sys
 import time
 import urllib.error
 import urllib.request
+
+# -I omits the script directory. Resolve siblings only from this trusted checkout,
+# as download_inputs.py and prepare_diagnosis.py do; never use the caller's cwd.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 MODEL = 'jev-1.14.0'
 ENDPOINT = 'https://api.typesafe.ai/v1/systemone'

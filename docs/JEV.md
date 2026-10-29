@@ -63,6 +63,17 @@ run is part of this work. The existing at-most-one reservation-before-key reques
 no retry, durable duplicate suppression, cancellation/rerun behavior, response
 bounds, redaction, pinned `jev-1.14.0` model and failure priority remain in place.
 
+All three CLI entry points explicitly add their resolved trusted `tools/ci`
+directory to the import path: `python -I` excludes the script directory as well
+as ignoring `PYTHONPATH`. The provider entry point needs this for its performance
+siblings even though the key-free gate already imported them successfully in
+another process. Subprocess regressions invoke the actual isolated provider CLI
+from an unrelated directory containing hostile sibling-module names, with empty
+credentials. They cover warm packets, successful performance signals, failed
+checks carrying performance data, and the four-case calibration path, making zero
+provider requests. The calibration regression is a keyless CLI smoke test, not a
+new live calibration.
+
 [Actual retained cold/warm observations](evidence/ci-performance/advisory-v1/README.md)
 are distinct from synthetic fault tests and mock provider responses. Mocked useful
 answers prove integration behavior, not the model's causal accuracy. The following

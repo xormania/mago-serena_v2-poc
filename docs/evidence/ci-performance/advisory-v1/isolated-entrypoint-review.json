@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "review": "https://github.com/xormania/mago-serena_v2-poc/pull/7#discussion_r4408470277",
+  "previous_revision": "ee16285037b4d03e8a6f23ae4f08aca77931764c",
+  "previous_jev_sha256": "c5ad5c004a2096b04ce71f7560dd169a2de0ee4dfcb41130f1b1be24f7f75005",
+  "reproduction": {
+    "command": "python3 -I tools/ci/jev.py --packet docs/evidence/ci-performance/advisory-v1/hosted-40810928800/source/diagnosis-input.json --out <fresh-output>",
+    "exception": "ModuleNotFoundError: No module named performance",
+    "new_regressions_before_fix": {
+      "tests": 4,
+      "failures": 3,
+      "calibration_passed": true
+    }
+  },
+  "fix": "Prepend only the resolved trusted script directory, matching the download and preparation entry points.",
+  "isolated_cli_validation": {
+    "command": "python3 -m unittest discover -s tests/fast -p test_jev_isolated.py -v",
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "provider_requests": 0,
+    "cases": {
+      "retained_warm": "nothing_to_diagnose",
+      "synthetic_successful_budget_breach": "missing_credentials",
+      "synthetic_failed_check_with_performance": "missing_credentials",
+      "calibration_cli": "four missing_credentials outcomes; zero requests"
+    },
+    "environment": "Unrelated cwd containing hostile jev.py/performance.py; PYTHONPATH set there; TYPESAFE_API_KEY explicitly empty.",
+    "live_calibration_performed": false
+  },
+  "full_fast_suite": {
+    "schema": 1,
+    "kind": "deterministic_fast_tests",
+    "tests": 220,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "elapsed_s": 2.668,
+    "pass": true
+  },
+  "candidate_file_sha256": {
+    "tools/ci/jev.py": "c0883db13a3e7a614a8956eec41046a1fb41218cbe7f9794b63dfb1f3a4e43a1",
+    "tests/fast/test_jev_isolated.py": "2b89fbe12f56eebcd7672d257a54a0cf4647f10b700c74676f2eb43fd7fd0cf8"
+  }
+}
