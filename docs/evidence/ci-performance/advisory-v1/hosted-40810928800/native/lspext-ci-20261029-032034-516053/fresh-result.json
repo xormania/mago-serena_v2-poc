@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "kind": "fresh_lsp_extensions",
+  "run_id": "lspext-ci-20261029-032034-516053",
+  "status": "pass",
+  "cleanup": "pass",
+  "image": "mago-serena-poc:ci-40810928800-1",
+  "expected_image_id": "sha256:bf19db710267171507e51bbf094610c9ac8f0261aa21a6eca8f31e6de420e240",
+  "image_id": "sha256:bf19db710267171507e51bbf094610c9ac8f0261aa21a6eca8f31e6de420e240"
+}

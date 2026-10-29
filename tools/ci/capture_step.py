@@ -10,7 +10,7 @@ import subprocess
 import sys
 import time
 
-from jev import PROBES, canonical, sanitize, validate_packet, parse_json
+from jev import MAX_PACKET, PROBES, canonical, sanitize, validate_packet, parse_json
 LOG_LIMIT = 1024 * 1024
 SLICE_ATTEMPT_LIMIT = 20
 SLICE_RESULT_LIMIT = 1024 * 1024
@@ -130,6 +130,7 @@ def capture(step, attempt, command, root):
     root.mkdir(parents=True, exist_ok=True)
     path = root / f'{step}-attempt-{attempt}.log'
     started = time.time()
+    monotonic_started = time.monotonic()
     count = 0
     with path.open('xb') as output:
         try:
@@ -147,7 +148,8 @@ def capture(step, attempt, command, root):
             output.write(f'Command setup failed: {type(exc).__name__}\n'.encode())
             code = 127
     row = {'step':step, 'attempt':attempt, 'command':sanitize(command), 'status':'pass' if code == 0 else 'fail',
-           'exit_status':code, 'started_unix':started, 'elapsed_s':round(time.time()-started, 3),
+           'exit_status':code, 'started_unix':started, 'finished_unix':time.time(),
+           'elapsed_s':round(time.monotonic()-monotonic_started, 3),
            'log':path.name, 'log_truncated':count > LOG_LIMIT,
            'log_sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
     with (root/'step-attempts.jsonl').open('ab') as output:
@@ -178,6 +180,24 @@ def collect(root, output, *, run_id, attempt, source_sha, workflow_head_sha=None
         if ledger.stat().st_size > 100000:
             raise ValueError('CI ledger bound exceeded')
         rows = [parse_json(line) for line in ledger.read_text().splitlines()]
+    # Render observations before selecting failure excerpts or any consumer
+    # provider decision. Reporting has no power to change a command's verdict.
+    from performance import collect_observation, assess, render_summary
+    ci = {'run_id':str(run_id), 'attempt':int(attempt), 'source_sha':source_sha,
+          'workflow_head_sha':workflow_head_sha or source_sha}
+    observation = sanitize(collect_observation(root, rows, ci, os.environ, step_outcomes or {}))
+    performance_report = assess(observation)
+    report_dir = root/'ci'
+    report_dir.mkdir(parents=True, exist_ok=True)
+    (report_dir/'performance.json').write_bytes(canonical(performance_report)+b'\n')
+    summary = render_summary(performance_report)
+    summary += ('\nProducer assessment uses absolute budgets and no downloaded history. '
+                'The separate default-branch Jev consumer validates observations and decides eligibility; '
+                'its recorded trusted revision determines which contract is deployed.\n')
+    (report_dir/'performance.md').write_text(summary)
+    if os.environ.get('GITHUB_STEP_SUMMARY'):
+        with Path(os.environ['GITHUB_STEP_SUMMARY']).open('a') as stream:
+            stream.write(summary+'\n')
     # Action-only setup failures still have a verdict even when no command logger ran.
     for step, outcome in (step_outcomes or {}).items():
         if outcome.get('outcome') == 'failure' and not any(row['step'] == step for row in rows):
@@ -270,10 +290,27 @@ def collect(root, output, *, run_id, attempt, source_sha, workflow_head_sha=None
             checks.append({'id': eid, 'step': slice_name, 'attempt': provenance['step_attempt'],
                            'status': status, 'excerpt_ids': [eid]})
         slice_kept += 1
-    packet = {'schema':1,'mode':'observed_ci','ci':{'run_id':str(run_id),'attempt':int(attempt),'source_sha':source_sha,'workflow_head_sha':workflow_head_sha or source_sha},
+    packet = {'schema':1,'mode':'observed_ci','ci':ci, 'performance':observation,
               'checks':checks,'excerpts':excerpts,'allowed_probes':PROBES,
               'collection':{'step_rows_omitted':max(0,len(rows)-12),'excerpt_limit':20,'internal_failed_attempts_omitted':len(internal)-kept+len(slice_internal)-slice_kept, 'run_directories_omitted':max(0,len(run_dirs)-20),
                             'note':'Bounded selected excerpts; full available per-step and harness evidence is a separate artifact.'}}
+    # Failure excerpts take priority over redundant performance log text. Full
+    # metrics/evidence remain in the separate bounded report. Never silently
+    # exceed the legacy consumer's 48 KB envelope during rollout.
+    if len(canonical(packet)) > MAX_PACKET:
+        packet['collection']['performance_log_text_omitted_for_size'] = True
+        for evidence in observation['evidence']:
+            evidence['text'], evidence['truncated'] = '', True
+    if len(canonical(packet)) > MAX_PACKET:
+        passed = {row['id'] for row in checks if row['status'] == 'pass'}
+        removed = {row['id'] for row in excerpts if row['id'] in passed}
+        packet['excerpts'] = [row for row in excerpts if row['id'] not in removed]
+        for check in checks:
+            check['excerpt_ids'] = [eid for eid in check['excerpt_ids'] if eid not in removed]
+        packet['collection']['successful_excerpts_omitted_for_size'] = len(removed)
+    if len(canonical(packet)) > MAX_PACKET:
+        packet.pop('performance')
+        packet['collection']['performance_omitted_for_size'] = True
     validate_packet(packet)
     output = Path(output)
     output.parent.mkdir(parents=True, exist_ok=True)

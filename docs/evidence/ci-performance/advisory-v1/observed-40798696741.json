@@ -1,0 +1,411 @@
+{
+  "ci": {
+    "attempt": 1,
+    "run_id": "40798696741",
+    "source_sha": "60c578e1ab69d80deee263e78a241f857d9befe3",
+    "workflow_head_sha": "8dc3158f654159b23900345fcd07989b48aa62ef"
+  },
+  "conclusion": "success",
+  "event": "pull_request",
+  "extraction": {
+    "artifact": {
+      "created_at": "2026-10-29T01:17:21Z",
+      "digest": "sha256:628b2b178185d51295697aa4b388434e76520421cc28e25758932f68ac483bad",
+      "expires_at": "2026-11-12T01:17:19Z",
+      "id": 12864978555,
+      "name": "poc-evidence-40798696741-1",
+      "size_in_bytes": 13932957
+    },
+    "commands": [
+      "gh api repos/xormania/mago-serena_v2-poc/actions/runs/40798696741",
+      "gh api repos/xormania/mago-serena_v2-poc/actions/jobs/123201305754",
+      "gh run view 40798696741 --job 123201305754 --log",
+      "gh api repos/xormania/mago-serena_v2-poc/actions/artifacts/12864978555/zip"
+    ],
+    "downloaded_zip_sha256": "628b2b178185d51295697aa4b388434e76520421cc28e25758932f68ac483bad",
+    "raw_build_bytes": 26135,
+    "raw_build_line_count": 454,
+    "raw_build_member": "ci/build-attempt-1.log",
+    "raw_build_sha256": "e7d02f5f71d8655cfdd78c9abd14eca010530518449e033093432d9e6563c944",
+    "raw_job_log_bytes": 758671,
+    "raw_job_log_sha256": "90b3d29dc766e5dd89fe60fb452a24a1b9fe9a872b2b1d5f1201b84312132220",
+    "selected_build_line_numbers_1based": [
+      59,
+      60,
+      135,
+      136,
+      138,
+      139,
+      434,
+      435,
+      436,
+      437,
+      450,
+      451
+    ],
+    "selected_timestamped_job_line_numbers_1based": [
+      17,
+      18,
+      130,
+      132,
+      133,
+      822,
+      823,
+      898,
+      899,
+      901,
+      902,
+      1197,
+      1198,
+      1199,
+      1200,
+      1213,
+      1214
+    ],
+    "selection": "BuildKit compile/import/export vertex declarations; cached/DONE/ERROR; extraction lines; one transfer; first/last two Compiling lines; Finished release. Original order retained. Selected excerpts deliberately omit most unrelated output.",
+    "steps_member": "ci/step-attempts.jsonl",
+    "steps_sha256": "dde9b0a57a878339ca609f1d90f153f2e2618b32e2a07e322c557e7333dad027"
+  },
+  "gate_inventory": {
+    "acceptance": {
+      "all_pass": true,
+      "artifact_member": "test-20261029-011056-724687/results.json",
+      "check_count": 31,
+      "names": [
+        "fast_tests",
+        "source_integrity",
+        "setup_a",
+        "phpunit_a",
+        "setup_b",
+        "phpunit_b",
+        "application_checks",
+        "executed_identity",
+        "trusted_baseline",
+        "workspace_isolation",
+        "baseline_unchanged",
+        "cleanup",
+        "direct_lsp",
+        "demo_symbols",
+        "cross_file_references",
+        "composer_navigation",
+        "demo_rename",
+        "interface_inheritance",
+        "invalid_rename",
+        "semantic_body_edit",
+        "position_accuracy",
+        "document_state",
+        "diagnostics",
+        "external_edit",
+        "repl_persistence",
+        "partial_execution",
+        "restart_and_death",
+        "negative_backend",
+        "negative_verifier",
+        "mago_external_span_control",
+        "application_integrity_final"
+      ]
+    },
+    "lsp_extensions": {
+      "artifact_member": "lspext-ci-20261029-011621-a8ee2a/lsp-extensions/host-result.json",
+      "control_count": 19,
+      "controls": [
+        "cli-on",
+        "cli-off",
+        "extension-off",
+        "extension-on",
+        "unsaved-source-replaced",
+        "unsaved-source-restored",
+        "analysis-worker-failure",
+        "analysis-worker-recovery",
+        "changed-binding-export",
+        "changed-binding",
+        "restored-binding-export",
+        "restored-binding",
+        "worker-failure",
+        "worker-recovery",
+        "disabled-after-analysis",
+        "reenabled-after-analysis",
+        "workspace-isolation",
+        "shutdown",
+        "restart"
+      ],
+      "status": "pass"
+    },
+    "slice1": {
+      "artifact_member": "slice1-20261029-011227-bded25/slice1-result.json",
+      "check_count": 9,
+      "names": [
+        "fixture_integrity",
+        "executed_identity",
+        "mago_configuration",
+        "framework_preparation",
+        "mago_php",
+        "service_semantics",
+        "symfony_wiring",
+        "behavior",
+        "cleanup"
+      ],
+      "status": "pass"
+    },
+    "slice2": {
+      "artifact_member": "slice2-20261029-011414-489831/slice2-result.json",
+      "check_count": 12,
+      "names": [
+        "fixture_integrity",
+        "executed_identity",
+        "prepared_baseline",
+        "maker_generation",
+        "declared_task",
+        "native_mago",
+        "semantic_replay",
+        "enriched_framework",
+        "behavior",
+        "defective_restored_control",
+        "task_integrity",
+        "cleanup"
+      ],
+      "status": "pass"
+    },
+    "slice3": {
+      "artifact_member": "s3-replay-20261029-011514-705de6/slice3-result.json",
+      "check_count": 14,
+      "names": [
+        "fixture_integrity",
+        "executed_identity",
+        "prepared_baseline",
+        "healthy_request",
+        "defective_request",
+        "runtime_diagnosis",
+        "boot_failure_control",
+        "semantic_repair",
+        "native_mago",
+        "enriched_framework",
+        "repaired_request",
+        "behavior",
+        "task_integrity",
+        "cleanup"
+      ],
+      "status": "pass"
+    }
+  },
+  "image_id": "sha256:232a22d768c752948a02d16300edb43392fc71ccd87f77f4e89a6f28c291dc48",
+  "job": {
+    "completed_at": "2026-10-29T01:17:27Z",
+    "id": 123201305754,
+    "labels": [
+      "ubuntu-latest"
+    ],
+    "name": "acceptance",
+    "runner_group_name": "GitHub Actions",
+    "runner_name": "GitHub Actions 1000022786",
+    "started_at": "2026-10-29T01:09:45Z",
+    "steps": [
+      {
+        "completed_at": "2026-10-29T01:09:47Z",
+        "conclusion": "success",
+        "name": "Set up job",
+        "number": 1,
+        "started_at": "2026-10-29T01:09:46Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:09:48Z",
+        "conclusion": "success",
+        "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "number": 2,
+        "started_at": "2026-10-29T01:09:47Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:09:51Z",
+        "conclusion": "success",
+        "name": "Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
+        "number": 3,
+        "started_at": "2026-10-29T01:09:48Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:09:53Z",
+        "conclusion": "success",
+        "name": "Install locked fast-test environment",
+        "number": 4,
+        "started_at": "2026-10-29T01:09:51Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:09:59Z",
+        "conclusion": "success",
+        "name": "Fast properties, manifest verification and mocked diagnosis",
+        "number": 5,
+        "started_at": "2026-10-29T01:09:53Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:10:08Z",
+        "conclusion": "success",
+        "name": "Run docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069",
+        "number": 6,
+        "started_at": "2026-10-29T01:09:59Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:10:09Z",
+        "conclusion": "success",
+        "name": "Run ./.github/actions/cache-runtime",
+        "number": 7,
+        "started_at": "2026-10-29T01:10:08Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:10:56Z",
+        "conclusion": "success",
+        "name": "Build exact toolchain",
+        "number": 8,
+        "started_at": "2026-10-29T01:10:09Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:12:26Z",
+        "conclusion": "success",
+        "name": "Real Docker, original application tests and MCP acceptance",
+        "number": 9,
+        "started_at": "2026-10-29T01:10:56Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:14:13Z",
+        "conclusion": "success",
+        "name": "Mago-first service analysis and compiled Symfony wiring",
+        "number": 10,
+        "started_at": "2026-10-29T01:12:26Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:15:13Z",
+        "conclusion": "success",
+        "name": "Generated Symfony tag-count command and behavioral acceptance",
+        "number": 11,
+        "started_at": "2026-10-29T01:14:13Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:16:21Z",
+        "conclusion": "success",
+        "name": "Failed HTTP request diagnosis, semantic repair and runtime recovery",
+        "number": 12,
+        "started_at": "2026-10-29T01:15:13Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:17:18Z",
+        "conclusion": "success",
+        "name": "Native LSP external workers and Serena dependency graph",
+        "number": 13,
+        "started_at": "2026-10-29T01:16:21Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:17:18Z",
+        "conclusion": "success",
+        "name": "Collect bounded advisory diagnosis data",
+        "number": 14,
+        "started_at": "2026-10-29T01:17:18Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:17:19Z",
+        "conclusion": "success",
+        "name": "Upload diagnosis data without credentials",
+        "number": 15,
+        "started_at": "2026-10-29T01:17:18Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:17:21Z",
+        "conclusion": "success",
+        "name": "Retain all evidence, including failed scenarios",
+        "number": 16,
+        "started_at": "2026-10-29T01:17:19Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:17:24Z",
+        "conclusion": "success",
+        "name": "Post Run docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069",
+        "number": 30,
+        "started_at": "2026-10-29T01:17:21Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:17:24Z",
+        "conclusion": "success",
+        "name": "Post Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
+        "number": 31,
+        "started_at": "2026-10-29T01:17:24Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:17:24Z",
+        "conclusion": "success",
+        "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "number": 32,
+        "started_at": "2026-10-29T01:17:24Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-10-29T01:17:24Z",
+        "conclusion": "success",
+        "name": "Complete job",
+        "number": 33,
+        "started_at": "2026-10-29T01:17:24Z",
+        "status": "completed"
+      }
+    ],
+    "wall_s": 462.0
+  },
+  "kind": "historical_observation",
+  "measurements": {
+    "buildkit_candidate_s": null,
+    "cache_export_s": 5.5,
+    "cache_import_s": 0.1,
+    "candidate_cargo_finished": null,
+    "candidate_compile_entries": 0,
+    "capture_clock": "Historical capture used time.time(); new capture uses monotonic elapsed time.",
+    "captured_steps_sum_s": 436.775,
+    "phase_s": {
+      "acceptance": 89.923,
+      "build": 47.548,
+      "dependencies": 2.574,
+      "fast": 5.284,
+      "lsp_extensions": 57.002,
+      "slice1": 107.118,
+      "slice2": 59.559,
+      "slice3": 67.767
+    },
+    "verification_sum_s": 381.369
+  },
+  "observed_cache": {
+    "baseline": "cached",
+    "candidate": "cached",
+    "compile_duration_basis": "BuildKit DONE for executed candidate; cached duration unknown, never extraction DONE",
+    "export": "completed",
+    "import": "completed_manifest_import"
+  },
+  "ref": "refs/pull/6/merge",
+  "retrieved_at": "2026-10-29T03:05:41.421714Z",
+  "run": {
+    "completed_observed_at": "2026-10-29T01:17:27Z",
+    "created_at": "2026-10-29T01:09:43Z",
+    "started_at": "2026-10-29T01:09:43Z",
+    "wall_s": 464.0
+  },
+  "runner": {
+    "architecture": "X64",
+    "class": "GitHub Actions standard hosted / ubuntu-latest",
+    "image": "ubuntu-24.04",
+    "image_version": "20261025.353.1",
+    "os": "Linux"
+  },
+  "schema": 1,
+  "url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40798696741"
+}

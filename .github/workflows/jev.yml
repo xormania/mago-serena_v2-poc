@@ -75,7 +75,7 @@ jobs:
           if [ "$CALIBRATION" = true ]; then
             python3 -I trusted/tools/ci/jev.py --live --calibration --out "$OUTPUT_DIR"
           else
-            python3 -I trusted/tools/ci/jev.py --live --packet "$INPUT_FILE" --out "$OUTPUT_DIR"
+            python3 -I trusted/tools/ci/jev.py --live --packet "$INPUT_FILE" --baseline "${{ runner.temp }}/jev-control/baseline.json" --out "$OUTPUT_DIR"
           fi
       - name: Preserve sanitized diagnostic output
         if: always()

@@ -1,0 +1,523 @@
+{
+  "run_id": "s3-replay-20261029-031920-c3e736",
+  "workspace": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/workspaces/s3-replay-20261029-031920-c3e736/app",
+  "attempt_id": "attempt-96c304831cc44efd9eca0662bcde0ab5",
+  "source_context_sha256": "37ec9956aa2b341efce82b20f59ed03850b883088bcf121c7c491c2e207a8037",
+  "request": "/en/blog/?tag=lorem",
+  "schema": 1,
+  "kind": "mago_first_slice3",
+  "status": "pass",
+  "inventory": [
+    "fixture_integrity",
+    "executed_identity",
+    "prepared_baseline",
+    "healthy_request",
+    "defective_request",
+    "runtime_diagnosis",
+    "boot_failure_control",
+    "semantic_repair",
+    "native_mago",
+    "enriched_framework",
+    "repaired_request",
+    "behavior",
+    "task_integrity",
+    "cleanup"
+  ],
+  "checks": [
+    {
+      "run_id": "s3-replay-20261029-031920-c3e736",
+      "workspace": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/workspaces/s3-replay-20261029-031920-c3e736/app",
+      "attempt_id": "attempt-96c304831cc44efd9eca0662bcde0ab5",
+      "source_context_sha256": "37ec9956aa2b341efce82b20f59ed03850b883088bcf121c7c491c2e207a8037",
+      "request": "/en/blog/?tag=lorem",
+      "name": "fixture_integrity",
+      "status": "pass",
+      "detail": 244,
+      "elapsed_s": 0.015
+    },
+    {
+      "run_id": "s3-replay-20261029-031920-c3e736",
+      "workspace": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/workspaces/s3-replay-20261029-031920-c3e736/app",
+      "attempt_id": "attempt-96c304831cc44efd9eca0662bcde0ab5",
+      "source_context_sha256": "37ec9956aa2b341efce82b20f59ed03850b883088bcf121c7c491c2e207a8037",
+      "request": "/en/blog/?tag=lorem",
+      "name": "executed_identity",
+      "status": "pass",
+      "detail": {
+        "container_id": "71a9bb9c67e69827f29d47916972ea247d78479c88f08107ab4007f30b3a9d70",
+        "image_id": "sha256:bf19db710267171507e51bbf094610c9ac8f0261aa21a6eca8f31e6de420e240",
+        "repo_digests": [],
+        "created": "2026-10-29T03:14:24.007044254Z",
+        "architecture": "amd64",
+        "installed_files_checked": 82
+      },
+      "elapsed_s": 0.0
+    },
+    {
+      "run_id": "s3-replay-20261029-031920-c3e736",
+      "workspace": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/workspaces/s3-replay-20261029-031920-c3e736/app",
+      "attempt_id": "attempt-96c304831cc44efd9eca0662bcde0ab5",
+      "source_context_sha256": "37ec9956aa2b341efce82b20f59ed03850b883088bcf121c7c491c2e207a8037",
+      "request": "/en/blog/?tag=lorem",
+      "name": "prepared_baseline",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "original": {
+          "tests": 53,
+          "assertions": 120,
+          "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+        },
+        "tool": {
+          "config": "/app/mago-php.toml",
+          "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+          "version": "mago 1.58.2",
+          "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+          "binary_sha256": "b615b04fcfb6367140bc48b981aec8a0c7ee8c7719a7e0c3b0c93f33725ada80",
+          "php_target": "8.5",
+          "workspace": "/app",
+          "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+        },
+        "analyzer_findings": 35,
+        "lint_findings": 125,
+        "dependency_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+      },
+      "elapsed_s": 17.089
+    },
+    {
+      "run_id": "s3-replay-20261029-031920-c3e736",
+      "workspace": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/workspaces/s3-replay-20261029-031920-c3e736/app",
+      "attempt_id": "attempt-96c304831cc44efd9eca0662bcde0ab5",
+      "source_context_sha256": "37ec9956aa2b341efce82b20f59ed03850b883088bcf121c7c491c2e207a8037",
+      "request": "/en/blog/?tag=lorem",
+      "name": "healthy_request",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "observation": {
+          "status": 200,
+          "token": "9dc898",
+          "marker": "s3-healthy-3720e7bd9fe94b29",
+          "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_request=s3-healthy-3720e7bd9fe94b29",
+          "provenance": "X-Debug-Token header from this exact HTTP response",
+          "observed_unix": 1793243991.6515021,
+          "body_sha256": "d19253398ca336b53d77a61e6d3bd6f4fc170447dd6f7addf25c3723ba017c20",
+          "response_attempt": 1,
+          "log_window": {
+            "path": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/artifacts/s3-replay-20261029-031920-c3e736/slice3/attempt-96c304831cc44efd9eca0662bcde0ab5/healthy-log-window.txt",
+            "start": 475657,
+            "end": 482542,
+            "sha256": "23cf6c0b833396517af81b7f492a9ae3b86d70c7e2cb18ad34b7b9f9ff0c14f9"
+          }
+        },
+        "profile_time": 1793243991,
+        "preserved": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/artifacts/s3-replay-20261029-031920-c3e736/slice3/attempt-96c304831cc44efd9eca0662bcde0ab5/preserved-runtime/healthy"
+      },
+      "elapsed_s": 0.655
+    },
+    {
+      "run_id": "s3-replay-20261029-031920-c3e736",
+      "workspace": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/workspaces/s3-replay-20261029-031920-c3e736/app",
+      "attempt_id": "attempt-96c304831cc44efd9eca0662bcde0ab5",
+      "source_context_sha256": "37ec9956aa2b341efce82b20f59ed03850b883088bcf121c7c491c2e207a8037",
+      "request": "/en/blog/?tag=lorem",
+      "name": "defective_request",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "observation": {
+          "status": 500,
+          "token": "c69ad8",
+          "marker": "s3-defective-9d53da8f5a5a4c6a",
+          "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_request=s3-defective-9d53da8f5a5a4c6a",
+          "provenance": "X-Debug-Token header from this exact HTTP response",
+          "observed_unix": 1793243994.6020756,
+          "body_sha256": "6e2484dcd27b00bbc8feae2cb0075d4a1899b95d8d879adf60844eb2004f853a",
+          "response_attempt": 3,
+          "log_window": {
+            "path": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/artifacts/s3-replay-20261029-031920-c3e736/slice3/attempt-96c304831cc44efd9eca0662bcde0ab5/defective-log-window.txt",
+            "start": 502098,
+            "end": 503885,
+            "sha256": "1803fcdf9d322194f480e2be7acf630d1fdb184544f1a841f59069093ff5c9db"
+          }
+        },
+        "regression_exit": 1,
+        "fault": {
+          "before": "$tags->findOneBy(['name' => $request->query->get('tag')])",
+          "after": "$tags->findOneBy(['label' => $request->query->get('tag')])"
+        },
+        "compiled_service_stale_rejected": true
+      },
+      "elapsed_s": 4.167
+    },
+    {
+      "run_id": "s3-replay-20261029-031920-c3e736",
+      "workspace": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/workspaces/s3-replay-20261029-031920-c3e736/app",
+      "attempt_id": "attempt-96c304831cc44efd9eca0662bcde0ab5",
+      "source_context_sha256": "37ec9956aa2b341efce82b20f59ed03850b883088bcf121c7c491c2e207a8037",
+      "request": "/en/blog/?tag=lorem",
+      "name": "runtime_diagnosis",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "profile_token": "c69ad8",
+        "profile_time": 1793243994,
+        "request_marker": "s3-defective-9d53da8f5a5a4c6a",
+        "exception_collector": true,
+        "sql_collector_read": true,
+        "structured_marker_records": 1,
+        "structured_exception_records": 1,
+        "preserved_before_any_refresh": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/artifacts/s3-replay-20261029-031920-c3e736/slice3/attempt-96c304831cc44efd9eca0662bcde0ab5/preserved-runtime/defective"
+      },
+      "elapsed_s": 3.83
+    },
+    {
+      "run_id": "s3-replay-20261029-031920-c3e736",
+      "workspace": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/workspaces/s3-replay-20261029-031920-c3e736/app",
+      "attempt_id": "attempt-96c304831cc44efd9eca0662bcde0ab5",
+      "source_context_sha256": "37ec9956aa2b341efce82b20f59ed03850b883088bcf121c7c491c2e207a8037",
+      "request": "/en/blog/?tag=lorem",
+      "name": "boot_failure_control",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "kind": "Expected-negative pre-profiler boot/compile failure",
+        "compile_exit": 1,
+        "http": {
+          "status": 500,
+          "token": null,
+          "marker": "s3-unbootable-d530337c7d934bc2",
+          "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_request=s3-unbootable-d530337c7d934bc2",
+          "profile_created": false,
+          "interpretation": "No profiler record is required when container compilation fails before profiling.",
+          "observed_unix": 1793244001.065648,
+          "body_sha256": "73cc36d00b8e9d8f10b4192c3bc7189ee520fd2a742f27d4dba30c1478160a45",
+          "response_attempt": 1,
+          "log_window": {
+            "path": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/artifacts/s3-replay-20261029-031920-c3e736/slice3/attempt-96c304831cc44efd9eca0662bcde0ab5/unbootable-log-window.txt",
+            "start": 515449,
+            "end": 515449,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        "historical_token_read": "c69ad8",
+        "historical_logs_read": 1,
+        "absence_interpretation": "A pre-profiler failure may have no profile; previously captured evidence remains readable."
+      },
+      "elapsed_s": 2.499
+    },
+    {
+      "run_id": "s3-replay-20261029-031920-c3e736",
+      "workspace": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/workspaces/s3-replay-20261029-031920-c3e736/app",
+      "attempt_id": "attempt-96c304831cc44efd9eca0662bcde0ab5",
+      "source_context_sha256": "37ec9956aa2b341efce82b20f59ed03850b883088bcf121c7c491c2e207a8037",
+      "request": "/en/blog/?tag=lorem",
+      "name": "semantic_repair",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "kind": "Deterministic semantic diagnosis/edit replay, not a fresh adaptive agent",
+        "restored_controller_sha256": "b6bd951cc08c7915c93446257662c486ec3be27ff2e4c854a53604f0ae25c86f",
+        "lsp_enrichment_claimed": false
+      },
+      "elapsed_s": 4.864
+    },
+    {
+      "run_id": "s3-replay-20261029-031920-c3e736",
+      "workspace": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/workspaces/s3-replay-20261029-031920-c3e736/app",
+      "attempt_id": "attempt-96c304831cc44efd9eca0662bcde0ab5",
+      "source_context_sha256": "37ec9956aa2b341efce82b20f59ed03850b883088bcf121c7c491c2e207a8037",
+      "request": "/en/blog/?tag=lorem",
+      "name": "native_mago",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "analysis": {
+          "before": 35,
+          "after": 35,
+          "introduced": [],
+          "removed": [],
+          "task_findings": [],
+          "comparison": "Complete native diagnostic bodies as an order-independent multiset"
+        },
+        "lint": {
+          "before": 125,
+          "after": 125,
+          "introduced": [],
+          "removed": [],
+          "task_findings": [],
+          "comparison": "Complete native diagnostic bodies as an order-independent multiset"
+        },
+        "safe_fix_exit": 0,
+        "formatter_stable": true,
+        "source_inventory": {
+          "src/Command/AddUserCommand.php": "6dc65253affc419c4393bd0a0a33b7327218ce8a10e976cdca0441279c8c1b39",
+          "src/Command/DeleteUserCommand.php": "bf98c5dd435899a744ed7f8917c25093d859bee31aa00d307400ceb67f3282fd",
+          "src/Command/ListUsersCommand.php": "1fbc9335a2e8aa391d41801bc6e0452786d320885b1fbf02bbb38da2db2ebe44",
+          "src/Controller/Admin/BlogController.php": "bf74950d4b0ca2e4449b6a8ae199895d276fde3d3b9765e1c8531e110ff3d0d7",
+          "src/Controller/BlogController.php": "b6bd951cc08c7915c93446257662c486ec3be27ff2e4c854a53604f0ae25c86f",
+          "src/Controller/SecurityController.php": "ab354cfd7a68ddf1038b09e882c33cb5a30352d51ac17fcf7f1d191a211b5aff",
+          "src/Controller/UserController.php": "cfe1ba75256d439348b0505a2d9055d1ed3fc5a71b7b426d25e49cb81fae0d7d",
+          "src/DataFixtures/AppFixtures.php": "affa30fda82b3c863c6baee4e553afe1495aa1957378be0aa22330ced27e5018",
+          "src/Entity/Comment.php": "4345d5f30fd9becbfb2aa0871406752e22a8b1caef12226ae3c900026b2b1573",
+          "src/Entity/Post.php": "a2f499b0607dfbddc9e3fe3ba0fbe5df237b3f9b2691cc247676cbf774c6b98c",
+          "src/Entity/Tag.php": "d811e947fcaf03d4ff676235c115254a3f1a1f1c1f5e7066d8bce1f0c47f59e7",
+          "src/Entity/User.php": "058a1575e3200e4a3a535e7cef9f191d3fe7064261962911f6be9747376c4b00",
+          "src/Event/CommentCreatedEvent.php": "b9fcb6bdcf0a79176e427e466c2680e23a0494fd75dae33cac7b1bbd508d6403",
+          "src/EventSubscriber/CheckRequirementsSubscriber.php": "781cf10a222a9aa65b4f721ecbc2f991ddbb4245e90c9e14fdd703034989d09c",
+          "src/EventSubscriber/CommentNotificationSubscriber.php": "cd83250978481b034511e8c4fb8e92e1b7fe30effbd00c9816927cd2001a7f0d",
+          "src/EventSubscriber/ControllerSubscriber.php": "7a4a925cc577f2cc6ee121e672616759167fedf37423440691422b2a2ce25ad0",
+          "src/EventSubscriber/RedirectToPreferredLocaleSubscriber.php": "0e71523cb08c0878a79e2655fbfa7b66909d66c82db378b94bc894cf94d438c3",
+          "src/Form/ChangePasswordType.php": "7c2227d009fe91453a602df7ac67a4b1f18cb8cee2893265f56c66bb4c4bb894",
+          "src/Form/CommentType.php": "c3396f299ae1b647cd824967d57f5947e00c3d89ed5c697b586a801977697954",
+          "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97",
+          "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+          "src/Form/Type/DateTimePickerType.php": "7bdceb34d04ce26e1f536c0f1f7038d9993d4fc79e07c6696b34fde6e7c3a5f1",
+          "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+          "src/Form/UserType.php": "8623a57a51fbcbddfbd53a1b890f8e77b7433735aedf42ae92201b72820363a4",
+          "src/Kernel.php": "8faa0e9ddfe6805b458ad6995b34e5ade06792b107eca28de60c5f451decfa01",
+          "src/Pagination/Paginator.php": "89c90c1e1fe34d8ff053bf8b53b3aa56485321e454f399addd743c7916f4669c",
+          "src/Repository/PostRepository.php": "51ff299a8c1dd2a3b35e7472efebb98f24649b3b75dfd8e1a272d36e2924b4f1",
+          "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+          "src/Repository/UserRepository.php": "5c75c1bff67d1720001cebf03a8600a989585c40771e71ba85c1ade5eaa298df",
+          "src/Security/PostVoter.php": "7077387351bf8d0ad6e1fb78126d84dab4c208160c6348e860be509e488b7bb3",
+          "src/Twig/AppExtension.php": "2a05c0361a157f6ac79ad6ae42aa951a4fc0e9e3d731115a34bf8f5222bbbf4d",
+          "src/Twig/Components/BlogSearchComponent.php": "3889c72b860cb763b820047183813152065dea62005c17abbd2c322c8bb9a3d7",
+          "src/Twig/SourceCodeExtension.php": "5028eda2d57afd93e0e729fae244979ad84e139942175a6290beccfcc97ac842",
+          "src/Utils/Validator.php": "f8f2636ab491a749791fa622019207d814766a0372b3146b8cd20e0a6e28c6b9",
+          "tests/Command/AbstractCommandTestCase.php": "5aece96bb1a0c30386ddd93fee33a440a4d0a2612b8ea7536850333496c9afa9",
+          "tests/Command/AddUserCommandTest.php": "602b8f2f664c10ca7a459b7f5b2743415ca4d0c5284a08a057990b3b483797b7",
+          "tests/Command/ListUsersCommandTest.php": "69c343e5ea36a71f7b8111ade289b2fdfc558cfc96756f5537689d174151dfd3",
+          "tests/Controller/Admin/BlogControllerTest.php": "047581f012b51b6713846d48fe567e99aa4ebffdd9c56b29d875d27c7bdd937a",
+          "tests/Controller/BlogControllerTest.php": "2113d8ba37f2b019f5fc54dcc683f3d7ad989f86b69d3e0a6941f12914cd0984",
+          "tests/Controller/BlogTagFilterTest.php": "750d70d0c0df3d845e6320af8a4539cf28202380229ad6c4f52b6c157f64faa5",
+          "tests/Controller/DefaultControllerTest.php": "0bfc8bf7aedf976941c571cffc7ac15b14cb44a339cd8b849a05a84cd82c4b2c",
+          "tests/Controller/UserControllerTest.php": "29e213a33e23199facb1f10271acf9f94eac78e6cb6c54487545f672109f6f3e",
+          "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php": "e6f44077e983c92af0f69e23b5b0339ede96ef757375e2e44eeaf3b06c7233a0",
+          "tests/Twig/AppExtensionTest.php": "418d0a8a4e0d5b29644525847451bc08c30b99873c554c03d5c8979140623718",
+          "tests/Utils/ValidatorTest.php": "0262f8750ddcda6a0a44927511d3860fbe20ae07016bd572aea9fee2093de71c",
+          "tests/bootstrap.php": "4b58b0af3c87b9faa16766e09fffc917942bc43d16cf6d850ebc5f1796a1e426",
+          "tests/object-manager.php": "adf75da53f4be1a4ef840f104f390aa3e6eb4b1af89c17afa6d94a8248ddeeb3"
+        },
+        "suppression_or_baseline_generated": false
+      },
+      "elapsed_s": 3.873
+    },
+    {
+      "run_id": "s3-replay-20261029-031920-c3e736",
+      "workspace": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/workspaces/s3-replay-20261029-031920-c3e736/app",
+      "attempt_id": "attempt-96c304831cc44efd9eca0662bcde0ab5",
+      "source_context_sha256": "37ec9956aa2b341efce82b20f59ed03850b883088bcf121c7c491c2e207a8037",
+      "request": "/en/blog/?tag=lorem",
+      "name": "enriched_framework",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stale_rejected": true,
+        "refreshed_preparation_id": "prepare-efbf3125f968420ea317d5473414a892",
+        "public_invocation": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/artifacts/s3-replay-20261029-031920-c3e736/mago/enriched/9fdc5c015d2148d3a714c3c214d62f92/invocation.json",
+        "native_exit": 1,
+        "compiled_dependency": [
+          {
+            "source": {
+              "symbol": {
+                "class": "app\\repository\\tagrepository",
+                "member": "__construct"
+              },
+              "file": null
+            },
+            "target": "doctrine\\bundle\\doctrinebundle\\registry",
+            "kind": "Body"
+          }
+        ],
+        "attestation": [
+          {
+            "level": "Note",
+            "code": "byte-kitsune/symfony-wiring/analysis-attestation",
+            "message": "Symfony service wiring analysis completed.",
+            "notes": [
+              "extension-attestation: {\"schema_version\":\"1\",\"extension\":\"byte-kitsune/symfony-wiring\",\"version\":\"1.3.0-RC1\",\"capability\":\"service_wiring\",\"complete\":true,\"source_files\":47}"
+            ],
+            "annotations": [
+              {
+                "kind": "Primary",
+                "span": {
+                  "file_id": {
+                    "name": "tests/object-manager.php",
+                    "path": "/app/tests/object-manager.php",
+                    "size": 546,
+                    "file_type": "Host"
+                  },
+                  "start": {
+                    "offset": 0,
+                    "line": 0
+                  },
+                  "end": {
+                    "offset": 1,
+                    "line": 0
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "source_and_tests_analyzed": 47,
+        "lsp_worker_propagation": "Not established by CLI proof"
+      },
+      "elapsed_s": 13.039
+    },
+    {
+      "run_id": "s3-replay-20261029-031920-c3e736",
+      "workspace": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/workspaces/s3-replay-20261029-031920-c3e736/app",
+      "attempt_id": "attempt-96c304831cc44efd9eca0662bcde0ab5",
+      "source_context_sha256": "37ec9956aa2b341efce82b20f59ed03850b883088bcf121c7c491c2e207a8037",
+      "request": "/en/blog/?tag=lorem",
+      "name": "repaired_request",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "observation": {
+          "status": 200,
+          "token": "008276",
+          "marker": "s3-repaired-bf08aeb5f2ae4aa7",
+          "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_request=s3-repaired-bf08aeb5f2ae4aa7",
+          "provenance": "X-Debug-Token header from this exact HTTP response",
+          "observed_unix": 1793244024.5859125,
+          "body_sha256": "e5e459056e532165eda6afbae8bdc62dc3a7c338549da82048b0a5b5589f3dee",
+          "response_attempt": 1,
+          "log_window": {
+            "path": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/artifacts/s3-replay-20261029-031920-c3e736/slice3/attempt-96c304831cc44efd9eca0662bcde0ab5/repaired-log-window.txt",
+            "start": 558989,
+            "end": 565875,
+            "sha256": "201c91e0db16c884011745c195ccc776fa1cf890171ebcd4fd3e7715e48d3c2e"
+          }
+        },
+        "profile_time": 1793244024,
+        "preserved": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/artifacts/s3-replay-20261029-031920-c3e736/slice3/attempt-96c304831cc44efd9eca0662bcde0ab5/preserved-runtime/repaired"
+      },
+      "elapsed_s": 0.633
+    },
+    {
+      "run_id": "s3-replay-20261029-031920-c3e736",
+      "workspace": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/workspaces/s3-replay-20261029-031920-c3e736/app",
+      "attempt_id": "attempt-96c304831cc44efd9eca0662bcde0ab5",
+      "source_context_sha256": "37ec9956aa2b341efce82b20f59ed03850b883088bcf121c7c491c2e207a8037",
+      "request": "/en/blog/?tag=lorem",
+      "name": "behavior",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "original": {
+          "tests": 53,
+          "assertions": 120,
+          "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+        },
+        "combined": {
+          "tests": 54,
+          "assertions": 135,
+          "identities_sha256": "f7a0421b1df797c3f9efa572d90852549f01e9dc4d142b6ac83c1c7ef7aac4c0"
+        },
+        "regression": {
+          "tests": 1,
+          "identities": [
+            "App\\Tests\\Controller\\BlogTagFilterTest::testKnownTagFilter"
+          ],
+          "assertions": 15
+        },
+        "original_projection": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/artifacts/s3-replay-20261029-031920-c3e736/slice3/attempt-96c304831cc44efd9eca0662bcde0ab5/original-after.xml"
+      },
+      "elapsed_s": 4.829
+    },
+    {
+      "run_id": "s3-replay-20261029-031920-c3e736",
+      "workspace": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/workspaces/s3-replay-20261029-031920-c3e736/app",
+      "attempt_id": "attempt-96c304831cc44efd9eca0662bcde0ab5",
+      "source_context_sha256": "37ec9956aa2b341efce82b20f59ed03850b883088bcf121c7c491c2e207a8037",
+      "request": "/en/blog/?tag=lorem",
+      "name": "task_integrity",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "changed": [
+          "tests/Controller/BlogTagFilterTest.php"
+        ],
+        "declared_task_files": [
+          "tests/Controller/BlogTagFilterTest.php"
+        ],
+        "controller_restored_sha256": "b6bd951cc08c7915c93446257662c486ec3be27ff2e4c854a53604f0ae25c86f",
+        "compiled_reference_sha256": "5b7ea5b93fa495b3984e4b75083844cf9be918b0ece5180ce5b9f41ebae408a8",
+        "global_verifier_modified": false,
+        "final_task_diff": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/artifacts/s3-replay-20261029-031920-c3e736/slice3/attempt-96c304831cc44efd9eca0662bcde0ab5/final-task.diff",
+        "actual_agent": {
+          "status": "pass",
+          "kind": "Verified retained adaptive trace, distinct from replay",
+          "run_id": "s3-agent-20261028a",
+          "index_sha256": "e92e206ce1b4a28888c68f0644abedb1b4e44c9923211fde40b28e9d2ec71fbd",
+          "artifacts": 108,
+          "artifact_bytes": 3673206,
+          "successful_semantic_edits": 1,
+          "runtime": {
+            "status": "pass",
+            "observations": [
+              {
+                "status": 200,
+                "token": "702a12",
+                "marker": "s3-agent-20261028a-healthy",
+                "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_marker=s3-agent-20261028a-healthy",
+                "provenance": "X-Debug-Token header from this exact HTTP response"
+              },
+              {
+                "status": 500,
+                "token": "f50b98",
+                "marker": "s3-agent-20261028a-defective-current",
+                "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_marker=s3-agent-20261028a-defective-current",
+                "provenance": "X-Debug-Token header from this exact HTTP response"
+              },
+              {
+                "status": 200,
+                "token": "7bf144",
+                "marker": "s3-agent-20261028a-repaired",
+                "url": "http://127.0.0.1:8000/en/blog/?tag=lorem&s3_marker=s3-agent-20261028a-repaired",
+                "provenance": "X-Debug-Token header from this exact HTTP response"
+              }
+            ]
+          },
+          "native": {
+            "analyze": {
+              "before": 35,
+              "after": 35,
+              "introduced": [],
+              "removed": [],
+              "task_findings": [],
+              "comparison": "Complete native diagnostic bodies as an order-independent multiset"
+            },
+            "lint": {
+              "before": 125,
+              "after": 125,
+              "introduced": [],
+              "removed": [],
+              "task_findings": [],
+              "comparison": "Complete native diagnostic bodies as an order-independent multiset"
+            }
+          }
+        }
+      },
+      "elapsed_s": 3.321
+    },
+    {
+      "run_id": "s3-replay-20261029-031920-c3e736",
+      "workspace": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/workspaces/s3-replay-20261029-031920-c3e736/app",
+      "attempt_id": "attempt-96c304831cc44efd9eca0662bcde0ab5",
+      "source_context_sha256": "37ec9956aa2b341efce82b20f59ed03850b883088bcf121c7c491c2e207a8037",
+      "request": "/en/blog/?tag=lorem",
+      "name": "cleanup",
+      "status": "pass",
+      "detail": null,
+      "elapsed_s": 0.439
+    }
+  ],
+  "evidence": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/artifacts/s3-replay-20261029-031920-c3e736/slice3/attempt-96c304831cc44efd9eca0662bcde0ab5",
+  "execution_kind": "Deterministic fault injection and semantic repair replay; separately retained adaptive exercise.",
+  "actual_agent_evidence": "/home/runner/work/mago-serena_v2-poc/mago-serena_v2-poc/docs/evidence/slice3/fresh-agent/index.json",
+  "interpretation": "Historical profiler/log observations retain exact request provenance. Native findings remain findings; CLI wiring does not establish LSP worker integration."
+}

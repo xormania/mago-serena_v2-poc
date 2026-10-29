@@ -1,0 +1,38 @@
+{
+  "attempt": 1,
+  "buildx_version": "github.com/docker/buildx v0.38.1 0dbe87f36ed472fe36b6796c3f70b4210a731fc5",
+  "cache": {
+    "backend": "gha",
+    "cache_mounts_persisted": false,
+    "export_errors_fatal": true,
+    "export_mode": "max",
+    "scope": "mago-serena-linux-amd64-v1",
+    "timeout": "5m",
+    "version": 2
+  },
+  "command": [
+    "docker",
+    "buildx",
+    "build",
+    "--load",
+    "--tag",
+    "mago-serena-poc:local",
+    "--progress",
+    "plain",
+    "--metadata-file",
+    "artifacts/ci/build-metadata.json",
+    "--iidfile",
+    "artifacts/ci/image.iid",
+    "--cache-from",
+    "type=gha,version=2,scope=mago-serena-linux-amd64-v1,timeout=5m",
+    "--cache-to",
+    "type=gha,version=2,scope=mago-serena-linux-amd64-v1,timeout=5m,mode=max",
+    "."
+  ],
+  "docker_version": "28.0.4 / 28.0.4",
+  "event": "pull_request",
+  "ref": "refs/pull/6/merge",
+  "run_id": "40798696741",
+  "schema": 1,
+  "source_sha": "60c578e1ab69d80deee263e78a241f857d9befe3"
+}

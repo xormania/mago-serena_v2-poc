@@ -16,9 +16,10 @@ import urllib.parse
 import urllib.request
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from jev import NoRedirect, canonical, diagnose, parse_json, validate_packet
+from jev import MAX_PACKET, NoRedirect, canonical, diagnose, parse_json, performance_report, validate_packet
 
 MAX_API_BYTES = 1_000_000
+_BASELINE_UNSET = object()
 
 
 def api_json(opener, url, token):
@@ -60,7 +61,7 @@ def prior_reservation(repo, name, default_branch, token, *, opener=None):
     return None
 
 
-def prepare(event, packet_path, control_dir, output_dir, reservation_dir, context, token, *, opener=None):
+def prepare(event, packet_path, control_dir, output_dir, reservation_dir, context, token, *, opener=None, baseline=_BASELINE_UNSET):
     repo = event['repository']['full_name']
     default = event['repository']['default_branch']
     trusted = context['trusted_sha']
@@ -92,6 +93,8 @@ def prepare(event, packet_path, control_dir, output_dir, reservation_dir, contex
     elif context['event_name'] == 'workflow_run':
         source = event['workflow_run']
         source_id, attempt = str(source['id']), source['run_attempt']
+        if source.get('head_repository', {}).get('full_name') != repo:
+            raise ValueError('Foreign source repository')
         if not source_id.isdigit() or type(attempt) is not int or attempt < 1:
             raise ValueError('Invalid source attempt')
         record.update(source_run_id=source_id,source_attempt=attempt,
@@ -111,14 +114,45 @@ def prepare(event, packet_path, control_dir, output_dir, reservation_dir, contex
             (output_dir/'gate-result.json').write_bytes(canonical(record)+b'\n')
             (control_dir/'result.json').write_bytes(canonical(record)+b'\n')
             return record
-        packet = validate_packet(parse_json(Path(packet_path).read_bytes()),{
+        packet_file = Path(packet_path)
+        if packet_file.is_symlink() or packet_file.stat().st_size > MAX_PACKET:
+            raise ValueError('Invalid bounded packet file')
+        packet = validate_packet(parse_json(packet_file.read_bytes()),{
             'run_id':source_id,'attempt':attempt,'workflow_head_sha':source['head_sha']})
         record.update(kind='producer',source_run_id=source_id,source_attempt=attempt,
                       tested_source_revision=packet['ci']['source_sha'])
-        if not any(row['status'] in {'fail','blocked'} for row in packet['checks']):
+        report = None
+        if 'performance' in packet:
+            from performance import render_summary
+            if baseline is _BASELINE_UNSET:
+                from performance_history import lookup_baseline, source_timing
+                baseline, lookup = lookup_baseline(packet, event, token, opener=opener)
+                lookup['source_timing'] = source_timing(event, token, opener=opener)
+            else:
+                lookup = {'status':'explicit_trusted_baseline' if baseline else 'explicit_no_baseline'}
+            if baseline is not None:
+                (control_dir/'baseline.json').write_bytes(canonical(baseline)+b'\n')
+            report = performance_report(packet, baseline)
+            record['performance_history'] = lookup
+            record['performance_classifications'] = report['classifications']
+            record['performance_eligible'] = report['provider_eligible']
+            (control_dir/'performance-report.json').write_bytes(canonical(report)+b'\n')
+            summary = render_summary(report)+'\nHistory lookup: `'+str(lookup.get('status', 'recorded'))+'`.\n'
+            if lookup.get('source_timing'):
+                completed = lookup['source_timing']
+                summary += ('Completed source timing from trusted GitHub metadata: '+
+                            ', '.join(name+'='+str(completed.get(name)) for name in
+                                      ('job_wall_s', 'queue_s', 'setup_s', 'cleanup_s'))+
+                            ' seconds; status `'+str(completed.get('status', 'recorded'))+'`; API resolution '+
+                            str(completed.get('resolution_s', 'unknown'))+' seconds.\n')
+            (control_dir/'performance-summary.md').write_text(summary)
+            if os.environ.get('GITHUB_STEP_SUMMARY'):
+                with Path(os.environ['GITHUB_STEP_SUMMARY']).open('a') as stream:
+                    stream.write(summary)
+        if not any(row['status'] in {'fail','blocked'} for row in packet['checks']) and not (report and report['provider_eligible']):
             # Supplying key='' prevents even an environment lookup. Healthy runs
             # retain their ordinary evidence without receiving TypeSafe's key.
-            result = diagnose(packet, output_dir, key='', live=True)
+            result = diagnose(packet, output_dir, key='', live=True, baseline=None if baseline is _BASELINE_UNSET else baseline)
             record.update(status=result['status'])
             (control_dir/'result.json').write_bytes(canonical(record)+b'\n')
             return record
@@ -154,7 +188,20 @@ def main():
         (directory/'gate-error.json').write_bytes(canonical({
             'status':'reservation_check_failed','exception_type':type(exc).__name__,
             'provider_request_attempted':False})+b'\n')
+        if os.environ.get('GITHUB_STEP_SUMMARY'):
+            with Path(os.environ['GITHUB_STEP_SUMMARY']).open('a') as stream:
+                stream.write('\n### Jev evidence gate\n\nEvidence or reservation validation failed; no provider call was authorized. See the retained gate error.\n')
         raise RuntimeError('Diagnostic reservation could not be verified; no provider call authorized') from None
+    # Also explain early outcomes without a packet: cancelled source, missing
+    # evidence, duplicate suppression and consumer reruns must remain visible.
+    summary = ('### Jev evidence gate\n\nStatus: **'+record['status']+'**. '+
+               ('A provider request requires the next durable reservation upload to succeed.'
+                if record['provider_needed'] else 'Jev did not run; no provider call was authorized by this gate.')+
+               '\nSource acceptance results remain independent.\n')
+    (Path(args.control)/'gate-summary.md').write_text(summary)
+    if os.environ.get('GITHUB_STEP_SUMMARY'):
+        with Path(os.environ['GITHUB_STEP_SUMMARY']).open('a') as stream:
+            stream.write('\n'+summary)
     with Path(os.environ['GITHUB_OUTPUT']).open('a') as output:
         output.write('provider_needed='+('true' if record['provider_needed'] else 'false')+'\n')
         output.write('reservation_name='+record.get('reservation_name','')+'\n')

@@ -1,0 +1,43 @@
+{
+  "conclusion": "success",
+  "created_at": "2026-10-29T03:13:37Z",
+  "event": "pull_request",
+  "head_branch": "ci/performance-advisory",
+  "head_repository": "xormania/mago-serena_v2-poc",
+  "head_sha": "db0f44ae4cc092cf3be3c5b2399e786edb310aae",
+  "html_url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40810928800",
+  "id": 40810928800,
+  "path": ".github/workflows/poc.yml",
+  "pull_requests": [
+    {
+      "base": {
+        "ref": "master",
+        "repo": {
+          "id": 1435420184,
+          "name": "mago-serena_v2-poc",
+          "url": "https://api.github.com/repos/xormania/mago-serena_v2-poc"
+        },
+        "sha": "6a4d2ed6234d724c67d3755285fe66c12b89fbbc"
+      },
+      "head": {
+        "ref": "ci/performance-advisory",
+        "repo": {
+          "id": 1435420184,
+          "name": "mago-serena_v2-poc",
+          "url": "https://api.github.com/repos/xormania/mago-serena_v2-poc"
+        },
+        "sha": "db0f44ae4cc092cf3be3c5b2399e786edb310aae"
+      },
+      "id": 5061460725,
+      "number": 7,
+      "url": "https://api.github.com/repos/xormania/mago-serena_v2-poc/pulls/7"
+    }
+  ],
+  "repository": "xormania/mago-serena_v2-poc",
+  "run_attempt": 1,
+  "run_number": 20,
+  "run_started_at": "2026-10-29T03:13:37Z",
+  "status": "completed",
+  "updated_at": "2026-10-29T03:21:50Z",
+  "workflow_id": 398039408
+}

@@ -1,0 +1,191 @@
+{
+  "default_consumer": {
+    "new_candidate_consumer_hosted": false,
+    "provider_calls": 0,
+    "run_id": 40811712898,
+    "status": "nothing_to_diagnose",
+    "trusted_sha": "6a4d2ed6234d724c67d3755285fe66c12b89fbbc"
+  },
+  "event_ref": {
+    "cache_scope": "mago-serena-linux-amd64-v1",
+    "event": "pull_request",
+    "platform": "linux/amd64",
+    "ref": "refs/pull/7/merge",
+    "runner": {
+      "arch": "X64",
+      "class": "ubuntu-latest",
+      "environment": "github-hosted",
+      "image": "ubuntu24",
+      "image_version": "20261026.354.1",
+      "os": "Linux"
+    }
+  },
+  "fast": {
+    "elapsed_s": 4.584,
+    "errors": 0,
+    "failures": 0,
+    "kind": "deterministic_fast_tests",
+    "pass": true,
+    "schema": 1,
+    "skipped": 0,
+    "tests": 215
+  },
+  "image_id": "sha256:bf19db710267171507e51bbf094610c9ac8f0261aa21a6eca8f31e6de420e240",
+  "image_tag": "mago-serena-poc:ci-40810928800-1",
+  "inference": "This verifies cache reuse and preserved acceptance; reporting alone does not establish a speed improvement.",
+  "job_id": 123240794249,
+  "kind": "actual_hosted_acceptance",
+  "local_candidate_replay": {
+    "comparison": "unavailable after19runs/3legacy packets; history audit retained",
+    "provider_calls": 0,
+    "status": "nothing_to_diagnose"
+  },
+  "measurements": {
+    "build": {
+      "baseline": {
+        "compile_duration_s": null,
+        "duration_s": null,
+        "evidence_ids": [
+          "performance.build.baseline"
+        ],
+        "outcome": "cached",
+        "vertex": "#30"
+      },
+      "candidate": {
+        "compile_duration_s": null,
+        "duration_s": null,
+        "evidence_ids": [
+          "performance.build.candidate"
+        ],
+        "outcome": "cached",
+        "vertex": "#46"
+      },
+      "export": {
+        "compile_duration_s": null,
+        "duration_s": 6.1,
+        "evidence_ids": [
+          "performance.build.export"
+        ],
+        "outcome": "success",
+        "vertex": "#60"
+      },
+      "import": {
+        "compile_duration_s": null,
+        "duration_s": 0.4,
+        "evidence_ids": [
+          "performance.build.import"
+        ],
+        "outcome": "success",
+        "vertex": "#15"
+      },
+      "log_truncated": false
+    },
+    "captured_steps": {
+      "acceptance": 95.877,
+      "build": 43.331,
+      "dependencies": 1.894,
+      "fast": 4.945,
+      "lsp_extensions": 65.128,
+      "slice1": 110.567,
+      "slice2": 66.693,
+      "slice3": 74.209
+    },
+    "five_verification_sum_s": 412.474,
+    "wall_note": "Native command monotonic durations; GitHub job490s/queue3s/setup15s/cleanup4s in candidate replay trusted timing supplement."
+  },
+  "native": {
+    "external_span_negative": {
+      "evidence": "native/test-20261029-031446-1a7305/mago-external-spans/result.json",
+      "expected_utf16_column": 51,
+      "fresh_column": 51,
+      "outcome": "expected_negative_with_healthy_control",
+      "warm_column": 40
+    },
+    "lsp": {
+      "control_names": [
+        "cli-on",
+        "cli-off",
+        "extension-off",
+        "extension-on",
+        "unsaved-source-replaced",
+        "unsaved-source-restored",
+        "analysis-worker-failure",
+        "analysis-worker-recovery",
+        "changed-binding-export",
+        "changed-binding",
+        "restored-binding-export",
+        "restored-binding",
+        "worker-failure",
+        "worker-recovery",
+        "disabled-after-analysis",
+        "reenabled-after-analysis",
+        "workspace-isolation",
+        "shutdown",
+        "restart"
+      ],
+      "controls": 19,
+      "evidence": "native/lspext-ci-20261029-032034-516053/lsp-extensions/host-result.json",
+      "real_serena": {
+        "disabled_registry_body": false,
+        "enabled_registry_body": true,
+        "kind": "deterministic_real_host_mcp",
+        "status": "pass"
+      },
+      "status": "pass"
+    },
+    "original": {
+      "checks": 31,
+      "context_sha256": "dbdc7ee2513f97ef42cf6f2193fd97f3041fc1dbd2bf90e4564fbd44424da419",
+      "evidence": "native/test-20261029-031446-1a7305/results.json",
+      "phpunit": {
+        "phpunit_a": {
+          "assertions": 120,
+          "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa",
+          "tests": 53
+        },
+        "phpunit_b": {
+          "assertions": 120,
+          "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa",
+          "tests": 53
+        }
+      },
+      "run_id": "test-20261029-031446-1a7305",
+      "statuses": "all pass"
+    },
+    "slices": {
+      "slice1": {
+        "attempt_id": null,
+        "checks": 9,
+        "evidence": "native/slice1-20261029-031622-bcc64e/slice1-result.json",
+        "run_id": "slice1-20261029-031622-bcc64e",
+        "source_context_sha256": "92bb8ce53a2207b787899309302795d572f1c6ec13497a4e472239e2e0750f85",
+        "status": "pass"
+      },
+      "slice2": {
+        "attempt_id": "attempt-57a954df823a486d8d5d5e7b4d41d39c",
+        "checks": 12,
+        "evidence": "native/slice2-20261029-031813-b90720/slice2-result.json",
+        "run_id": "slice2-20261029-031813-b90720",
+        "source_context_sha256": "f537deb5ca7cb814afcace856a16b6ba2775fd932e53c9803ba9a5c042498d26",
+        "status": "pass"
+      },
+      "slice3": {
+        "attempt_id": "attempt-96c304831cc44efd9eca0662bcde0ab5",
+        "checks": 14,
+        "evidence": "native/s3-replay-20261029-031920-c3e736/slice3-result.json",
+        "run_id": "s3-replay-20261029-031920-c3e736",
+        "source_context_sha256": "37ec9956aa2b341efce82b20f59ed03850b883088bcf121c7c491c2e207a8037",
+        "status": "pass"
+      }
+    }
+  },
+  "run_url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40810928800",
+  "schema": 1,
+  "source": {
+    "attempt": 1,
+    "run_id": "40810928800",
+    "source_sha": "0ec6a393dbbf6e437f2759da7c5e87129bf7d6a8",
+    "workflow_head_sha": "db0f44ae4cc092cf3be3c5b2399e786edb310aae"
+  },
+  "speed_improvement_measured": false
+}

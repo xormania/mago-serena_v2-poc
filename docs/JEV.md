@@ -1,5 +1,85 @@
 # Advisory Jev diagnosis
 
+## Performance advisory contract and rollout
+
+Successful source runs now carry separately validated schema 1 `performance`
+observations inside the existing schema 1 packet. `allowed_probes` remains exactly
+the legacy failure-probe map. The current default-branch consumer at
+`6a4d2ed6234d724c67d3755285fe66c12b89fbbc` accepts the optional new field, validates
+the original packet contract and continues its failure-only eligibility behavior.
+The candidate consumer accepts both old packets without performance data and new
+packets. New policy, performance choices and eligibility are owned by trusted
+consumer code, never taken from producer-supplied probe options or an eligibility
+flag. [CI reporting and policy](CI.md) documents exact metrics, thresholds,
+fingerprint coverage, bounded baseline selection and comparison limitations.
+
+The producer writes its deterministic report and readable Actions summary before
+any provider decision. The candidate trusted consumer validates source/run/attempt
+associations, observation schema, finite nonnegative numeric bounds (excluding
+booleans), bounded inventories and evidence references, then performs bounded
+history lookup and recomputes the report. Both its credential-free preparation
+gate and the provider entry point accept an actual failed/blocked check **or** a
+supported deterministic performance signal. The preparation gate writes the
+trusted selected baseline locally; the provider step reads that file and
+recomputes the second gate. No downloaded file is executed.
+
+A healthy warm run needs zero calls, including when a fake key exists in local
+tests. Explained cold population inside its budget stays visible and normally
+needs zero calls. Missing/incomparable history alone cannot authorize diagnosis.
+A substantial comparable verification slowdown, a configured absolute-budget
+breach or supported unexpected recompilation can qualify a successful source
+run. Failures and performance share one bounded request with failure evidence
+priority; omitted performance fields are disclosed. Genuine check statuses and
+expected-negative controls are retained. No timing check changes acceptance.
+
+The existing four typed choice questions can select trusted performance choices:
+expected cold population, cache visibility/reuse concern, compilation cost, slow
+verification, or insufficient evidence. Supporting answers cite supplied metrics
+or comparison evidence IDs; strict validation requires supporting evidence and
+rejects unsupported choices, missing/duplicate references, malformed probabilities
+and a wrong model. Permitted next diagnostics are suggestions only. Jev cannot
+execute a probe, change workflow configuration, approve a run or prove a root
+cause. `setup_environment` continues to mean an intended check could not execute.
+Jev answers questions about supplied structured state; it has not independently
+inspected GitHub history or arbitrary repository files, consistent with the
+[TypeSafe System One contract](https://docs.typesafe.ai/api/system-one).
+
+The consumer renders deterministic metrics separately from a validated Jev
+hypothesis in `summary.md` and the job summary, states live/mock transport and
+explains no-request/missing-credential outcomes. `performance-report.json` retains
+its recomputed metrics; gate artifacts retain baseline selection and reservations.
+These remain advisory, including provider transport/validation failures. They
+cannot turn a failing source run green.
+
+`workflow_run` still checks out the actual default branch into `trusted`, records
+its checkout SHA and uses isolated Python. This PR's candidate consumer is not
+automatically exercised by PR producer completion. Hosted PR runs therefore prove
+the new producer with the currently merged consumer; candidate performance
+eligibility, typed provider integration and both-direction packet rollout are
+validated with mocked replies. New trusted performance behavior requires a merge
+and a later default-branch execution before any hosted/live claim. No candidate
+checkout receives the TypeSafe secret, and no new live calibration or paid fault
+run is part of this work. The existing at-most-one reservation-before-key request,
+no retry, durable duplicate suppression, cancellation/rerun behavior, response
+bounds, redaction, pinned `jev-1.14.0` model and failure priority remain in place.
+
+All three CLI entry points explicitly add their resolved trusted `tools/ci`
+directory to the import path: `python -I` excludes the script directory as well
+as ignoring `PYTHONPATH`. The provider entry point needs this for its performance
+siblings even though the key-free gate already imported them successfully in
+another process. Subprocess regressions invoke the actual isolated provider CLI
+from an unrelated directory containing hostile sibling-module names, with empty
+credentials. They cover warm packets, successful performance signals, failed
+checks carrying performance data, and the four-case calibration path, making zero
+provider requests. The calibration regression is a keyless CLI smoke test, not a
+new live calibration.
+
+[Actual retained cold/warm observations](evidence/ci-performance/advisory-v1/README.md)
+are distinct from synthetic fault tests and mock provider responses. Mocked useful
+answers prove integration behavior, not the model's causal accuracy. The following
+sections retain historical activation and calibration evidence from earlier PRs;
+those live calls did not run this candidate implementation.
+
 PR1 merged into default `master` at
 `262e06d00024ab4ff2c025ce2b52a2ff49f65715`. Both workflows are registered and
 active. The old explanation that the consumer exists only on a PR branch is no
@@ -214,8 +294,9 @@ against the [official model reference](https://docs.typesafe.ai/models) on
 timeout, a 58,000-byte request bound and a 65,536-byte response bound. The workflow
 also bounds the entire diagnosis step to two minutes. There is no blanket retry.
 
-Four typed choice questions return a failure-layer hypothesis, up to two
-supporting supplied excerpt IDs, and one next probe from supplied options.
+Four typed choice questions return a failure-layer or performance hypothesis, up to
+two supporting supplied excerpt/metric/comparison IDs, and one next diagnostic
+step from trusted options.
 `unknown`/`none` are explicit outcomes. Exact model, complete question inventory,
 option membership, confidence/probability values when supplied, distinct excerpt
 references and supporting evidence are validated. A useful hypothesis without a
@@ -235,8 +316,9 @@ input tokens and free output tokens from the dated model reference; these are
 not invoices. Actual billing remains unknown unless separately available. Failed
 responses retain available usage too. Prior attempts cannot be overwritten.
 
-With no failed/blocked observation, normal CI writes `nothing_to_diagnose`
-without a request, even when a key exists. Missing keys produce
+With no failed/blocked observation and no supported actionable performance signal,
+normal CI writes `nothing_to_diagnose` without a request, even when a key exists.
+Explained cold population and missing history alone do not qualify. Missing keys produce
 `missing_credentials`. Jev cannot change source check results, suppress required
 tests, approve a run, or execute its proposed probe. Consumer failure affects
 only the advisory consumer and never changes the producing workflow's verdict.

@@ -14,6 +14,7 @@ import re
 import subprocess
 
 CACHE_SCOPE = 'mago-serena-linux-amd64-v1'
+PLATFORM = 'linux/amd64'
 
 
 def build_command(env=None):
@@ -22,7 +23,7 @@ def build_command(env=None):
     env = os.environ if env is None else env
     cache = f'type=gha,version=2,scope={CACHE_SCOPE},timeout=5m'
     image = env.get('POC_IMAGE') or 'mago-serena-poc:local'
-    return ['docker', 'buildx', 'build', '--load', '--tag', image,
+    return ['docker', 'buildx', 'build', '--load', '--tag', image, '--platform', PLATFORM,
             '--progress', 'plain', '--metadata-file', 'artifacts/ci/build-metadata.json',
             '--iidfile', 'artifacts/ci/image.iid', '--cache-from', cache,
             '--cache-to', cache+',mode=max', '.']
@@ -48,7 +49,10 @@ def build_plan(env):
 
 
 def main():
+    from performance import compile_fingerprint
     plan = build_plan(os.environ)
+    plan['platform'] = PLATFORM
+    plan['compile_fingerprint'] = compile_fingerprint(Path(__file__).resolve().parents[2], platform=PLATFORM)
     directory = Path('artifacts/ci')
     directory.mkdir(parents=True, exist_ok=True)
     plan['buildx_version'] = subprocess.check_output(['docker','buildx','version'], text=True).strip()
