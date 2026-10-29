@@ -36,10 +36,10 @@ under `fixtures/semantic/`; these are copied into disposable apps only.
 exact replacement counts and source positions. Fixture source and expectations
 can be reused without an agent orchestrator. Protocol probes, adapter setup and
 MCP transcript assertions belong to this integration. Outputs stay outside
-fixture sources. A future second consumer may extract and pin this contract;
-no MinSpec repository or package migration is included here.
+fixture sources. Consumers can reuse these fixture and verification contracts independently;
+see [Contributing](CONTRIBUTING.md) for maintaining their provenance.
 
-The hardened verifier captures the **whole post-setup application**, including
+The application verifier captures the **whole post-setup application**, including
 vendor, root PHPUnit/Composer configuration, lockfiles, tests, public entrypoints,
 unknown files, directories and symlink targets, plus permission bits. Its narrow
 exclusions are defined in `tests/integration/verifier.py`; runtime caches and the

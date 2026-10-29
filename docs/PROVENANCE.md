@@ -1,70 +1,66 @@
 # Sources and licenses
 
-Slice 1 preserves the original toolchain lock and `app/` manifest. The separate
-[`fixtures/mate` overlay](../fixtures/mate/overlay.json) declares its own exact
-Composer lock, Mate/Symfony packages, experimental Mago SDK source and wiring
-package. It also records the single required existing-package update and why.
-The executable remains the original source-built experimental Mago; no packaged
-Mago binary replaces it. The new PHP observer uses Mago's public SDK and is
-authored here; its scoped formatting and second-pass stability were checked
-with Mago. Installed overlay package licenses remain in their vendor directories.
+## Sources and modifications
 
-All source starting pins in the implementation plan were retained. Exact
-versions, source SHAs, image manifest digests and dependency lock hashes are in
-`toolchain.lock.json`. `uv.lock` resolves the pinned Serena commit together with
-the local adapter; the adapter is installed into the same Python environment.
-Rust 1.99.0 was available and used without lowering Mago's declared requirement.
+`toolchain.lock.json` records source commits, image digests, runtime versions,
+lock hashes, and candidate patch identities. `uv.lock` resolves the pinned
+Serena source and local adapter. The Dockerfile builds Mago from source and
+installs Serena and the adapter in the same Python environment.
 
-`app/` is a `git archive` of the official Demo commit. Its LICENSE, copyright
-headers, tests, Composer manifest/lock and environment seeds are preserved.
-The manifest records every original file before adaptation. The only changed
-source file is the documented past-comment timestamp line. Setup behavior is
-implemented outside the application; Composer auto-scripts are explicitly
-reproduced with a copy of the environment seed. Upstream tracked SQLite databases
-remain as historical source input; disposable environments always replace them.
+The default image applies `patches/mago-lsp-extensions.patch` to the pinned
+experimental Mago source and `patches/serena-symbol-references.patch` to the
+pinned Serena facade. It retains the unpatched Mago executable as
+`mago-baseline`; build argument `MAGO_LSP_EXTENSIONS=0` selects that executable
+as the primary Mago. These repository patches are not claims of upstream
+publication. Extension contributions need explicit configuration; see
+[Mago LSP extensions](MAGO-LSP-EXTENSIONS.md).
 
-The earlier Agentscient fixture at
-`7d1abb3c4ac01451d83e1c1e12742b9fa2067561` supplied the documented copy/reset and
-timestamp lessons. No roles, private dependencies, orchestration, instructions
-or credentials were imported. Symfony Docker at
-`92d0d49293cd8678d82ca57c9c81b2dc45cf5561` was a design reference; this repository's
-small PHP CLI development Dockerfile and router are newly authored, not copied
-Docker definitions.
+The separate [Mate overlay](../fixtures/mate/overlay.json) records its Composer
+lock, Mate/Symfony/Monolog packages, Mago SDK source, and wiring extension. It
+also records the required existing-package update and rationale. Installed
+package licenses remain in vendor directories. PHP observer code in this
+repository uses Mago's public SDK.
 
-The repository's original MIT LICENSE remains. Symfony Demo is MIT with its
-own license in `app/LICENSE`. The adapter/harness code is covered by this
-repository's MIT license. Serena is GPL-3.0-or-later; Mago is MIT OR Apache-2.0.
-They are installed/built from their pinned upstream sources in the image. Their
-licenses and notices must accompany any redistributed image; see
-`docker/collect-licenses` for the image's `/opt/licenses` collection. PHP,
-Python, Rust, uv, Composer and Composer/Python dependencies retain their own
-licenses. Runtime copies are distinct from the PoC repository's MIT grant.
-Pinned uv and Composer notices are also preserved in `licenses/`; the image
-collects these alongside the PHP and Python runtime licenses.
+`app/` is an archive of official Symfony Demo commit
+`8d2e2ef75c3e18df173d8bf2379a14abb58c4c31`. Its license, copyright headers,
+original tests, manifests/locks, and environment seeds are preserved. The sole
+source adaptation changes a fixture comment timestamp from future to past so
+new comments sort correctly. Original/approved hashes and setup behavior are
+explained in the [fixture contract](FIXTURE-CONTRACT.md). Tracked SQLite files
+remain source inputs; disposable setup replaces its own database copies.
 
-The hardening work starts from reviewed PoC commit
-`41729d30d23459de1ba53023051eb55894fb33b9`, on `poc/serena-mago-hardening`.
-The fetched source branch had no later changes. All application/tool pins and
-dependency locks remain unchanged. New tiny PHP probes and Python clients are
-authored here under this repository's MIT license; they are independent of the
-Demo except where explicitly labeled. Upstream source inspected for comparison
-retains its own license and is not vendored by these probes. The
-[contribution ledger](UPSTREAM-CONTRIBUTIONS.md) records exact inspected revisions,
-guidance, prior work, protocol evidence and draft material.
+## Attribution and redistribution
 
-Each hardened run records `metadata.json` with the source commit, complete source
-manifest and base64 dirty-file contents/deletions, fixture checksum/adaptation
-manifests and pinned toolchain. `executed-identity.json` hashes the installed
-adapter, SolidLSP, verifier/harness and locks, lists installed package/runtime
-versions, and is checked against host source. `image-identity.json` records the
-actual container image ID and available registry digests for each fresh service.
-Local images may have no repository digest; their content-addressed image IDs
-are still recorded. `run-plan.json` defines the expected inventory before checks;
-each result is bound to its source context, run and attempt. Full dirty content
-describes the tested tree without pretending that HEAD alone contains it.
+The repository's original MIT license covers its adapter, scripts, and test
+code. Symfony Demo is MIT under [app/LICENSE](../app/LICENSE).
+Serena is GPL-3.0-or-later; Mago is MIT OR Apache-2.0. Their licenses and notices
+must accompany redistributed images. PHP, Python, Rust, uv, Composer, operating
+system packages, and Python/Composer dependencies retain their own licenses;
+the repository's MIT grant does not replace them.
 
-Jev is a separate optional TypeSafe CI API call, not an application dependency.
-Its model, endpoint, configuration, sanitized request/response, latency and
-available usage/cost are retained separately. Local provider tests are mocked and
-labeled accordingly. Historical model-driven acceptance is not evidence that a
-model or live Jev reran after hardening. See [the Jev notes](JEV.md).
+`docker/collect-licenses` and Docker build steps collect notices under
+`/opt/licenses`; the image also includes package inventories. uv/Composer
+notices are retained in [licenses/](../licenses/README.md). Review those inputs
+when changing dependencies or distributing the image.
+
+Symfony Docker revision `92d0d49293cd8678d82ca57c9c81b2dc45cf5561` was a design
+reference; this repository's PHP CLI development Dockerfile/router were authored
+here. The earlier Agentscient fixture at
+`7d1abb3c4ac01451d83e1c1e12742b9fa2067561` informed copy/reset and timestamp
+handling. It does not impose role systems or operating policies on this project.
+The [original implementation plan](IMPLEMENTATION-PLAN.md) retains that history.
+
+## Result provenance
+
+Acceptance records source commit, full file inventory, and dirty-file contents
+in `metadata.json`. `executed-identity.json` records installed adapter, verifier,
+locks, and package/runtime identities; image records identify actual running
+container images. A local image may have no registry digest, so its content
+addressed image ID is retained. The expected result inventory and context are
+recorded before checks; artifacts are bound to the relevant run and attempt.
+
+Raw observations under [evidence/](evidence/) retain their own tested inputs.
+Changing documentation or merging a patch does not rerun an old agent session.
+Jev's optional TypeSafe request/response, model, latency, and available usage
+are recorded separately from application acceptance. Mock and live records
+remain distinguishable; see [Testing](TESTING.md) and [Jev](JEV.md).

@@ -1,4 +1,9 @@
-# Serena v2 REPL + Mago LSP: Symfony Demo PoC
+# Original implementation plan
+
+> **Historical record.** Historical design and implementation instructions for the initial experiment. It is retained for rationale and provenance, not as current setup guidance or an instruction to repeat implementation. Start with [Getting started](GETTING-STARTED.md) and [Contributing](CONTRIBUTING.md); current owner direction and repository implementation govern later work.
+
+## Original report
+
 Implementation handoff for Sol Ultra · prepared 2026-10-27
 
 Historical handoff for the original integration. New Symfony work follows the

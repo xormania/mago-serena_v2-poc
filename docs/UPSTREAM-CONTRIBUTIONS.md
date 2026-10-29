@@ -1,4 +1,8 @@
-# Contribution ledger
+# Recorded upstream investigations
+
+> **Historical record.** This ledger records inspected revisions, local fixes, candidate patches, and draft upstream reports. Read each entry with its recorded evidence; its operating instructions do not define current contributor policy, and a draft does not establish publication. See [Contributing](CONTRIBUTING.md) and [current capabilities](CAPABILITIES.md).
+
+## Original report
 
 This is review material for xormania; nothing has been posted upstream. A passing
 known-defect control means the fault and its healthy comparison were observed,

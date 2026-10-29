@@ -1,17 +1,19 @@
-# Mago LSP external analyzer candidate
+# Mago LSP extension configuration and reference
 
-The candidate hosts configured external analyzer workers in Mago's native LSP
-analysis and exposes their semantic dependency contributions through Serena.
-The matched baseline, 19 direct controls, four focused Rust tests and a real
-adaptive host MCP investigation pass. Original semantic acceptance, slices 1/2 and the strengthened
-native-plus-Serena gate all pass on the [final recorded image](evidence/lsp-extensions/acceptance/summary.json).
+The default Docker build includes this repository's Mago external-analyzer patch
+and Serena graph-query patch. With explicit workspace configuration, the server
+runs the wiring worker during native LSP analysis and exposes dependency graph
+results through Serena. The ordinary workspace configuration still uses native
+PHP analysis until enrichment is selected.
 
-Nothing has been published upstream. The native patch is based on experimental
-Mago `46df50c96d93d0ac3655c116c375574277cf0b30`. The graph interface described
-below is a candidate extension to the pinned server and Serena, rather than an
-already available upstream API.
+Use [setup](GETTING-STARTED.md) and [agent connection](AGENT-CLIENTS.md) first.
+This page documents the experimental interface, opt-in configuration, lifecycle,
+and retained validation. The upstream base is pinned in
+[the toolchain lock](../toolchain.lock.json); `mago-baseline` preserves the
+unpatched comparison executable. The graph interface is a repository extension,
+not an established upstream API.
 
-## Three separately established claims
+## Recorded integration checks
 
 | Claim | Observation |
 | --- | --- |
@@ -24,21 +26,21 @@ The CLI observer reads Mago's final graph; LSP protocol responses establish the
 second claim. The [adaptive transcript and result](evidence/lsp-extensions/agent/result.json)
 establish the third without substituting a scripted replay.
 
-## Reproducible identities
+## Build inputs and recorded identities
 
 | Component | Identity |
 | --- | --- |
 | Upstream Mago base | `46df50c96d93d0ac3655c116c375574277cf0b30`, executable version `1.58.2` |
 | Mago patch SHA-256 | `ca955e0db6023a997fe708d46d3bd0b92e6dd91237aee7c206f13768effdea11` |
-| Candidate executable SHA-256 | `5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46` |
-| Runnable baseline executable SHA-256 | `78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255` |
+| Recorded patched executable SHA-256 | `5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46` |
+| Recorded baseline executable SHA-256 | `78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255` |
 | Composer Mago SDK | Same exact source revision, package version `1.58.2`, MANA `2.1` |
 | Wiring extension | `28c3f54065b71fe046a7474ced401aeadc941b0f`, explicit PHP worker backend |
 | Serena base | `9e1cced0c34ed48d668e179f7c56c77b4d14a3e3` |
 | Serena REPL patch SHA-256 | `57385a9e49d8a490e696f49b3c62d16e8685703d9531899372a3c41a28270051` |
-| Patched Serena facade SHA-256 | `438e52fc79044efa5264e84638190a68a5d5be4ed18f9e2f698f7a49e10d184e` |
+| Recorded patched Serena facade SHA-256 | `438e52fc79044efa5264e84638190a68a5d5be4ed18f9e2f698f7a49e10d184e` |
 | Symfony Demo | `8d2e2ef75c3e18df173d8bf2379a14abb58c4c31`, declared PoC overlay |
-| Direct and adaptive proof image | `sha256:3cc2d1c9f074c1377d103a90d3287a8bb04c7af0e909dd2f0b85b7243cdd7ef1` |
+| Recorded direct and adaptive investigation image | `sha256:3cc2d1c9f074c1377d103a90d3287a8bb04c7af0e909dd2f0b85b7243cdd7ef1` |
 
 The [Mago patch](../patches/mago-lsp-extensions.patch),
 [Serena patch](../patches/serena-symbol-references.patch), Dockerfile and
@@ -47,12 +49,13 @@ build applies the Mago patch to the exact base and verifies that the Cargo lock,
 Composer SDK and MANA protocol files are unchanged. Rust is
 `1.99.0 (b940084d7 2026-09-28)`; the Cargo lock SHA-256 is
 `f5468183e5440ccacff66b06f7b444f15641caf89d9533057a03e4f280a28e1d`.
-The candidate build defaults to two jobs. `/usr/local/bin/mago-baseline` retains
+The patched build stage defaults to two jobs for its additional compilation.
+`/usr/local/bin/mago-baseline` retains
 the unmodified executable alongside `/usr/local/bin/mago`; build argument
 `MAGO_LSP_EXTENSIONS=0` selects the unpatched executable as the primary binary.
 
-Build the reproducible candidate and its focused native regression tests with
-separate task-owned tags:
+Build the patched development image and optional focused native regression
+tests with distinct tags:
 
 ```sh
 export POC_IMAGE=mago-serena-poc:lsp-workers-example
@@ -61,37 +64,41 @@ docker build --target mago-candidate-tests --build-arg MAGO_BUILD_JOBS=2 -t "${P
 docker run --rm "${POC_IMAGE}-rust-tests" cat /mago-native-tests.log
 ```
 
-Stable Mago `1.59.0` / MANA `2.2` is a different compatibility matrix. A version
-string alone cannot distinguish the tested baseline from the candidate. Live
+The recorded comparison with Mago `1.59.0` / MANA `2.2` used a different
+compatibility matrix; it is not a statement about the latest upstream release.
+A version string alone cannot distinguish the tested baseline from the patch. Live
 backend checks retain the executable hash, patch identities and loaded Serena
 facade. The [installed compatibility record](evidence/lsp-extensions/compatibility.json)
 checks the actual SDK MANA 2.1 header, package source identities and Mate/Symfony
 extension `0.15.0`. [Read-only upstream refs](evidence/lsp-extensions/baseline/upstream-refs.json)
-still show the experimental branch at the base used here.
+identify the experimental branch at the time of that inspection.
 
 ## Effective configuration and opt-in
 
-The ordinary PoC root `mago.toml` remains native. Enrichment is explicitly
+The ordinary application-root `mago.toml` remains native. Enrichment is explicitly
 selected in an owned disposable application's **workspace-root** configuration.
 Mago loads a folder's own `mago.*` before a launch-time `--config` fallback; passing
 only `--config .mago/wiring.toml` does not override an existing root `mago.toml`.
 
 This precedence exposed a flaw in the earlier launch-config-only propagation
 probe: it did not prove matched effective CLI/LSP configuration. Its historical
-slice evidence remains attributed to that run. The corrected probe temporarily
+investigation evidence remains attributed to that run. The corrected probe temporarily
 installs a workspace-root config extending the same instrumented worker config,
 then restores the original bytes. The [corrected matched baseline](evidence/lsp-extensions/baseline/index.json)
 still demonstrates CLI startup/contribution and the unpatched LSP omission.
 The independent [minimal real-SDK regression](upstream/lsp-extensions-repro/README.md)
 corroborates both baseline and candidate behavior.
 
-After building the selected candidate image, an example opt-in is:
+After building the image above, use the same exported `POC_IMAGE` in a
+dedicated disposable environment:
 
 ```sh
-POC_IMAGE=mago-serena-poc:lsp-workers-20261028b ./bin/poc up --run lspext-example --no-build
-POC_IMAGE=mago-serena-poc:lsp-workers-20261028b ./bin/poc mate-prepare --run lspext-example
+./bin/poc up --run lspext-example --no-build
+./bin/poc mate-prepare --run lspext-example
 cp docs/evidence/lsp-extensions/agent/agent-config-on.toml workspaces/lspext-example/app/mago.toml
-POC_IMAGE=mago-serena-poc:lsp-workers-20261028b ./bin/serena-mcp --run lspext-example
+# Include the intentional root-config change in fresh prepared state:
+./bin/poc mate-prepare --run lspext-example
+./bin/serena-mcp --run lspext-example
 ```
 
 The [reviewed root configuration](evidence/lsp-extensions/agent/agent-config-on.toml)
@@ -207,15 +214,18 @@ application suite then passes 53 test identities and 120 assertions with source
 checksums retained. This is an adaptive investigation, not an autonomous coding
 benchmark. Live backend identity validation remains enabled.
 
-## Proof entrypoints and results
+## Integration check and recorded results
 
 ```sh
-POC_IMAGE=mago-serena-poc:lsp-workers-20261028b \
-  .venv/bin/python tests/integration/lsp_extensions.py --run lspext-20261028b-candidate
+.venv/bin/python tests/integration/lsp_extensions.py --fresh
 ```
 
-This selects one prepared owned run and executes `lsp_extensions_probe.py`.
-CI uses `--fresh` instead of `--run`: it verifies resolved Compose image and
+This creates a fresh disposable environment using the selected image and
+executes `lsp_extensions_probe.py`, matching CI. It temporarily changes source,
+configuration, and compiled bindings, then restores them. To test an existing
+prepared disposable environment instead, use `--run RUN`; intentional source or
+configuration changes require a prior `mate-prepare` refresh. Both modes verify
+resolved Compose image and
 actual image ID through the existing installed-source/runtime identity contract,
 and verifies real host MCP on/off graph forwarding with the native signature
 preserved. This deterministic CI replay is separate from the adaptive session.
@@ -250,36 +260,28 @@ same 35 native diagnostics across 46 source/test files. Enabled reports have 36
 total issues including the real completion attestation; disabled has 35. The
 historical 30-native-diagnostic/34-source-file record has a different scope and
 remains unchanged. Native findings remain findings; no diagnostic is manufactured
-or suppressed to make enrichment pass. No Jev live call or new paid trial is needed.
-The separate historical external-span defect remains attributed to its original
+or suppressed to make enrichment pass. The separate historical external-span
+defect remains attributed to its original
 source and reproduction; this patch does not claim to repair it.
 
-## Session A reconciliation
+## Historical integration context
 
-The separate image-isolation commit selects
-`image: ${POC_IMAGE:-mago-serena-poc:local}` and makes the CI build helper honor
-the same selection. Launchers already forward it. Session B scopes mutable runs
-to `lspext-*` and uses its own image tag. The Mago build, native patch, graph
-forwarding, focused CI step and dedicated evidence require no Session A runtime
-tooling or Monolog overlay. Both source pins remain unchanged.
+The retained direct and adaptive results use image `3cc2d1c9…`. Their
+[acceptance evidence](evidence/lsp-extensions/acceptance/summary.json) identifies
+the exact executable, image, and source revisions. The runtime-diagnosis and LSP
+work were developed independently before their combined validation below;
+references to an unmerged runtime branch in older reports describe that point
+in development, not the current feature set.
 
-Direct/adaptive results above use image `3cc2d1c9…`; the final broad suite's exact
-image/revision and any effective-config harness correction are recorded in its
-acceptance evidence. The later combined validation below exercises both
-workstreams on their actual integrated revision.
+The committed evidence indexes bound and hash the published review snapshots.
+Some original full acceptance artifacts were retained only in the developer's
+local checkout; those private paths are not prerequisites for building this
+repository or using its integration checks.
 
-Full sealed original acceptance artifacts are retained at
-`/home/scientdb/worktrees/mago-serena_v2-poc/lspext-20261028b-evidence/`
-so the existing independent artifact verifier can recheck both runs after
-disposable application cleanup. The committed evidence index bounds and hashes
-the review snapshots. No application, vendor tree or Rust target directory is
-retained in that location. Session A was not merged at that historical
-default-branch check (`88abf50d747f0e2f02905bb23d3701c18d00b2c5`).
-
-## Combined runtime and LSP validation
+## Recorded combined runtime and LSP validation
 
 After runtime PR #5 merged, commit
-`7d7369cc87c64b3bd8d2d95749375f8954646c58` reconciled current master
+`7d7369cc87c64b3bd8d2d95749375f8954646c58` reconciled the then-default branch
 `73d7bb8886b8127d930a45252f4fd5d8c855e47d` with the LSP candidate. The workflow
 retains both `slice3` and `lsp_extensions`, and the image-selection contract
 retains run ownership and the default for an empty `POC_IMAGE`.

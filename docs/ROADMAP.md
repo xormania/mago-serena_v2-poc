@@ -1,56 +1,26 @@
-# Mago-first Symfony development
+# Development opportunities
 
-Revision 4, 28 October 2026. This roadmap supersedes the original
-[implementation handoff](IMPLEMENTATION-PLAN.md) for new work. The original
-fixture, semantic rename evidence, CI caching and trusted Jev workflow remain.
-The slice-3 runtime work starts from merged PR #4 at
-`88abf50d747f0e2f02905bb23d3701c18d00b2c5`. Runtime diagnosis and the parallel
-LSP worker workstream use separate Git worktrees, image tags and disposable
-applications/databases/state. The runtime proof uses the existing enriched CLI.
+The maintained [workflow guide](WORKFLOWS.md), [capabilities](CAPABILITIES.md),
+and [coverage inventory](RUNTIME-COVERAGE.md) describe implemented functionality.
+The original [implementation plan](IMPLEMENTATION-PLAN.md) and numbered
+[service](SLICE-1.md), [command](SLICE-2.md), and [request-repair](SLICE-3.md)
+reports are historical records, not setup instructions or a queue of pending work.
 
-| Slice | Intended proof | Scope |
-| --- | --- | --- |
-| 1: understand and analyze | Explain `App\Form\Type\TagsInputType` through Mago checks and Serena semantics, enriched with compiled Symfony wiring | Implemented: native PHP/semantics and CLI wiring pass; LSP worker propagation blocked. See [evidence/adoption](SLICE-1.md) |
-| 2: generate and change | Use installed Maker to create `app:tags:count`, semantically edit it, run Mago and verify execution and tests | Implemented: fresh adaptive agent and exact-image replay pass; CLI wiring demonstrated, existing LSP boundary retained. See [task and evidence](SLICE-2.md) |
-| 3: diagnose and repair | Correlate one failing request with Mate runtime evidence, inspect and repair through Mago, verify a fresh request and regression test | Implemented: adaptive real-request diagnosis and semantic repair; deterministic acceptance is separately recorded in [slice 3](SLICE-3.md). The [coverage inventory](RUNTIME-COVERAGE.md) separates exercised and remaining workflows. |
+## Areas for future evaluation
 
-Mago owns PHP analysis, lint, applicable fixes and formatting. Serena's actual
-REPL/Mago path supplies source navigation. Mate supplies compiled framework
-facts; the existing `Byte-Kitsune/mago-symfony-wiring` extension must be attempted
-through Mago's supported worker APIs. PHPUnit and Symfony validation retain
-their behavioral and runtime roles. PHPStan/PHP-CS-Fixer are historical
-comparisons rather than duplicate default checks.
+These are known opportunities identified by the retained investigations. They
+are not commitments to implement particular features or restrictions on using
+the available tools.
 
-Slice 1 requires healthy, defective and restored controls, actual source and
-dependency coverage, explicit PHP target, retained raw diagnostics and process
-exits, formatter stability, and active extension evidence. Installation or a
-zero analysis exit does not establish a framework contribution. A blocked
-bridge leaves the combined result incomplete even when PHP controls pass.
-CLI extension contribution and LSP/Serena propagation are separate claims.
+| Area | Opportunity and existing reference |
+| --- | --- |
+| Upstream integration | Evaluate the repository patches against newer compatible Mago/Serena revisions using the [extension reference](MAGO-LSP-EXTENSIONS.md) and [contribution records](UPSTREAM-CONTRIBUTIONS.md). Preserve matched executable/SDK/protocol identities. |
+| Semantic source tooling | Investigate the [external-declaration span defect](FINDINGS.md), wider completion/signature-help access, and currently unexercised edit/version/cancellation cases in [capabilities](CAPABILITIES.md). |
+| Broader Symfony tasks | Add task evidence for migrations, form/security authoring, resource repair, and browser interactions as useful work arises. The [coverage inventory](RUNTIME-COVERAGE.md) identifies what existing exercises establish. |
+| Agent clients and verification | Extend configuration and transcript support where needed, preserving the distinction between client connectivity, native execution records, and independent task verification. See [agent clients](AGENT-CLIENTS.md). |
+| Runtime diagnosis | Evaluate additional requests, collectors, logging arrangements, and environment failures beyond the recorded tag-filter repair, with observations correlated to the actual request. |
 
-The ordinary public CLI bridge is `./bin/poc mago-enriched --run <run>
---symbol '<class>' -- analyze --reporting-format json`. It requires explicit
-`mate-prepare` after source/dependency changes and retains native findings and
-exits with extension/graph evidence. The native `mago` command remains available
-for comparison. Slice 2 declares only its new command and test as task changes;
-original fixture integrity, original suite identities and existing semantic
-acceptance remain independent gates. A scripted replay does not establish a
-fresh adaptive agent run.
-
-Slice 3 separates historical profiler/log reads from compiled-service freshness.
-Runtime evidence remains readable during stale-source and boot-failure controls;
-compiled service inspection and enriched analysis still require explicit
-preparation. The selected tag-filter task restores the existing controller and
-declares one new regression test. This request path does not establish complete
-Symfony development coverage: migrations, new forms/security, browser behavior
-and broader environment repair remain follow-on work.
-
-Keep exact executable/source/SDK/extension identities together. Stable 1.59.0
-uses a different worker protocol from the experimental 1.58.2 pin. Do not update
-one side silently. Historical full-sync and stale-span findings remain
-attributable to their original tested pins; restart is a recovery, not a fix.
-
-Upstream opportunities belong in the [contribution ledger](UPSTREAM-CONTRIBUTIONS.md)
-with small reproductions, controls, source identities and workaround costs.
-Prepare drafts only. No upstream messages, merge, new paid calibration or
-local TypeSafe key is required for this work.
+Any new dependency or upstream comparison needs a deliberately selected compatible
+configuration. Historical version comparisons describe their recorded inputs;
+they do not identify the latest available upstream release. New evaluations
+should retain their own configuration, outputs, and limitations.

@@ -1,4 +1,8 @@
-# Selected service: TagsInputType
+# Recorded TagsInputType investigation
+
+> **Historical record.** This selected-service investigation records its original baseline and controls. Its LSP propagation limitation is scoped to the tested unpatched configuration. See [current capabilities](CAPABILITIES.md), [LSP extension reference](MAGO-LSP-EXTENSIONS.md), and [Workflows](WORKFLOWS.md).
+
+## Original report
 
 The slice explains the existing `App\Form\Type\TagsInputType` form service,
 its `TagRepository` dependency and `PostType` caller. Source identities remain

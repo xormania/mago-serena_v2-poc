@@ -1,4 +1,20 @@
-# Symfony wiring in Mago slice 1
+# Symfony service inspection and enriched analysis
+
+AI Mate provides compiled Symfony service facts. The public enriched Mago CLI
+uses those facts through the pinned wiring extension and records the resulting
+dependency graph. Prepare metadata explicitly after source or dependency changes;
+[workflows](WORKFLOWS.md) and the [command reference](COMMANDS.md) cover routine
+usage. The service below is a recorded example, not a restriction on which
+classes can be inspected.
+
+The Docker build includes the repository's patched Mago server by default.
+CLI enrichment and LSP enrichment remain separately selected interfaces. The
+[patched LSP reference](MAGO-LSP-EXTENSIONS.md) describes workspace opt-in,
+graph queries through Serena, and export-plus-reload freshness. Its successful
+results supersede the original unpatched LSP propagation limitation for that
+configured path.
+
+## Recorded service example
 
 The existing `App\Form\Type\TagsInputType` receives `TagRepository $tags` at
 `src/Form/Type/TagsInputType.php:34`. `PostType` selects that form type. `TagsInputType::buildForm` adds the
@@ -18,13 +34,13 @@ This is compiled dev configuration, not a claim about a measured request.
 
 ## Coherent executable, SDK and package
 
-The LSP and CLI retain experimental Mago
+The LSP and CLI use the pinned experimental Mago base
 `46df50c96d93d0ac3655c116c375574277cf0b30` (`1.58.2`, MANA 2.1). The declared
 Composer package repository installs the SDK from **that exact source revision**,
 with no packaged binary launcher. Every tool invocation uses `/usr/local/bin/mago`.
-It therefore cannot silently download stable 1.59.0, whose MANA 2.2 worker would
-be incompatible. This is a deliberately identified experimental SDK package,
-not a claim that stable `1.58.2` is identical.
+The recorded comparison with Mago 1.59.0 used a different MANA 2.2
+worker protocol; substituting that SDK would be incompatible with this pin. The
+SDK is identified by source revision, not just a release version.
 
 The [overlay](../fixtures/mate/overlay.json) adds Mate and its Symfony extension
 at `0.15.0`, SDK, Revolt, and
@@ -35,7 +51,7 @@ no native engine asset download is required. Its `nikic/php-parser ^5.9`
 requirement accounts for the overlay's single existing-package update,
 `5.7.0 → 5.9.0`. All other existing package versions remain locked.
 
-## Demonstrated contribution
+## Recorded contribution controls
 
 The same healthy PHP source, vendor dependencies, config and compiled reference
 were analyzed with the wiring package off and on. The small
@@ -62,30 +78,33 @@ these findings are retained, not suppressed or called clean.
 
 A graph Body edge establishes a framework-known dependency reference. It does
 not prove a runtime call occurred or that every service is reachable. The
-pinned LSP does not initialize external analyzers: the CLI contribution does
-not reach Serena through this server revision. [The live propagation control](SERVICE-SEMANTICS.md)
-separates that server integration gap from SDK/package execution and adapter
-exposure.
+original unpatched LSP baseline did not initialize external analyzers.
+[The service investigation](SERVICE-SEMANTICS.md) records that historical gap;
+the [repository patch and configured LSP controls](MAGO-LSP-EXTENSIONS.md)
+separately establish server contributions and Serena exposure.
 
 ## Commands and freshness
 
+First [build the image](GETTING-STARTED.md). These examples reuse it in a new
+selected environment.
+
 ```sh
-./bin/poc up --run slice1-dev --no-build
-./bin/poc mate-prepare --run slice1-dev
-./bin/poc mago-enriched --run slice1-dev \
+./bin/poc up --run service-inspect --no-build
+./bin/poc mate-prepare --run service-inspect
+./bin/poc mago-enriched --run service-inspect \
   --symbol='App\Repository\TagRepository' -- analyze --reporting-format json
 # Equivalent public Mago profile; default profile remains native:
-./bin/mago --run slice1-dev --profile symfony \
+./bin/mago --run service-inspect --profile symfony \
   --symbol='App\Repository\TagRepository' -- analyze --reporting-format json
 # Same application/preparation, explicitly disable the wiring contribution:
-./bin/poc mago-enriched --run slice1-dev --extension-off -- analyze --reporting-format json
-./bin/mate --run slice1-dev -- tools:list --format=json
-./bin/mate --run slice1-dev -- tools:inspect symfony-service-detail --format=json
-./bin/mate --run slice1-dev -- tools:call symfony-service-detail \
+./bin/poc mago-enriched --run service-inspect --extension-off -- analyze --reporting-format json
+./bin/mate --run service-inspect -- tools:list --format=json
+./bin/mate --run service-inspect -- tools:inspect symfony-service-detail --format=json
+./bin/mate --run service-inspect -- tools:call symfony-service-detail \
   --id='App\Form\Type\TagsInputType' --context=inspection-dev --format=json
 ./bin/poc slice1
 # Also proves a source change is rejected, then analyzed after explicit refresh:
-.venv/bin/python tests/integration/enriched_analysis.py --run slice1-dev
+.venv/bin/python tests/integration/enriched_analysis.py --run service-inspect
 ```
 
 `mago-enriched` is the ordinary run-bound CLI analysis path, independent of the
@@ -122,8 +141,9 @@ this public command from `/tmp`; changed/absent facts are also rejected through
 it. The invalid-binding graph remains a labelled direct package probe because
 the public freshness guard correctly refuses fabricated compiled facts.
 
-This interface enriches CLI analysis only. It does not change the known pinned
-LSP external-worker startup boundary or claim framework-enriched Serena results.
+This command enriches CLI analysis. It does not enable LSP enrichment in the
+workspace; use the separately documented [LSP configuration](MAGO-LSP-EXTENSIONS.md#effective-configuration-and-opt-in)
+when graph inspection through Serena is needed.
 
 `mate-prepare` installs the declared lock without plugins/scripts, preserves
 existing owner `AGENTS.md`/`CLAUDE.md` text outside Mate's managed blocks,
@@ -142,13 +162,17 @@ readable stale dumps never establish current framework-aware analysis.
 
 The local review found and fixed an early host-guard defect: Symfony Console
 accepts `tools:ca` as an abbreviation for `tools:call`, while the initial guard
-recognized only exact data-command names. The fixed wrapper exempts only exact
-metadata-independent discovery/help commands; all other command names require
-fresh preparation. A real stale-source control now checks both spellings and
+recognized only exact data-command names. The current wrapper classifies
+discovery, runtime reads, and compiled-service
+reads separately. Discovery and supported runtime reads do not require fresh
+source compilation; compiled reads and unknown/abbreviated commands retain the
+conservative freshness check. A recorded stale-source control checks both
+spellings and
 requires rejection before either returns data. This was a local PoC wrapper
 defect, with no upstream attribution.
 
 [Framework evidence](evidence/slice1/framework/result.json) records the first
 complete real framework run and its controls. Its per-command/graph snapshots
 sit alongside it; full successful and failed attempts remain in ignored
-`artifacts/`. Later integrated slice evidence records any subsequent run.
+`artifacts/`. Later [service](SLICE-1.md), [command](SLICE-2.md), and
+[request-repair](SLICE-3.md) reports identify their separate runs.

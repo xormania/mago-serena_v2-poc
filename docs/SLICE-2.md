@@ -1,4 +1,8 @@
-# Slice 2: generate and verify a Symfony command
+# Recorded Symfony command generation
+
+> **Historical record.** This report retains the generated-command task, adaptive session, and independent replay at their recorded revisions. Use [Workflows](WORKFLOWS.md) for current commands and [Testing](TESTING.md) to interpret their verification scope.
+
+## Original report
 
 The disposable task implements `app:tags:count` using the existing
 `App\Repository\TagRepository`. Its contract is deliberately small: count all

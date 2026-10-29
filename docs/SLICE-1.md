@@ -1,4 +1,8 @@
-# Slice 1: understand and analyze an existing service
+# Recorded PHP service investigation
+
+> **Historical record.** This report describes the original service investigation and its tested inputs. Its blocked external-worker LSP observations concern that experiment; see [current capabilities](CAPABILITIES.md) and [patched LSP configuration](MAGO-LSP-EXTENSIONS.md) for subsequent implementation and opt-in. For routine use, follow [Workflows](WORKFLOWS.md).
+
+## Original report
 
 Mago is the default PHP analysis/lint/fix/format path. The existing
 `App\Form\Type\TagsInputType` is explained through real Serena REPL/Mago

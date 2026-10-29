@@ -1,12 +1,18 @@
-# Mago owns the PHP workflow
+# PHP analysis linting and formatting
 
-Slice 1 uses the original experimental executable at
-`46df50c96d93d0ac3655c116c375574277cf0b30` (`mago 1.58.2`), with PHP 8.5
-explicitly selected. The framework overlay installs the SDK from that same
-revision. The separate LSP configuration remains `mago.toml`;
-[the native PHP configuration](../fixtures/mago/mago.toml) is installed as
-`mago-php.toml` in the selected disposable application. No application fixture,
-PHPStan baseline or legacy formatter configuration was rewritten.
+Mago is the default PHP analyzer, linter, fixer, and formatter in this
+environment. The host launcher selects a disposable application, explicit PHP
+8.5 target, and application/test scope with vendor declarations. Begin with
+[setup](GETTING-STARTED.md); the examples below assume the image has been built.
+[Workflows](WORKFLOWS.md) and [command reference](COMMANDS.md) describe ordinary
+usage; this page provides the analysis contract and recorded controls.
+
+The executable is built from the experimental source revision in
+[the toolchain lock](../toolchain.lock.json), with the repository's LSP extension
+patch enabled by default. The SDK in the optional framework overlay uses the
+same upstream base. Native CLI checks use `mago-php.toml`; LSP uses the
+workspace-root `mago.toml`. [Symfony enrichment](SYMFONY-WIRING.md) is selected
+explicitly and has a separate freshness contract.
 
 ```sh
 ./bin/poc up --run understand --no-build
@@ -39,9 +45,10 @@ rejected before Mago starts; writing commands accept a conservative set of
 known options. Mago is the single formatter for new PHP work; its
 constructor/chain layout is configured to preserve the selected Demo service.
 
-## Scope and observations
+## Recorded analysis observations
 
-The service is `App\Form\Type\TagsInputType`, with its `TagRepository`
+The recorded service exercise analyzes `App\Form\Type\TagsInputType`, with its
+`TagRepository`
 dependency, `PostType` caller and `TagArrayToStringTransformer` collaborator.
 The analyzer uses **all `src/` and `tests/`**, with `vendor/` as declaration
 context. Filtering the retained report to the service never removes those
@@ -74,14 +81,14 @@ suppression or claims of confirmed Mago defects:
 | Existing finding family | Concrete examples | Disposition |
 | --- | --- | --- |
 | Stringable conversion / source element contracts | `PostRepository:104`, fixtures `:78/:206`, `PostType:80`, transformer `:58`, source extension `:170/:175` | Keep findings. PHP weak scalar coercion and PHPDoc array-element contracts require separate source review; no blanket framework limitation inferred. |
-| Nullable lifecycle / repeated getter refinement | `PostType:80`, `CheckRequirementsSubscriber:63`, notification subscriber `:62` | Keep findings. No provider in this slice supplies those runtime invariants. |
+| Nullable lifecycle / repeated getter refinement | `PostType:80`, `CheckRequirementsSubscriber:63`, notification subscriber `:62` | Keep findings. The recorded exercise has no provider supplying those runtime invariants. |
 | Array/value specificity and dynamic inputs | transformer `:69/:77`, paginator `:127`, Console inputs and tests | Keep findings as unconfirmed contract/refinement concerns. Passing behavior tests do not establish universal inference accuracy. |
 | Override names and redundant source | voter `:47`, transformer `:38/:52`, redundant casts/docblocks | Existing API compatibility or cleanup suggestions, outside the bounded service exercise. |
 | Reflection/API edge cases | source extension `:102/:115/:141` | Potential false/null/callable edge cases retained; no isolated runtime defect asserted. |
 | Lint style / strictness | 46 `strict-types`, 32 `assertion-style`, 17 `literal-named-argument`, other style rules | Existing conventions retained. No whole-Demo style migration. |
 | Lint design / security policies | empty constructs, method counts, sensitive parameters and literal test passwords | Contextual review needed; not silently disabled. |
 
-## Installed-tool controls
+## Recorded tool controls
 
 [The native result](evidence/slice1/mago-result.json) and
 [evidence index](evidence/slice1/mago-evidence-index.json) retain actual executions.
@@ -99,7 +106,7 @@ bytes in `finally`; no baseline is generated.
 | CST | Native lossless tree has no parse errors and exactly preserves source bytes. Bounded native-node checks verify class/inheritance spelling, private readonly promoted `$tags: TagRepository` and four method names. Full method bodies remain in the retained native tree. |
 | Routing | The public executable runs from `/tmp`; its file set matches the selected run. Unknown run, workspace override, directory/absolute/parent target mixtures and unscoped fixes fail with exit 3 and no misleading output or source changes. |
 
-## Adoption
+## Roles in the development workflow
 
 | Capability | Actual Mago result / evidence | Legacy tool | Disposition and exact remaining gap |
 | --- | --- | --- | --- |
@@ -113,6 +120,7 @@ bytes in `finally`; no baseline is generated.
 `docker/check` keeps Composer and Symfony resource/container/entity validation.
 Its optional `--legacy-comparison` adds the original PHPStan/PHP-CS-Fixer checks;
 they are absent from the default path. CI runs the original semantic/behavior
-acceptance and the separate Mago-first slice. A passing slice means the native
-capability controls and framework proof passed, not that the raw original
-application diagnostics are empty.
+acceptance and the PHP/service checks invoked by `slice1`. Passing those
+controls establishes
+their expected behaviors; the retained native application reports can still
+contain findings.

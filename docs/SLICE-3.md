@@ -1,4 +1,8 @@
-# Slice 3: diagnose and repair a failed request
+# Recorded HTTP diagnosis and repair
+
+> **Historical record.** This report retains a particular adaptive session, scripted replay, and wrapper development history. Its images, tokens, counts, and initial failures are run-specific. Use [Workflows](WORKFLOWS.md) for current runtime inspection and [Testing](TESTING.md) for result interpretation.
+
+## Original report
 
 Recorded profiler and log reads remain available after source changes and even
 when the application cannot compile. Compiled service facts and Symfony-enriched
