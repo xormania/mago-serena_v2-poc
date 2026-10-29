@@ -1,4 +1,38 @@
-# Process and filesystem contract
+# Architecture
+
+The environment separates the agent client, development service, editable
+application, and independent checks. Host scripts select a run, prepare a
+workspace, and invoke Docker Compose. PHP tools share the selected container
+and application while result files remain accessible on the host.
+
+## Components and execution paths
+
+| Path | Components | Result |
+| --- | --- | --- |
+| Agent semantic tools | Native client → host `bin/serena-mcp` → Serena REPL → Mago LSP | Symbols, definitions/references, diagnostics, semantic edits, and opted-in dependency contributions |
+| PHP quality | Host `bin/mago` or `poc mago` → container Mago CLI | Native analysis, lint, fixes, and scoped formatting |
+| Symfony-enriched analysis | Explicit Mate preparation → compiled metadata → Mago CLI extension | Framework dependency contributions with freshness checks |
+| Runtime inspection | Host `bin/mate` → installed Mate extensions → application profiler/log records | Observations about selected requests and logs |
+| Independent verification | Host runner → separate disposable apps and verifier → retained artifacts | Application checks, original test identities, protocol/lifecycle controls, and task outcomes |
+
+A native client chooses its model, reasoning, execution, and permission settings.
+It can use MCP and ordinary shell/file tools as configured by its operator.
+The environment supplies tools; it does not implement a general agent scheduler.
+The transcript reader's client-specific support is described in [Agent clients](AGENT-CLIENTS.md).
+
+The default Docker build patches Mago's external-worker LSP behavior and Serena's
+facade. It retains an unpatched baseline executable for comparison. The ordinary
+workspace configuration remains native; enabling Symfony contributions in LSP
+requires explicit workspace-root configuration. The CLI enriched profile has its
+own explicit entry point. See [Mago LSP extensions](MAGO-LSP-EXTENSIONS.md) and
+[Symfony wiring](SYMFONY-WIRING.md).
+
+Recorded profiler/log data can remain readable after edits or boot failure.
+Compiled service facts and enriched analysis require a fresh preparation; old
+runtime observations do not establish that the application is healthy now.
+[Workflows](WORKFLOWS.md) explains when to preserve records and refresh metadata.
+
+## Workspace and process reference
 
 The host launcher runs `docker compose exec -T -w /app php serena
 start-mcp-server --project /app --transport stdio --agent-interface REPL` with
@@ -41,10 +75,11 @@ credential mount, and MCP is not served over the network. The REPL has process
 privileges: its API configuration and read-only flag are agent steering, not a
 security boundary. The host authenticated agent can use shell commands normally.
 
-Each new workspace also has a host-owned `trusted/` directory outside its app,
-bound read-only at `/trusted`. Before any semantic edits, the host seals the full
-post-setup application manifest, original PHPUnit test identities, and run plan
-there. The manifest covers dependencies, root configuration, manifests, locks,
+Each workspace has a host-owned `trusted/` directory outside its app,
+bound read-only at `/trusted`. Task/acceptance preparation seals the
+post-setup application manifest and original PHPUnit test identities there
+before edits; original acceptance also seals its expected run plan. Ordinary
+`up` creates the directory without those task baselines. The manifest covers dependencies, root configuration, manifests, locks,
 tests, entrypoints, symlink targets and file/directory permissions. Only named
 generated caches, the known SQLite databases/sidecars and Symfony's generated
 `config/reference.php` are excluded; see the executable policy in

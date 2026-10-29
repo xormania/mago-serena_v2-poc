@@ -1,4 +1,8 @@
-# Mago-first service slice
+# Recorded integration findings
+
+> **Historical record.** These sections retain observations from successive experiments and their own revisions. Read them as historical results, including earlier limitations and CI rollout states. [Capabilities](CAPABILITIES.md), [CI](CI.md), and [Jev](JEV.md) describe current operation; the [index](index.md#historical-results-and-reproductions) locates the individual reports.
+
+## Original report
 
 The selected `TagsInputType` proof now uses Mago for PHP analysis, lint, safe
 fixes, formatting and a relevant Guard contract. Real Serena REPL queries resolve
