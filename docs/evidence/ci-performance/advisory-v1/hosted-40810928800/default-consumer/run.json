@@ -1,0 +1,13 @@
+{
+  "conclusion": "success",
+  "created_at": "2026-10-29T03:21:53Z",
+  "event": "workflow_run",
+  "head_branch": "master",
+  "head_sha": "6a4d2ed6234d724c67d3755285fe66c12b89fbbc",
+  "html_url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40811712898",
+  "id": 40811712898,
+  "path": ".github/workflows/jev.yml",
+  "run_attempt": 1,
+  "status": "completed",
+  "updated_at": "2026-10-29T03:22:04Z"
+}

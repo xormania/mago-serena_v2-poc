@@ -1,0 +1,193 @@
+{
+  "jobs": [
+    {
+      "check_run_url": "https://api.github.com/repos/xormania/mago-serena_v2-poc/check-runs/123240794249",
+      "completed_at": "2026-10-29T03:21:50Z",
+      "conclusion": "success",
+      "created_at": "2026-10-29T03:13:37Z",
+      "head_branch": "ci/performance-advisory",
+      "head_sha": "db0f44ae4cc092cf3be3c5b2399e786edb310aae",
+      "html_url": "https://github.com/xormania/mago-serena_v2-poc/actions/runs/40810928800/job/123240794249",
+      "id": 123240794249,
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "name": "acceptance",
+      "node_id": "CR_kwDOVY7GGM8AAAAcsblIiQ",
+      "run_attempt": 1,
+      "run_id": 40810928800,
+      "run_url": "https://api.github.com/repos/xormania/mago-serena_v2-poc/actions/runs/40810928800",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions",
+      "runner_id": 1000022818,
+      "runner_name": "GitHub Actions 1000022818",
+      "started_at": "2026-10-29T03:13:40Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completed_at": "2026-10-29T03:13:42Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "started_at": "2026-10-29T03:13:40Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:13:44Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "number": 2,
+          "started_at": "2026-10-29T03:13:42Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:13:47Z",
+          "conclusion": "success",
+          "name": "Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
+          "number": 3,
+          "started_at": "2026-10-29T03:13:44Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:13:49Z",
+          "conclusion": "success",
+          "name": "Install locked fast-test environment",
+          "number": 4,
+          "started_at": "2026-10-29T03:13:47Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:13:54Z",
+          "conclusion": "success",
+          "name": "Fast properties, manifest verification and mocked diagnosis",
+          "number": 5,
+          "started_at": "2026-10-29T03:13:49Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:14:02Z",
+          "conclusion": "success",
+          "name": "Run docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069",
+          "number": 6,
+          "started_at": "2026-10-29T03:13:54Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:14:02Z",
+          "conclusion": "success",
+          "name": "Run ./.github/actions/cache-runtime",
+          "number": 7,
+          "started_at": "2026-10-29T03:14:02Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:14:46Z",
+          "conclusion": "success",
+          "name": "Build exact toolchain",
+          "number": 8,
+          "started_at": "2026-10-29T03:14:02Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:16:22Z",
+          "conclusion": "success",
+          "name": "Real Docker, original application tests and MCP acceptance",
+          "number": 9,
+          "started_at": "2026-10-29T03:14:46Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:18:12Z",
+          "conclusion": "success",
+          "name": "Mago-first service analysis and compiled Symfony wiring",
+          "number": 10,
+          "started_at": "2026-10-29T03:16:22Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:19:19Z",
+          "conclusion": "success",
+          "name": "Generated Symfony tag-count command and behavioral acceptance",
+          "number": 11,
+          "started_at": "2026-10-29T03:18:12Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:20:33Z",
+          "conclusion": "success",
+          "name": "Failed HTTP request diagnosis, semantic repair and runtime recovery",
+          "number": 12,
+          "started_at": "2026-10-29T03:19:19Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:21:39Z",
+          "conclusion": "success",
+          "name": "Native LSP external workers and Serena dependency graph",
+          "number": 13,
+          "started_at": "2026-10-29T03:20:33Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:21:39Z",
+          "conclusion": "success",
+          "name": "Collect bounded advisory diagnosis data",
+          "number": 14,
+          "started_at": "2026-10-29T03:21:39Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:21:40Z",
+          "conclusion": "success",
+          "name": "Upload diagnosis data without credentials",
+          "number": 15,
+          "started_at": "2026-10-29T03:21:39Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:21:43Z",
+          "conclusion": "success",
+          "name": "Retain all evidence, including failed scenarios",
+          "number": 16,
+          "started_at": "2026-10-29T03:21:40Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:21:46Z",
+          "conclusion": "success",
+          "name": "Post Run docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069",
+          "number": 30,
+          "started_at": "2026-10-29T03:21:43Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:21:46Z",
+          "conclusion": "success",
+          "name": "Post Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9",
+          "number": 31,
+          "started_at": "2026-10-29T03:21:46Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:21:47Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "number": 32,
+          "started_at": "2026-10-29T03:21:46Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-29T03:21:47Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 33,
+          "started_at": "2026-10-29T03:21:47Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://api.github.com/repos/xormania/mago-serena_v2-poc/actions/jobs/123240794249",
+      "workflow_name": "Pinned Serena + Mago PoC"
+    }
+  ],
+  "total_count": 1
+}

@@ -1,0 +1,349 @@
+{
+  "allowed_probes": {
+    "compare_document_hashes": "Compare open/versioned text and disk hashes for the target URI without reopening it.",
+    "compare_wire_positions": "Compare raw UTF-16 wire coordinates with independent codepoint coordinates.",
+    "inspect_setup_log": "Read the bounded setup/build failure around the first causal error.",
+    "none": "No useful next probe is supported by the supplied evidence.",
+    "repeat_isolated_semantic_query": "Run an explicitly separate isolated query with matching source state.",
+    "verify_full_manifest": "Compare all application entries and original test identities against the trusted baseline.",
+    "verify_run_identity": "Compare run/attempt, source/image/harness hashes and required-check inventory."
+  },
+  "checks": [
+    {
+      "attempt": 1,
+      "excerpt_ids": [
+        "dependencies.attempt1"
+      ],
+      "id": "dependencies.attempt1",
+      "status": "pass",
+      "step": "dependencies"
+    },
+    {
+      "attempt": 1,
+      "excerpt_ids": [
+        "fast.attempt1"
+      ],
+      "id": "fast.attempt1",
+      "status": "pass",
+      "step": "fast"
+    },
+    {
+      "attempt": 1,
+      "excerpt_ids": [
+        "build.attempt1"
+      ],
+      "id": "build.attempt1",
+      "status": "pass",
+      "step": "build"
+    },
+    {
+      "attempt": 1,
+      "excerpt_ids": [
+        "acceptance.attempt1"
+      ],
+      "id": "acceptance.attempt1",
+      "status": "pass",
+      "step": "acceptance"
+    },
+    {
+      "attempt": 1,
+      "excerpt_ids": [
+        "slice1.attempt1"
+      ],
+      "id": "slice1.attempt1",
+      "status": "pass",
+      "step": "slice1"
+    },
+    {
+      "attempt": 1,
+      "excerpt_ids": [
+        "slice2.attempt1"
+      ],
+      "id": "slice2.attempt1",
+      "status": "pass",
+      "step": "slice2"
+    },
+    {
+      "attempt": 1,
+      "excerpt_ids": [
+        "slice3.attempt1"
+      ],
+      "id": "slice3.attempt1",
+      "status": "pass",
+      "step": "slice3"
+    },
+    {
+      "attempt": 1,
+      "excerpt_ids": [
+        "lsp_extensions.attempt1"
+      ],
+      "id": "lsp_extensions.attempt1",
+      "status": "pass",
+      "step": "lsp_extensions"
+    }
+  ],
+  "ci": {
+    "attempt": 1,
+    "run_id": "40810928800",
+    "source_sha": "0ec6a393dbbf6e437f2759da7c5e87129bf7d6a8",
+    "workflow_head_sha": "db0f44ae4cc092cf3be3c5b2399e786edb310aae"
+  },
+  "collection": {
+    "excerpt_limit": 20,
+    "internal_failed_attempts_omitted": 0,
+    "note": "Bounded selected excerpts; full available per-step and harness evidence is a separate artifact.",
+    "run_directories_omitted": 0,
+    "step_rows_omitted": 0
+  },
+  "excerpts": [
+    {
+      "attempt": 1,
+      "id": "dependencies.attempt1",
+      "step": "dependencies",
+      "text": " + soupsieve==3.0.4\n + sse-starlette==3.6.0\n + starlette==1.3.1\n + tiktoken=[REDACTED]\n + tqdm==4.67.1\n + truststore==0.10.5\n + types-pyyaml==6.0.12.20250516\n + typing-extensions==4.16.0\n + typing-inspection==0.4.4\n + urllib3==2.8.0\n + uvicorn==0.54.0\n + werkzeug==3.1.7",
+      "truncated": true
+    },
+    {
+      "attempt": 1,
+      "id": "fast.attempt1",
+      "step": "fast",
+      "text": "test_build_selection_matches_compose_default_and_selected_session_tag (test_ci_performance.BuildCacheTests.test_build_selection_matches_compose_default_and_selected_session_tag) ... ok\ntest_import_export_same_stable_scope_and_complete_intermediate_layers (test_ci_performance.BuildCacheTests.test_import_export_same_stable_scope_and_complete_intermediate_layers) ... ok\ntest_missing_runtime_cannot_silently_run_uncached (test_ci_performance.BuildCacheTests.test_missing_runtime_cannot_silently_run_uncached) ... ok\ntest_plan_has_source_attempt_and_no_cache_or_provider_credentials (test_ci_performance.BuildCacheTests.test_plan_has_source_attempt_and_no_cache_or_provider_credentials) ... ok\ntest_scope_unchanged_for_other_source_commit_or_event (test_ci_performance.BuildCacheTests.test_scope_unchanged_for_other_source_commit_or_event) ... ok\ntest_selected_image_reaches_build_plan_and_compose_launcher (test_ci_performance.BuildCacheTests.test_selected_image_reaches_build_plan_and_compose_launcher) ... ok\ntest_exports_cache_allowlist_without_provider_credentials_or_value_logs (test_ci_performance.CacheRuntimeActionTests.test_exports_cache_allowlist_without_provider_credentials_or_value_logs) ... ok\ntest_missing_or_multiline_runtime_refused_without_partial_export (test_ci_performance.CacheRuntimeActionTests.test_missing_or_multiline_runtime_refused_without_partial_export) ... ok\ntest_closed_external_nonbmp_regression_and_stale_mutant (test_document_state.DocumentState.test_closed_externa",
+      "truncated": true
+    },
+    {
+      "attempt": 1,
+      "id": "build.attempt1",
+      "step": "build",
+      "text": "#60 writing layer sha256:28422cdec1ecd0e2c1e1e56bce50684bf651c8608da57c6c3551b75a27c3b7f7 0.4s done\n#60 writing layer sha256:2d37dda86f63a9572db1a2c6995de20a91251f0bbae604d3ab326c63ecd63101\n#60 writing layer sha256:2d37dda86f63a9572db1a2c6995de20a91251f0bbae604d3ab326c63ecd63101 0.2s done\n#60 writing layer sha256:c788d206397c6cac7ea56d4a389793c735f7f20811d8397e7ab3cafe3d032575\n#60 writing layer sha256:c788d206397c6cac7ea56d4a389793c735f7f20811d8397e7ab3cafe3d032575 0.4s done\n#60 writing layer sha256:ca92007ea4c52101c9ae0f871de10caeb7a79549aa95c523972d5954a6a73ef9\n#60 writing layer sha256:ca92007ea4c52101c9ae0f871de10caeb7a79549aa95c523972d5954a6a73ef9 0.2s done\n#60 sending cache export 5.7s done\n#60 DONE 6.1s\n\n#61 resolving provenance for metadata file\n#61 DONE 0.0s",
+      "truncated": true
+    },
+    {
+      "attempt": 1,
+      "id": "acceptance.attempt1",
+      "step": "acceptance",
+      "text": "test_build_selection_matches_compose_default_and_selected_session_tag (test_ci_performance.BuildCacheTests.test_build_selection_matches_compose_default_and_selected_session_tag) ... ok\ntest_import_export_same_stable_scope_and_complete_intermediate_layers (test_ci_performance.BuildCacheTests.test_import_export_same_stable_scope_and_complete_intermediate_layers) ... ok\ntest_missing_runtime_cannot_silently_run_uncached (test_ci_performance.BuildCacheTests.test_missing_runtime_cannot_silently_run_uncached) ... ok\ntest_plan_has_source_attempt_and_no_cache_or_provider_credentials (test_ci_performance.BuildCacheTests.test_plan_has_source_attempt_and_no_cache_or_provider_credentials) ... ok\ntest_scope_unchanged_for_other_source_commit_or_event (test_ci_performance.BuildCacheTests.test_scope_unchanged_for_other_source_commit_or_event) ... ok\ntest_selected_image_reaches_build_plan_and_compose_launcher (test_ci_performance.BuildCacheTests.test_selected_image_reaches_build_plan_and_compose_launcher) ... ok\ntest_exports_cache_allowlist_without_provider_credentials_or_value_logs (test_ci_performance.CacheRuntimeActionTests.test_exports_cache_allowlist_without_provider_credentials_or_value_logs) ... ok\ntest_missing_or_multiline_runtime_refused_without_partial_export (test_ci_performance.CacheRuntimeActionTests.test_missing_or_multiline_runtime_refused_without_partial_export) ... ok\ntest_closed_external_nonbmp_regression_and_stale_mutant (test_document_state.DocumentState.test_closed_externa",
+      "truncated": true
+    },
+    {
+      "attempt": 1,
+      "id": "slice1.attempt1",
+      "step": "slice1",
+      "text": "              \"no-redundant-parentheses\",\n              \"--fix\",\n              \"--fail-on-remaining\",\n              \"src/Form/Type/TagsInputType.php\"\n            ],\n            \"exit\": 0,\n            \"elapsed_s\": 0.104131,\n            \"tool\": {\n              \"config\": \"/app/mago-php.toml\",\n              \"config_sha256\": \"429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a\",\n              \"version\": \"mago 1.58.2\",\n              \"revision\": \"46df50c96d93d0ac3655c116c375574277cf0b30\",",
+      "truncated": true
+    },
+    {
+      "attempt": 1,
+      "id": "slice2.attempt1",
+      "step": "slice2",
+      "text": "        \"original\": {\n          \"tests\": 53,\n          \"assertions\": 120,\n          \"identities_sha256\": \"946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa\"\n        },\n        \"tool\": {\n          \"config\": \"/app/mago-php.toml\",\n          \"config_sha256\": \"429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a\",\n          \"version\": \"mago 1.58.2\",\n          \"revision\": \"46df50c96d93d0ac3655c116c375574277cf0b30\",\n          \"binary_sha256\": \"b615b04fcfb6367140bc48b981aec8a0c7ee8c7719a7e0c3b0c93f33725ada80\",\n          \"php_target\": \"8.5\",",
+      "truncated": true
+    },
+    {
+      "attempt": 1,
+      "id": "slice3.attempt1",
+      "step": "slice3",
+      "text": "pass: defective_request\npass: runtime_diagnosis\npass: boot_failure_control\npass: semantic_repair\npass: native_mago\npass: enriched_framework\npass: repaired_request\npass: behavior\npass: task_integrity\n Container mago-poc-94602991-s3-replay-20261029-031920-c3e736-php-1  Stopping\n Container mago-poc-94602991-s3-replay-20261029-031920-c3e736-php-1  Stopped\n Container mago-poc-94602991-s3-replay-20261029-031920-c3e736-php-1  Removing",
+      "truncated": true
+    },
+    {
+      "attempt": 1,
+      "id": "lsp_extensions.attempt1",
+      "step": "lsp_extensions",
+      "text": "      ]\n    },\n    \"analysis-worker-failure\": {\n      \"killed_owned_worker\": 684,\n      \"error\": \"{\\\"code\\\": -32803, \\\"message\\\": \\\"Workspace analysis failed; edit or save a file to retry\\\"}\",\n      \"logs\": [\n        {\n          \"jsonrpc\": \"2.0\",\n          \"method\": \"textDocument/publishDiagnostics\",\n          \"params\": {\n            \"uri\": \"file:///app/src/Command/DeleteUserCommand.php\",\n            \"diagnostics\": [",
+      "truncated": true
+    }
+  ],
+  "mode": "observed_ci",
+  "performance": {
+    "build": {
+      "baseline": {
+        "compile_duration_s": null,
+        "duration_s": null,
+        "evidence_ids": [
+          "performance.build.baseline"
+        ],
+        "outcome": "cached",
+        "vertex": "#30"
+      },
+      "candidate": {
+        "compile_duration_s": null,
+        "duration_s": null,
+        "evidence_ids": [
+          "performance.build.candidate"
+        ],
+        "outcome": "cached",
+        "vertex": "#46"
+      },
+      "export": {
+        "compile_duration_s": null,
+        "duration_s": 6.1,
+        "evidence_ids": [
+          "performance.build.export"
+        ],
+        "outcome": "success",
+        "vertex": "#60"
+      },
+      "import": {
+        "compile_duration_s": null,
+        "duration_s": 0.4,
+        "evidence_ids": [
+          "performance.build.import"
+        ],
+        "outcome": "success",
+        "vertex": "#15"
+      },
+      "log_truncated": false
+    },
+    "ci": {
+      "attempt": 1,
+      "run_id": "40810928800",
+      "source_sha": "0ec6a393dbbf6e437f2759da7c5e87129bf7d6a8",
+      "workflow_head_sha": "db0f44ae4cc092cf3be3c5b2399e786edb310aae"
+    },
+    "context": {
+      "cache_scope": "mago-serena-linux-amd64-v1",
+      "event": "pull_request",
+      "platform": "linux/amd64",
+      "ref": "refs/pull/7/merge",
+      "runner": {
+        "arch": "X64",
+        "class": "ubuntu-latest",
+        "environment": "github-hosted",
+        "image": "ubuntu24",
+        "image_version": "20261026.354.1",
+        "os": "Linux"
+      }
+    },
+    "evidence": [
+      {
+        "id": "performance.build.baseline",
+        "text": "#30 [mago 4/4] RUN --mount=type=cache,target=/usr/local/cargo/registry     --mount=type=cache,target=/src/target     --mount=type=secret,id=proxy_ca     if [ -s /run/secrets/proxy_ca ] [...]\n#30 CACHED",
+        "truncated": false
+      },
+      {
+        "id": "performance.build.candidate",
+        "text": "#46 [mago-candidate 2/3] RUN --mount=type=cache,target=/usr/local/cargo/registry     --mount=type=cache,target=/src/target     --mount=type=secret,id=proxy_ca     cp /mago /mago-baseli [...]\n#46 CACHED",
+        "truncated": false
+      },
+      {
+        "id": "performance.build.import",
+        "text": "#15 importing cache manifest from gha:4124431879427473276\n#15 DONE 0.4s",
+        "truncated": false
+      },
+      {
+        "id": "performance.build.export",
+        "text": "#60 exporting to GitHub Actions Cache\n#60 DONE 6.1s",
+        "truncated": false
+      }
+    ],
+    "fingerprint": {
+      "inputs": {
+        "build_args": {
+          "MAGO_BUILD_JOBS": "2",
+          "MAGO_LSP_EXTENSIONS": "1",
+          "MAGO_REV": "46df50c96d93d0ac3655c116c375574277cf0b30"
+        },
+        "coverage": "Mago source pin, patch bytes, compile-stage Docker instructions/base, effective ARGs and platform; excludes docs, runtime/test stages, repository SHA and timestamps.",
+        "docker_compile_instructions_sha256": "1e9116bfa387c0a80fe96ab5fd5e6b5e35e7d5fc89b3373f22be1faa7cb48ff0",
+        "patch_sha256": "ca955e0db6023a997fe708d46d3bd0b92e6dd91237aee7c206f13768effdea11",
+        "platform": "linux/amd64",
+        "rust_base": "rust:1.99.0-bookworm@sha256:114c7a4425406451c2866b6aafe69fe29b1b298832db1277d411ac73c82d04d6"
+      },
+      "sha256": "1fab14170542b0e3875d61159781e8bf4b26c7858ab87ce1e50d4db7067c26f0"
+    },
+    "inventory": {
+      "definitions_sha256": "7e6225c68db0edfc75b2c8230fe5f853a9cf9234d6766e9db9bf5c968eabf64e",
+      "gates": [
+        {
+          "expected_checks": 31,
+          "id": "acceptance"
+        },
+        {
+          "expected_checks": 9,
+          "id": "slice1"
+        },
+        {
+          "expected_checks": 12,
+          "id": "slice2"
+        },
+        {
+          "expected_checks": 14,
+          "id": "slice3"
+        },
+        {
+          "expected_checks": 19,
+          "id": "lsp_extensions"
+        }
+      ]
+    },
+    "observed_unix": 1793244099.1076174,
+    "phases": [
+      {
+        "attempt": 1,
+        "elapsed_s": 1.894,
+        "id": "dependencies",
+        "started_unix": 1793243627.6483862,
+        "status": "pass"
+      },
+      {
+        "attempt": 1,
+        "elapsed_s": 4.945,
+        "id": "fast",
+        "started_unix": 1793243629.6091878,
+        "status": "pass"
+      },
+      {
+        "attempt": 1,
+        "elapsed_s": 43.331,
+        "id": "build",
+        "started_unix": 1793243642.785409,
+        "status": "pass"
+      },
+      {
+        "attempt": 1,
+        "elapsed_s": 95.877,
+        "id": "acceptance",
+        "started_unix": 1793243686.1883898,
+        "status": "pass"
+      },
+      {
+        "attempt": 1,
+        "elapsed_s": 110.567,
+        "id": "slice1",
+        "started_unix": 1793243782.2109094,
+        "status": "pass"
+      },
+      {
+        "attempt": 1,
+        "elapsed_s": 66.693,
+        "id": "slice2",
+        "started_unix": 1793243892.8470356,
+        "status": "pass"
+      },
+      {
+        "attempt": 1,
+        "elapsed_s": 74.209,
+        "id": "slice3",
+        "started_unix": 1793243959.6124523,
+        "status": "pass"
+      },
+      {
+        "attempt": 1,
+        "elapsed_s": 65.128,
+        "id": "lsp_extensions",
+        "started_unix": 1793244033.8992734,
+        "status": "pass"
+      }
+    ],
+    "schema": 1,
+    "timing": {
+      "captured_wall_s": 471.379,
+      "cleanup_s": null,
+      "job_wall_s": null,
+      "queue_s": null,
+      "setup_s": null,
+      "step_sum_s": 462.644
+    }
+  },
+  "schema": 1
+}

@@ -188,7 +188,20 @@ def main():
         (directory/'gate-error.json').write_bytes(canonical({
             'status':'reservation_check_failed','exception_type':type(exc).__name__,
             'provider_request_attempted':False})+b'\n')
+        if os.environ.get('GITHUB_STEP_SUMMARY'):
+            with Path(os.environ['GITHUB_STEP_SUMMARY']).open('a') as stream:
+                stream.write('\n### Jev evidence gate\n\nEvidence or reservation validation failed; no provider call was authorized. See the retained gate error.\n')
         raise RuntimeError('Diagnostic reservation could not be verified; no provider call authorized') from None
+    # Also explain early outcomes without a packet: cancelled source, missing
+    # evidence, duplicate suppression and consumer reruns must remain visible.
+    summary = ('### Jev evidence gate\n\nStatus: **'+record['status']+'**. '+
+               ('A provider request requires the next durable reservation upload to succeed.'
+                if record['provider_needed'] else 'Jev did not run; no provider call was authorized by this gate.')+
+               '\nSource acceptance results remain independent.\n')
+    (Path(args.control)/'gate-summary.md').write_text(summary)
+    if os.environ.get('GITHUB_STEP_SUMMARY'):
+        with Path(os.environ['GITHUB_STEP_SUMMARY']).open('a') as stream:
+            stream.write('\n'+summary)
     with Path(os.environ['GITHUB_OUTPUT']).open('a') as output:
         output.write('provider_needed='+('true' if record['provider_needed'] else 'false')+'\n')
         output.write('reservation_name='+record.get('reservation_name','')+'\n')

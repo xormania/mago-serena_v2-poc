@@ -1,0 +1,47 @@
+{
+  "archives": [
+    {
+      "api_digest": "sha256:868c4d89012cb2d34dd70c6ba3465f541515ff3f2bceddae1dfc174ebb8db674",
+      "created_at": "2026-10-29T03:22:02Z",
+      "download_bytes": 370,
+      "download_sha256": "sha256:868c4d89012cb2d34dd70c6ba3465f541515ff3f2bceddae1dfc174ebb8db674",
+      "id": 12870557247,
+      "name": "jev-gate-40811712898-1",
+      "reported_size_in_bytes": 370,
+      "updated_at": "2026-10-29T03:22:02Z"
+    },
+    {
+      "api_digest": "sha256:eb740a705a70368141c4af7fcc2c0c1edcede32efc40ca0476f78f8b50b11050",
+      "created_at": "2026-10-29T03:22:01Z",
+      "download_bytes": 5800,
+      "download_sha256": "sha256:eb740a705a70368141c4af7fcc2c0c1edcede32efc40ca0476f78f8b50b11050",
+      "id": 12870482636,
+      "name": "jev-advisory-40810928800-1-consumer-40811712898-1",
+      "reported_size_in_bytes": 5800,
+      "updated_at": "2026-10-29T03:22:01Z"
+    }
+  ],
+  "consumer_run_id": 40811712898,
+  "selected_files": [
+    {
+      "archive_member": "result.json",
+      "bytes": 376,
+      "retained": "default-consumer/gate-result.json",
+      "sha256": "edacaf4151548d0abed32a79635c6209260c801663193995e273386b1fc8c428"
+    },
+    {
+      "archive_member": "result.json",
+      "bytes": 1892,
+      "retained": "default-consumer/advisory/result.json",
+      "sha256": "c1454cdc109f10f09e042b9fc17c3f6ea079bd8b37306432c7af707bbcf95de0"
+    },
+    {
+      "archive_member": "response.txt",
+      "bytes": 0,
+      "retained": "default-consumer/advisory/response.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "source_run_id": 40810928800,
+  "transport_observation": "Default consumer labels configured route live, but healthy gate result records zero provider requests."
+}

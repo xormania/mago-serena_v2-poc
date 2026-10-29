@@ -1,0 +1,13 @@
+# First hosted PR observation
+
+[Source run40810928800](https://github.com/xormania/mago-serena_v2-poc/actions/runs/40810928800), attempt1, succeeded at PR head `db0f44ae4cc092cf3be3c5b2399e786edb310aae`; checkout tested merge `0ec6a393dbbf6e437f2759da7c5e87129bf7d6a8`. This is the first candidate, before the final reviewed fixes. [Verification](verification.json) connects the exact source, image, native checks and retained file paths.
+
+The monotonic build command took43.331s. Both baseline and patched-candidate Mago layers were cached. Cache import took0.4s; export took6.1s. The five verification commands totaled412.474s. Actual GitHub job wall490s, queue3s, setup15s and cleanup4s are available in the trusted local replay's bounded API supplement; wall and command sums differ. [Producer JSON](ci/performance.json), [readable producer summary](ci/performance.md) and [ledger](ci/step-attempts.jsonl) retain the measurements.
+
+Original acceptance31, slices9/12/14 and LSP19 all passed. Both fresh PHPUnit controls passed53tests/120assertions. Real Serena sessions forwarded the extension graph when enabled and omitted it when disabled. The external-span control retained its expected negative warm result and healthy fresh-process control. Full selected native result JSONs, the small PHPUnit outputs, image identities and extraction hashes are retained beneath `native/`. No raw ZIP, vendor tree, container cache or full build log is retained here.
+
+[Automatic Jev run40811712898](https://github.com/xormania/mago-serena_v2-poc/actions/runs/40811712898) ran trusted default revision `6a4d2ed6234d724c67d3755285fe66c12b89fbbc`. Its actual [gate](default-consumer/gate-result.json) and [result](default-consumer/advisory/result.json) report `nothing_to_diagnose`, zero provider calls. Its `transport: live` field identifies the configured route; no provider request occurred.
+
+The separate [local candidate replay](local-candidate-replay/proof.json) validated source/ref/merge ancestry and observation times against authenticated GitHub metadata, then ran candidate key-free history/gating/diagnosis code over the actual hosted packet. It examined19prior runs and downloaded3legacy packets within its bound; no usable performance baseline existed. It recorded warm reuse, comparison unavailable and zero provider calls. Its [summary](local-candidate-replay/control/performance-summary.md) and [audit](local-candidate-replay/control/result.json) are local candidate observations, not execution of the candidate consumer in GitHub. The default-branch trust boundary remains intact.
+
+No speed improvement or live model diagnostic accuracy is established by this run.

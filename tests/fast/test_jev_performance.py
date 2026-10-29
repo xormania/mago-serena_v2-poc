@@ -250,7 +250,10 @@ class PerformanceContractTests(unittest.TestCase):
 
     def test_performance_source_event_ref_and_merge_ancestry_are_verified(self):
         packet = self.produce()
-        source = {'event':'pull_request', 'head_sha':'b'*40, 'pull_requests':[{'number':7}]}
+        moment = packet['performance']['observed_unix']
+        source = {'event':'pull_request', 'head_sha':'b'*40, 'pull_requests':[{'number':7}],
+                  'created_at':datetime.fromtimestamp(moment-2000, timezone.utc).isoformat(),
+                  'updated_at':datetime.fromtimestamp(moment+60, timezone.utc).isoformat()}
         valid = Provider({'sha':'a'*40, 'parents':[{'sha':'b'*40}, {'sha':'c'*40}]})
         validate_source_association(packet, source, REPO, valid, 'fake-actions-token')
         self.assertEqual(valid.calls, 1)
@@ -270,12 +273,14 @@ class PerformanceContractTests(unittest.TestCase):
             'updated_at':datetime.fromtimestamp(moment+60, timezone.utc).isoformat()}
         validate_source_association(packet, timed_source, REPO,
             Provider({'sha':'a'*40, 'parents':[{'sha':'b'*40}, {'sha':'c'*40}]}), 'fake-actions-token')
-        for field in ('observed_unix', 'started_unix'):
+        for field in ('observed_unix', 'started_unix', 'elapsed_s'):
             altered = copy.deepcopy(packet)
             if field == 'observed_unix':
                 altered['performance'][field] = moment+10000
-            else:
+            elif field == 'started_unix':
                 altered['performance']['phases'][0][field] = moment-10000
+            else:
+                altered['performance']['phases'][0][field] = 2_000_000
             transport = Provider({})
             with self.assertRaises(ValueError):
                 validate_source_association(altered, timed_source, REPO, transport, 'fake-actions-token')

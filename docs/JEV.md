@@ -45,7 +45,7 @@ inspected GitHub history or arbitrary repository files, consistent with the
 [TypeSafe System One contract](https://docs.typesafe.ai/api/system-one).
 
 The consumer renders deterministic metrics separately from a validated Jev
-hypothesis in `advisory.md` and the job summary, states live/mock transport and
+hypothesis in `summary.md` and the job summary, states live/mock transport and
 explains no-request/missing-credential outcomes. `performance-report.json` retains
 its recomputed metrics; gate artifacts retain baseline selection and reservations.
 These remain advisory, including provider transport/validation failures. They

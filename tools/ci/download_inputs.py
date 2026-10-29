@@ -42,8 +42,6 @@ def validate_source_association(packet, source, repo, opener, token):
     timestamps = []
     for name in ('created_at', 'updated_at'):
         text = source.get(name)
-        if text is None:
-            continue  # Minimal legacy-style API fixtures have no complete wall interval.
         if not isinstance(text, str) or len(text) > 40:
             raise ValueError('Invalid producing run timestamp')
         timestamps.append(datetime.fromisoformat(text.replace('Z', '+00:00')).astimezone(timezone.utc).timestamp())
@@ -55,6 +53,10 @@ def validate_source_association(packet, source, repo, opener, token):
             started = phase['started_unix']
             if started is not None and not lower-60 <= started <= upper+60:
                 raise ValueError('Performance phase is outside the producing run interval')
+            elapsed = phase['elapsed_s']
+            if elapsed is not None and (elapsed > upper-lower+120
+                    or (started is not None and started+elapsed > upper+60)):
+                raise ValueError('Performance phase duration exceeds the producing run interval')
     event = source.get('event')
     if context['event'] != event:
         raise ValueError('Performance event differs from producing run')

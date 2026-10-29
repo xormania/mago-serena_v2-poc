@@ -162,15 +162,29 @@ def lookup_baseline(packet, event, token, *, opener=None, now=None):
                     ref = prior_context.get('ref')
                     visible = ref in {current_context.get('ref'), 'refs/heads/'+default}
                     if visible and isinstance(scope, str) and re.fullmatch(r'[A-Za-z0-9_-]{1,100}', scope):
-                        query = urllib.parse.urlencode({'key': 'index-'+scope, 'ref': ref, 'per_page': 20})
+                        query = urllib.parse.urlencode({'key': 'index-'+scope, 'ref': ref, 'per_page': 20,
+                                                        'sort': 'created_at', 'direction': 'desc'})
                         cache = _json(opener, f'https://api.github.com/repos/{repo}/actions/caches?{query}', token)
                         entries = cache.get('actions_caches')
                         if not isinstance(entries, list) or len(entries) > 20:
                             raise ValueError('Invalid bounded cache inventory')
-                        wrapper['cache_entry']['accessible'] = any(
-                            row.get('ref') == ref and str(row.get('key', '')).startswith('index-'+scope+'-')
+                        prior_indices = [row for row in entries
+                            if isinstance(row, dict) and row.get('ref') == ref
+                            and str(row.get('key', '')).startswith('index-'+scope+'-')
                             and type(row.get('id')) is int
-                            and _epoch(row.get('created_at')) <= current_started for row in entries)
+                            and _epoch(row.get('created_at')) <= current_started]
+                        if prior_indices:
+                            latest = max(prior_indices, key=lambda row: _epoch(row['created_at']))
+                            # A newer different-input export can overwrite this
+                            # scope. An old matching fingerprint plus any index
+                            # cannot establish a reusable layer expectation.
+                            # Require the latest preexisting index to belong to
+                            # the selected observation's successful run interval.
+                            exported = _epoch(latest['created_at'])
+                            associated = _epoch(run['created_at']) <= exported <= _epoch(run['updated_at'])
+                            wrapper['cache_entry'].update(accessible=associated,
+                                latest_preexisting_index_id=latest['id'],
+                                index_associated_with_selected_run=associated)
                     audit.update(status='baseline_selected', selected_run_id=str(run['id']), selection_reason=wrapper['selection_reason'])
                     return wrapper, audit
                 audit['rejections'].append({'run_id': str(run['id']), 'reason': 'runner, inventory or compile inputs differ'})

@@ -1,5 +1,12 @@
 # Historical CI performance observations
 
+The [first PR #7 hosted verification](hosted-40810928800/README.md) separately
+retains the new producer's readable report, exact identities and native results:
+43.331 s warm build, 412.474 s combined verification, all acceptance gates passed.
+Its real automatic default-branch consumer made zero provider requests. The
+candidate consumer's key-free local replay is labeled separately. Final-head
+hosted verification and cleanup are linked in the PR handoff.
+
 These are retained observations downloaded on 2026-10-29, before artifact expiry.
 They are not synthetic fault cases or model replies. No provider call was made
 while collecting them. Each `observed-<run>.json` binds run/attempt/tested checkout,
@@ -81,3 +88,20 @@ observation. The two build excerpts also run locally without GitHub credentials
 through the historical performance tests. Mock provider tests are separately
 identified by `transport: mock`; they demonstrate contract behavior, not live
 model causal accuracy. This reporting work alone establishes no speed improvement.
+
+
+The [mocked integration proof](mocked-integration/proof.json) records a synthetic
+successful budget breach reaching both eligibility gates and exactly one mock
+provider request, a healthy warm run reaching zero requests, and packet rollout
+through the actual identified legacy consumer. Per-file hashes bind that proof
+to the candidate code; requests, responses, reservations and readable summaries
+are retained alongside it. Reproduce it locally without a key or network access:
+
+```sh
+python3 docs/evidence/ci-performance/advisory-v1/mocked-integration/reproduce.py
+python3 -m unittest discover -s tests/fast -p test_historical_performance.py -v
+```
+
+The reproduction script reads the legacy consumer with `git show`, so its commit
+must exist locally. It rewrites the synthetic proof outputs with the current code
+hashes and fresh synthetic timestamps. Historical observations remain unchanged.

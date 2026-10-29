@@ -1,0 +1,66 @@
+{
+  "expected_utf16_column": 51,
+  "mago_source": "46df50c96d93d0ac3655c116c375574277cf0b30",
+  "warm_external_edit": {
+    "actual_utf16_column": 40,
+    "matches_source": false,
+    "rename": {
+      "status": "error",
+      "error": "{\"code\": -32803, \"message\": \"Cannot rename to \\\"renamed\\\": the server's index is out of date; try again after the next analysis.\"}"
+    }
+  },
+  "fresh_process_control": {
+    "actual_utf16_column": 51,
+    "matches_source": true,
+    "rename": {
+      "status": "ok",
+      "edits": {
+        "documentChanges": [
+          {
+            "textDocument": {
+              "version": 1,
+              "uri": "file:///tmp/mago-span-x4ucqgio/Caller.php"
+            },
+            "edits": [
+              {
+                "range": {
+                  "start": {
+                    "line": 0,
+                    "character": 60
+                  },
+                  "end": {
+                    "line": 0,
+                    "character": 66
+                  }
+                },
+                "newText": "renamed"
+              }
+            ]
+          },
+          {
+            "textDocument": {
+              "version": null,
+              "uri": "file:///tmp/mago-span-x4ucqgio/Target.php"
+            },
+            "edits": [
+              {
+                "range": {
+                  "start": {
+                    "line": 0,
+                    "character": 51
+                  },
+                  "end": {
+                    "line": 0,
+                    "character": 57
+                  }
+                },
+                "newText": "renamed"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "outcome": "expected_negative_with_healthy_control"
+}

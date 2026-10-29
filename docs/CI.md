@@ -18,8 +18,11 @@ command timings for dependencies, fast checks, image build, original acceptance,
 slices 1–3 and LSP integration. Elapsed command time uses a monotonic clock;
 wall start times correlate records. Captured wall span and sums of recorded
 command durations are separate. Full job wall, queue, setup and cleanup timings
-are unavailable in the producer's partial view and are represented as unknown;
-the retained historical fixtures additionally record GitHub API job/step times.
+are unavailable in the producer's partial view and are represented as unknown.
+The trusted consumer supplements its gate audit and summary with completed-source
+Actions API timings at one-second resolution: job wall, queue time, the sum of
+named setup steps, and the sum of post-action cleanup steps. These remain separate
+from command sums. The retained historical fixtures also record API job/step times.
 
 BuildKit parsing follows vertex declarations rather than fixed step numbers and
 retains bounded supporting excerpts for baseline/candidate Mago compilation and
@@ -76,9 +79,13 @@ regime. Stale, materially different or missing observations cannot establish a
 regression. A first candidate compilation after changed inputs or an inaccessible
 PR merge-ref cache can be explained cold population. A fingerprint match alone
 cannot establish accessible cache presence. Unexpected recompilation additionally
-requires a matching prior successful export, same-ref evidence and a fresh trusted
-GitHub cache inventory observation; even then it is an investigation signal,
+requires a matching prior successful export and a fresh trusted GitHub cache
+inventory observation for a permitted visible ref: the current ref or the default
+branch. The observed entry must predate the source run. Even then it is an investigation signal,
 not a claim about eviction, corruption or another unverified cause.
+The newest preexisting index must have been created during the selected baseline
+run. A newer export under different inputs can overwrite the same scope, so an
+older fingerprint match plus an unrelated visible index does not qualify.
 
 Warm successful runs and explained cold population inside their budgets need no
 performance provider request. Supported unexpected recompilation, comparable

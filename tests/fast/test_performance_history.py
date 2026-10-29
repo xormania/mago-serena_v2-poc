@@ -33,6 +33,7 @@ def run(run_id=98, **changes):
     return {'id': run_id, 'run_attempt': 1, 'head_sha': 'a'*40, 'event': 'push',
             'head_branch': 'master', 'status': 'completed', 'conclusion': 'success',
             'created_at': stamp(NOW-120), 'path': '.github/workflows/poc.yml',
+            'updated_at': stamp(NOW-85),
             'repository': {'full_name': REPO}, 'head_repository': {'full_name': REPO}, **changes}
 
 
@@ -50,7 +51,7 @@ class HistoryTests(unittest.TestCase):
 
     def test_selects_identified_prior_and_requires_preexisting_visible_cache_index(self):
         cache = {'actions_caches': [{'id': 1, 'ref': 'refs/heads/master',
-                  'key': 'index-mago-serena-linux-amd64-v1-1-xyz', 'created_at': stamp(NOW-80)}]}
+                  'key': 'index-mago-serena-linux-amd64-v1-1-xyz', 'created_at': stamp(NOW-100)}]}
         with patch('performance_history._json', side_effect=[{'workflow_runs': [run()]}, cache]), \
              patch('performance_history.download', return_value=self.previous_packet) as download:
             baseline, audit = lookup_baseline(self.packet, self.event, 'fake', now=NOW)
@@ -66,6 +67,24 @@ class HistoryTests(unittest.TestCase):
              patch('performance_history.download', return_value=self.previous_packet):
             baseline, _ = lookup_baseline(self.packet, self.event, 'fake', now=NOW)
         self.assertFalse(baseline['cache_entry']['accessible'])
+
+    def test_newer_different_input_export_cannot_support_old_matching_layer(self):
+        from performance import compile_fingerprint
+        changed = copy.deepcopy(self.previous_packet)
+        changed['ci']['run_id'] = '97'
+        changed['performance']['fingerprint'] = compile_fingerprint(ROOT, build_args={'MAGO_BUILD_JOBS': '3'})
+        prior = run(98, created_at=stamp(NOW-180), updated_at=stamp(NOW-130))
+        changed_run = run(97, created_at=stamp(NOW-120), updated_at=stamp(NOW-80))
+        entries = [{'id': n, 'ref': 'refs/heads/master',
+                    'key': 'index-mago-serena-linux-amd64-v1-1-'+str(n), 'created_at': stamp(created)}
+                   for n, created in ((2, NOW-90), (1, NOW-150))]
+        with patch('performance_history._json', side_effect=[{'workflow_runs': [changed_run, prior]}, {'actions_caches': entries}]), \
+             patch('performance_history.download', side_effect=[changed, self.previous_packet]):
+            baseline, audit = lookup_baseline(self.packet, self.event, 'fake', now=NOW)
+        self.assertEqual(audit['selected_run_id'], '98')
+        self.assertFalse(baseline['cache_entry']['accessible'])
+        self.assertFalse(baseline['cache_entry']['index_associated_with_selected_run'])
+        self.assertEqual(baseline['cache_entry']['latest_preexisting_index_id'], 2)
 
     def test_stale_foreign_and_future_runs_never_downloaded(self):
         rows = [run(1, created_at=stamp(NOW-8*86400)),
