@@ -105,28 +105,41 @@ assert attestation and (out/'cli-observation.json').is_file(), (cli.returncode, 
 assert (out/'cli-worker-starts.txt').is_file(), 'CLI did not launch the instrumented worker'
 os.environ.update({**environment,'POC_WORKER_LAUNCH':str(out/'lsp-worker-starts.txt'),
     'POC_WIRING_OBSERVATION':str(out/'lsp-observation.json')})
+# Per-folder configuration takes precedence over launch options in this server.
+# Select the same instrumented configuration explicitly at the workspace root.
+workspace_config = root/'mago.toml'
+workspace_original = workspace_config.read_bytes()
+workspace_config.write_text('extends = '+json.dumps(str(probe_config))+'\n')
+(out/'workspace-config.toml').write_bytes(workspace_config.read_bytes())
 client = LspClient(['mago','--workspace','/app','--config',str(probe_config),'language-server'],root,out/'lsp')
 try:
     identity = client.initialize()
     path = 'src/Form/Type/TagsInputType.php'; client.open(path)
     symbols = client.request('textDocument/documentSymbol',{'textDocument':{'uri':(root/path).as_uri()}})
     assert symbols, 'No selected service symbols; propagation probe is inconclusive'
+    candidate = Path('/opt/mago-candidate-enabled').exists() and Path('/opt/mago-candidate-enabled').read_text().strip() == '1'
+    graph = client.request('mago/symbolReferences', {
+        'textDocument': {'uri': (root/'src/Repository/TagRepository.php').as_uri()},
+        'symbol': r'App\Repository\TagRepository', 'member': '__construct'}) if candidate else None
+    if candidate:
+        assert any(r['kind'] == 'body' and r['target']['symbol'].lower() == r'doctrine\bundle\doctrinebundle\registry'
+                   for r in graph['references']), graph
 finally:
     client.close()
-answer = {'status':'blocked','classification':'server propagation',
-    'reason':'Pinned LSP creates the native plugin registry without initializing configured external analyzer hosts.',
+    workspace_config.write_bytes(workspace_original)
+answer = {'status':'pass' if candidate else 'blocked','classification':'native graph propagation' if candidate else 'server propagation',
+    'reason':('Candidate initializes native external hosts and exposes their real graph through mago/symbolReferences.' if candidate else 'Pinned LSP creates the native plugin registry without initializing configured external analyzer hosts.'),
     'config':str(config),'config_sha256':hashlib.sha256(config.read_bytes()).hexdigest(),
     'identity':{'version':version,'source':revision,'sdk_version':sdk['version'],'sdk_source':sdk['source']['reference']},
     'instrumented_config':str(probe_config),
     'cli':{'command':cli_command,'exit':cli.returncode,
         'worker_started':(out/'cli-worker-starts.txt').is_file(),
         'observer_ran':(out/'cli-observation.json').is_file(),'attestation':attestation},
-    'lsp':{'initialization':identity,'symbols':symbols,
+    'lsp':{'initialization':identity,'symbols':symbols,'graph':graph,
         'worker_started':(out/'lsp-worker-starts.txt').exists(),
         'observer_ran':(out/'lsp-observation.json').exists()},
     'source_location':'src/language_server/workspace/loading.rs:89 at 46df50c96d93d0ac3655c116c375574277cf0b30'}
-if answer['lsp']['worker_started'] or answer['lsp']['observer_ran']:
-    raise AssertionError('LSP host behavior changed: investigate before reporting the old propagation blocker')
+assert answer['lsp']['worker_started'] is candidate and answer['lsp']['observer_ran'] is candidate, 'Worker lifecycle does not match the selected candidate/control'
 (out/'result.json').write_text(json.dumps(answer,indent=2)+'\n')
 print(json.dumps(answer))
 '''

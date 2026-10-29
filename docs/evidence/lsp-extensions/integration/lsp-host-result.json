@@ -1,0 +1,2025 @@
+{
+  "status": "pass",
+  "controls": {
+    "cli-on": {
+      "native_exit": 1,
+      "attestations": [
+        {
+          "level": "Note",
+          "code": "byte-kitsune/symfony-wiring/analysis-attestation",
+          "message": "Symfony service wiring analysis completed.",
+          "notes": [
+            "extension-attestation: {\"schema_version\":\"1\",\"extension\":\"byte-kitsune/symfony-wiring\",\"version\":\"1.3.0-RC1\",\"capability\":\"service_wiring\",\"complete\":true,\"source_files\":46}"
+          ],
+          "annotations": [
+            {
+              "kind": "Primary",
+              "span": {
+                "file_id": {
+                  "name": "tests/object-manager.php",
+                  "path": "/app/tests/object-manager.php",
+                  "size": 546,
+                  "file_type": "Host"
+                },
+                "start": {
+                  "offset": 0,
+                  "line": 0
+                },
+                "end": {
+                  "offset": 1,
+                  "line": 0
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "observer": {
+        "observer": "poc/wiring-observer",
+        "wiring_enabled": true,
+        "owner": "App\\Form\\Type\\TagsInputType",
+        "member": "__construct",
+        "files": [
+          {
+            "path": "tests/object-manager.php",
+            "size": 546
+          },
+          {
+            "path": "src/Repository/TagRepository.php",
+            "size": 1030
+          },
+          {
+            "path": "src/Form/Type/DateTimePickerType.php",
+            "size": 1650
+          },
+          {
+            "path": "src/Form/ChangePasswordType.php",
+            "size": 2185
+          },
+          {
+            "path": "src/Repository/PostRepository.php",
+            "size": 3000
+          },
+          {
+            "path": "tests/Command/AbstractCommandTestCase.php",
+            "size": 1468
+          },
+          {
+            "path": "src/Controller/SecurityController.php",
+            "size": 2244
+          },
+          {
+            "path": "src/Form/UserType.php",
+            "size": 1877
+          },
+          {
+            "path": "tests/Controller/Admin/BlogControllerTest.php",
+            "size": 7215
+          },
+          {
+            "path": "src/Security/PostVoter.php",
+            "size": 2648
+          },
+          {
+            "path": "tests/Twig/AppExtensionTest.php",
+            "size": 1042
+          },
+          {
+            "path": "src/Command/DeleteUserCommand.php",
+            "size": 4692
+          },
+          {
+            "path": "src/DataFixtures/AppFixtures.php",
+            "size": 9638
+          },
+          {
+            "path": "src/Kernel.php",
+            "size": 736
+          },
+          {
+            "path": "src/Entity/User.php",
+            "size": 4031
+          },
+          {
+            "path": "src/Form/CommentType.php",
+            "size": 1732
+          },
+          {
+            "path": "src/Utils/Validator.php",
+            "size": 2110
+          },
+          {
+            "path": "src/Entity/Post.php",
+            "size": 4801
+          },
+          {
+            "path": "src/EventSubscriber/CommentNotificationSubscriber.php",
+            "size": 2665
+          },
+          {
+            "path": "src/Form/Type/TagsInputType.php",
+            "size": 1934
+          },
+          {
+            "path": "src/EventSubscriber/RedirectToPreferredLocaleSubscriber.php",
+            "size": 3193
+          },
+          {
+            "path": "src/Form/PostType.php",
+            "size": 3332
+          },
+          {
+            "path": "src/Controller/UserController.php",
+            "size": 2810
+          },
+          {
+            "path": "src/EventSubscriber/CheckRequirementsSubscriber.php",
+            "size": 4337
+          },
+          {
+            "path": "tests/Controller/BlogControllerTest.php",
+            "size": 3213
+          },
+          {
+            "path": "tests/Utils/ValidatorTest.php",
+            "size": 2881
+          },
+          {
+            "path": "src/Repository/UserRepository.php",
+            "size": 1196
+          },
+          {
+            "path": "tests/Controller/UserControllerTest.php",
+            "size": 3429
+          },
+          {
+            "path": "tests/bootstrap.php",
+            "size": 478
+          },
+          {
+            "path": "src/Controller/Admin/BlogController.php",
+            "size": 7124
+          },
+          {
+            "path": "src/Command/AddUserCommand.php",
+            "size": 9960
+          },
+          {
+            "path": "src/Twig/AppExtension.php",
+            "size": 2027
+          },
+          {
+            "path": "src/Entity/Tag.php",
+            "size": 1536
+          },
+          {
+            "path": "src/Entity/Comment.php",
+            "size": 2632
+          },
+          {
+            "path": "src/Event/CommentCreatedEvent.php",
+            "size": 549
+          },
+          {
+            "path": "src/Twig/Components/BlogSearchComponent.php",
+            "size": 1577
+          },
+          {
+            "path": "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php",
+            "size": 3584
+          },
+          {
+            "path": "src/Controller/BlogController.php",
+            "size": 7061
+          },
+          {
+            "path": "tests/Command/AddUserCommandTest.php",
+            "size": 3525
+          },
+          {
+            "path": "src/Form/DataTransformer/TagArrayToStringTransformer.php",
+            "size": 2758
+          },
+          {
+            "path": "src/EventSubscriber/ControllerSubscriber.php",
+            "size": 1488
+          },
+          {
+            "path": "tests/Command/ListUsersCommandTest.php",
+            "size": 1380
+          },
+          {
+            "path": "src/Command/ListUsersCommand.php",
+            "size": 4927
+          },
+          {
+            "path": "src/Twig/SourceCodeExtension.php",
+            "size": 5980
+          },
+          {
+            "path": "tests/Controller/DefaultControllerTest.php",
+            "size": 3481
+          },
+          {
+            "path": "src/Pagination/Paginator.php",
+            "size": 3299
+          }
+        ],
+        "symbols": {
+          "App\\Form\\Type\\TagsInputType": {
+            "owner": "App\\Form\\Type\\TagsInputType",
+            "member": "__construct",
+            "declaration": {
+              "name": "App\\Form\\Type\\TagsInputType",
+              "location": {
+                "file": "src/Form/Type/TagsInputType.php",
+                "span": {
+                  "start": 916,
+                  "end": 1933
+                }
+              },
+              "parent": "symfony\\component\\form\\abstracttype"
+            },
+            "references": [
+              {
+                "source": {
+                  "symbol": {
+                    "class": "app\\form\\type\\tagsinputtype",
+                    "member": "__construct"
+                  },
+                  "file": null
+                },
+                "target": "app\\repository\\tagrepository",
+                "kind": "Signature"
+              }
+            ]
+          },
+          "App\\Repository\\TagRepository": {
+            "owner": "App\\Repository\\TagRepository",
+            "member": "__construct",
+            "declaration": {
+              "name": "App\\Repository\\TagRepository",
+              "location": {
+                "file": "src/Repository/TagRepository.php",
+                "span": {
+                  "start": 851,
+                  "end": 1029
+                }
+              },
+              "parent": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository"
+            },
+            "references": [
+              {
+                "source": {
+                  "symbol": {
+                    "class": "app\\repository\\tagrepository",
+                    "member": "__construct"
+                  },
+                  "file": null
+                },
+                "target": "app\\entity\\tag",
+                "kind": "Body"
+              },
+              {
+                "source": {
+                  "symbol": {
+                    "class": "app\\repository\\tagrepository",
+                    "member": "__construct"
+                  },
+                  "file": null
+                },
+                "target": "doctrine\\bundle\\doctrinebundle\\registry",
+                "kind": "Body"
+              },
+              {
+                "source": {
+                  "symbol": {
+                    "class": "app\\repository\\tagrepository",
+                    "member": "__construct"
+                  },
+                  "file": null
+                },
+                "target": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+                "kind": "Body"
+              },
+              {
+                "source": {
+                  "symbol": {
+                    "class": "app\\repository\\tagrepository",
+                    "member": "__construct"
+                  },
+                  "file": null
+                },
+                "target": {
+                  "class": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+                  "member": "__construct"
+                },
+                "kind": "Body"
+              },
+              {
+                "source": {
+                  "symbol": {
+                    "class": "app\\repository\\tagrepository",
+                    "member": "__construct"
+                  },
+                  "file": null
+                },
+                "target": "doctrine\\persistence\\managerregistry",
+                "kind": "Signature"
+              }
+            ]
+          }
+        },
+        "source_sha256": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+        "references": [
+          {
+            "source": {
+              "symbol": {
+                "class": "app\\form\\type\\tagsinputtype",
+                "member": "__construct"
+              },
+              "file": null
+            },
+            "target": "app\\repository\\tagrepository",
+            "kind": "Signature"
+          }
+        ],
+        "dependency_declarations": [
+          {
+            "name": "App\\Repository\\TagRepository",
+            "location": {
+              "file": "src/Repository/TagRepository.php",
+              "span": {
+                "start": 851,
+                "end": 1029
+              }
+            },
+            "parent": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository"
+          },
+          {
+            "name": "Doctrine\\Persistence\\ManagerRegistry",
+            "location": {
+              "file": "vendor/doctrine/persistence/src/ManagerRegistry.php",
+              "span": {
+                "start": 180,
+                "end": 2741
+              }
+            },
+            "parent": null
+          },
+          {
+            "name": "Doctrine\\Bundle\\DoctrineBundle\\Registry",
+            "location": {
+              "file": "vendor/doctrine/doctrine-bundle/src/Registry.php",
+              "span": {
+                "start": 509,
+                "end": 2294
+              }
+            },
+            "parent": "symfony\\bridge\\doctrine\\managerregistry"
+          }
+        ],
+        "dependency_references": [
+          {
+            "source": {
+              "symbol": {
+                "class": "app\\repository\\tagrepository",
+                "member": "__construct"
+              },
+              "file": null
+            },
+            "target": "app\\entity\\tag",
+            "kind": "Body"
+          },
+          {
+            "source": {
+              "symbol": {
+                "class": "app\\repository\\tagrepository",
+                "member": "__construct"
+              },
+              "file": null
+            },
+            "target": "doctrine\\bundle\\doctrinebundle\\registry",
+            "kind": "Body"
+          },
+          {
+            "source": {
+              "symbol": {
+                "class": "app\\repository\\tagrepository",
+                "member": "__construct"
+              },
+              "file": null
+            },
+            "target": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "kind": "Body"
+          },
+          {
+            "source": {
+              "symbol": {
+                "class": "app\\repository\\tagrepository",
+                "member": "__construct"
+              },
+              "file": null
+            },
+            "target": {
+              "class": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+              "member": "__construct"
+            },
+            "kind": "Body"
+          },
+          {
+            "source": {
+              "symbol": {
+                "class": "app\\repository\\tagrepository",
+                "member": "__construct"
+              },
+              "file": null
+            },
+            "target": "doctrine\\persistence\\managerregistry",
+            "kind": "Signature"
+          }
+        ]
+      },
+      "issue_count": 36
+    },
+    "cli-off": {
+      "native_exit": 1,
+      "attestations": [],
+      "observer": null,
+      "issue_count": 35
+    },
+    "extension-off": {
+      "source": {
+        "symbol": "app\\repository\\tagrepository",
+        "member": "__construct"
+      },
+      "references": [
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "app\\entity\\tag",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": "__construct"
+          }
+        },
+        {
+          "kind": "signature",
+          "target": {
+            "symbol": "doctrine\\persistence\\managerregistry",
+            "member": ""
+          }
+        }
+      ]
+    },
+    "extension-on": {
+      "source": {
+        "symbol": "app\\repository\\tagrepository",
+        "member": "__construct"
+      },
+      "references": [
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "app\\entity\\tag",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\registry",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": "__construct"
+          }
+        },
+        {
+          "kind": "signature",
+          "target": {
+            "symbol": "doctrine\\persistence\\managerregistry",
+            "member": ""
+          }
+        }
+      ]
+    },
+    "unsaved-source-replaced": {
+      "old_owner": {
+        "source": {
+          "symbol": "app\\repository\\tagrepository",
+          "member": "__construct"
+        },
+        "references": []
+      },
+      "disk_sha256": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+      "buffer_sha256": "61234cb28b792f3e480a657c07678966a01948fd023bfe27afe585e6dabadb8a",
+      "worker_pids": [
+        643,
+        700
+      ]
+    },
+    "unsaved-source-restored": {
+      "source": {
+        "symbol": "app\\repository\\tagrepository",
+        "member": "__construct"
+      },
+      "references": [
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "app\\entity\\tag",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\registry",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": "__construct"
+          }
+        },
+        {
+          "kind": "signature",
+          "target": {
+            "symbol": "doctrine\\persistence\\managerregistry",
+            "member": ""
+          }
+        }
+      ]
+    },
+    "analysis-worker-failure": {
+      "killed_owned_worker": 700,
+      "error": "{\"code\": -32803, \"message\": \"Workspace analysis failed; edit or save a file to retry\"}",
+      "logs": [
+        {
+          "jsonrpc": "2.0",
+          "method": "textDocument/publishDiagnostics",
+          "params": {
+            "uri": "file:///app/tests/Command/AddUserCommandTest.php",
+            "diagnostics": [
+              {
+                "range": {
+                  "start": {
+                    "line": 0,
+                    "character": 0
+                  },
+                  "end": {
+                    "line": 0,
+                    "character": 5
+                  }
+                },
+                "severity": 2,
+                "code": "strict-types",
+                "source": "mago",
+                "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 24,
+                    "character": 8
+                  },
+                  "end": {
+                    "line": 24,
+                    "character": 18
+                  }
+                },
+                "severity": 1,
+                "code": "no-literal-password",
+                "source": "mago",
+                "message": "Literal passwords or sensitive data should not be stored in code.\n = Sensitive item found here.\n = Storing passwords or sensitive information as literals in code is a security risk.\n = This can lead to accidental exposure of sensitive data in version control or logs.\n = Help: Use environment variables or secure configuration management instead."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 41,
+                    "character": 54
+                  },
+                  "end": {
+                    "line": 41,
+                    "character": 62
+                  }
+                },
+                "severity": 4,
+                "code": "no-boolean-flag-parameter",
+                "source": "mago",
+                "message": "Avoid boolean flag parameters.\n = This parameter acts as a boolean flag\n = Boolean flags often indicate a function has more than one responsibility, making it harder to understand and test.\n = Help: Refactor by splitting the function into two separate methods, each with a clear, descriptive name."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 60,
+                    "character": 51
+                  },
+                  "end": {
+                    "line": 60,
+                    "character": 59
+                  }
+                },
+                "severity": 4,
+                "code": "no-boolean-flag-parameter",
+                "source": "mago",
+                "message": "Avoid boolean flag parameters.\n = This parameter acts as a boolean flag\n = Boolean flags often indicate a function has more than one responsibility, making it harder to understand and test.\n = Help: Refactor by splitting the function into two separate methods, each with a clear, descriptive name."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 87,
+                    "character": 44
+                  },
+                  "end": {
+                    "line": 87,
+                    "character": 52
+                  }
+                },
+                "severity": 4,
+                "code": "no-boolean-flag-parameter",
+                "source": "mago",
+                "message": "Avoid boolean flag parameters.\n = This parameter acts as a boolean flag\n = Boolean flags often indicate a function has more than one responsibility, making it harder to understand and test.\n = Help: Refactor by splitting the function into two separate methods, each with a clear, descriptive name."
+              }
+            ]
+          }
+        },
+        {
+          "jsonrpc": "2.0",
+          "method": "textDocument/publishDiagnostics",
+          "params": {
+            "uri": "file:///app/src/Command/AddUserCommand.php",
+            "diagnostics": [
+              {
+                "range": {
+                  "start": {
+                    "line": 0,
+                    "character": 0
+                  },
+                  "end": {
+                    "line": 0,
+                    "character": 5
+                  }
+                },
+                "severity": 2,
+                "code": "strict-types",
+                "source": "mago",
+                "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 118,
+                    "character": 10
+                  },
+                  "end": {
+                    "line": 121,
+                    "character": 9
+                  }
+                },
+                "severity": 4,
+                "code": "no-else-clause",
+                "source": "mago",
+                "message": "Avoid `else` clauses.\n = This `else` clause can often be eliminated\n = Code is often clearer when the main logic is not nested inside an `if` statement.\n = Help: Consider refactoring to use an early return (a guard clause) to simplify the control flow."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 126,
+                    "character": 10
+                  },
+                  "end": {
+                    "line": 129,
+                    "character": 9
+                  }
+                },
+                "severity": 4,
+                "code": "no-else-clause",
+                "source": "mago",
+                "message": "Avoid `else` clauses.\n = This `else` clause can often be eliminated\n = Code is often clearer when the main logic is not nested inside an `if` statement.\n = Help: Consider refactoring to use an early return (a guard clause) to simplify the control flow."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 134,
+                    "character": 10
+                  },
+                  "end": {
+                    "line": 137,
+                    "character": 9
+                  }
+                },
+                "severity": 4,
+                "code": "no-else-clause",
+                "source": "mago",
+                "message": "Avoid `else` clauses.\n = This `else` clause can often be eliminated\n = Code is often clearer when the main logic is not nested inside an `if` statement.\n = Help: Consider refactoring to use an early return (a guard clause) to simplify the control flow."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 142,
+                    "character": 10
+                  },
+                  "end": {
+                    "line": 145,
+                    "character": 9
+                  }
+                },
+                "severity": 4,
+                "code": "no-else-clause",
+                "source": "mago",
+                "message": "Avoid `else` clauses.\n = This `else` clause can often be eliminated\n = Code is often clearer when the main logic is not nested inside an `if` statement.\n = Help: Consider refactoring to use an early return (a guard clause) to simplify the control flow."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 158,
+                    "character": 77
+                  },
+                  "end": {
+                    "line": 158,
+                    "character": 91
+                  }
+                },
+                "severity": 1,
+                "code": "sensitive-parameter",
+                "source": "mago",
+                "message": "Parameters that may contain sensitive information should be marked with the `#[SensitiveParameter]` attribute.\n = Sensitive parameter found here.\n = Marking sensitive parameters helps prevent accidental logging or exposure of sensitive data in exception backtraces.\n = Help: Add the `#[SensitiveParameter]` attribute to the parameter declaration."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 161,
+                    "character": 83
+                  },
+                  "end": {
+                    "line": 161,
+                    "character": 91
+                  }
+                },
+                "severity": 4,
+                "code": "no-boolean-flag-parameter",
+                "source": "mago",
+                "message": "Avoid boolean flag parameters.\n = This parameter acts as a boolean flag\n = Boolean flags often indicate a function has more than one responsibility, making it harder to understand and test.\n = Help: Refactor by splitting the function into two separate methods, each with a clear, descriptive name."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 194,
+                    "character": 63
+                  },
+                  "end": {
+                    "line": 194,
+                    "character": 77
+                  }
+                },
+                "severity": 1,
+                "code": "sensitive-parameter",
+                "source": "mago",
+                "message": "Parameters that may contain sensitive information should be marked with the `#[SensitiveParameter]` attribute.\n = Sensitive parameter found here.\n = Marking sensitive parameters helps prevent accidental logging or exposure of sensitive data in exception backtraces.\n = Help: Add the `#[SensitiveParameter]` attribute to the parameter declaration."
+              }
+            ]
+          }
+        },
+        {
+          "jsonrpc": "2.0",
+          "method": "textDocument/publishDiagnostics",
+          "params": {
+            "uri": "file:///app/src/Security/PostVoter.php",
+            "diagnostics": [
+              {
+                "range": {
+                  "start": {
+                    "line": 0,
+                    "character": 0
+                  },
+                  "end": {
+                    "line": 0,
+                    "character": 5
+                  }
+                },
+                "severity": 2,
+                "code": "strict-types",
+                "source": "mago",
+                "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 40,
+                    "character": 105
+                  },
+                  "end": {
+                    "line": 40,
+                    "character": 109
+                  }
+                },
+                "severity": 2,
+                "code": "literal-named-argument",
+                "source": "mago",
+                "message": "Literal argument `true` should be passed as a named argument for clarity.\n = This literal is being passed positionally.\n = Passing literals positionally can make code less clear, especially with booleans, numbers, or `null`.\n = Help: Consider using a named argument instead: `function_name(param: true)`."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 46,
+                    "character": 80
+                  },
+                  "end": {
+                    "line": 46,
+                    "character": 86
+                  }
+                },
+                "severity": 1,
+                "code": "sensitive-parameter",
+                "source": "mago",
+                "message": "Parameters that may contain sensitive information should be marked with the `#[SensitiveParameter]` attribute.\n = Sensitive parameter found here.\n = Marking sensitive parameters helps prevent accidental logging or exposure of sensitive data in exception backtraces.\n = Help: Add the `#[SensitiveParameter]` attribute to the parameter declaration."
+              }
+            ]
+          }
+        },
+        {
+          "jsonrpc": "2.0",
+          "method": "textDocument/publishDiagnostics",
+          "params": {
+            "uri": "file:///app/tests/object-manager.php",
+            "diagnostics": [
+              {
+                "range": {
+                  "start": {
+                    "line": 0,
+                    "character": 0
+                  },
+                  "end": {
+                    "line": 0,
+                    "character": 5
+                  }
+                },
+                "severity": 2,
+                "code": "strict-types",
+                "source": "mago",
+                "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+              }
+            ]
+          }
+        },
+        {
+          "jsonrpc": "2.0",
+          "method": "textDocument/publishDiagnostics",
+          "params": {
+            "uri": "file:///app/src/Entity/User.php",
+            "diagnostics": [
+              {
+                "range": {
+                  "start": {
+                    "line": 0,
+                    "character": 0
+                  },
+                  "end": {
+                    "line": 0,
+                    "character": 5
+                  }
+                },
+                "severity": 2,
+                "code": "strict-types",
+                "source": "mago",
+                "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 30,
+                    "character": 0
+                  },
+                  "end": {
+                    "line": 30,
+                    "character": 10
+                  }
+                },
+                "severity": 1,
+                "code": "too-many-methods",
+                "source": "mago",
+                "message": "Class has too many methods.\n = Class has 11 methods, which exceeds the threshold of 10.\n = Having a large number of methods can make structures harder to understand and maintain.\n = Help: Try reducing the number of methods, or consider splitting the structure into smaller, more focused structures."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 110,
+                    "character": 39
+                  },
+                  "end": {
+                    "line": 110,
+                    "character": 48
+                  }
+                },
+                "severity": 1,
+                "code": "sensitive-parameter",
+                "source": "mago",
+                "message": "Parameters that may contain sensitive information should be marked with the `#[SensitiveParameter]` attribute.\n = Sensitive parameter found here.\n = Marking sensitive parameters helps prevent accidental logging or exposure of sensitive data in exception backtraces.\n = Help: Add the `#[SensitiveParameter]` attribute to the parameter declaration."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 123,
+                    "character": 12
+                  },
+                  "end": {
+                    "line": 123,
+                    "character": 25
+                  }
+                },
+                "severity": 1,
+                "code": "no-empty",
+                "source": "mago",
+                "message": "Use of the `empty` construct.\n = Ambiguous check due to `empty()` loose semantic\n = `empty()` exhibits unexpected behavior on specific value.\n = It is unclear what condition is being treated with `empty()`.\n = Help: Use strict comparison or specific predicate function to clearly convey your intent."
+              }
+            ]
+          }
+        },
+        {
+          "jsonrpc": "2.0",
+          "method": "textDocument/publishDiagnostics",
+          "params": {
+            "uri": "file:///app/tests/Command/AbstractCommandTestCase.php",
+            "diagnostics": [
+              {
+                "range": {
+                  "start": {
+                    "line": 0,
+                    "character": 0
+                  },
+                  "end": {
+                    "line": 0,
+                    "character": 5
+                  }
+                },
+                "severity": 2,
+                "code": "strict-types",
+                "source": "mago",
+                "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+              }
+            ]
+          }
+        },
+        {
+          "jsonrpc": "2.0",
+          "method": "textDocument/publishDiagnostics",
+          "params": {
+            "uri": "file:///app/src/Pagination/Paginator.php",
+            "diagnostics": [
+              {
+                "range": {
+                  "start": {
+                    "line": 0,
+                    "character": 0
+                  },
+                  "end": {
+                    "line": 0,
+                    "character": 5
+                  }
+                },
+                "severity": 2,
+                "code": "strict-types",
+                "source": "mago",
+                "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 67,
+                    "character": 35
+                  },
+                  "end": {
+                    "line": 67,
+                    "character": 56
+                  }
+                },
+                "severity": 2,
+                "code": "no-shorthand-ternary",
+                "source": "mago",
+                "message": "Use of the shorthand ternary operator.\n = Ambiguous check due to `? :` loose comparison\n = Help: Use null coalesce operator (`??`) or ternary operator with explicit strict comparison."
+              }
+            ]
+          }
+        },
+        {
+          "jsonrpc": "2.0",
+          "method": "textDocument/publishDiagnostics",
+          "params": {
+            "uri": "file:///app/src/Repository/PostRepository.php",
+            "diagnostics": [
+              {
+                "range": {
+                  "start": {
+                    "line": 0,
+                    "character": 0
+                  },
+                  "end": {
+                    "line": 0,
+                    "character": 5
+                  }
+                },
+                "severity": 2,
+                "code": "strict-types",
+                "source": "mago",
+                "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 83,
+                    "character": 8
+                  },
+                  "end": {
+                    "line": 88,
+                    "character": 9
+                  }
+                },
+                "severity": 2,
+                "code": "inline-variable-return",
+                "source": "mago",
+                "message": "Variable assignment can be inlined into the return statement.\n = This assignment is immediately returned\n = Assigning to a variable just to return it immediately is redundant.\n = Help: Return the expression directly: `return $queryBuilder\n            ->orderBy('p.publishedAt', 'DESC')\n            ->setMaxResults($limit)\n            ->getQuery()\n            ->getResult();`"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "analysis-worker-recovery": {
+      "source": {
+        "symbol": "app\\repository\\tagrepository",
+        "member": "__construct"
+      },
+      "references": [
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "app\\entity\\tag",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\registry",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": "__construct"
+          }
+        },
+        {
+          "kind": "signature",
+          "target": {
+            "symbol": "doctrine\\persistence\\managerregistry",
+            "member": ""
+          }
+        }
+      ]
+    },
+    "changed-binding-export": {
+      "argv": [
+        [
+          "php",
+          "bin/console",
+          "cache:clear",
+          "--env=dev",
+          "--no-interaction"
+        ],
+        [
+          "php",
+          "bin/console",
+          "debug:container",
+          "--env=dev",
+          "--format=json",
+          "--no-interaction",
+          "--types"
+        ],
+        [
+          "php",
+          "bin/console",
+          "debug:container",
+          "--env=dev",
+          "--format=json",
+          "--no-interaction"
+        ],
+        [
+          "php",
+          "vendor/byte-kitsune/mago-symfony-wiring/bin/create-container-reference.php",
+          "--types=/state/lspext-types.json",
+          "--services=/state/lspext-services.json",
+          "--autoload=/app/vendor/autoload.php"
+        ]
+      ],
+      "sha256": "a555dae9dd7f3f1356b3da1dbce0a272306d0be37571e42c94ab04f35f134abf",
+      "definitions": {
+        "App\\Repository\\TagRepository": {
+          "class": "App\\Repository\\TagRepository",
+          "arguments": [
+            "lspext.registry"
+          ]
+        },
+        "doctrine": {
+          "class": "Doctrine\\Bundle\\DoctrineBundle\\Registry",
+          "arguments": [
+            "service_container",
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        "lspext.registry": {
+          "class": "App\\LspProof\\AlternateRegistry",
+          "arguments": [
+            "service_container",
+            null,
+            null,
+            null,
+            null
+          ]
+        }
+      },
+      "source_sha256": "9ea2dbecdf551f1d0eb46e240e850de6af3a02aae8139f0196c87302b1448fe8"
+    },
+    "changed-binding": {
+      "source": {
+        "symbol": "app\\repository\\tagrepository",
+        "member": "__construct"
+      },
+      "references": [
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "app\\entity\\tag",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "app\\lspproof\\alternateregistry",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": "__construct"
+          }
+        },
+        {
+          "kind": "signature",
+          "target": {
+            "symbol": "doctrine\\persistence\\managerregistry",
+            "member": ""
+          }
+        }
+      ]
+    },
+    "restored-binding-export": {
+      "argv": [
+        [
+          "php",
+          "bin/console",
+          "cache:clear",
+          "--env=dev",
+          "--no-interaction"
+        ],
+        [
+          "php",
+          "bin/console",
+          "debug:container",
+          "--env=dev",
+          "--format=json",
+          "--no-interaction",
+          "--types"
+        ],
+        [
+          "php",
+          "bin/console",
+          "debug:container",
+          "--env=dev",
+          "--format=json",
+          "--no-interaction"
+        ],
+        [
+          "php",
+          "vendor/byte-kitsune/mago-symfony-wiring/bin/create-container-reference.php",
+          "--types=/state/lspext-types.json",
+          "--services=/state/lspext-services.json",
+          "--autoload=/app/vendor/autoload.php"
+        ]
+      ],
+      "sha256": "5b7ea5b93fa495b3984e4b75083844cf9be918b0ece5180ce5b9f41ebae408a8",
+      "definitions": {
+        "App\\Repository\\TagRepository": {
+          "class": "App\\Repository\\TagRepository",
+          "arguments": [
+            "doctrine"
+          ]
+        },
+        "doctrine": {
+          "class": "Doctrine\\Bundle\\DoctrineBundle\\Registry",
+          "arguments": [
+            "service_container",
+            null,
+            null,
+            null,
+            null
+          ]
+        }
+      },
+      "source_sha256": "55f347bebb4fc7294306c53fbe25fd43935eed8685b8a0a53df67982d732c570"
+    },
+    "restored-binding": {
+      "source": {
+        "symbol": "app\\repository\\tagrepository",
+        "member": "__construct"
+      },
+      "references": [
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "app\\entity\\tag",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\registry",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": "__construct"
+          }
+        },
+        {
+          "kind": "signature",
+          "target": {
+            "symbol": "doctrine\\persistence\\managerregistry",
+            "member": ""
+          }
+        }
+      ]
+    },
+    "worker-failure": {
+      "error": "{\"code\": -32803, \"message\": \"Workspace reload failed: initialize external analyzer: External plugin error: external analyzer worker failed: failed to start extension worker /lspext/no-such-worker: No such file or directory (os error 2); correct the configuration/metadata and reload or restart the server\"}",
+      "logs": [
+        {
+          "jsonrpc": "2.0",
+          "method": "textDocument/publishDiagnostics",
+          "params": {
+            "uri": "file:///app/src/Security/PostVoter.php",
+            "diagnostics": [
+              {
+                "range": {
+                  "start": {
+                    "line": 46,
+                    "character": 23
+                  },
+                  "end": {
+                    "line": 46,
+                    "character": 38
+                  }
+                },
+                "severity": 2,
+                "code": "incompatible-parameter-name",
+                "source": "mago",
+                "message": "Parameter #2 of `App\\Security\\PostVoter::voteonattribute()` is named `$post` but parent `Symfony\\Component\\Security\\Core\\Authorization\\Voter\\Voter::voteonattribute()` names it `$subject`\n = Parameter named `$post` but parent uses `$subject`\n = Parameter name changes can break code using named arguments.\n = Help: Consider renaming the parameter to `$subject` to match the parent method."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 0,
+                    "character": 0
+                  },
+                  "end": {
+                    "line": 0,
+                    "character": 5
+                  }
+                },
+                "severity": 2,
+                "code": "strict-types",
+                "source": "mago",
+                "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 40,
+                    "character": 105
+                  },
+                  "end": {
+                    "line": 40,
+                    "character": 109
+                  }
+                },
+                "severity": 2,
+                "code": "literal-named-argument",
+                "source": "mago",
+                "message": "Literal argument `true` should be passed as a named argument for clarity.\n = This literal is being passed positionally.\n = Passing literals positionally can make code less clear, especially with booleans, numbers, or `null`.\n = Help: Consider using a named argument instead: `function_name(param: true)`."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 46,
+                    "character": 80
+                  },
+                  "end": {
+                    "line": 46,
+                    "character": 86
+                  }
+                },
+                "severity": 1,
+                "code": "sensitive-parameter",
+                "source": "mago",
+                "message": "Parameters that may contain sensitive information should be marked with the `#[SensitiveParameter]` attribute.\n = Sensitive parameter found here.\n = Marking sensitive parameters helps prevent accidental logging or exposure of sensitive data in exception backtraces.\n = Help: Add the `#[SensitiveParameter]` attribute to the parameter declaration."
+              }
+            ]
+          }
+        },
+        {
+          "jsonrpc": "2.0",
+          "method": "textDocument/publishDiagnostics",
+          "params": {
+            "uri": "file:///app/tests/object-manager.php",
+            "diagnostics": [
+              {
+                "range": {
+                  "start": {
+                    "line": 0,
+                    "character": 0
+                  },
+                  "end": {
+                    "line": 0,
+                    "character": 1
+                  }
+                },
+                "severity": 3,
+                "code": "byte-kitsune/symfony-wiring/analysis-attestation",
+                "source": "mago",
+                "message": "Symfony service wiring analysis completed.\n = extension-attestation: {\"schema_version\":\"1\",\"extension\":\"byte-kitsune/symfony-wiring\",\"version\":\"1.3.0-RC1\",\"capability\":\"service_wiring\",\"complete\":true,\"source_files\":47}"
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 18,
+                    "character": 49
+                  },
+                  "end": {
+                    "line": 18,
+                    "character": 70
+                  }
+                },
+                "severity": 4,
+                "code": "redundant-cast",
+                "source": "mago",
+                "message": "Redundant cast to `(bool)`: the expression already has this type.\n = This expression already has type `bool`.\n = Casting a value to a type it already possesses has no effect.\n = Help: Remove the redundant `(bool)` cast."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 21,
+                    "character": 49
+                  },
+                  "end": {
+                    "line": 21,
+                    "character": 59
+                  }
+                },
+                "severity": 2,
+                "code": "ambiguous-object-method-access",
+                "source": "mago",
+                "message": "Cannot statically verify method call on a generic `object` type.\n = Cannot verify this method call\n = Help: Provide a more specific type hint for the object for robust analysis."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 0,
+                    "character": 0
+                  },
+                  "end": {
+                    "line": 0,
+                    "character": 5
+                  }
+                },
+                "severity": 2,
+                "code": "strict-types",
+                "source": "mago",
+                "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+              }
+            ]
+          }
+        },
+        {
+          "jsonrpc": "2.0",
+          "method": "textDocument/publishDiagnostics",
+          "params": {
+            "uri": "file:///app/src/LspProof/AlternateRegistry.php",
+            "diagnostics": [
+              {
+                "range": {
+                  "start": {
+                    "line": 0,
+                    "character": 0
+                  },
+                  "end": {
+                    "line": 0,
+                    "character": 5
+                  }
+                },
+                "severity": 2,
+                "code": "strict-types",
+                "source": "mago",
+                "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+              }
+            ]
+          }
+        },
+        {
+          "jsonrpc": "2.0",
+          "method": "window/logMessage",
+          "params": {
+            "type": 3,
+            "message": "mago-server: restarted /app after /app/.mago/container-reference.dev.json changed"
+          }
+        },
+        {
+          "jsonrpc": "2.0",
+          "method": "textDocument/publishDiagnostics",
+          "params": {
+            "uri": "file:///app/src/LspProof/AlternateRegistry.php",
+            "diagnostics": []
+          }
+        },
+        {
+          "jsonrpc": "2.0",
+          "method": "textDocument/publishDiagnostics",
+          "params": {
+            "uri": "file:///app/tests/object-manager.php",
+            "diagnostics": [
+              {
+                "range": {
+                  "start": {
+                    "line": 0,
+                    "character": 0
+                  },
+                  "end": {
+                    "line": 0,
+                    "character": 1
+                  }
+                },
+                "severity": 3,
+                "code": "byte-kitsune/symfony-wiring/analysis-attestation",
+                "source": "mago",
+                "message": "Symfony service wiring analysis completed.\n = extension-attestation: {\"schema_version\":\"1\",\"extension\":\"byte-kitsune/symfony-wiring\",\"version\":\"1.3.0-RC1\",\"capability\":\"service_wiring\",\"complete\":true,\"source_files\":46}"
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 18,
+                    "character": 49
+                  },
+                  "end": {
+                    "line": 18,
+                    "character": 70
+                  }
+                },
+                "severity": 4,
+                "code": "redundant-cast",
+                "source": "mago",
+                "message": "Redundant cast to `(bool)`: the expression already has this type.\n = This expression already has type `bool`.\n = Casting a value to a type it already possesses has no effect.\n = Help: Remove the redundant `(bool)` cast."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 21,
+                    "character": 49
+                  },
+                  "end": {
+                    "line": 21,
+                    "character": 59
+                  }
+                },
+                "severity": 2,
+                "code": "ambiguous-object-method-access",
+                "source": "mago",
+                "message": "Cannot statically verify method call on a generic `object` type.\n = Cannot verify this method call\n = Help: Provide a more specific type hint for the object for robust analysis."
+              },
+              {
+                "range": {
+                  "start": {
+                    "line": 0,
+                    "character": 0
+                  },
+                  "end": {
+                    "line": 0,
+                    "character": 5
+                  }
+                },
+                "severity": 2,
+                "code": "strict-types",
+                "source": "mago",
+                "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file."
+              }
+            ]
+          }
+        },
+        {
+          "jsonrpc": "2.0",
+          "method": "window/logMessage",
+          "params": {
+            "type": 3,
+            "message": "mago-server: restarted /app after /app/.mago/container-reference.dev.json changed"
+          }
+        },
+        {
+          "jsonrpc": "2.0",
+          "method": "window/showMessage",
+          "params": {
+            "type": 1,
+            "message": "mago-server: cannot restart /app, keeping its previous state: initialize external analyzer: External plugin error: external analyzer worker failed: failed to start extension worker /lspext/no-such-worker: No such file or directory (os error 2)"
+          }
+        }
+      ]
+    },
+    "worker-recovery": {
+      "source": {
+        "symbol": "app\\repository\\tagrepository",
+        "member": "__construct"
+      },
+      "references": [
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "app\\entity\\tag",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\registry",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": "__construct"
+          }
+        },
+        {
+          "kind": "signature",
+          "target": {
+            "symbol": "doctrine\\persistence\\managerregistry",
+            "member": ""
+          }
+        }
+      ]
+    },
+    "disabled-after-analysis": {
+      "source": {
+        "symbol": "app\\repository\\tagrepository",
+        "member": "__construct"
+      },
+      "references": [
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "app\\entity\\tag",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": "__construct"
+          }
+        },
+        {
+          "kind": "signature",
+          "target": {
+            "symbol": "doctrine\\persistence\\managerregistry",
+            "member": ""
+          }
+        }
+      ]
+    },
+    "reenabled-after-analysis": {
+      "source": {
+        "symbol": "app\\repository\\tagrepository",
+        "member": "__construct"
+      },
+      "references": [
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "app\\entity\\tag",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\registry",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": "__construct"
+          }
+        },
+        {
+          "kind": "signature",
+          "target": {
+            "symbol": "doctrine\\persistence\\managerregistry",
+            "member": ""
+          }
+        }
+      ]
+    },
+    "workspace-isolation": {
+      "independent": {
+        "source": {
+          "symbol": "app\\repository\\tagrepository",
+          "member": "__construct"
+        },
+        "references": [
+          {
+            "kind": "signature",
+            "target": {
+              "symbol": "datetimeimmutable",
+              "member": ""
+            }
+          }
+        ]
+      },
+      "original": {
+        "source": {
+          "symbol": "app\\repository\\tagrepository",
+          "member": "__construct"
+        },
+        "references": [
+          {
+            "kind": "body",
+            "target": {
+              "symbol": "app\\entity\\tag",
+              "member": ""
+            }
+          },
+          {
+            "kind": "body",
+            "target": {
+              "symbol": "doctrine\\bundle\\doctrinebundle\\registry",
+              "member": ""
+            }
+          },
+          {
+            "kind": "body",
+            "target": {
+              "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+              "member": ""
+            }
+          },
+          {
+            "kind": "body",
+            "target": {
+              "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+              "member": "__construct"
+            }
+          },
+          {
+            "kind": "signature",
+            "target": {
+              "symbol": "doctrine\\persistence\\managerregistry",
+              "member": ""
+            }
+          }
+        ]
+      }
+    },
+    "shutdown": {
+      "worker_pids": [
+        643,
+        700,
+        710,
+        736,
+        763,
+        776,
+        786
+      ],
+      "all_exited": true
+    },
+    "restart": {
+      "source": {
+        "symbol": "app\\repository\\tagrepository",
+        "member": "__construct"
+      },
+      "references": [
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "app\\entity\\tag",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\registry",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": ""
+          }
+        },
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+            "member": "__construct"
+          }
+        },
+        {
+          "kind": "signature",
+          "target": {
+            "symbol": "doctrine\\persistence\\managerregistry",
+            "member": ""
+          }
+        }
+      ]
+    }
+  },
+  "limits": [
+    "Graph edges have no locations and are not navigable references or calls.",
+    "Compiled metadata is explicitly exported; watched reference/config changes reload workers.",
+    "Source edits do not compile Symfony metadata automatically."
+  ],
+  "identity": {
+    "version": "mago 1.58.2",
+    "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+    "runtime": {
+      "lock": {
+        "schema": 1,
+        "sources": {
+          "demo": "8d2e2ef75c3e18df173d8bf2379a14abb58c4c31",
+          "serena": "9e1cced0c34ed48d668e179f7c56c77b4d14a3e3",
+          "mago": "46df50c96d93d0ac3655c116c375574277cf0b30",
+          "symfony_docker_reference": "92d0d49293cd8678d82ca57c9c81b2dc45cf5561",
+          "previous_fixture_reference": "7d1abb3c4ac01451d83e1c1e12742b9fa2067561"
+        },
+        "images": {
+          "php": "php:8.5.12-cli-bookworm@sha256:d4f6e10eb393de7e3a7a88e8b88e139072dd3ae297f6a5dada8257e6fe32c585",
+          "rust": "rust:1.99.0-bookworm@sha256:114c7a4425406451c2866b6aafe69fe29b1b298832db1277d411ac73c82d04d6",
+          "python": "python:3.12.12-slim-bookworm@sha256:593bd06efe90efa80dc4eee3948be7c0fde4134606dd40d8dd8dbcade98e669c",
+          "uv": "ghcr.io/astral-sh/uv:0.12.8@sha256:d1cbaeadc234fe19c0d93daabcf5e98738cd93c6d1dd4918ef6aa30735feb23a",
+          "composer": "composer:2.9.1@sha256:7384cf9fa70b710af02c9f40bec6e44472e07138efa5ab3428a058087c0d2724"
+        },
+        "versions": {
+          "php": "8.5.12",
+          "rust": "1.99.0",
+          "python": "3.12.12",
+          "uv": "0.12.8",
+          "composer": "2.9.1"
+        },
+        "lock_sha256": {
+          "composer": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd",
+          "serena_upstream_uv": "6bdd37bf0d8cbe698a798c62556852b6d093e1dcd549b2a0c5283737831404c5",
+          "mago_cargo": "f5468183e5440ccacff66b06f7b444f15641caf89d9533057a03e4f280a28e1d",
+          "poc_uv": "af281bd04479b299b685ec295f0e9517f4539e2394fd16b809ffa66118babfde"
+        },
+        "adapter": {
+          "version": "0.1.0",
+          "source": "adapter/; run metadata records file hashes and repository revision"
+        },
+        "candidates": {
+          "mago_lsp_extensions": {
+            "base": "46df50c96d93d0ac3655c116c375574277cf0b30",
+            "patch_sha256": "ca955e0db6023a997fe708d46d3bd0b92e6dd91237aee7c206f13768effdea11"
+          },
+          "serena_symbol_references": {
+            "base": "9e1cced0c34ed48d668e179f7c56c77b4d14a3e3",
+            "patch_sha256": "57385a9e49d8a490e696f49b3c62d16e8685703d9531899372a3c41a28270051",
+            "file_sha256": "438e52fc79044efa5264e84638190a68a5d5be4ed18f9e2f698f7a49e10d184e"
+          }
+        }
+      },
+      "candidates": {
+        "mago_lsp_extensions": {
+          "base": "46df50c96d93d0ac3655c116c375574277cf0b30",
+          "patch_sha256": "ca955e0db6023a997fe708d46d3bd0b92e6dd91237aee7c206f13768effdea11",
+          "enabled": true
+        },
+        "serena_symbol_references": {
+          "base": "9e1cced0c34ed48d668e179f7c56c77b4d14a3e3",
+          "patch_sha256": "57385a9e49d8a490e696f49b3c62d16e8685703d9531899372a3c41a28270051",
+          "file_sha256": "438e52fc79044efa5264e84638190a68a5d5be4ed18f9e2f698f7a49e10d184e",
+          "enabled": true
+        }
+      },
+      "php": "PHP 8.5.12 (cli) (built: Oct 21 2026 15:49:43) (NTS)",
+      "python": "Python 3.12.12",
+      "uv": "uv 0.12.8 (x86_64-unknown-linux-musl)",
+      "composer": "Composer version 2.9.1 2025-11-13 16:10:38",
+      "mago": "mago 1.58.2",
+      "mago_source_sha": "46df50c96d93d0ac3655c116c375574277cf0b30",
+      "rust_build_version": "rustc 1.99.0 (b940084d7 2026-09-28)",
+      "cargo_lock_sha256": "f5468183e5440ccacff66b06f7b444f15641caf89d9533057a03e4f280a28e1d",
+      "mago_binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+      "mago_baseline_binary_sha256": "78565cd890a50be3b5a12994edd191930a5c16cdf682047dcb20f4f14549a255",
+      "python_lock_sha256": "af281bd04479b299b685ec295f0e9517f4539e2394fd16b809ffa66118babfde"
+    }
+  },
+  "serena": {
+    "status": "pass",
+    "kind": "deterministic_real_host_mcp",
+    "controls": {
+      "on": {
+        "graph": {
+          "source": {
+            "symbol": "app\\repository\\tagrepository",
+            "member": "__construct"
+          },
+          "references": [
+            {
+              "kind": "body",
+              "target": {
+                "symbol": "app\\entity\\tag",
+                "member": ""
+              }
+            },
+            {
+              "kind": "body",
+              "target": {
+                "symbol": "doctrine\\bundle\\doctrinebundle\\registry",
+                "member": ""
+              }
+            },
+            {
+              "kind": "body",
+              "target": {
+                "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+                "member": ""
+              }
+            },
+            {
+              "kind": "body",
+              "target": {
+                "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+                "member": "__construct"
+              }
+            },
+            {
+              "kind": "signature",
+              "target": {
+                "symbol": "doctrine\\persistence\\managerregistry",
+                "member": ""
+              }
+            }
+          ]
+        },
+        "registry_body": true,
+        "manager_registry_signature": true
+      },
+      "off": {
+        "graph": {
+          "source": {
+            "symbol": "app\\repository\\tagrepository",
+            "member": "__construct"
+          },
+          "references": [
+            {
+              "kind": "body",
+              "target": {
+                "symbol": "app\\entity\\tag",
+                "member": ""
+              }
+            },
+            {
+              "kind": "body",
+              "target": {
+                "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+                "member": ""
+              }
+            },
+            {
+              "kind": "body",
+              "target": {
+                "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+                "member": "__construct"
+              }
+            },
+            {
+              "kind": "signature",
+              "target": {
+                "symbol": "doctrine\\persistence\\managerregistry",
+                "member": ""
+              }
+            }
+          ]
+        },
+        "registry_body": false,
+        "manager_registry_signature": true
+      }
+    },
+    "launcher": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/bin/serena-mcp",
+    "launcher_cwd": "/tmp"
+  }
+}

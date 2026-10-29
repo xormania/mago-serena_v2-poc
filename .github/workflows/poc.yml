@@ -49,6 +49,9 @@ jobs:
       - name: Failed HTTP request diagnosis, semantic repair and runtime recovery
         id: slice3
         run: python3 tools/ci/capture_step.py run --step slice3 -- ./bin/poc slice3
+      - name: Native LSP external workers and Serena dependency graph
+        id: lsp_extensions
+        run: python3 tools/ci/capture_step.py run --step lsp_extensions -- .venv/bin/python tests/integration/lsp_extensions.py --fresh
       - name: Collect bounded advisory diagnosis data
         if: always()
         id: collect

@@ -1,0 +1,55 @@
+{
+  "argv": [
+    [
+      "php",
+      "bin/console",
+      "cache:clear",
+      "--env=dev",
+      "--no-interaction"
+    ],
+    [
+      "php",
+      "bin/console",
+      "debug:container",
+      "--env=dev",
+      "--format=json",
+      "--no-interaction",
+      "--types"
+    ],
+    [
+      "php",
+      "bin/console",
+      "debug:container",
+      "--env=dev",
+      "--format=json",
+      "--no-interaction"
+    ],
+    [
+      "php",
+      "vendor/byte-kitsune/mago-symfony-wiring/bin/create-container-reference.php",
+      "--types=/state/lspext-types.json",
+      "--services=/state/lspext-services.json",
+      "--autoload=/app/vendor/autoload.php"
+    ]
+  ],
+  "sha256": "5b7ea5b93fa495b3984e4b75083844cf9be918b0ece5180ce5b9f41ebae408a8",
+  "definitions": {
+    "App\\Repository\\TagRepository": {
+      "class": "App\\Repository\\TagRepository",
+      "arguments": [
+        "doctrine"
+      ]
+    },
+    "doctrine": {
+      "class": "Doctrine\\Bundle\\DoctrineBundle\\Registry",
+      "arguments": [
+        "service_container",
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  "source_sha256": "55f347bebb4fc7294306c53fbe25fd43935eed8685b8a0a53df67982d732c570"
+}

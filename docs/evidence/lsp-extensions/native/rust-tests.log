@@ -1,0 +1,227 @@
+ Downloading crates ...
+  Downloaded diff v0.1.13
+  Downloaded num_cpus v1.17.0
+  Downloaded temp-env v0.3.6
+  Downloaded libtest-mimic v0.7.3
+  Downloaded escape8259 v0.5.4
+  Downloaded threadpool v1.8.1
+  Downloaded pretty_assertions v1.4.1
+   Compiling libc v0.2.189
+   Compiling serde_core v1.0.229
+   Compiling cfg-if v1.0.5
+   Compiling memchr v2.8.3
+   Compiling bitflags v2.13.2
+   Compiling foldhash v0.2.0
+   Compiling equivalent v1.0.3
+   Compiling serde v1.0.229
+   Compiling once_cell v1.21.4
+   Compiling log v0.4.34
+   Compiling itoa v1.0.18
+   Compiling crossbeam-utils v0.8.23
+   Compiling allocator-api2 v0.2.21
+   Compiling hashbrown v0.17.1
+   Compiling pin-project-lite v0.2.17
+   Compiling unicode-width v0.2.2
+   Compiling aho-corasick v1.1.5
+   Compiling indexmap v2.14.2
+   Compiling regex-syntax v0.8.11
+   Compiling smallvec v1.16.3
+   Compiling regex-automata v0.4.18
+   Compiling scopeguard v1.2.0
+   Compiling lock_api v0.4.14
+   Compiling zmij v1.0.23
+   Compiling crossbeam-epoch v0.9.21
+   Compiling parking_lot_core v0.9.12
+   Compiling tracing-core v0.1.36
+   Compiling serde_json v1.0.154
+   Compiling crossbeam-deque v0.8.8
+   Compiling same-file v1.0.6
+   Compiling walkdir v2.5.0
+   Compiling inotify-sys v0.1.8
+   Compiling tracing v0.1.44
+   Compiling bstr v1.13.1
+   Compiling either v1.19.0
+   Compiling globset v0.4.20
+   Compiling rayon-core v1.13.0
+   Compiling ref-cast v1.0.27
+   Compiling inotify v0.11.5
+   Compiling parking_lot v0.12.5
+   Compiling mio v1.2.4
+   Compiling notify-types v2.1.0
+   Compiling rayon v1.12.0
+   Compiling notify v8.2.0
+   Compiling ignore v0.4.33
+   Compiling glob v0.3.4
+   Compiling mago-database v1.58.2 (/src/crates/database)
+   Compiling mago-span v1.58.2 (/src/crates/span)
+   Compiling blink-alloc v0.3.1
+   Compiling rand_core v0.6.4
+   Compiling termcolor v1.4.1
+   Compiling dyn-clone v1.0.20
+   Compiling yansi v1.0.1
+   Compiling schemars v1.2.3
+   Compiling num-traits v0.2.19
+   Compiling thiserror v2.0.21
+   Compiling rand v0.8.8
+   Compiling mago-allocator v1.58.2 (/src/crates/allocator)
+   Compiling typed-builder v0.21.2
+   Compiling strum v0.28.0
+   Compiling arrayvec v0.7.8
+   Compiling cpufeatures v0.3.1
+   Compiling strum v0.27.2
+   Compiling constant_time_eq v0.4.2
+   Compiling blake3 v1.8.7
+   Compiling serde-sarif v0.8.0
+   Compiling mago-syntax-core v1.58.2 (/src/crates/syntax-core)
+   Compiling ordered-float v5.5.0
+   Compiling ariadne v0.6.0
+   Compiling codespan-reporting v0.13.1
+   Compiling regex v1.13.1
+   Compiling mago-text-edit v1.58.2 (/src/crates/text-edit)
+   Compiling mago-php-version v1.58.2 (/src/crates/php-version)
+   Compiling ryu v1.0.23
+   Compiling mago-bytes v1.58.2 (/src/crates/bytes)
+   Compiling mago-word v1.58.2 (/src/crates/word)
+   Compiling mago-reporting v1.58.2 (/src/crates/reporting)
+   Compiling linux-raw-sys v0.12.1
+   Compiling rustix v1.1.5
+   Compiling mago-syntax v1.58.2 (/src/crates/syntax)
+   Compiling mago-names v1.58.2 (/src/crates/names)
+   Compiling mago-phpdoc-syntax v1.58.2 (/src/crates/phpdoc-syntax)
+   Compiling mago-fingerprint v1.58.2 (/src/crates/fingerprint)
+   Compiling unicase v2.10.0
+   Compiling bytes v1.12.1
+   Compiling mago-codex v1.58.2 (/src/crates/codex)
+   Compiling zeroize v1.9.1
+   Compiling utf8parse v0.2.2
+   Compiling anstyle-parse v1.0.0
+   Compiling mago-collector v1.58.2 (/src/crates/collector)
+   Compiling colorchoice v1.0.5
+   Compiling anstyle v1.0.14
+   Compiling futures-sink v0.3.34
+   Compiling futures-core v0.3.34
+   Compiling simd-adler32 v0.3.10
+   Compiling anstyle-query v1.1.5
+   Compiling nu-ansi-term v0.50.3
+   Compiling is_terminal_polyfill v1.70.2
+   Compiling anstream v1.0.0
+   Compiling crc32fast v1.5.2
+   Compiling rustls-pki-types v1.15.1
+   Compiling mago-extension v1.58.2 (/src/crates/extension)
+   Compiling terminal_size v0.4.4
+   Compiling console v0.16.6
+   Compiling getrandom v0.2.17
+   Compiling strsim v0.11.1
+   Compiling clap_lex v1.1.1
+   Compiling adler2 v2.0.1
+   Compiling untrusted v0.9.0
+   Compiling ring v0.17.14
+   Compiling miniz_oxide v0.9.1
+   Compiling clap_builder v4.6.7
+   Compiling mago-algebra v1.58.2 (/src/crates/algebra)
+   Compiling portable-atomic v1.15.0
+   Compiling getrandom v0.4.3
+   Compiling httparse v1.10.1
+   Compiling diffy v0.4.2
+   Compiling itertools v0.14.0
+   Compiling unit-prefix v0.5.2
+   Compiling futures-io v0.3.34
+   Compiling fastrand v2.5.0
+   Compiling futures-task v0.3.34
+   Compiling mago-casing v1.58.2 (/src/crates/casing)
+   Compiling zlib-rs v0.6.8
+   Compiling slab v0.4.12
+   Compiling borrow-or-share v0.2.4
+   Compiling fluent-uri v0.4.1
+   Compiling mago-linter v1.58.2 (/src/crates/linter)
+   Compiling futures-util v0.3.34
+   Compiling flate2 v1.1.10
+   Compiling tempfile v3.27.0
+   Compiling indicatif v0.18.6
+   Compiling tokio v1.54.0
+   Compiling clap v4.6.7
+   Compiling mago-analyzer v1.58.2 (/src/crates/analyzer)
+   Compiling rustls-webpki v0.103.15
+   Compiling mago-guard v1.58.2 (/src/crates/guard)
+   Compiling zstd-sys v2.1.2+zstd.1.5.7
+   Compiling http v1.5.0
+   Compiling mago-semantics v1.58.2 (/src/crates/semantics)
+   Compiling mago-formatter v1.58.2 (/src/crates/formatter)
+   Compiling getopts v0.2.24
+   Compiling num_cpus v1.17.0
+   Compiling xxhash-rust v0.8.19
+   Compiling winnow v1.0.4
+   Compiling tower-service v0.3.3
+   Compiling sync_wrapper v1.0.2
+   Compiling base64 v0.23.1
+   Compiling lazy_static v1.5.1
+   Compiling pulldown-cmark-escape v0.11.0
+   Compiling subtle v2.6.1
+   Compiling hashbrown v0.14.5
+   Compiling bumpalo v3.20.3
+   Compiling tower-layer v0.3.3
+   Compiling unty v0.0.4
+   Compiling bincode v2.0.1
+   Compiling tower v0.5.3
+   Compiling zopfli v0.8.4
+   Compiling dashmap v6.2.1
+   Compiling rustls v0.23.46
+   Compiling pulldown-cmark v0.13.4
+   Compiling sharded-slab v0.1.7
+   Compiling ureq-proto v0.6.5
+   Compiling toml_parser v1.1.5+spec-1.1.0
+   Compiling mago-orchestrator v1.58.2 (/src/crates/orchestrator)
+   Compiling threadpool v1.8.1
+   Compiling zstd-safe v7.3.0
+   Compiling libmimalloc-sys v0.1.49
+   Compiling tokio-util v0.7.20
+   Compiling gen-lsp-types v0.11.0
+   Compiling webpki-roots v1.0.10
+   Compiling futures-channel v0.3.34
+   Compiling xattr v1.6.1
+   Compiling tracing-log v0.2.0
+   Compiling matchers v0.2.0
+   Compiling serde_spanned v1.1.2
+   Compiling toml_datetime v1.1.2+spec-1.1.0
+   Compiling filetime v0.2.29
+   Compiling thread_local v1.1.10
+   Compiling percent-encoding v2.3.2
+   Compiling diff v0.1.13
+   Compiling toml_writer v1.1.3+spec-1.1.0
+   Compiling utf8-zero v0.8.1
+   Compiling escape8259 v0.5.4
+   Compiling shell-words v1.1.1
+   Compiling unsafe-libyaml-norway v0.2.15
+   Compiling serde_norway v0.9.42
+   Compiling dialoguer v0.12.0
+   Compiling libtest-mimic v0.7.3
+   Compiling ureq v3.4.2
+   Compiling toml v1.1.8+spec-1.1.0
+   Compiling pretty_assertions v1.4.1
+   Compiling tracing-subscriber v0.3.23
+   Compiling tar v0.4.46
+   Compiling tower-lsp-server v0.24.0-rc.1
+   Compiling mago-server v1.58.2 (/src/crates/server)
+   Compiling mimalloc v0.1.52
+   Compiling zstd v0.13.3
+   Compiling zip v6.0.0
+   Compiling mago-prelude v1.58.2 (/src/crates/prelude)
+   Compiling clap_complete v4.6.11
+   Compiling self-replace v1.5.0
+   Compiling temp-env v0.3.6
+   Compiling mago-composer v1.58.2 (/src/crates/composer)
+   Compiling colored v3.1.1
+   Compiling semver v1.0.28
+   Compiling termtree v1.0.0
+   Compiling mago v1.58.2 (/src)
+    Finished `release` profile [optimized] target(s) in 6m 57s
+     Running unittests src/main.rs (target/release/deps/mago-2881ae5b1f54770f)
+
+running 4 tests
+test language_server::tests::external_analyzers::external_graph_rejects_disabled_analysis_and_unowned_uri ... ok
+test language_server::tests::external_analyzers::external_disabled_hosts_do_not_start_and_native_graph_still_works ... ok
+test language_server::tests::external_analyzers::external_graph_uses_current_unsaved_buffers_without_inventing_locations ... ok
+test language_server::tests::external_analyzers::external_failed_reload_refuses_old_graph_and_recovers_after_disable ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 899 filtered out; finished in 0.21s
+

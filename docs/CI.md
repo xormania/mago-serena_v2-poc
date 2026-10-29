@@ -27,6 +27,14 @@ the runtime cause reaching the provider payload, foreign attempt rejection and
 zero provider requests when all three slice results pass. The producer receives
 no TypeSafe key; the trusted advisory consumer remains unchanged.
 
+The combined LSP candidate also captures `lsp_extensions` after `slice3`.
+Its fresh owned workspace verifies all 19 native worker controls and actual
+host MCP/Serena on/off graph forwarding, then purges its application/state.
+The [combined local validation](evidence/lsp-extensions/integration/validation.json)
+at `7d7369cc87c64b3bd8d2d95749375f8954646c58` passes 178 fast tests, all 31
+original checks, slices 1/2/3 at 9/12/14 stages and this focused LSP gate on one
+verified image. These local results are separate from the hosted PR check.
+
 Local parallel work can set `POC_IMAGE=mago-serena-poc:<session-tag>`. Compose,
 launchers and the CI build helper honor that selection; unset or empty selection
 keeps `mago-serena-poc:local`. Build and acceptance must use the same selection.

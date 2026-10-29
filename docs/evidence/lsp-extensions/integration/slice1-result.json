@@ -1,0 +1,3008 @@
+{
+  "run_id": "lspext-recovery-slice1-20261028",
+  "workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+  "source_context_sha256": "d46622db7aa16cea95f6d222e1f358d5be24d4736bef9f5c9d0fe89d4668f931",
+  "service": "App\\Form\\Type\\TagsInputType",
+  "schema": 1,
+  "kind": "mago_first_slice1",
+  "status": "pass",
+  "inventory": [
+    "fixture_integrity",
+    "executed_identity",
+    "mago_configuration",
+    "framework_preparation",
+    "mago_php",
+    "service_semantics",
+    "symfony_wiring",
+    "behavior",
+    "cleanup"
+  ],
+  "checks": [
+    {
+      "run_id": "lspext-recovery-slice1-20261028",
+      "workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+      "source_context_sha256": "d46622db7aa16cea95f6d222e1f358d5be24d4736bef9f5c9d0fe89d4668f931",
+      "service": "App\\Form\\Type\\TagsInputType",
+      "name": "fixture_integrity",
+      "status": "pass",
+      "detail": 244,
+      "elapsed_s": 0.009
+    },
+    {
+      "run_id": "lspext-recovery-slice1-20261028",
+      "workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+      "source_context_sha256": "d46622db7aa16cea95f6d222e1f358d5be24d4736bef9f5c9d0fe89d4668f931",
+      "service": "App\\Form\\Type\\TagsInputType",
+      "name": "executed_identity",
+      "status": "pass",
+      "detail": {
+        "container_id": "35bebd1eeb019e83bc3951dfa1eee72c1662f020a09a5f8548f2a4e85dae5c6a",
+        "image_id": "sha256:7549c48b6259b12eb9698fb860560da6573a2233f61e3155ff880e988eafc7d6",
+        "repo_digests": [],
+        "created": "2026-10-28T23:40:08.220901893Z",
+        "architecture": "amd64",
+        "installed_files_checked": 78
+      },
+      "elapsed_s": 0.0
+    },
+    {
+      "run_id": "lspext-recovery-slice1-20261028",
+      "workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+      "source_context_sha256": "d46622db7aa16cea95f6d222e1f358d5be24d4736bef9f5c9d0fe89d4668f931",
+      "service": "App\\Form\\Type\\TagsInputType",
+      "name": "mago_configuration",
+      "status": "pass",
+      "detail": {
+        "config": "/app/mago-php.toml",
+        "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+        "version": "mago 1.58.2",
+        "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+        "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+        "php_target": "8.5",
+        "workspace": "/app",
+        "composer_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd"
+      },
+      "elapsed_s": 0.401
+    },
+    {
+      "run_id": "lspext-recovery-slice1-20261028",
+      "workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+      "source_context_sha256": "d46622db7aa16cea95f6d222e1f358d5be24d4736bef9f5c9d0fe89d4668f931",
+      "service": "App\\Form\\Type\\TagsInputType",
+      "name": "framework_preparation",
+      "status": "pass",
+      "detail": {
+        "schema": 1,
+        "run_id": "lspext-recovery-slice1-20261028",
+        "workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+        "environment": "dev",
+        "context": "inspection-dev",
+        "preparation_id": "prepare-c7879b140bb24931a9541ccef0ff7ed8",
+        "preparation_exit": 0,
+        "application_sha256": "929379a17d1cf58d9e61471536ac643f49006329baf46373b238a5629360dbea",
+        "metadata": {
+          "var/cache/dev/App_KernelDevDebugContainer.xml": "6b2b8b6ac7802f96bbe3ab3ce666c5a19567431d39209c60cbf20b19ff57db9f"
+        },
+        "container_id": "35bebd1eeb019e83bc3951dfa1eee72c1662f020a09a5f8548f2a4e85dae5c6a",
+        "image_id": "sha256:7549c48b6259b12eb9698fb860560da6573a2233f61e3155ff880e988eafc7d6",
+        "wiring_reference_sha256": "5b7ea5b93fa495b3984e4b75083844cf9be918b0ece5180ce5b9f41ebae408a8",
+        "overlay": {
+          "schema": 1,
+          "base_demo": "8d2e2ef75c3e18df173d8bf2379a14abb58c4c31",
+          "base_lock_sha256": "bfc1c816cbb22ffe92ec294847037ef2fb618dfd77d429264fbc57d7befea7cd",
+          "files": {
+            "composer.json": "66bc4248e01fa0ff57b4245672a84c0496e8d43c63a468305c3566158c4149a7",
+            "composer.lock": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+          },
+          "added_packages": {
+            "byte-kitsune/mago-symfony-wiring": {
+              "name": "byte-kitsune/mago-symfony-wiring",
+              "version": "dev-poc-28c3f54",
+              "source": {
+                "type": "git",
+                "url": "https://github.com/Byte-Kitsune/mago-symfony-wiring.git",
+                "reference": "28c3f54065b71fe046a7474ced401aeadc941b0f"
+              },
+              "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Byte-Kitsune/mago-symfony-wiring/zipball/28c3f54065b71fe046a7474ced401aeadc941b0f",
+                "reference": "28c3f54065b71fe046a7474ced401aeadc941b0f"
+              },
+              "require": {
+                "carthage-software/mago": "^1.50",
+                "nikic/php-parser": "^5.9",
+                "php": "^8.2",
+                "symfony/yaml": "^7.4 || ^8.0"
+              },
+              "type": "library",
+              "autoload": {
+                "psr-4": {
+                  "ByteKitsune\\MagoSymfonyWiring\\": "src/"
+                }
+              },
+              "license": [
+                "MIT"
+              ]
+            },
+            "carthage-software/mago": {
+              "name": "carthage-software/mago",
+              "version": "1.58.2",
+              "source": {
+                "type": "git",
+                "url": "https://github.com/carthage-software/mago.git",
+                "reference": "46df50c96d93d0ac3655c116c375574277cf0b30"
+              },
+              "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carthage-software/mago/zipball/46df50c96d93d0ac3655c116c375574277cf0b30",
+                "reference": "46df50c96d93d0ac3655c116c375574277cf0b30"
+              },
+              "require": {
+                "php": "~8.1 || ~8.2 || ~8.3 || ~8.4 || ~8.5 || ~8.6",
+                "revolt/event-loop": "^1.0.9"
+              },
+              "type": "library",
+              "autoload": {
+                "psr-4": {
+                  "Mago\\": "composer/src/"
+                },
+                "files": [
+                  "composer/src/functions.php",
+                  "composer/src/internal.php"
+                ]
+              },
+              "license": [
+                "MIT",
+                "Apache-2.0"
+              ]
+            },
+            "revolt/event-loop": {
+              "name": "revolt/event-loop",
+              "version": "v1.0.9",
+              "source": {
+                "type": "git",
+                "url": "https://github.com/revoltphp/event-loop.git",
+                "reference": "44061cf513e53c6200372fc935ac42271566295d"
+              },
+              "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/revoltphp/event-loop/zipball/44061cf513e53c6200372fc935ac42271566295d",
+                "reference": "44061cf513e53c6200372fc935ac42271566295d",
+                "shasum": ""
+              },
+              "require": {
+                "php": ">=8.1"
+              },
+              "require-dev": {
+                "ext-json": "*",
+                "jetbrains/phpstorm-stubs": "^2019.3",
+                "phpunit/phpunit": "^9",
+                "psalm/phar": "6.16.*"
+              },
+              "type": "library",
+              "extra": {
+                "branch-alias": {
+                  "dev-main": "1.x-dev"
+                }
+              },
+              "autoload": {
+                "psr-4": {
+                  "Revolt\\": "src"
+                }
+              },
+              "notification-url": "https://packagist.org/downloads/",
+              "license": [
+                "MIT"
+              ],
+              "authors": [
+                {
+                  "name": "Aaron Piotrowski",
+                  "email": "aaron@trowski.com"
+                },
+                {
+                  "name": "Cees-Jan Kiewiet",
+                  "email": "ceesjank@gmail.com"
+                },
+                {
+                  "name": "Christian L\u00fcck",
+                  "email": "christian@clue.engineering"
+                },
+                {
+                  "name": "Niklas Keller",
+                  "email": "me@kelunik.com"
+                }
+              ],
+              "description": "Rock-solid event loop for concurrent PHP applications.",
+              "keywords": [
+                "async",
+                "asynchronous",
+                "concurrency",
+                "event",
+                "event-loop",
+                "non-blocking",
+                "scheduler"
+              ],
+              "support": {
+                "issues": "https://github.com/revoltphp/event-loop/issues",
+                "source": "https://github.com/revoltphp/event-loop/tree/v1.0.9"
+              },
+              "time": "2026-05-16T17:55:38+00:00"
+            },
+            "symfony/ai-mate": {
+              "name": "symfony/ai-mate",
+              "version": "v0.15.0",
+              "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/ai-mate.git",
+                "reference": "0920fc01cbc9667804cfdb530b677a4df217c26a"
+              },
+              "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/ai-mate/zipball/0920fc01cbc9667804cfdb530b677a4df217c26a",
+                "reference": "0920fc01cbc9667804cfdb530b677a4df217c26a",
+                "shasum": ""
+              },
+              "require": {
+                "php": ">=8.2",
+                "psr/container": "^1.1|^2.0",
+                "psr/log": "^2.0|^3.0",
+                "symfony/ai-mate-composer-plugin": "^0.15",
+                "symfony/config": "^5.4|^6.4|^7.3|^8.0",
+                "symfony/console": "^5.4|^6.4|^7.3|^8.0",
+                "symfony/dependency-injection": "^5.4|^6.4|^7.3|^8.0",
+                "symfony/dotenv": "^5.4|^6.4|^7.3|^8.0",
+                "symfony/filesystem": "^5.4|^6.4|^7.3|^8.0",
+                "symfony/finder": "^5.4|^6.4|^7.3|^8.0",
+                "symfony/process": "^5.4|^6.4|^7.3|^8.0"
+              },
+              "require-dev": {
+                "ext-simplexml": "*",
+                "helgesverre/toon": "^3.2.1",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0",
+                "phpunit/phpunit": "^11.5.53"
+              },
+              "bin": [
+                "bin/mate"
+              ],
+              "type": "library",
+              "extra": {
+                "thanks": {
+                  "url": "https://github.com/symfony/ai",
+                  "name": "symfony/ai"
+                },
+                "ai-mate": {
+                  "skills": [
+                    "skills"
+                  ],
+                  "scan-dirs": [
+                    "src/Capability"
+                  ],
+                  "instructions": "INSTRUCTIONS.md"
+                }
+              },
+              "autoload": {
+                "psr-4": {
+                  "Symfony\\AI\\Mate\\": "src/"
+                }
+              },
+              "notification-url": "https://packagist.org/downloads/",
+              "license": [
+                "MIT"
+              ],
+              "authors": [
+                {
+                  "name": "Johannes Wachter",
+                  "email": "johannes@sulu.io"
+                },
+                {
+                  "name": "Tobias Nyholm",
+                  "email": "tobias.nyholm@gmail.com"
+                },
+                {
+                  "name": "Symfony Community",
+                  "homepage": "https://symfony.com/contributors"
+                }
+              ],
+              "description": "AI development assistant CLI for Symfony projects",
+              "keywords": [
+                "ai",
+                "cli",
+                "debug",
+                "dev",
+                "development",
+                "symfony"
+              ],
+              "support": {
+                "source": "https://github.com/symfony/ai-mate/tree/v0.15.0"
+              },
+              "funding": [
+                {
+                  "url": "https://symfony.com/sponsor",
+                  "type": "custom"
+                },
+                {
+                  "url": "https://github.com/fabpot",
+                  "type": "github"
+                },
+                {
+                  "url": "https://github.com/nicolas-grekas",
+                  "type": "github"
+                },
+                {
+                  "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                  "type": "tidelift"
+                }
+              ],
+              "time": "2026-10-22T23:44:24+00:00"
+            },
+            "symfony/ai-mate-composer-plugin": {
+              "name": "symfony/ai-mate-composer-plugin",
+              "version": "v0.15.0",
+              "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/ai-mate-composer-plugin.git",
+                "reference": "6005a24aa1c81c215e94925b6c45ac9cfb6bda99"
+              },
+              "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/ai-mate-composer-plugin/zipball/6005a24aa1c81c215e94925b6c45ac9cfb6bda99",
+                "reference": "6005a24aa1c81c215e94925b6c45ac9cfb6bda99",
+                "shasum": ""
+              },
+              "require": {
+                "composer-plugin-api": "^2.1",
+                "php": ">=8.2"
+              },
+              "require-dev": {
+                "composer/composer": "^2.1",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0",
+                "phpunit/phpunit": "^11.5.53",
+                "symfony/ai-mate": "^0.15"
+              },
+              "type": "composer-plugin",
+              "extra": {
+                "class": "Symfony\\AI\\Mate\\ComposerPlugin\\MatePlugin",
+                "thanks": {
+                  "url": "https://github.com/symfony/ai",
+                  "name": "symfony/ai"
+                },
+                "plugin-optional": true
+              },
+              "autoload": {
+                "psr-4": {
+                  "Symfony\\AI\\Mate\\ComposerPlugin\\": "src/"
+                }
+              },
+              "notification-url": "https://packagist.org/downloads/",
+              "license": [
+                "MIT"
+              ],
+              "authors": [
+                {
+                  "name": "Johannes Wachter",
+                  "email": "johannes@sulu.io"
+                },
+                {
+                  "name": "Tobias Nyholm",
+                  "email": "tobias.nyholm@gmail.com"
+                },
+                {
+                  "name": "Symfony Community",
+                  "homepage": "https://symfony.com/contributors"
+                }
+              ],
+              "description": "Composer plugin that automatically discovers AI Mate extensions on install/update",
+              "keywords": [
+                "ai",
+                "auto-discovery",
+                "composer-plugin",
+                "mate"
+              ],
+              "support": {
+                "source": "https://github.com/symfony/ai-mate-composer-plugin/tree/v0.15.0"
+              },
+              "funding": [
+                {
+                  "url": "https://symfony.com/sponsor",
+                  "type": "custom"
+                },
+                {
+                  "url": "https://github.com/fabpot",
+                  "type": "github"
+                },
+                {
+                  "url": "https://github.com/nicolas-grekas",
+                  "type": "github"
+                },
+                {
+                  "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                  "type": "tidelift"
+                }
+              ],
+              "time": "2026-10-22T23:44:24+00:00"
+            },
+            "symfony/ai-symfony-mate-extension": {
+              "name": "symfony/ai-symfony-mate-extension",
+              "version": "v0.15.0",
+              "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/ai-symfony-mate-extension.git",
+                "reference": "f721459ba45fa5752f3a1229c8611a689f6eba09"
+              },
+              "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/ai-symfony-mate-extension/zipball/f721459ba45fa5752f3a1229c8611a689f6eba09",
+                "reference": "f721459ba45fa5752f3a1229c8611a689f6eba09",
+                "shasum": ""
+              },
+              "require": {
+                "php": ">=8.2",
+                "symfony/ai-mate": "^0.15",
+                "symfony/dependency-injection": "^7.3|^8.0"
+              },
+              "require-dev": {
+                "doctrine/doctrine-bundle": "^2.13|^3.0",
+                "helgesverre/toon": "^3.2.1",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0",
+                "phpunit/phpunit": "^11.5.53",
+                "symfony/dotenv": "^7.3|^8.0",
+                "symfony/http-client": "^7.3|^8.0",
+                "symfony/http-kernel": "^7.3|^8.0",
+                "symfony/mailer": "^7.3|^8.0",
+                "symfony/stopwatch": "^7.3|^8.0",
+                "symfony/translation": "^7.3|^8.0",
+                "symfony/var-dumper": "^7.3|^8.0",
+                "symfony/web-profiler-bundle": "^7.3|^8.0"
+              },
+              "suggest": {
+                "doctrine/doctrine-bundle": "Required for Doctrine database profiler formatter",
+                "symfony/dotenv": "Required for the symfony-dotenv-check tool",
+                "symfony/http-kernel": "Required for profiler data access tools",
+                "symfony/mailer": "Required for mailer profiler formatter",
+                "symfony/translation": "Required for translation profiler collector formatter",
+                "symfony/web-profiler-bundle": "Required for profiler data access tools"
+              },
+              "type": "symfony-ai-mate",
+              "extra": {
+                "thanks": {
+                  "url": "https://github.com/symfony/ai",
+                  "name": "symfony/ai"
+                },
+                "ai-mate": {
+                  "skills": [
+                    "skills"
+                  ],
+                  "includes": [
+                    "config/config.php"
+                  ],
+                  "scan-dirs": [
+                    "Capability"
+                  ],
+                  "instructions": "INSTRUCTIONS.md"
+                }
+              },
+              "autoload": {
+                "psr-4": {
+                  "Symfony\\AI\\Mate\\Bridge\\Symfony\\": ""
+                }
+              },
+              "notification-url": "https://packagist.org/downloads/",
+              "license": [
+                "MIT"
+              ],
+              "authors": [
+                {
+                  "name": "Tobias Nyholm",
+                  "email": "tobias.nyholm@gmail.com"
+                },
+                {
+                  "name": "Johannes Wachter",
+                  "email": "johannes@sulu.io"
+                },
+                {
+                  "name": "Symfony Community",
+                  "homepage": "https://symfony.com/contributors"
+                }
+              ],
+              "description": "Symfony bridge for AI Mate - provides Symfony container introspection and optional profiler data access tools",
+              "keywords": [
+                "Bridge",
+                "ai",
+                "debug",
+                "dev",
+                "profiler",
+                "symfony"
+              ],
+              "support": {
+                "source": "https://github.com/symfony/ai-symfony-mate-extension/tree/v0.15.0"
+              },
+              "funding": [
+                {
+                  "url": "https://symfony.com/sponsor",
+                  "type": "custom"
+                },
+                {
+                  "url": "https://github.com/fabpot",
+                  "type": "github"
+                },
+                {
+                  "url": "https://github.com/nicolas-grekas",
+                  "type": "github"
+                },
+                {
+                  "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                  "type": "tidelift"
+                }
+              ],
+              "time": "2026-10-23T00:19:04+00:00"
+            },
+            "symfony/ai-monolog-mate-extension": {
+              "name": "symfony/ai-monolog-mate-extension",
+              "version": "v0.15.0",
+              "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/ai-monolog-mate-extension.git",
+                "reference": "d85a949ccc537f1a8be2fd2b02a1f0d6a5d5f25b"
+              },
+              "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/ai-monolog-mate-extension/zipball/d85a949ccc537f1a8be2fd2b02a1f0d6a5d5f25b",
+                "reference": "d85a949ccc537f1a8be2fd2b02a1f0d6a5d5f25b",
+                "shasum": ""
+              },
+              "require": {
+                "monolog/monolog": "^2.0|^3.0",
+                "php": ">=8.2",
+                "symfony/ai-mate": "^0.15"
+              },
+              "require-dev": {
+                "helgesverre/toon": "^3.2.1",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0",
+                "phpunit/phpunit": "^11.5.53"
+              },
+              "type": "symfony-ai-mate",
+              "extra": {
+                "thanks": {
+                  "url": "https://github.com/symfony/ai",
+                  "name": "symfony/ai"
+                },
+                "ai-mate": {
+                  "skills": [
+                    "skills"
+                  ],
+                  "includes": [
+                    "config/config.php"
+                  ],
+                  "scan-dirs": [
+                    "Capability"
+                  ],
+                  "instructions": "INSTRUCTIONS.md"
+                }
+              },
+              "autoload": {
+                "psr-4": {
+                  "Symfony\\AI\\Mate\\Bridge\\Monolog\\": ""
+                }
+              },
+              "notification-url": "https://packagist.org/downloads/",
+              "license": [
+                "MIT"
+              ],
+              "authors": [
+                {
+                  "name": "Johannes Wachter",
+                  "email": "johannes@sulu.io"
+                },
+                {
+                  "name": "Tobias Nyholm",
+                  "email": "tobias.nyholm@gmail.com"
+                },
+                {
+                  "name": "Symfony Community",
+                  "homepage": "https://symfony.com/contributors"
+                }
+              ],
+              "description": "Monolog bridge for AI Mate - provides log search and analysis tools",
+              "keywords": [
+                "Bridge",
+                "ai",
+                "dev",
+                "logs",
+                "monolog"
+              ],
+              "support": {
+                "source": "https://github.com/symfony/ai-monolog-mate-extension/tree/v0.15.0"
+              },
+              "funding": [
+                {
+                  "url": "https://symfony.com/sponsor",
+                  "type": "custom"
+                },
+                {
+                  "url": "https://github.com/fabpot",
+                  "type": "github"
+                },
+                {
+                  "url": "https://github.com/nicolas-grekas",
+                  "type": "github"
+                },
+                {
+                  "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                  "type": "tidelift"
+                }
+              ],
+              "time": "2026-10-22T23:44:24+00:00"
+            }
+          },
+          "resolution": "Composer 2.9.1 / PHP 8.5.12; retained platform PHP 8.4.1. Slice 3 updates ONLY symfony/ai-monolog-mate-extension 0.15.0 with --minimal-changes --no-plugins --no-scripts --no-install. All previously locked package records are unchanged. A temporary uncommitted audit.block-insecure=false was required to retain the existing symfony/mime advisory PKSA-wtxr-p26d-nn42; final audit settings are unchanged, content-hash recalculated with Composer Locker::getContentHash after restoring the manifest. Composer reports 5 ignored advisories and 1 existing unsuppressed advisory.",
+          "changed_packages": {
+            "nikic/php-parser": {
+              "from": "v5.7.0",
+              "to": "v5.9.0",
+              "reason": "Pinned Symfony wiring snapshot requires nikic/php-parser ^5.9; other existing dependencies remain locked."
+            }
+          },
+          "mago_sdk": {
+            "version": "1.58.2",
+            "source": "46df50c96d93d0ac3655c116c375574277cf0b30",
+            "protocol": "MANA 2.1",
+            "executable": "/usr/local/bin/mago",
+            "reason": "Exact SDK source matches experimental executable; packaged vendor/bin/mago is intentionally not installed/invoked."
+          },
+          "wiring": {
+            "source": "28c3f54065b71fe046a7474ced401aeadc941b0f",
+            "package_version": "dev-poc-28c3f54",
+            "extension_version": "1.3.0-RC1",
+            "backend": "php",
+            "reason": "Explicit supported reference backend; no unrelated native engine download."
+          }
+        },
+        "invocation": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/bin/mate --run lspext-recovery-slice1-20261028 --",
+        "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mate/prepare-c7879b140bb24931a9541ccef0ff7ed8"
+      },
+      "elapsed_s": 4.338
+    },
+    {
+      "run_id": "lspext-recovery-slice1-20261028",
+      "workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+      "source_context_sha256": "d46622db7aa16cea95f6d222e1f358d5be24d4736bef9f5c9d0fe89d4668f931",
+      "service": "App\\Form\\Type\\TagsInputType",
+      "name": "mago_php",
+      "status": "pass",
+      "detail": {
+        "schema": 1,
+        "kind": "installed_mago_service_calibration",
+        "run_id": "lspext-recovery-slice1-20261028",
+        "service": "App\\Form\\Type\\TagsInputType",
+        "service_file": "src/Form/Type/TagsInputType.php",
+        "context": [
+          "src/Form/Type/TagsInputType.php",
+          "src/Repository/TagRepository.php",
+          "src/Form/PostType.php",
+          "src/Form/DataTransformer/TagArrayToStringTransformer.php"
+        ],
+        "baseline": null,
+        "commands": [
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "config"
+            ],
+            "exit": 0,
+            "elapsed_s": 0.116118,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/effective-config"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "list-files",
+              "--command",
+              "analyzer"
+            ],
+            "exit": 0,
+            "elapsed_s": 0.222375,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/files"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "lint",
+              "--list-rules",
+              "--json"
+            ],
+            "exit": 0,
+            "elapsed_s": 0.191425,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/rules"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "analyze",
+              "--reporting-format",
+              "json"
+            ],
+            "exit": 1,
+            "elapsed_s": 0.676039,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/initial-analyze"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "lint",
+              "--reporting-format",
+              "json"
+            ],
+            "exit": 1,
+            "elapsed_s": 0.121082,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/initial-lint"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "format",
+              "--check",
+              "src/Form/Type/TagsInputType.php"
+            ],
+            "exit": 0,
+            "elapsed_s": 0.118978,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/healthy-format"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "guard",
+              "--structural",
+              "--reporting-format",
+              "json"
+            ],
+            "exit": 0,
+            "elapsed_s": 0.136331,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/healthy-guard"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "analyze",
+              "--reporting-format",
+              "json"
+            ],
+            "exit": 1,
+            "elapsed_s": 0.41479,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "f9557aa14e6aad4df0c58ca071892b04634c05e7dff230f420562b4e421c5f4f",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/type-defect"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "analyze",
+              "--reporting-format",
+              "json"
+            ],
+            "exit": 1,
+            "elapsed_s": 0.389473,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/type-restored"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "lint",
+              "--reporting-format",
+              "json"
+            ],
+            "exit": 1,
+            "elapsed_s": 0.102519,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "adbcb62448c729d754993fb6f094737e71cfc2bb0f8744b21e543b09ac9e3af9",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/lint-defect"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "lint",
+              "--reporting-format",
+              "json"
+            ],
+            "exit": 1,
+            "elapsed_s": 0.114684,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/lint-restored"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "lint",
+              "--reporting-format",
+              "json",
+              "src/Form/Type/TagsInputType.php"
+            ],
+            "exit": 0,
+            "elapsed_s": 0.087148,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "8670ddefd809141496c080fc67ed6deaf9f448cec0a043607d034cb0ecafc812",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/fix-before"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "lint",
+              "--only",
+              "no-redundant-parentheses",
+              "--fix",
+              "--fail-on-remaining",
+              "src/Form/Type/TagsInputType.php"
+            ],
+            "exit": 0,
+            "elapsed_s": 0.137796,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/safe-fix"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "lint",
+              "--reporting-format",
+              "json",
+              "src/Form/Type/TagsInputType.php"
+            ],
+            "exit": 0,
+            "elapsed_s": 0.1274,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/fix-after"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "guard",
+              "--structural",
+              "--reporting-format",
+              "json"
+            ],
+            "exit": 1,
+            "elapsed_s": 0.14752,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "4550e3f15ca83cbe552a00a5b04ba9574bbb94257b8362965ebd3a92dc46d177",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/guard-violation"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "guard",
+              "--structural",
+              "--reporting-format",
+              "json"
+            ],
+            "exit": 0,
+            "elapsed_s": 0.130614,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/guard-restored"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "format",
+              "--check",
+              "src/Form/Type/TagsInputType.php"
+            ],
+            "exit": 1,
+            "elapsed_s": 0.104586,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "e589bffbb8ff7c36e03d9bb82e0e58e6f93b3fac5055cbbd71e7caed3fdd6f90",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/format-detected"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "format",
+              "--dry-run",
+              "src/Form/Type/TagsInputType.php"
+            ],
+            "exit": 1,
+            "elapsed_s": 0.149645,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "e589bffbb8ff7c36e03d9bb82e0e58e6f93b3fac5055cbbd71e7caed3fdd6f90",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/format-diff"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "format",
+              "src/Form/Type/TagsInputType.php"
+            ],
+            "exit": 0,
+            "elapsed_s": 0.175867,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/format-applied"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "format",
+              "--check",
+              "src/Form/Type/TagsInputType.php"
+            ],
+            "exit": 0,
+            "elapsed_s": 0.126574,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/format-stable"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "format",
+              "src/Form/Type/TagsInputType.php"
+            ],
+            "exit": 0,
+            "elapsed_s": 0.131559,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/format-second"
+          },
+          {
+            "run_id": "lspext-recovery-slice1-20261028",
+            "host_workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+            "argv": [
+              "/usr/bin/docker",
+              "compose",
+              "--project-directory",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c",
+              "-f",
+              "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/compose.yaml",
+              "-p",
+              "mago-poc-5e333603-lspext-recovery-slice1-20261028",
+              "exec",
+              "-T",
+              "-w",
+              "/app",
+              "php",
+              "env",
+              "MAGO_LOG=trace",
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/app/mago-php.toml",
+              "--php-version",
+              "8.5",
+              "--colors",
+              "never",
+              "cst",
+              "--json",
+              "--names",
+              "src/Form/Type/TagsInputType.php"
+            ],
+            "exit": 0,
+            "elapsed_s": 0.120311,
+            "tool": {
+              "config": "/app/mago-php.toml",
+              "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+              "version": "mago 1.58.2",
+              "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+              "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+              "php_target": "8.5",
+              "workspace": "/app",
+              "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+            },
+            "source_sha256": {
+              "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+              "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+              "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e",
+              "src/Form/DataTransformer/TagArrayToStringTransformer.php": "a4d6094f45939beeb7ae343f77f0c9f73dfc16a9f8dd3e3ed331e9ab2be2ec97"
+            },
+            "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/cst"
+          }
+        ],
+        "status": "pass",
+        "tool": {
+          "config": "/app/mago-php.toml",
+          "config_sha256": "429b617ecdeea64dcdd9c68cbd475e8d8bf368d5ea5c664f14ee71d20e97a22a",
+          "version": "mago 1.58.2",
+          "revision": "46df50c96d93d0ac3655c116c375574277cf0b30",
+          "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+          "php_target": "8.5",
+          "workspace": "/app",
+          "composer_lock_sha256": "19654f0b0a480ef505a00655f70866311af775246922c02482a09fe6102b4aaa"
+        },
+        "coverage": {
+          "hosts": 46,
+          "compiled_source_files": 9917,
+          "host_manifest": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/files/stdout",
+          "dependency_coverage": "Actual native trace counts compiled host and vendor source files; builtin prelude enabled separately.",
+          "builtin_stubs": "Enabled native precompiled prelude; excluded from the compiled-source count.",
+          "available_vendor_php_files": 9871,
+          "vendor_inventory_limit": "Available dependency file hashes; individual loaded vendor files are not enumerated by list-files."
+        },
+        "initial": {
+          "analyzer_exit": 1,
+          "lint_exit": 1,
+          "analyzer_findings": 35,
+          "lint_findings": 125,
+          "analyzer_codes": {
+            "redundant-cast": 2,
+            "ambiguous-object-method-access": 1,
+            "invalid-return-statement": 3,
+            "possibly-invalid-argument": 4,
+            "incompatible-parameter-name": 3,
+            "mixed-assignment": 5,
+            "redundant-docblock-type": 1,
+            "invalid-argument": 6,
+            "possibly-null-operand": 1,
+            "possibly-null-argument": 1,
+            "possible-method-access-on-null": 1,
+            "implicit-to-string-cast": 1,
+            "less-specific-argument": 1,
+            "less-specific-return-statement": 2,
+            "possibly-false-operand": 2,
+            "redundant-logical-operation": 1
+          },
+          "lint_codes": {
+            "strict-types": 46,
+            "inline-variable-return": 1,
+            "assertion-style": 32,
+            "literal-named-argument": 17,
+            "sensitive-parameter": 5,
+            "too-many-methods": 4,
+            "no-empty": 6,
+            "prefer-early-continue": 1,
+            "no-shorthand-ternary": 2,
+            "no-literal-password": 2,
+            "no-else-clause": 4,
+            "no-boolean-flag-parameter": 4,
+            "readable-literal": 1
+          },
+          "service_analyzer": [],
+          "service_lint": [
+            {
+              "level": "Warning",
+              "code": "strict-types",
+              "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.",
+              "notes": [
+                "The `strict_types` directive enforces strict type checking, which can prevent subtle bugs."
+              ],
+              "help": "Add `declare(strict_types=1);` at the top of your file.",
+              "annotations": [
+                {
+                  "kind": "Primary",
+                  "span": {
+                    "file_id": {
+                      "name": "src/Form/Type/TagsInputType.php",
+                      "path": "/app/src/Form/Type/TagsInputType.php",
+                      "size": 1934,
+                      "file_type": "Host"
+                    },
+                    "start": {
+                      "offset": 0,
+                      "line": 0
+                    },
+                    "end": {
+                      "offset": 5,
+                      "line": 0
+                    }
+                  }
+                }
+              ],
+              "edits": [
+                [
+                  {
+                    "name": "src/Form/Type/TagsInputType.php",
+                    "path": "/app/src/Form/Type/TagsInputType.php",
+                    "size": 1934,
+                    "file_type": "Host"
+                  },
+                  [
+                    {
+                      "range": {
+                        "start": 5,
+                        "end": 5
+                      },
+                      "new_text": [
+                        10,
+                        10,
+                        100,
+                        101,
+                        99,
+                        108,
+                        97,
+                        114,
+                        101,
+                        40,
+                        115,
+                        116,
+                        114,
+                        105,
+                        99,
+                        116,
+                        95,
+                        116,
+                        121,
+                        112,
+                        101,
+                        115,
+                        61,
+                        49,
+                        41,
+                        59,
+                        10
+                      ],
+                      "safety": "potentiallyunsafe"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ],
+          "classification": "Existing application findings retained; no baseline, ignores or source repairs."
+        },
+        "type_control": {
+          "code": "invalid-return-statement",
+          "file": "src/Form/Type/TagsInputType.php",
+          "line": 57,
+          "diagnostic": {
+            "level": "Error",
+            "code": "invalid-return-statement",
+            "message": "Invalid return type for function `App\\Form\\Type\\TagsInputType::getParent`: expected `string`, but found `int(42)`.",
+            "help": "Change the return value to match `string`, or update the function's return type declaration.",
+            "annotations": [
+              {
+                "message": "This has type `int(42)`",
+                "kind": "Primary",
+                "span": {
+                  "file_id": {
+                    "name": "src/Form/Type/TagsInputType.php",
+                    "path": "/app/src/Form/Type/TagsInputType.php",
+                    "size": 1921,
+                    "file_type": "Host"
+                  },
+                  "start": {
+                    "offset": 1909,
+                    "line": 56
+                  },
+                  "end": {
+                    "offset": 1911,
+                    "line": 56
+                  }
+                }
+              }
+            ]
+          },
+          "restored": true
+        },
+        "lint_control": {
+          "code": "no-debug-symbols",
+          "file": "src/Form/Type/TagsInputType.php",
+          "line": 52,
+          "diagnostic": {
+            "level": "Error",
+            "code": "no-debug-symbols",
+            "message": "Do not commit debug functions.",
+            "notes": [
+              "Debug functions can expose sensitive application data if left in production code."
+            ],
+            "help": "Remove this function call.",
+            "annotations": [
+              {
+                "message": "Function `var_dump` should be removed before committing",
+                "kind": "Primary",
+                "span": {
+                  "file_id": {
+                    "name": "src/Form/Type/TagsInputType.php",
+                    "path": "/app/src/Form/Type/TagsInputType.php",
+                    "size": 1962,
+                    "file_type": "Host"
+                  },
+                  "start": {
+                    "offset": 1795,
+                    "line": 51
+                  },
+                  "end": {
+                    "offset": 1813,
+                    "line": 51
+                  }
+                }
+              }
+            ]
+          },
+          "restored": true
+        },
+        "safe_fix": {
+          "rule": "no-redundant-parentheses",
+          "safe_default": true,
+          "diff": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/safe-fix.diff",
+          "restores_exact_source": true,
+          "unfixable_lint_control": "no-debug-symbols has no automatic fix; removed explicitly."
+        },
+        "guard": {
+          "allowed": true,
+          "violating": [
+            {
+              "level": "Error",
+              "code": "must-extend",
+              "message": "Structural flaw in `App\\Form\\Type\\TagsInputType`",
+              "notes": [
+                "TagsInputType is registered as a Symfony form type and must retain its AbstractType contract."
+              ],
+              "help": "Ensure this class extends the required base class.",
+              "annotations": [
+                {
+                  "message": "Does not extend required base class: `Symfony\\Component\\Form\\AbstractType`",
+                  "kind": "Primary",
+                  "span": {
+                    "file_id": {
+                      "name": "src/Form/Type/TagsInputType.php",
+                      "path": "/app/src/Form/Type/TagsInputType.php",
+                      "size": 1913,
+                      "file_type": "Host"
+                    },
+                    "start": {
+                      "offset": 928,
+                      "line": 30
+                    },
+                    "end": {
+                      "offset": 941,
+                      "line": 30
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "purpose": "Registered form retains Symfony AbstractType contract."
+        },
+        "behavior_before": {
+          "tests": 53,
+          "assertions": 120,
+          "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+        },
+        "behavior_after": {
+          "tests": 53,
+          "assertions": 120,
+          "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+        },
+        "format": {
+          "detected_exit": 1,
+          "restored_exact_source": true,
+          "second_pass_stable": true,
+          "behavior_unchanged": true,
+          "scope": "src/Form/Type/TagsInputType.php"
+        },
+        "cst": {
+          "status": "used",
+          "purpose": "Verify class, inheritance spelling, promoted parameter and method names in the native lossless CST; retain method bodies.",
+          "bytes": 1934,
+          "parse_errors": [],
+          "raw": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285/cst/stdout",
+          "declaration": {
+            "class": "TagsInputType",
+            "extends_local_name": "AbstractType",
+            "constructor_parameter": "$tags",
+            "parameter_local_type": "TagRepository",
+            "promoted_modifiers": [
+              "Private",
+              "Readonly"
+            ],
+            "methods": [
+              "__construct",
+              "buildForm",
+              "buildView",
+              "getParent"
+            ]
+          }
+        },
+        "routing": {
+          "foreign_cwd": "pass",
+          "missing_run_exit": 3,
+          "workspace_override_exit": 3,
+          "scoped_write_rejections": {
+            "format-directory-mix": {
+              "argv": [
+                "format",
+                "src/Form/Type/TagsInputType.php",
+                "."
+              ],
+              "exit": 3,
+              "source_unchanged": true
+            },
+            "format-absolute-mix": {
+              "argv": [
+                "format",
+                "src/Form/Type/TagsInputType.php",
+                "/app/src/Form/Type/TagsInputType.php"
+              ],
+              "exit": 3,
+              "source_unchanged": true
+            },
+            "format-parent-mix": {
+              "argv": [
+                "format",
+                "src/Form/Type/TagsInputType.php",
+                "../outside.php"
+              ],
+              "exit": 3,
+              "source_unchanged": true
+            },
+            "format-help-operand": {
+              "argv": [
+                "format",
+                "src/Form/Type/TagsInputType.php",
+                ".",
+                "--",
+                "--help"
+              ],
+              "exit": 3,
+              "source_unchanged": true
+            },
+            "lint-unscoped-fix": {
+              "argv": [
+                "lint",
+                "--fix"
+              ],
+              "exit": 3,
+              "source_unchanged": true
+            },
+            "analyze-unscoped-fix": {
+              "argv": [
+                "analyze",
+                "--fix"
+              ],
+              "exit": 3,
+              "source_unchanged": true
+            },
+            "lint-fix-directory-mix": {
+              "argv": [
+                "lint",
+                "--fix",
+                "--only",
+                "no-redundant-parentheses",
+                "src/Form/Type/TagsInputType.php",
+                "."
+              ],
+              "exit": 3,
+              "source_unchanged": true
+            },
+            "analyze-variable-option": {
+              "argv": [
+                "analyze",
+                "--fix",
+                "--only",
+                "invalid-return-statement",
+                "src/Form/Type/TagsInputType.php"
+              ],
+              "exit": 3,
+              "source_unchanged": true
+            }
+          }
+        },
+        "source_restored": true,
+        "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/mago/calibration-bd75c45194764bbaad953ceb1922c285"
+      },
+      "elapsed_s": 19.144
+    },
+    {
+      "run_id": "lspext-recovery-slice1-20261028",
+      "workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+      "source_context_sha256": "d46622db7aa16cea95f6d222e1f358d5be24d4736bef9f5c9d0fe89d4668f931",
+      "service": "App\\Form\\Type\\TagsInputType",
+      "name": "service_semantics",
+      "status": "pass",
+      "detail": {
+        "schema": 1,
+        "run_id": "lspext-recovery-slice1-20261028",
+        "status": "pass",
+        "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/service-semantics/20261029T010522Z-1ef366",
+        "service": "src/Form/Type/TagsInputType.php",
+        "source_sha256": {
+          "src/Form/Type/TagsInputType.php": "5e99fa98513a9d07049060d9b3c9de1c043403439a93f697ac9c6997d1cc1882",
+          "src/Repository/TagRepository.php": "f98f6f7b029ba0a9e9c8f62603451947711a86155fff6480c7659145fea5d499",
+          "src/Form/PostType.php": "7a7544f3b16b42911ea8597af58812714e022ed1d496ab2e8451e524248eef8e"
+        },
+        "verification": "deterministic real MCP replay plus direct LSP hierarchy probes",
+        "host_launcher": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/bin/serena-mcp",
+        "launcher_cwd": "/tmp",
+        "probe_sha256": "955a19f8a1c9cbc0d47f6b9b1ee7d060562297a14ef75dd64a84336eaa396cf5",
+        "mcp": {
+          "reference_locations": [
+            {
+              "file": "src/Form/PostType.php",
+              "line": 15,
+              "character": 4
+            },
+            {
+              "file": "src/Form/PostType.php",
+              "line": 68,
+              "character": 26
+            }
+          ],
+          "inherited_definition": "vendor/doctrine/orm/src/EntityRepository.php",
+          "hover_via_existing_facade": true,
+          "diagnostics": {
+            "src/Form/Type/TagsInputType.php": {
+              "Warning": {
+                "<file>": [
+                  {
+                    "message": "Missing `declare(strict_types=1);` statement at the beginning of the file.\n = The `strict_types` directive enforces strict type checking, which can prevent subtle bugs.\n = Help: Add `declare(strict_types=1);` at the top of your file.",
+                    "range": {
+                      "start": {
+                        "line": 0,
+                        "character": 0
+                      },
+                      "end": {
+                        "line": 0,
+                        "character": 5
+                      }
+                    },
+                    "code": "strict-types",
+                    "source": "mago"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "direct_hierarchy": {
+          "types": [
+            {
+              "name": "App\\Form\\Type\\TagsInputType",
+              "kind": 5,
+              "uri": "file:///app/src/Form/Type/TagsInputType.php",
+              "range": {
+                "start": {
+                  "line": 30,
+                  "character": 12
+                },
+                "end": {
+                  "line": 58,
+                  "character": 1
+                }
+              },
+              "selectionRange": {
+                "start": {
+                  "line": 30,
+                  "character": 12
+                },
+                "end": {
+                  "line": 30,
+                  "character": 25
+                }
+              },
+              "data": {
+                "workspace": "file:///app",
+                "key": [
+                  97,
+                  112,
+                  112,
+                  92,
+                  102,
+                  111,
+                  114,
+                  109,
+                  92,
+                  116,
+                  121,
+                  112,
+                  101,
+                  92,
+                  116,
+                  97,
+                  103,
+                  115,
+                  105,
+                  110,
+                  112,
+                  117,
+                  116,
+                  116,
+                  121,
+                  112,
+                  101
+                ]
+              }
+            }
+          ],
+          "supertypes": [
+            {
+              "name": "Symfony\\Component\\Form\\AbstractType",
+              "kind": 5,
+              "uri": "file:///app/vendor/symfony/form/AbstractType.php",
+              "range": {
+                "start": {
+                  "line": 20,
+                  "character": 15
+                },
+                "end": {
+                  "line": 47,
+                  "character": 1
+                }
+              },
+              "selectionRange": {
+                "start": {
+                  "line": 20,
+                  "character": 15
+                },
+                "end": {
+                  "line": 20,
+                  "character": 27
+                }
+              },
+              "data": {
+                "workspace": "file:///app",
+                "key": [
+                  115,
+                  121,
+                  109,
+                  102,
+                  111,
+                  110,
+                  121,
+                  92,
+                  99,
+                  111,
+                  109,
+                  112,
+                  111,
+                  110,
+                  101,
+                  110,
+                  116,
+                  92,
+                  102,
+                  111,
+                  114,
+                  109,
+                  92,
+                  97,
+                  98,
+                  115,
+                  116,
+                  114,
+                  97,
+                  99,
+                  116,
+                  116,
+                  121,
+                  112,
+                  101
+                ]
+              }
+            }
+          ],
+          "methods": [
+            {
+              "name": "App\\Form\\Type\\TagsInputType::buildView",
+              "kind": 6,
+              "uri": "file:///app/src/Form/Type/TagsInputType.php",
+              "range": {
+                "start": {
+                  "line": 49,
+                  "character": 4
+                },
+                "end": {
+                  "line": 52,
+                  "character": 5
+                }
+              },
+              "selectionRange": {
+                "start": {
+                  "line": 49,
+                  "character": 20
+                },
+                "end": {
+                  "line": 49,
+                  "character": 29
+                }
+              },
+              "data": {
+                "workspace": "file:///app",
+                "key": {
+                  "Method": [
+                    [
+                      97,
+                      112,
+                      112,
+                      92,
+                      102,
+                      111,
+                      114,
+                      109,
+                      92,
+                      116,
+                      121,
+                      112,
+                      101,
+                      92,
+                      116,
+                      97,
+                      103,
+                      115,
+                      105,
+                      110,
+                      112,
+                      117,
+                      116,
+                      116,
+                      121,
+                      112,
+                      101
+                    ],
+                    [
+                      98,
+                      117,
+                      105,
+                      108,
+                      100,
+                      118,
+                      105,
+                      101,
+                      119
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "outgoing": [
+            {
+              "to": {
+                "name": "Doctrine\\ORM\\EntityRepository::findAll",
+                "kind": 6,
+                "uri": "file:///app/vendor/doctrine/orm/src/EntityRepository.php",
+                "range": {
+                  "start": {
+                    "line": 93,
+                    "character": 4
+                  },
+                  "end": {
+                    "line": 96,
+                    "character": 5
+                  }
+                },
+                "selectionRange": {
+                  "start": {
+                    "line": 93,
+                    "character": 20
+                  },
+                  "end": {
+                    "line": 93,
+                    "character": 27
+                  }
+                },
+                "data": {
+                  "workspace": "file:///app",
+                  "key": {
+                    "Method": [
+                      [
+                        100,
+                        111,
+                        99,
+                        116,
+                        114,
+                        105,
+                        110,
+                        101,
+                        92,
+                        111,
+                        114,
+                        109,
+                        92,
+                        101,
+                        110,
+                        116,
+                        105,
+                        116,
+                        121,
+                        114,
+                        101,
+                        112,
+                        111,
+                        115,
+                        105,
+                        116,
+                        111,
+                        114,
+                        121
+                      ],
+                      [
+                        102,
+                        105,
+                        110,
+                        100,
+                        97,
+                        108,
+                        108
+                      ]
+                    ]
+                  }
+                }
+              },
+              "fromRanges": [
+                {
+                  "start": {
+                    "line": 51,
+                    "character": 43
+                  },
+                  "end": {
+                    "line": 51,
+                    "character": 50
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "extension_propagation": {
+          "status": "pass",
+          "classification": "native graph propagation",
+          "reason": "Candidate initializes native external hosts and exposes their real graph through mago/symbolReferences.",
+          "config": "/app/.mago/wiring.toml",
+          "config_sha256": "e4e7946632cae6ea0269fcd2a58016b5cefb4d9d46c767e03446ab7d73d0ee68",
+          "identity": {
+            "version": "mago 1.58.2",
+            "source": "46df50c96d93d0ac3655c116c375574277cf0b30",
+            "sdk_version": "1.58.2",
+            "sdk_source": "46df50c96d93d0ac3655c116c375574277cf0b30"
+          },
+          "instrumented_config": "/evidence/service-semantics/propagation-fe124726/instrumented.toml",
+          "cli": {
+            "command": [
+              "mago",
+              "--workspace",
+              "/app",
+              "--config",
+              "/evidence/service-semantics/propagation-fe124726/instrumented.toml",
+              "analyze",
+              "--reporting-format",
+              "json"
+            ],
+            "exit": 1,
+            "worker_started": true,
+            "observer_ran": true,
+            "attestation": [
+              {
+                "level": "Note",
+                "code": "byte-kitsune/symfony-wiring/analysis-attestation",
+                "message": "Symfony service wiring analysis completed.",
+                "notes": [
+                  "extension-attestation: {\"schema_version\":\"1\",\"extension\":\"byte-kitsune/symfony-wiring\",\"version\":\"1.3.0-RC1\",\"capability\":\"service_wiring\",\"complete\":true,\"source_files\":46}"
+                ],
+                "annotations": [
+                  {
+                    "kind": "Primary",
+                    "span": {
+                      "file_id": {
+                        "name": "tests/object-manager.php",
+                        "path": "/app/tests/object-manager.php",
+                        "size": 546,
+                        "file_type": "Host"
+                      },
+                      "start": {
+                        "offset": 0,
+                        "line": 0
+                      },
+                      "end": {
+                        "offset": 1,
+                        "line": 0
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "lsp": {
+            "initialization": {
+              "capabilities": {
+                "textDocumentSync": {
+                  "openClose": true,
+                  "change": 1,
+                  "willSave": false,
+                  "willSaveWaitUntil": false,
+                  "save": true
+                },
+                "completionProvider": {
+                  "triggerCharacters": [
+                    "$",
+                    ":",
+                    "\\",
+                    ">",
+                    " "
+                  ],
+                  "resolveProvider": false
+                },
+                "hoverProvider": true,
+                "signatureHelpProvider": {
+                  "triggerCharacters": [
+                    "(",
+                    ","
+                  ]
+                },
+                "definitionProvider": true,
+                "typeDefinitionProvider": true,
+                "implementationProvider": true,
+                "referencesProvider": true,
+                "documentHighlightProvider": true,
+                "documentSymbolProvider": true,
+                "codeLensProvider": {
+                  "resolveProvider": true
+                },
+                "documentLinkProvider": {
+                  "resolveProvider": false
+                },
+                "workspaceSymbolProvider": true,
+                "documentFormattingProvider": true,
+                "documentRangeFormattingProvider": true,
+                "renameProvider": true,
+                "foldingRangeProvider": true,
+                "selectionRangeProvider": true,
+                "callHierarchyProvider": true,
+                "typeHierarchyProvider": true,
+                "inlayHintProvider": true,
+                "workspace": {
+                  "workspaceFolders": {
+                    "supported": true,
+                    "changeNotifications": true
+                  }
+                },
+                "experimental": {
+                  "symbolReferencesProvider": true
+                }
+              },
+              "serverInfo": {
+                "name": "mago-server",
+                "version": "1.58.2"
+              }
+            },
+            "symbols": [
+              {
+                "name": "App\\Form\\Type",
+                "kind": 3,
+                "range": {
+                  "start": {
+                    "line": 11,
+                    "character": 0
+                  },
+                  "end": {
+                    "line": 58,
+                    "character": 1
+                  }
+                },
+                "selectionRange": {
+                  "start": {
+                    "line": 11,
+                    "character": 10
+                  },
+                  "end": {
+                    "line": 11,
+                    "character": 23
+                  }
+                },
+                "children": [
+                  {
+                    "name": "TagsInputType",
+                    "kind": 5,
+                    "range": {
+                      "start": {
+                        "line": 30,
+                        "character": 0
+                      },
+                      "end": {
+                        "line": 58,
+                        "character": 1
+                      }
+                    },
+                    "selectionRange": {
+                      "start": {
+                        "line": 30,
+                        "character": 12
+                      },
+                      "end": {
+                        "line": 30,
+                        "character": 25
+                      }
+                    },
+                    "children": [
+                      {
+                        "name": "__construct",
+                        "kind": 9,
+                        "range": {
+                          "start": {
+                            "line": 32,
+                            "character": 4
+                          },
+                          "end": {
+                            "line": 35,
+                            "character": 5
+                          }
+                        },
+                        "selectionRange": {
+                          "start": {
+                            "line": 32,
+                            "character": 20
+                          },
+                          "end": {
+                            "line": 32,
+                            "character": 31
+                          }
+                        }
+                      },
+                      {
+                        "name": "$tags",
+                        "kind": 7,
+                        "range": {
+                          "start": {
+                            "line": 33,
+                            "character": 8
+                          },
+                          "end": {
+                            "line": 33,
+                            "character": 44
+                          }
+                        },
+                        "selectionRange": {
+                          "start": {
+                            "line": 33,
+                            "character": 39
+                          },
+                          "end": {
+                            "line": 33,
+                            "character": 44
+                          }
+                        }
+                      },
+                      {
+                        "name": "buildForm",
+                        "kind": 6,
+                        "range": {
+                          "start": {
+                            "line": 37,
+                            "character": 4
+                          },
+                          "end": {
+                            "line": 47,
+                            "character": 5
+                          }
+                        },
+                        "selectionRange": {
+                          "start": {
+                            "line": 37,
+                            "character": 20
+                          },
+                          "end": {
+                            "line": 37,
+                            "character": 29
+                          }
+                        }
+                      },
+                      {
+                        "name": "buildView",
+                        "kind": 6,
+                        "range": {
+                          "start": {
+                            "line": 49,
+                            "character": 4
+                          },
+                          "end": {
+                            "line": 52,
+                            "character": 5
+                          }
+                        },
+                        "selectionRange": {
+                          "start": {
+                            "line": 49,
+                            "character": 20
+                          },
+                          "end": {
+                            "line": 49,
+                            "character": 29
+                          }
+                        }
+                      },
+                      {
+                        "name": "getParent",
+                        "kind": 6,
+                        "range": {
+                          "start": {
+                            "line": 54,
+                            "character": 4
+                          },
+                          "end": {
+                            "line": 57,
+                            "character": 5
+                          }
+                        },
+                        "selectionRange": {
+                          "start": {
+                            "line": 54,
+                            "character": 20
+                          },
+                          "end": {
+                            "line": 54,
+                            "character": 29
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "graph": {
+              "source": {
+                "symbol": "app\\repository\\tagrepository",
+                "member": "__construct"
+              },
+              "references": [
+                {
+                  "kind": "body",
+                  "target": {
+                    "symbol": "app\\entity\\tag",
+                    "member": ""
+                  }
+                },
+                {
+                  "kind": "body",
+                  "target": {
+                    "symbol": "doctrine\\bundle\\doctrinebundle\\registry",
+                    "member": ""
+                  }
+                },
+                {
+                  "kind": "body",
+                  "target": {
+                    "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+                    "member": ""
+                  }
+                },
+                {
+                  "kind": "body",
+                  "target": {
+                    "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+                    "member": "__construct"
+                  }
+                },
+                {
+                  "kind": "signature",
+                  "target": {
+                    "symbol": "doctrine\\persistence\\managerregistry",
+                    "member": ""
+                  }
+                }
+              ]
+            },
+            "worker_started": true,
+            "observer_ran": true
+          },
+          "source_location": "src/language_server/workspace/loading.rs:89 at 46df50c96d93d0ac3655c116c375574277cf0b30",
+          "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/service-semantics/propagation-fe124726"
+        }
+      },
+      "elapsed_s": 7.357
+    },
+    {
+      "run_id": "lspext-recovery-slice1-20261028",
+      "workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+      "source_context_sha256": "d46622db7aa16cea95f6d222e1f358d5be24d4736bef9f5c9d0fe89d4668f931",
+      "service": "App\\Form\\Type\\TagsInputType",
+      "name": "symfony_wiring",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "run_id": "lspext-recovery-slice1-20261028",
+        "service": "App\\Form\\Type\\TagsInputType",
+        "preparation_id": "prepare-c7879b140bb24931a9541ccef0ff7ed8",
+        "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/framework/d7c9f12da6bb4eb4a48705f3e2b34aa8",
+        "controls": {
+          "missing-service": "pass",
+          "unknown-run": "pass",
+          "wrong-project": "pass",
+          "wrong-workspace": "pass",
+          "stale-source": "pass",
+          "stale-source-abbreviated-command": "pass",
+          "absent-compiled-metadata": "pass",
+          "stale-compiled-metadata": "pass",
+          "absent-wiring-reference": "pass",
+          "owner-instruction-preservation": "pass",
+          "extension-off-on": "pass",
+          "invalid-binding-removed-and-restored": "pass"
+        },
+        "compiled_wiring": {
+          "status": "pass",
+          "service_id": "App\\Form\\Type\\TagsInputType",
+          "class": "App\\Form\\Type\\TagsInputType",
+          "constructor_parameter": "tags",
+          "dependency_id": "App\\Repository\\TagRepository",
+          "dependency_class": "App\\Repository\\TagRepository",
+          "context": "inspection-dev",
+          "normalization": "Direct reference at constructor position 0; no alias or inlining in this fixture."
+        },
+        "extension": {
+          "status": "pass",
+          "backend": "php",
+          "mago_source": "46df50c96d93d0ac3655c116c375574277cf0b30",
+          "extension_source": "28c3f54065b71fe046a7474ced401aeadc941b0f",
+          "contribution": "TagRepository::__construct -> Doctrine\\Bundle\\DoctrineBundle\\Registry Body edge",
+          "direct_service_boundary": "TagsInputType -> TagRepository already has a native Signature edge; Mago suppresses duplicate Body edges.",
+          "native_issue_counts": {
+            "off": 35,
+            "on": 35
+          },
+          "clean_application_claim": false
+        }
+      },
+      "elapsed_s": 33.465
+    },
+    {
+      "run_id": "lspext-recovery-slice1-20261028",
+      "workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+      "source_context_sha256": "d46622db7aa16cea95f6d222e1f358d5be24d4736bef9f5c9d0fe89d4668f931",
+      "service": "App\\Form\\Type\\TagsInputType",
+      "name": "behavior",
+      "status": "pass",
+      "detail": {
+        "tests": 53,
+        "assertions": 120,
+        "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+      },
+      "elapsed_s": 3.913
+    },
+    {
+      "run_id": "lspext-recovery-slice1-20261028",
+      "workspace": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/workspaces/lspext-recovery-slice1-20261028/app",
+      "source_context_sha256": "d46622db7aa16cea95f6d222e1f358d5be24d4736bef9f5c9d0fe89d4668f931",
+      "service": "App\\Form\\Type\\TagsInputType",
+      "name": "cleanup",
+      "status": "pass",
+      "detail": null,
+      "elapsed_s": 0.639
+    }
+  ],
+  "evidence": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice1-20261028/slice1/attempt-ee0445c8c1704a548f42f70380029487",
+  "interpretation": "Calibrated capability checks; original whole-app findings remain findings. A passing CLI bridge does not assert LSP propagation."
+}

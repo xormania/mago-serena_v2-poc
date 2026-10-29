@@ -1,0 +1,8 @@
+extends = ".mago/wiring.toml"
+[language-server]
+restart-on = [".mago/container-reference.dev.json", ".mago/extensions.php"]
+[extension-hosts.php]
+enabled = false
+working-directory = "."
+workers = 1
+command = ["env", "MAGO_EXTENSION_BACKEND=php", "MAGO_SYMFONY_WIRING_ATTESTATION=1", "POC_WIRING_OBSERVATION=/evidence/agent-observer.json", "php", "-d", "display_errors=stderr", "-d", "memory_limit=1G", ".mago/extensions.php"]

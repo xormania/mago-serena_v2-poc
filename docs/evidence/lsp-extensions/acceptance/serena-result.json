@@ -1,0 +1,95 @@
+{
+  "status": "pass",
+  "kind": "deterministic_real_host_mcp",
+  "controls": {
+    "on": {
+      "graph": {
+        "source": {
+          "symbol": "app\\repository\\tagrepository",
+          "member": "__construct"
+        },
+        "references": [
+          {
+            "kind": "body",
+            "target": {
+              "symbol": "app\\entity\\tag",
+              "member": ""
+            }
+          },
+          {
+            "kind": "body",
+            "target": {
+              "symbol": "doctrine\\bundle\\doctrinebundle\\registry",
+              "member": ""
+            }
+          },
+          {
+            "kind": "body",
+            "target": {
+              "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+              "member": ""
+            }
+          },
+          {
+            "kind": "body",
+            "target": {
+              "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+              "member": "__construct"
+            }
+          },
+          {
+            "kind": "signature",
+            "target": {
+              "symbol": "doctrine\\persistence\\managerregistry",
+              "member": ""
+            }
+          }
+        ]
+      },
+      "registry_body": true,
+      "manager_registry_signature": true
+    },
+    "off": {
+      "graph": {
+        "source": {
+          "symbol": "app\\repository\\tagrepository",
+          "member": "__construct"
+        },
+        "references": [
+          {
+            "kind": "body",
+            "target": {
+              "symbol": "app\\entity\\tag",
+              "member": ""
+            }
+          },
+          {
+            "kind": "body",
+            "target": {
+              "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+              "member": ""
+            }
+          },
+          {
+            "kind": "body",
+            "target": {
+              "symbol": "doctrine\\bundle\\doctrinebundle\\repository\\serviceentityrepository",
+              "member": "__construct"
+            }
+          },
+          {
+            "kind": "signature",
+            "target": {
+              "symbol": "doctrine\\persistence\\managerregistry",
+              "member": ""
+            }
+          }
+        ]
+      },
+      "registry_body": false,
+      "manager_registry_signature": true
+    }
+  },
+  "launcher": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/bin/serena-mcp",
+  "launcher_cwd": "/tmp"
+}

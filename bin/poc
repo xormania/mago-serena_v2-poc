@@ -35,7 +35,7 @@ def capture_identity(data, source):
     assert response.returncode == 0, f'Runtime identity failed; see {evidence}/executed-identity.stderr'
     actual = json.loads((evidence/'executed-identity.json').read_text())
     assert actual['run_id'] == data['run_id'] and actual['attempt_id'] == '1'
-    prefixes = ('adapter/src/', 'tests/', 'docker/', 'config/', 'fixtures/')
+    prefixes = ('adapter/src/', 'tests/', 'docker/', 'config/', 'fixtures/', 'patches/')
     explicit = ('uv.lock', 'pyproject.toml', 'adapter/pyproject.toml', 'toolchain.lock.json')
     expected = {p:row['sha256'] for p,row in source['source_manifest'].items() if p.startswith(prefixes) or p in explicit}
     changed = sorted(path for path in actual['installed_files'].keys() | expected.keys()
@@ -74,9 +74,9 @@ def report(run_id):
     return 0
 
 
-def test():
+def test(run_prefix="test"):
     from verifier import snapshot, save_snapshot, expected_suite, verify_suite
-    run_id = new_id('test')
+    run_id = new_id(run_prefix)
     a, b = prepare(run_id), prepare(run_id + '-b')
     evidence = Path(a['evidence'])
     source = metadata(a)
@@ -194,7 +194,8 @@ def main():
     doctor = sub.add_parser('doctor', help='Check Docker, fixture, runtime and selected backend')
     doctor.add_argument('--run', default='dev')
     sub.add_parser('fast', help='Run deterministic property/verifier/evidence/mocked-provider tests without Docker')
-    sub.add_parser('test', help='Run two isolated Demo baselines and the real MCP/LSP acceptance matrix')
+    acceptance = sub.add_parser('test', help='Run two isolated Demo baselines and the real MCP/LSP acceptance matrix')
+    acceptance.add_argument('--run-prefix', default='test', help='Prefix for task-owned disposable runs')
     mate_prepare = sub.add_parser('mate-prepare', help='Install the locked inspection overlay and refresh dev metadata')
     mate_prepare.add_argument('--run', required=True)
     mago = sub.add_parser('mago', help='Run Mago with explicit configuration in the selected workspace')
@@ -244,7 +245,7 @@ def main():
     elif args.command == 'fast':
         return fast()
     elif args.command == 'test':
-        return test()
+        return test(args.run_prefix)
     elif args.command == 'mate-prepare':
         from matelib import prepare_mate, selected
         prepare_mate(selected(args.run))

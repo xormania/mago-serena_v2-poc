@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "scope": "All src and tests (46 PHP files), vendor declarations; unchanged current fixture",
+  "reports": {
+    "baseline": {
+      "total_issues": 36,
+      "native_issues": 35,
+      "attestations": 1
+    },
+    "candidate_on": {
+      "total_issues": 36,
+      "native_issues": 35,
+      "attestations": 1
+    },
+    "candidate_off": {
+      "total_issues": 35,
+      "native_issues": 35,
+      "attestations": 0
+    }
+  },
+  "native_issues_identical": true,
+  "native_issues_sha256": "f63d600db2828877de2b021806190afa9acfbd6276c53aa96e047ee517a14291",
+  "historical_scope": "The earlier 30-native-diagnostic record analyzed source only (34 files); no expectation was rewritten to match a changed total."
+}

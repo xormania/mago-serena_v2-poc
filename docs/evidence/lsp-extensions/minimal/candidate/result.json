@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "mode": "candidate",
+  "status": "pass",
+  "binary": "/usr/local/bin/mago",
+  "binary_sha256": "5cfaa051b9cb23f63cbcd8ec1703538c1f2789ff21ad068b239678631f701e46",
+  "version": "mago 1.58.2",
+  "autoload": "/app/vendor/autoload.php",
+  "scope": "Explicit SDK test dependency; no Symfony claim",
+  "cli": {
+    "exit": 0,
+    "worker_started": true,
+    "body_edge": true
+  },
+  "lsp_on": {
+    "worker_started": true,
+    "observer_ran": true,
+    "native_symbols": true,
+    "response": {
+      "source": {
+        "symbol": "repro\\service",
+        "member": "__construct"
+      },
+      "references": [
+        {
+          "kind": "body",
+          "target": {
+            "symbol": "repro\\concrete",
+            "member": ""
+          }
+        },
+        {
+          "kind": "signature",
+          "target": {
+            "symbol": "repro\\port",
+            "member": ""
+          }
+        }
+      ]
+    }
+  },
+  "lsp_off": {
+    "worker_started": false,
+    "observer_ran": false,
+    "native_symbols": true,
+    "response": {
+      "source": {
+        "symbol": "repro\\service",
+        "member": "__construct"
+      },
+      "references": [
+        {
+          "kind": "signature",
+          "target": {
+            "symbol": "repro\\port",
+            "member": ""
+          }
+        }
+      ]
+    }
+  }
+}

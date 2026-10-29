@@ -1,0 +1,31 @@
+{
+    "class": "App\\Repository\\TagRepository",
+    "public": false,
+    "synthetic": false,
+    "lazy": false,
+    "shared": true,
+    "abstract": false,
+    "autowire": true,
+    "autoconfigure": true,
+    "deprecated": false,
+    "description": "This custom Doctrine repository is empty because so far we don't need any custom method to query for application user information. But it's always a good practice to define a custom repository that will be used when the application grows.",
+    "arguments": [
+        {
+            "type": "service",
+            "id": "lspext.registry"
+        }
+    ],
+    "file": null,
+    "tags": [
+        {
+            "name": "doctrine.repository_service",
+            "parameters": []
+        }
+    ],
+    "usages": [
+        "App\\Form\\DataTransformer\\TagArrayToStringTransformer",
+        "App\\Form\\Type\\TagsInputType",
+        ".service_locator.0xtdKU7",
+        ".service_locator.WfmHhiJ"
+    ]
+}

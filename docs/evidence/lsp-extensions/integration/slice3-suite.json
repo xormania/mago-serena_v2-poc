@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "original": {
+    "tests": 53,
+    "assertions": 120,
+    "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+  },
+  "combined": {
+    "tests": 54,
+    "assertions": 135,
+    "identities_sha256": "f7a0421b1df797c3f9efa572d90852549f01e9dc4d142b6ac83c1c7ef7aac4c0"
+  },
+  "regression": {
+    "tests": 1,
+    "identities": [
+      "App\\Tests\\Controller\\BlogTagFilterTest::testKnownTagFilter"
+    ],
+    "assertions": 15
+  },
+  "original_projection": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-conflicts-20261028c/artifacts/lspext-recovery-slice3-20261028/slice3/attempt-a5940fa6a03b4f5583f370409071423f/original-after.xml"
+}

@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "kind": "adaptive_agent_investigation",
+  "status": "pass",
+  "agent": "Root Codex agent in the existing authenticated session; next cells chosen after prior tool results",
+  "interface": "host bin/serena-mcp \u2192 MCP \u2192 Serena REPL \u2192 configured candidate Mago",
+  "scripted_replay": false,
+  "runner": "tests/integration/interactive_serena.py transports one agent-selected cell at a time; no task decisions or prerecorded cells",
+  "tool_calls": 15,
+  "observations": {
+    "healthy_on": true,
+    "extension_off_removed": true,
+    "changed_binding_replaced": true,
+    "restored_exactly": true
+  },
+  "original_suite": {
+    "tests": 53,
+    "assertions": 120,
+    "identities_sha256": "946fdc25dc89f6f630ed2c60a1ace4af92fef806a91b2a8402c158b786f4a8fa"
+  },
+  "original_test_source_sha256": {
+    "tests/Command/AbstractCommandTestCase.php": "5aece96bb1a0c30386ddd93fee33a440a4d0a2612b8ea7536850333496c9afa9",
+    "tests/Command/AddUserCommandTest.php": "602b8f2f664c10ca7a459b7f5b2743415ca4d0c5284a08a057990b3b483797b7",
+    "tests/Command/ListUsersCommandTest.php": "69c343e5ea36a71f7b8111ade289b2fdfc558cfc96756f5537689d174151dfd3",
+    "tests/Controller/Admin/BlogControllerTest.php": "047581f012b51b6713846d48fe567e99aa4ebffdd9c56b29d875d27c7bdd937a",
+    "tests/Controller/BlogControllerTest.php": "2113d8ba37f2b019f5fc54dcc683f3d7ad989f86b69d3e0a6941f12914cd0984",
+    "tests/Controller/DefaultControllerTest.php": "0bfc8bf7aedf976941c571cffc7ac15b14cb44a339cd8b849a05a84cd82c4b2c",
+    "tests/Controller/UserControllerTest.php": "29e213a33e23199facb1f10271acf9f94eac78e6cb6c54487545f672109f6f3e",
+    "tests/Form/DataTransformer/TagArrayToStringTransformerTest.php": "e6f44077e983c92af0f69e23b5b0339ede96ef757375e2e44eeaf3b06c7233a0",
+    "tests/Twig/AppExtensionTest.php": "418d0a8a4e0d5b29644525847451bc08c30b99873c554c03d5c8979140623718",
+    "tests/Utils/ValidatorTest.php": "0262f8750ddcda6a0a44927511d3860fbe20ae07016bd572aea9fee2093de71c",
+    "tests/bootstrap.php": "4b58b0af3c87b9faa16766e09fffc917942bc43d16cf6d850ebc5f1796a1e426",
+    "tests/object-manager.php": "adf75da53f4be1a4ef840f104f390aa3e6eb4b1af89c17afa6d94a8248ddeeb3",
+    "phpunit.dist.xml": "05f1cca53af9af1dd35a5c41b37aab3bf33729e1def5cb32f88e37a37a34472a"
+  },
+  "adaptation": "An assumed vendor path failed; the agent queried the directory to discover the real ManagerRegistry definition before continuing.",
+  "metadata_freshness": "Intentional source/service changes followed real mate-prepare export and explicit Serena language-server restart; restored query equals original.",
+  "image": {
+    "container_id": "91d3f5e0a7b887a1782f5bd4e33179f02e7d71b64d8dd03901fcaff36b1f7e40",
+    "image_id": "sha256:3cc2d1c9f074c1377d103a90d3287a8bb04c7af0e909dd2f0b85b7243cdd7ef1",
+    "repo_digests": [],
+    "created": "2026-10-28T22:49:00.953485873Z",
+    "architecture": "amd64",
+    "installed_files_checked": 72
+  },
+  "limits": "Graph edges have no source spans or per-edge provider provenance. On/off controls establish this effect. No autonomous coding benchmark claimed.",
+  "agent_selected_repl_cells": 14,
+  "tool_call_count_note": "14 agent-selected REPL cells plus the transport runner initial_instructions call = 15 MCP tool calls."
+}

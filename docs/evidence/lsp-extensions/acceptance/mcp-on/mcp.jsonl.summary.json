@@ -1,0 +1,8 @@
+{
+  "max_bytes": 2000000,
+  "max_record_bytes": 32000,
+  "retained_bytes": 27987,
+  "dropped_records": 0,
+  "truncated_records": 0,
+  "protocol_traffic_modified": false
+}

@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "observed_at": "2026-10-28T22:49:21.072001+00:00",
+  "command": [
+    "git",
+    "ls-remote",
+    "https://github.com/carthage-software/mago.git",
+    "refs/heads/next-server",
+    "refs/heads/main"
+  ],
+  "stdout": "95a25d686a2b584c387326e466d6ead8c885465d\trefs/heads/main\n46df50c96d93d0ac3655c116c375574277cf0b30\trefs/heads/next-server",
+  "refs": {
+    "refs/heads/main": "95a25d686a2b584c387326e466d6ead8c885465d",
+    "refs/heads/next-server": "46df50c96d93d0ac3655c116c375574277cf0b30"
+  },
+  "scope": "Read-only branch identity check. This does not claim an exhaustive search of issues/PRs."
+}

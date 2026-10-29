@@ -1,0 +1,348 @@
+{
+  "schema": 1,
+  "kind": "scoped_completed_run_cleanup",
+  "started_at": "2026-10-28T23:00:23.816757+00:00",
+  "repository": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b",
+  "authorization": "Root task specifies these 12 completed Session B run IDs; active lspext-handoff-* and lspext-ci-* are excluded.",
+  "mechanism": "Repository bin/poc down --run RUN --purge only; artifacts retained; no image/source/worktree deletion.",
+  "runs": [
+    {
+      "run_id": "lspext-20261028b-baseline",
+      "removed_path": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/workspaces/lspext-20261028b-baseline",
+      "project": "mago-poc-3aa45f25-lspext-20261028b-baseline",
+      "selected_image": "mago-serena-poc:lsp-workers-20261028b-baseline",
+      "command": [
+        "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/bin/poc",
+        "down",
+        "--run",
+        "lspext-20261028b-baseline",
+        "--purge"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": " Container mago-poc-3aa45f25-lspext-20261028b-baseline-php-1 Stopping \n Container mago-poc-3aa45f25-lspext-20261028b-baseline-php-1 Stopped \n Container mago-poc-3aa45f25-lspext-20261028b-baseline-php-1 Removing \n Container mago-poc-3aa45f25-lspext-20261028b-baseline-php-1 Removed \n Network mago-poc-3aa45f25-lspext-20261028b-baseline_default Removing \n Network mago-poc-3aa45f25-lspext-20261028b-baseline_default Removed \n",
+      "resources_before": {
+        "containers": [
+          "336b74a9fd2a mago-poc-3aa45f25-lspext-20261028b-baseline-php-1"
+        ],
+        "networks": [
+          "57dbc41aa98a mago-poc-3aa45f25-lspext-20261028b-baseline_default"
+        ]
+      },
+      "resources_after": {
+        "containers": [],
+        "networks": []
+      },
+      "path_absent": true,
+      "artifacts_retained": true,
+      "status": "pass"
+    },
+    {
+      "run_id": "lspext-20261028b-candidate",
+      "removed_path": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/workspaces/lspext-20261028b-candidate",
+      "project": "mago-poc-3aa45f25-lspext-20261028b-candidate",
+      "selected_image": "mago-serena-poc:lsp-workers-20261028b",
+      "command": [
+        "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/bin/poc",
+        "down",
+        "--run",
+        "lspext-20261028b-candidate",
+        "--purge"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": " Container mago-poc-3aa45f25-lspext-20261028b-candidate-php-1 Stopping \n Container mago-poc-3aa45f25-lspext-20261028b-candidate-php-1 Stopped \n Container mago-poc-3aa45f25-lspext-20261028b-candidate-php-1 Removing \n Container mago-poc-3aa45f25-lspext-20261028b-candidate-php-1 Removed \n Network mago-poc-3aa45f25-lspext-20261028b-candidate_default Removing \n Network mago-poc-3aa45f25-lspext-20261028b-candidate_default Removed \n",
+      "resources_before": {
+        "containers": [
+          "91d3f5e0a7b8 mago-poc-3aa45f25-lspext-20261028b-candidate-php-1"
+        ],
+        "networks": [
+          "03ceb1662223 mago-poc-3aa45f25-lspext-20261028b-candidate_default"
+        ]
+      },
+      "resources_after": {
+        "containers": [],
+        "networks": []
+      },
+      "path_absent": true,
+      "artifacts_retained": true,
+      "status": "pass"
+    },
+    {
+      "run_id": "lspext-20261028-224653-ed72b4",
+      "removed_path": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/workspaces/lspext-20261028-224653-ed72b4",
+      "project": "mago-poc-3aa45f25-lspext-20261028-224653-ed72b4",
+      "selected_image": "mago-serena-poc:lsp-workers-20261028b",
+      "command": [
+        "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/bin/poc",
+        "down",
+        "--run",
+        "lspext-20261028-224653-ed72b4",
+        "--purge"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "resources_before": {
+        "containers": [],
+        "networks": []
+      },
+      "resources_after": {
+        "containers": [],
+        "networks": []
+      },
+      "path_absent": true,
+      "artifacts_retained": true,
+      "status": "pass"
+    },
+    {
+      "run_id": "lspext-20261028-224653-ed72b4-b",
+      "removed_path": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/workspaces/lspext-20261028-224653-ed72b4-b",
+      "project": "mago-poc-3aa45f25-lspext-20261028-224653-ed72b4-b",
+      "selected_image": "mago-serena-poc:lsp-workers-20261028b",
+      "command": [
+        "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/bin/poc",
+        "down",
+        "--run",
+        "lspext-20261028-224653-ed72b4-b",
+        "--purge"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "resources_before": {
+        "containers": [],
+        "networks": []
+      },
+      "resources_after": {
+        "containers": [],
+        "networks": []
+      },
+      "path_absent": true,
+      "artifacts_retained": true,
+      "status": "pass"
+    },
+    {
+      "run_id": "lspext-final-20261028-225032-50dce7",
+      "removed_path": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/workspaces/lspext-final-20261028-225032-50dce7",
+      "project": "mago-poc-3aa45f25-lspext-final-20261028-225032-50dce7",
+      "selected_image": "mago-serena-poc:lsp-workers-20261028b",
+      "command": [
+        "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/bin/poc",
+        "down",
+        "--run",
+        "lspext-final-20261028-225032-50dce7",
+        "--purge"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "resources_before": {
+        "containers": [],
+        "networks": []
+      },
+      "resources_after": {
+        "containers": [],
+        "networks": []
+      },
+      "path_absent": true,
+      "artifacts_retained": true,
+      "status": "pass"
+    },
+    {
+      "run_id": "lspext-final-20261028-225032-50dce7-b",
+      "removed_path": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/workspaces/lspext-final-20261028-225032-50dce7-b",
+      "project": "mago-poc-3aa45f25-lspext-final-20261028-225032-50dce7-b",
+      "selected_image": "mago-serena-poc:lsp-workers-20261028b",
+      "command": [
+        "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/bin/poc",
+        "down",
+        "--run",
+        "lspext-final-20261028-225032-50dce7-b",
+        "--purge"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "resources_before": {
+        "containers": [],
+        "networks": []
+      },
+      "resources_after": {
+        "containers": [],
+        "networks": []
+      },
+      "path_absent": true,
+      "artifacts_retained": true,
+      "status": "pass"
+    },
+    {
+      "run_id": "lspext-verified-20261028-225428-985bc6",
+      "removed_path": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/workspaces/lspext-verified-20261028-225428-985bc6",
+      "project": "mago-poc-3aa45f25-lspext-verified-20261028-225428-985bc6",
+      "selected_image": "mago-serena-poc:lsp-workers-20261028b",
+      "command": [
+        "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/bin/poc",
+        "down",
+        "--run",
+        "lspext-verified-20261028-225428-985bc6",
+        "--purge"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "resources_before": {
+        "containers": [],
+        "networks": []
+      },
+      "resources_after": {
+        "containers": [],
+        "networks": []
+      },
+      "path_absent": true,
+      "artifacts_retained": true,
+      "status": "pass"
+    },
+    {
+      "run_id": "lspext-verified-20261028-225428-985bc6-b",
+      "removed_path": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/workspaces/lspext-verified-20261028-225428-985bc6-b",
+      "project": "mago-poc-3aa45f25-lspext-verified-20261028-225428-985bc6-b",
+      "selected_image": "mago-serena-poc:lsp-workers-20261028b",
+      "command": [
+        "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/bin/poc",
+        "down",
+        "--run",
+        "lspext-verified-20261028-225428-985bc6-b",
+        "--purge"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "resources_before": {
+        "containers": [],
+        "networks": []
+      },
+      "resources_after": {
+        "containers": [],
+        "networks": []
+      },
+      "path_absent": true,
+      "artifacts_retained": true,
+      "status": "pass"
+    },
+    {
+      "run_id": "lspext-20261028b-slice1",
+      "removed_path": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/workspaces/lspext-20261028b-slice1",
+      "project": "mago-poc-3aa45f25-lspext-20261028b-slice1",
+      "selected_image": "mago-serena-poc:lsp-workers-20261028b",
+      "command": [
+        "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/bin/poc",
+        "down",
+        "--run",
+        "lspext-20261028b-slice1",
+        "--purge"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "resources_before": {
+        "containers": [],
+        "networks": []
+      },
+      "resources_after": {
+        "containers": [],
+        "networks": []
+      },
+      "path_absent": true,
+      "artifacts_retained": true,
+      "status": "pass"
+    },
+    {
+      "run_id": "lspext-20261028b-slice2",
+      "removed_path": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/workspaces/lspext-20261028b-slice2",
+      "project": "mago-poc-3aa45f25-lspext-20261028b-slice2",
+      "selected_image": "mago-serena-poc:lsp-workers-20261028b",
+      "command": [
+        "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/bin/poc",
+        "down",
+        "--run",
+        "lspext-20261028b-slice2",
+        "--purge"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "resources_before": {
+        "containers": [],
+        "networks": []
+      },
+      "resources_after": {
+        "containers": [],
+        "networks": []
+      },
+      "path_absent": true,
+      "artifacts_retained": true,
+      "status": "pass"
+    },
+    {
+      "run_id": "lspext-20261028b-slice1-final",
+      "removed_path": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/workspaces/lspext-20261028b-slice1-final",
+      "project": "mago-poc-3aa45f25-lspext-20261028b-slice1-final",
+      "selected_image": "mago-serena-poc:lsp-workers-20261028b",
+      "command": [
+        "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/bin/poc",
+        "down",
+        "--run",
+        "lspext-20261028b-slice1-final",
+        "--purge"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "resources_before": {
+        "containers": [],
+        "networks": []
+      },
+      "resources_after": {
+        "containers": [],
+        "networks": []
+      },
+      "path_absent": true,
+      "artifacts_retained": true,
+      "status": "pass"
+    },
+    {
+      "run_id": "lspext-20261028b-slice2-final",
+      "removed_path": "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/workspaces/lspext-20261028b-slice2-final",
+      "project": "mago-poc-3aa45f25-lspext-20261028b-slice2-final",
+      "selected_image": "mago-serena-poc:lsp-workers-20261028b",
+      "command": [
+        "/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/bin/poc",
+        "down",
+        "--run",
+        "lspext-20261028b-slice2-final",
+        "--purge"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "resources_before": {
+        "containers": [],
+        "networks": []
+      },
+      "resources_after": {
+        "containers": [],
+        "networks": []
+      },
+      "path_absent": true,
+      "artifacts_retained": true,
+      "status": "pass"
+    }
+  ],
+  "finished_at": "2026-10-28T23:00:28.337798+00:00",
+  "remaining_run_directories": [
+    "lspext-handoff-20261028-225923-ba2643",
+    "lspext-handoff-20261028-225923-ba2643-b"
+  ],
+  "status": "pass"
+}

@@ -93,6 +93,11 @@ def validate_runtime(actual, metadata):
     assert runtime['python_lock_sha256'] == lock['lock_sha256']['poc_uv'], 'Wrong Python dependency lock'
     assert runtime['mago_binary_sha256'] == actual['live_mago_binary_sha256'], 'Live Mago binary differs from build identity'
     assert actual['serena_direct_url']['vcs_info']['commit_id'] == lock['sources']['serena'], 'Wrong installed Serena source pin'
+    if lock.get('candidates'):
+        expected = {name: {**candidate, 'enabled': True} for name, candidate in lock['candidates'].items()}
+        assert runtime.get('candidates') == expected, 'Candidate patch identity or selection differs from lock'
+        assert runtime['mago_baseline_binary_sha256'] == actual.get('live_mago_baseline_binary_sha256'), 'Live baseline Mago binary differs from build identity'
+        assert actual.get('live_serena_lsp_api_sha256') == lock['candidates']['serena_symbol_references']['file_sha256'], 'Live Serena facade differs from reviewed candidate'
     for name, version in lock['versions'].items():
         text = runtime['rust_build_version'] if name == 'rust' else actual['live_versions'][name]
         assert re.search(r'(?<![0-9])'+re.escape(version)+r'(?![0-9])', text), f'Wrong runtime {name} version'
@@ -106,7 +111,7 @@ def verify_artifacts(primary, secondary, result, metadata):
     assert digest(inventory) == result.get('evidence_manifest_sha256'), 'Missing/stale evidence manifest'
     assert inventory == {'schema':1, 'primary':artifact_hashes(primary), 'secondary':artifact_hashes(secondary)}, 'Missing, added or modified retained evidence'
     records = {row['name']:row for row in result['checks']}
-    prefixes = ('adapter/src/', 'tests/', 'docker/', 'config/', 'fixtures/')
+    prefixes = ('adapter/src/', 'tests/', 'docker/', 'config/', 'fixtures/', 'patches/')
     explicit = ('uv.lock', 'pyproject.toml', 'adapter/pyproject.toml', 'toolchain.lock.json')
     expected = {p:row['sha256'] for p,row in metadata['source_manifest'].items() if p.startswith(prefixes) or p in explicit}
     images = []

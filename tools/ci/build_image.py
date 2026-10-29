@@ -21,7 +21,8 @@ def build_command(env=None):
     # content-addressed layer keys invalidate changed toolchain inputs correctly.
     env = os.environ if env is None else env
     cache = f'type=gha,version=2,scope={CACHE_SCOPE},timeout=5m'
-    return ['docker', 'buildx', 'build', '--load', '--tag', env.get('POC_IMAGE') or 'mago-serena-poc:local',
+    image = env.get('POC_IMAGE') or 'mago-serena-poc:local'
+    return ['docker', 'buildx', 'build', '--load', '--tag', image,
             '--progress', 'plain', '--metadata-file', 'artifacts/ci/build-metadata.json',
             '--iidfile', 'artifacts/ci/image.iid', '--cache-from', cache,
             '--cache-to', cache+',mode=max', '.']

@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "corrections": [
+    {
+      "name": "idle_worker_expectation",
+      "original_sha256": "fba4c837b66cc54bdaa789efb79fd3a52b24ecb923333e01e26250c51790f687",
+      "error_excerpt": "Traceback (most recent call last):\n  File \"/opt/poc/tests/integration/lsp_extensions_probe.py\", line 300, in <module>\n    print(json.dumps(run(sys.argv[1]), indent=2))\n                     ^^^^^^^^^^^^^^^^\n  File \"/opt/poc/tests/integration/lsp_extensions_probe.py\", line 210, in run\n    raise AssertionError(('failed worker returned a completed graph', old))\nAssertionError: ('failed worker returned a completed graph', {'source': {'symbol': 'app\\\\repository\\\\tagrepository', 'member': '__construct'}, 'references': [{'kind': 'body', 'target': {'symbol': 'app\\\\entity\\\\tag', 'member': ''}}, {'kind': 'body', 'target': {'symbol': 'doctrine\\\\bundle\\\\doctrinebundle\\\\registry', 'member': ''}}, {'kind': 'body', 'target': {'symbol': 'doctrine\\\\bundle\\\\doctrinebundle\\\\repository\\\\serviceentityrepository', 'member': ''}}, {'kind': 'body', 'target': {'symbol': 'doctrine\\\\bundle\\\\doctrinebundle\\\\repository\\\\serviceentityrepository', 'member': '__construct'}}, {'kind': 'signature', 'target': {'symbol': 'doctrine\\\\persistence\\\\managerregistry', 'member': ''}}]})\n",
+      "classification": "PoC test-harness correction",
+      "resolution": "Idle worker death is recovered before checkout. The final control injects malformed metadata into the replacement to exercise a real analysis-hook failure."
+    },
+    {
+      "name": "symfony_console_option",
+      "original_sha256": "383b867f689cba24469c2c8ddce692b0fed57c3eba3c14b0ec9055a1c7f3221a",
+      "error_excerpt": "Traceback (most recent call last):\n  File \"/opt/poc/tests/integration/lsp_extensions_probe.py\", line 308, in <module>\n    print(json.dumps(run(sys.argv[1]), indent=2))\n                     ^^^^^^^^^^^^^^^^\n  File \"/opt/poc/tests/integration/lsp_extensions_probe.py\", line 229, in run\n    ref = export('changed-binding')\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/poc/tests/integration/lsp_extensions_probe.py\", line 161, in export\n    assert response.returncode == 0, response.stderr.decode()[-3000:]\n           ^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: \n                                                 \n  The \"--show-arguments\" option does not exist.  \n                                                 \n\ndebug:container [--show-hidden] [--tag TAG] [--tags] [--parameter PARAMETER] [--parameters] [--types] [--env-var ENV-VAR] [--env-vars] [--format FORMAT] [--raw] [--deprecations] [--] [<name>]\n\n\n",
+      "classification": "PoC test-harness correction",
+      "resolution": "The pinned Symfony command does not accept --show-arguments; its JSON service view already includes arguments. Final controls use actual supported options."
+    },
+    {
+      "name": "effective_lsp_configuration",
+      "original_sha256": "c6bcf9016aeb0342e909beed4736fc84d0c059fdf6b84e4b1f8f4d1a4e292c4a",
+      "error_excerpt": "Traceback (most recent call last):\n  File \"/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/bin/slice1lib.py\", line 55, in record\n    detail = function()\n             ^^^^^^^^^^\n  File \"/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/bin/slice1lib.py\", line 85, in <lambda>\n    record('service_semantics', lambda: run_semantics(data), ('mago_configuration',))\n                                        ^^^^^^^^^^^^^^^^^^^\n  File \"/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/tests/integration/service_semantics.py\", line 250, in run_semantics\n    result['extension_propagation'] = probe_extension_propagation(data)\n                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/scientdb/worktrees/mago-serena_v2-poc/mago-lsp-workers-20261028b/tests/integration/service_semantics.py\", line 154, in probe_extension_propagation\n    assert response.returncode == 0, f'Extension propagation probe failed: {response.stderr}'\n           ^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Extension propagation probe failed: Traceback (most recent call last):\n  File \"<stdin>\", line 47, in <module>\nAssertionError: {'source': {'symbol': 'app\\\\repository\\\\tagrepository', 'member': '__construct'}, 'references': [{'kind': 'body', 'target': {'symbol': 'app\\\\entity\\\\tag', 'member': ''}}, {'kind': 'body', 'target': {'symbol': 'doctrine\\\\bundle\\\\doctrinebundle\\\\repository\\\\serviceentityrepository', 'member': ''}}, {'kind': 'body', 'target': {'symbol': 'doctrine\\\\bundle\\\\doctrinebundle\\\\repository\\\\serviceentityrepository', 'member': '__construct'}}, {'kind': 'signature', 'target': {'symbol': 'doctrine\\\\persistence\\\\managerregistry', 'member': ''}}]}\n\n",
+      "classification": "PoC test-harness correction",
+      "resolution": "Per-folder mago.toml overrides launch --config. The final matched probe installs the same inherited instrumentation at the workspace root and restores original bytes. Corrected baseline and candidate checks pass."
+    }
+  ]
+}
