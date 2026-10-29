@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "kind": "fresh_lsp_extensions",
+  "run_id": "lspext-ci-20261029-010645-67005c",
+  "status": "pass",
+  "cleanup": "pass",
+  "image": "mago-serena-poc:lsp-conflicts-20261028c",
+  "expected_image_id": "sha256:7549c48b6259b12eb9698fb860560da6573a2233f61e3155ff880e988eafc7d6",
+  "image_id": "sha256:7549c48b6259b12eb9698fb860560da6573a2233f61e3155ff880e988eafc7d6"
+}

@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "kind": "combined_runtime_lsp_recovery",
+  "revision": "7d7369cc87c64b3bd8d2d95749375f8954646c58",
+  "source_clean": true,
+  "image": "mago-serena-poc:lsp-conflicts-20261028c",
+  "image_id": "sha256:7549c48b6259b12eb9698fb860560da6573a2233f61e3155ff880e988eafc7d6",
+  "started_utc": "2026-10-29T01:04:36.842586+00:00",
+  "status": "pass",
+  "gates": {
+    "fast": {
+      "command": [
+        "./bin/poc",
+        "fast"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 1.724,
+      "tests": 178,
+      "local_log": "fast.log"
+    },
+    "acceptance": {
+      "command": [
+        "./bin/poc",
+        "test"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 66.747,
+      "checks": 31,
+      "passed": 31,
+      "run_id": "test-20261029-010438-502bff",
+      "local_log": "acceptance.log"
+    },
+    "slice1": {
+      "command": [
+        "./bin/poc",
+        "slice1",
+        "--run",
+        "lspext-recovery-slice1-20261028"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 86.853,
+      "checks": 9,
+      "passed": 9,
+      "run_id": "lspext-recovery-slice1-20261028",
+      "local_log": "slice1.log"
+    },
+    "slice2": {
+      "command": [
+        "./bin/poc",
+        "slice2",
+        "--run",
+        "lspext-recovery-slice2-20261028"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 49.922,
+      "checks": 12,
+      "passed": 12,
+      "run_id": "lspext-recovery-slice2-20261028",
+      "local_log": "slice2.log"
+    },
+    "slice3": {
+      "command": [
+        "./bin/poc",
+        "slice3",
+        "--run",
+        "lspext-recovery-slice3-20261028"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 57.507,
+      "checks": 14,
+      "passed": 14,
+      "run_id": "lspext-recovery-slice3-20261028",
+      "local_log": "slice3.log"
+    },
+    "lsp_extensions": {
+      "command": [
+        ".venv/bin/python",
+        "tests/integration/lsp_extensions.py",
+        "--fresh"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 44.341,
+      "native_controls": 19,
+      "serena_on_off": "pass",
+      "cleanup": "pass",
+      "run_id": "lspext-ci-20261029-010645-67005c",
+      "local_log": "lsp_extensions.log"
+    }
+  },
+  "new_artifact_directories": [
+    "lspext-ci-20261029-010645-67005c",
+    "lspext-recovery-slice1-20261028",
+    "lspext-recovery-slice2-20261028",
+    "lspext-recovery-slice3-20261028",
+    "test-20261029-010438-502bff",
+    "test-20261029-010438-502bff-b"
+  ],
+  "finished_utc": "2026-10-29T01:07:31.543385+00:00",
+  "integrated_master_revision": "73d7bb8886b8127d930a45252f4fd5d8c855e47d",
+  "execution_kind": "Deterministic combined acceptance; earlier adaptive LSP and runtime exercises remain separately attributed.",
+  "full_logs": "Local gate logs were captured under artifacts/lsp-recovery-20261028; hosted CI retains its own complete artifacts separately.",
+  "hosted_ci": "Reported in PR #6 after the recovered branch is pushed; these are local results."
+}

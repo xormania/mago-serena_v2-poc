@@ -265,14 +265,37 @@ tooling or Monolog overlay. Both source pins remain unchanged.
 
 Direct/adaptive results above use image `3cc2d1c9…`; the final broad suite's exact
 image/revision and any effective-config harness correction are recorded in its
-acceptance evidence. Combined-branch validation remains unproven unless both
-workstreams are merged and checked on their actual integrated revision.
+acceptance evidence. The later combined validation below exercises both
+workstreams on their actual integrated revision.
 
 Full sealed original acceptance artifacts are retained at
 `/home/scientdb/worktrees/mago-serena_v2-poc/lspext-20261028b-evidence/`
 so the existing independent artifact verifier can recheck both runs after
 disposable application cleanup. The committed evidence index bounds and hashes
 the review snapshots. No application, vendor tree or Rust target directory is
-retained in that location. Session A is not merged at the final default-branch
-check (`88abf50d747f0e2f02905bb23d3701c18d00b2c5`), so combined validation remains
-a separate follow-up.
+retained in that location. Session A was not merged at that historical
+default-branch check (`88abf50d747f0e2f02905bb23d3701c18d00b2c5`).
+
+## Combined runtime and LSP validation
+
+After runtime PR #5 merged, commit
+`7d7369cc87c64b3bd8d2d95749375f8954646c58` reconciled current master
+`73d7bb8886b8127d930a45252f4fd5d8c855e47d` with the LSP candidate. The workflow
+retains both `slice3` and `lsp_extensions`, and the image-selection contract
+retains run ownership and the default for an empty `POC_IMAGE`.
+
+The [combined validation](evidence/lsp-extensions/integration/validation.json)
+passes from a clean checkout on image
+`sha256:7549c48b6259b12eb9698fb860560da6573a2233f61e3155ff880e988eafc7d6`:
+178 fast tests, all 31 original acceptance checks, slices 1/2/3 at 9/12/14
+stages, and all 19 native LSP controls plus real host MCP/Serena on/off
+forwarding. Each gate verifies the selected image independently. The original
+53 tests / 120 assertions remain preserved; slice 2 reports 55 / 124 and
+slice 3 reports 54 / 135 combined. Native findings and the expected-negative
+external-span control retain their existing interpretation.
+
+The [bounded manifest](evidence/lsp-extensions/integration/manifest.json)
+binds the retained gate results, image identities, JUnit and host forwarding
+records. This is deterministic combined acceptance; the earlier adaptive
+investigations remain separate evidence. Hosted CI results belong to PR #6
+and are reported independently from these local gate durations.

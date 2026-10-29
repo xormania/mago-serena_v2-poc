@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "kind": "bounded_combined_validation_records",
+  "artifacts": {
+    "fast-tests.json": {
+      "sha256": "25af0975e85e9a21c0b6251e3d0cd80965a0b4e2aa55ca2c1d07db84892d827e",
+      "bytes": 157
+    },
+    "lsp-fresh-result.json": {
+      "sha256": "35188418fd455034b20b67a1cdd8961434055de60340dc48199d9a14f7a2f290",
+      "bytes": 382
+    },
+    "lsp-host-result.json": {
+      "sha256": "82eb2f192e04dc9c8f469a1fa80e85db1c9053b15ed39b7741261c1c3482e578",
+      "bytes": 68901
+    },
+    "original-acceptance.json": {
+      "sha256": "f0a94b6651c883ce92aacb04e86d276f98b3170ce049306e05f8b08b7507ced6",
+      "bytes": 15482
+    },
+    "original-image.json": {
+      "sha256": "aff40db28f2e5eaa0658c33d3cd56f4c1f082f5836ccf4aa4c06be5e37877210",
+      "bytes": 307
+    },
+    "original-phpunit.xml": {
+      "sha256": "13241589662264026edb5780b605fe0a36e228f0f52f80d48a52e1b7f5cb776f",
+      "bytes": 17055
+    },
+    "slice1-image.json": {
+      "sha256": "ff42cfc15dfc49f3487f6d60ff71ebee7bdffd23871d89218bfa61e6a515f3b2",
+      "bytes": 307
+    },
+    "slice1-result.json": {
+      "sha256": "bbf23d0975f9987d68e03f2a7609ed80f80c5a56a2c8c9b30cef95f26a23ecc0",
+      "bytes": 124552
+    },
+    "slice2-combined.xml": {
+      "sha256": "f627c832a62ca8623199828db00fb2230f923f4b4a1e5f0197411e54ed8e579f",
+      "bytes": 17740
+    },
+    "slice2-image.json": {
+      "sha256": "63c326d58bf1eaba36a64231419de71c11fe661e990ff0a7ae6e63ac732b59af",
+      "bytes": 307
+    },
+    "slice2-result.json": {
+      "sha256": "9a40f7223dc3fe53f5f49015ecbef3a2d26f6243b9992b21fa4e22bb57455b91",
+      "bytes": 21629
+    },
+    "slice3-combined.xml": {
+      "sha256": "abba52e3292b0e34131d706fd6c928b6feacb44a973d6323e065a8a903b6403a",
+      "bytes": 17504
+    },
+    "slice3-image.json": {
+      "sha256": "81404c910047c83b9458fc83d12ea8e033c7e4f2175124c4da248937e2cd850d",
+      "bytes": 307
+    },
+    "slice3-result.json": {
+      "sha256": "68f17c2b930596e35ab032234772c4b3a2f8c31685565baaadf0ccdbdee6db51",
+      "bytes": 27411
+    },
+    "slice3-suite.json": {
+      "sha256": "5546f49c595b9018bc4294bffe78417eddd5b0ca99bcfc45b166fb599236725b",
+      "bytes": 704
+    },
+    "validation.json": {
+      "sha256": "5a0fab7218a5b75c4b0b7bebe8cb34902d94014b78c2b3487d9328fd9159849a",
+      "bytes": 2930
+    }
+  }
+}
