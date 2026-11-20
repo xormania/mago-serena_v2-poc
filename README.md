@@ -38,7 +38,7 @@ local settings before repeating it.
 
 ## Use the tools
 
-For another PHP checkout, see [the standalone Mago 1.60.2 and Serena provider](docs/COMMANDS.md#build-the-mago-1602-provider).
+For another PHP checkout, see [the UXor Mago and Serena package draft](https://github.com/xormania/uxor/pull/250).
 
 ```sh
 ./bin/poc mago --run dev -- analyze --reporting-format json
