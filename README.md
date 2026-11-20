@@ -38,6 +38,8 @@ local settings before repeating it.
 
 ## Use the tools
 
+For another PHP checkout, see [the standalone Mago 1.60.2 and Serena provider](docs/COMMANDS.md#build-the-mago-1602-provider).
+
 ```sh
 ./bin/poc mago --run dev -- analyze --reporting-format json
 ./bin/poc exec --run dev -- php vendor/bin/phpunit

@@ -2,6 +2,25 @@
 
 Run these commands from the repository root. Host launchers also work from other directories when invoked by absolute path. `./bin/poc --help` and the individual launchers' `--help` show the implemented parser. Start with [Getting started](GETTING-STARTED.md) for installation and [Development workflows](WORKFLOWS.md) for examples.
 
+## Build the Mago 1.60.2 provider
+
+For PHP checks and Serena over stdio in a separate checkout, build the standalone Linux amd64 provider:
+
+```sh
+docker buildx build --load --platform linux/amd64 -f Dockerfile.provider -t uxor-mago:1.60.2-local .
+docker run --rm --network none --entrypoint mago uxor-mago:1.60.2-local --version
+```
+
+It builds one Mago 1.60.2 executable for both the CLI and language server. The source combines the
+stable release, the experimental language-server changes, and this repository's LSP extension patch.
+The image reuses the pinned xorder PHP 8.4 and Serena runtime. The manifest at
+`/opt/mago-serena-provider/identity.json` records the binary, source revisions, and patch and Cargo lock
+hashes. [Mago 1.60.2](https://github.com/carthage-software/mago/releases/tag/1.60.2) ·
+[Experimental language server](https://github.com/carthage-software/mago/pull/2555)
+
+Set `UXOR_MAGO_IMAGE=uxor-mago:1.60.2-local` when invoking the UXor launcher. The PoC application and
+its baseline comparison exercises use the fixture image built by `Dockerfile`.
+
 ## Environment commands
 
 | Command | Arguments and defaults | Effect and prerequisites |
