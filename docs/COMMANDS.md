@@ -2,6 +2,14 @@
 
 Run these commands from the repository root. Host launchers also work from other directories when invoked by absolute path. `./bin/poc --help` and the individual launchers' `--help` show the implemented parser. Start with [Getting started](GETTING-STARTED.md) for installation and [Development workflows](WORKFLOWS.md) for examples.
 
+## Use Mago and Serena in another checkout
+
+The [UXor Mago and Serena package draft](https://github.com/xormania/uxor/pull/250) maintains the
+standalone provider recipe and the `uxor-mago` launcher. UXor's recipe pins
+[this PoC revision](https://github.com/xormania/mago-serena_v2-poc/tree/4e811e48ee9c934791695ebfc9622daa251534b4)
+for the Mago patches and Serena adapter. The PoC application and comparison exercises use this
+repository's root `Dockerfile`.
+
 ## Environment commands
 
 | Command | Arguments and defaults | Effect and prerequisites |

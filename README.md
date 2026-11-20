@@ -38,6 +38,8 @@ local settings before repeating it.
 
 ## Use the tools
 
+For another PHP checkout, see [the UXor Mago and Serena package draft](https://github.com/xormania/uxor/pull/250).
+
 ```sh
 ./bin/poc mago --run dev -- analyze --reporting-format json
 ./bin/poc exec --run dev -- php vendor/bin/phpunit
